@@ -1,0 +1,113 @@
+---
+---
+$orange: #d4481c;
+
+$nav-height: 64px;
+$nav-height-mobile: 56px;
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// ##########
+// NAVIGATION
+// ##########
+
+nav {
+    background-color: $orange;
+}
+
+.brand-logo {
+
+    img {
+        width: $nav-height-mobile;
+    }
+
+    h2 {
+        display: inline-block;
+        font-size: $nav-height-mobile - 20px;
+        line-height: 100%;
+        margin: 10px 0px;
+        @include transform(translateY(-15px));
+    }
+}
+
+@media only screen and (min-width: 601px) {
+
+    .brand-logo {
+
+        img {
+            width: $nav-height;
+        }
+
+        h2 {
+            font-size: $nav-height - 30px;
+            margin: 15px 0px;
+            @include transform(translateY(-20px));
+        }
+    }
+}
+
+// ####
+// DEMO
+// ####
+
+.concordion-demo {
+    @include calc(height, '100vh - 104px');
+}
+
+#typed-strings {
+    display: none;
+}
+
+footer.page-footer {
+    background-color: $orange;
+}
+
+.centred {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    
+    span {
+        font-size: 25px;
+    }
+}
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

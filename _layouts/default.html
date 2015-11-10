@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <script type="text/javascript" charset="utf-8">
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+        {% include imports.html %}
+        {% include analytics.html %}
+    </head>
+    <body>
+        <header>
+            {% include navigation.html %}
+        </header>
+        <main>
+            {{ content }}
+        </main>
+        <footer class="page-footer">
+            {% include footer.html %}
+        </footer>
+    </body>
+</html>
