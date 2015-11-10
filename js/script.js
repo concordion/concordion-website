@@ -11,6 +11,7 @@ $(window).load(function() {
         stringsElement: $('#typed-strings'),
         startDelay: 500,
         typeSpeed: 80,
+        backSpeed: 30,
         backDelay: 3000,
         loop: true
     });

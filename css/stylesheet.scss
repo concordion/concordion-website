@@ -81,6 +81,7 @@ footer.page-footer {
     top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
+    text-align: center;
     
     span {
         font-size: 25px;
