@@ -1,15 +1,16 @@
 ---
 ---
 $orange: #d4481c;
+$off-white: #fefefe;
 
 $nav-height: 64px;
 $nav-height-mobile: 56px;
 
 @mixin calc($property, $expression) {
     #{$property}: -moz-calc(#{$expression});
-    #{$property}: -webkit-calc(#{$expression});
-    #{$property}: -o-calc(#{$expression});
-    #{$property}: calc(#{$expression});
+#{$property}: -webkit-calc(#{$expression});
+#{$property}: -o-calc(#{$expression});
+#{$property}: calc(#{$expression});
 }
 
 @mixin transform($transforms) {
@@ -59,6 +60,119 @@ nav {
     }
 }
 
+// #######
+// BUTTONS
+// #######
+
+.btn {
+    padding: 0 1rem;
+}
+
+// #############
+// HOMEPAGE HERO
+// #############
+
+#homepage-hero {
+    background-image:url(/img/software-team.jpg);
+    background-size: cover;
+    background-position: center;
+    
+    .container {
+        @include calc(height, '100vh - 100px - ' $nav-height-mobile);
+        position: relative;
+        text-align: center;
+    }
+}
+
+.hero-heading {
+    margin-top: 4rem;
+    
+    h1 {
+        color: $off-white;
+        font-size: 1.75rem;
+    }
+}
+
+.cta-buttons {
+    position: absolute;
+    bottom: 4rem;
+    
+    .button-wrapper {
+        display: inline-block;
+
+        .btn {
+            margin: 0 1rem 1rem 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    #homepage-hero {
+        .container {
+            @include calc(height, '100vh - 100px - ' $nav-height);
+        }
+    }
+
+    .hero-heading {
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .hero-heading {
+        h1 {
+            font-size: 3.25rem;
+        }
+    }
+}
+
+// #################
+// SECTION SEPARATOR
+// #################
+
+.section-separator {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    
+    .arrow-wrapper {
+        height: 80px;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        z-index: 10;
+    }
+    
+    .fill.half {
+        height: 80px;
+        @include calc(width, '50% - 40px');
+        position: relative;
+        display: inline-block;
+    }
+    
+    .arrow {
+        width: 56px;
+        height: 56px;
+        position: absolute;
+        @include transform(rotate(45deg));
+        top: 12px;
+    }
+    
+    .left .arrow {
+        right: -28px;
+    }
+    
+    .right .arrow {
+        left: -28px;
+    }
+}
+
+.section-separator.white .fill {
+    background-color: white;
+}
+
 // ####
 // DEMO
 // ####
@@ -82,7 +196,7 @@ footer.page-footer {
     left: 50%;
     @include transform(translate(-50%, -50%));
     text-align: center;
-    
+
     span {
         font-size: 25px;
     }
