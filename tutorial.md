@@ -59,3 +59,78 @@ These commands are:
 
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](img/tutorial-instrumented-preview.png).
 
+## 3. Coding
+
+Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
+
+In the `src/test/java/marketing/mailshots` folder of the tutorial project, create the file `SplittingNames.java` containing the following:
+
+    package marketing.mailshots;
+    
+    import org.concordion.integration.junit4.ConcordionRunner;
+    import org.junit.runner.RunWith;
+
+    @RunWith(ConcordionRunner.class)
+    public class SplittingNamesFixture {
+    
+    }
+
+You may have noticed that the fixture is implemented as a JUnit runner. If you run the fixture as a JUnit test, the output should look something like this:
+<!-- TODO copy to img folder -->
+![output broken due to missing code](http://concordion.org/image/tutorial/execute/BrokenDueToMissingFixtureCode.png)
+
+The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
+
+package example;
+
+    import org.concordion.integration.junit4.ConcordionRunner;
+    import org.junit.runner.RunWith;
+    
+    @RunWith(ConcordionRunner.class)
+    public class SplittingNamesTest {
+    
+        public Result split(String fullName) {
+            return new Result();
+        }
+    
+        class Result {
+            public String firstName = "TODO";
+            public String lastName = "TODO";
+        }
+    }
+
+Run it now and you get:
+
+<!-- TODO copy to img folder -->
+![output broken because not fully implemented](http://concordion.org/image/tutorial/execute/BrokenBecauseNotFullyImplemented.png)
+
+Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
+
+    package example;
+    
+    import org.concordion.integration.junit4.ConcordionRunner;
+    import org.junit.runner.RunWith;
+    
+    @RunWith(ConcordionRunner.class)
+    public class SplittingNamesTest {
+    
+        public Result split(String fullName) {
+            Result result = new Result();
+            String[] words = fullName.split(" ");
+            result.firstName = words[0];
+            result.lastName = words[1];
+            return result;
+        }
+    
+        class Result {
+            public String firstName;
+            public String lastName;
+        }
+    }
+
+The test now passes:
+
+<!-- TODO copy to img folder -->
+![output of successful run](http://concordion.org/image/tutorial/execute/Successful.png)
+
+
