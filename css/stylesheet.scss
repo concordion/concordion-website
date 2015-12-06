@@ -79,6 +79,7 @@ nav {
     
     .container {
         @include calc(height, '100vh - 100px - ' $nav-height-mobile);
+        min-height: 300px;
         position: relative;
         text-align: center;
     }
@@ -142,6 +143,7 @@ nav {
     #homepage-hero {
         .container {
             @include calc(height, '100vh - 120px - ' $nav-height);
+            min-height: 350px;
         }
     }
 
@@ -151,6 +153,12 @@ nav {
 }
 
 @media only screen and (min-width: 993px) {
+    #homepage-hero {
+        .container {
+            min-height: 400px;
+        }
+    }
+    
     .hero-heading h1, .typed{
         font-size: 3.25rem; 
     }
