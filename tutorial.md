@@ -51,7 +51,7 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 Next, we add commands to the links:
 
     The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
-    into first name [Jane](- ?=#result.firstName) and last name [Smith](- ?=#result.lastName).
+    into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
 
 These commands are:
 
