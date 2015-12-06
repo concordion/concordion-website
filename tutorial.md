@@ -85,7 +85,7 @@ You may have noticed that the fixture is implemented as a JUnit runner. If you r
 
 The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
 
-package example;
+    package marketing.mailshots;
 
     import org.concordion.integration.junit4.ConcordionRunner;
     import org.junit.runner.RunWith;
@@ -110,7 +110,7 @@ Run it now and you get:
 
 Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
 
-    package example;
+    package marketing.mailshots;
     
     import org.concordion.integration.junit4.ConcordionRunner;
     import org.junit.runner.RunWith;
