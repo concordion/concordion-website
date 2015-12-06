@@ -36,6 +36,8 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
+[Find out more](/authoring) about authoring specifications.
+
 ## 2. Instrumenting
 
 In order to execute the example in the specification, we _instrument_ it with commands.
@@ -58,6 +60,8 @@ These commands are:
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](img/tutorial-instrumented-preview.png).
+
+[Find out more](/instrumenting) about instrumenting fixtures.
 
 ## 3. Coding
 
@@ -133,4 +137,4 @@ The test now passes:
 <!-- TODO copy to img folder -->
 ![output of successful run](http://concordion.org/image/tutorial/execute/Successful.png)
 
-
+[Find out more](/coding) about coding fixtures.
