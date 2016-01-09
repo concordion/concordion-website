@@ -1,16 +1,18 @@
 ---
 ---
 $orange: #d4481c;
-$off-white: #fefefe;
+$green: #2eb14d;
+$green-hover: #006501;
+$off-white: #fafafa;
 
 $nav-height: 64px;
 $nav-height-mobile: 56px;
 
 @mixin calc($property, $expression) {
     #{$property}: -moz-calc(#{$expression});
-#{$property}: -webkit-calc(#{$expression});
-#{$property}: -o-calc(#{$expression});
-#{$property}: calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: calc(#{$expression});
 }
 
 @mixin transform($transforms) {
@@ -21,17 +23,71 @@ $nav-height-mobile: 56px;
     transform: $transforms;
 }
 
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin text-shadow($shadow) {
+    -moz-text-shadow: $shadow;
+    -webkit-text-shadow: $shadow;
+    text-shadow: $shadow;
+}
+
+// #######
+// GENERAL
+// #######
+
+html, body {
+    background-color: $off-white;
+}
+
 // ##########
 // NAVIGATION
 // ##########
 
 nav {
-    background-color: $orange;
+    position: absolute;
+    top: 0px;
+    background-color: transparent;
+    box-shadow: none;
+    z-index: 900;
+    @include transition(all 0.3s);
+
+    .button-collapse {
+        float: right;
+        padding-right: 16px;
+    }
+
+    ul li:hover, ul li:active {
+        background-color: transparent;
+    }
+}
+
+nav.static {
+    position: fixed;
+    background-color: $green;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+
+    ul li:hover, ul li:active {
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    .text-shadow {
+        @include text-shadow(none);
+    }
+
+    .text-shadow:hover, .text-shadow:active {
+        @include text-shadow(none);
+    }
 }
 
 .brand-logo {
 
     img {
+        opacity: 0;
         width: $nav-height-mobile;
     }
 
@@ -41,6 +97,21 @@ nav {
         line-height: 100%;
         margin: 10px 0px;
         @include transform(translateY(-15px));
+    }
+}
+
+.text-shadow {
+    @include text-shadow(0px 0px 10px #000);
+    @include transition(all 0.3s); 
+}
+
+.text-shadow:hover, .text-shadow:active {
+    @include text-shadow(0px 0px 15px #000);
+}
+
+.side-nav {
+    .text-shadow, .text-shadow:hover, .text-shadow:active {
+        @include text-shadow(none);
     }
 }
 
@@ -60,6 +131,14 @@ nav {
     }
 }
 
+@media only screen and (min-width: 993px) {
+
+    .nav-wrapper {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
 // #######
 // BUTTONS
 // #######
@@ -68,26 +147,34 @@ nav {
     padding: 0 1rem;
 }
 
+.btn, .btn-large {
+    background-color: $green;
+}
+
+.btn:hover, .btn-large:hover, .btn.active, .btn-large.active {
+    background-color: $green-hover;
+}
+
 // ########
 // HOMEPAGE
 // ########
 
 #homepage-hero {
-    background-image:url(../img/software-team.jpg);
+    background-image:url(../img/hero-image-3-desktop.jpg);
     background-size: cover;
-    background-position: center;
-    
+    background-position: 20% 0%;
+
     .container {
-        @include calc(height, '100vh - 100px - ' $nav-height-mobile);
-        min-height: 300px;
+        @include calc(height, '100vh - 100px');
+        min-height: 525px;
         position: relative;
         text-align: center;
     }
 }
 
 .hero-heading {
-    margin-top: 4rem;
-    
+    margin-top: 8rem;
+
     h1 {
         color: $off-white;
         font-size: 1.75rem;
@@ -95,9 +182,9 @@ nav {
 }
 
 .cta-buttons {
-    position: absolute;
-    bottom: 4rem;
-    
+
+    margin-top: 4rem;
+
     .button-wrapper {
         display: inline-block;
 
@@ -110,10 +197,6 @@ nav {
 .typed {
     text-align: center;
     margin-top: 0px;
-}
-
-#typed-strings {
-    display: none;
 }
 
 .typed-cursor{
@@ -141,9 +224,11 @@ nav {
 
 @media only screen and (min-width: 601px) {
     #homepage-hero {
+        background-position: 45% 0%;
+
         .container {
-            @include calc(height, '100vh - 120px - ' $nav-height);
-            min-height: 350px;
+            @include calc(height, '100vh - 120px');
+            min-height: 675px;
         }
     }
 
@@ -155,10 +240,34 @@ nav {
 @media only screen and (min-width: 993px) {
     #homepage-hero {
         .container {
-            min-height: 400px;
+            min-height: 600px;
         }
     }
-    
+
+    .hero-heading h1, .typed{
+        font-size: 2.75rem; 
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    #homepage-hero {
+        .container {
+            min-height: 650px;
+        }
+    }
+
+    .hero-heading h1, .typed{
+        font-size: 3rem; 
+    }
+}
+
+@media only screen and (min-width: 1441px) {
+    #homepage-hero {
+        .container {
+            min-height: 600px;
+        }
+    }
+
     .hero-heading h1, .typed{
         font-size: 3.25rem; 
     }
@@ -172,7 +281,7 @@ nav {
     height: 40px;
     width: 100%;
     position: relative;
-    
+
     .arrow-wrapper {
         height: 80px;
         width: 100%;
@@ -180,14 +289,14 @@ nav {
         bottom: 0px;
         z-index: 10;
     }
-    
+
     .fill.half {
         height: 80px;
         @include calc(width, '50% - 40px');
         position: relative;
         display: inline-block;
     }
-    
+
     .arrow {
         width: 56px;
         height: 56px;
@@ -195,18 +304,37 @@ nav {
         @include transform(rotate(45deg));
         top: 12px;
     }
-    
+
     .left .arrow {
         right: -28px;
     }
-    
+
     .right .arrow {
         left: -28px;
     }
 }
 
-.section-separator.white .fill {
-    background-color: white;
+.section-separator.white, .section-separator.white .fill {
+    background-color: $off-white !important;
+}
+
+// ########
+// BENEFITS
+// ########
+
+#benefits {
+    .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.benefits-wrapper {
+
+
+    .container.benefit-section {
+
+    }
 }
 
 // ####

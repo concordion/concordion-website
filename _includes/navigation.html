@@ -1,4 +1,4 @@
-<nav>
+<nav id="main-nav">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">
             <img src="img/concordion-logo.png" alt="Concordion Logo"/>
@@ -8,8 +8,9 @@
         <ul class="right hide-on-med-and-down">
             {% include navigation-links.html %}
         </ul>
-        <ul class="side-nav" id="mobile-nav">
-            {% include navigation-links.html %}
-        </ul>
+
     </div>
 </nav>
+<ul class="side-nav" id="mobile-nav">
+    {% include navigation-links.html %}
+</ul>
