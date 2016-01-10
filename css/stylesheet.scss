@@ -152,7 +152,7 @@ nav.static {
 
 footer.page-footer {
     background-color: $green;
-    
+
     .footer-copyright {
         background-color: $green-dark;
     }
@@ -195,7 +195,7 @@ footer.page-footer {
     margin-top: 8rem;
 
     h1 {
-        color: $off-white;
+        color: white;
         font-size: 1.75rem;
     }
 }
@@ -353,32 +353,47 @@ footer.page-footer {
 
     .container.benefit-section {
         display: none;
-        
+
         .screenshot {
             height: 500px;
-            
+
             img {
                 height: 100%;
             }
 
         }
-        
+
         .icon {
             text-align: center;
-            
+
             img {
                 height: 200px;
             }
         }
     }
-    
+
     .container.benefit-section.active {
         display: block;
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .benefits-wrapper {
+        .valign-wrapper {
+            display: block;
+            display: block;
+            display: block;
+            display: block;
+            -webkit-flex-align: stretch;
+            -ms-flex-align: stretch;
+            -webkit-align-items: stretch;
+            align-items: stretch;
+        }
+    }
+}
+
 @media only screen and (min-width: 601px) {
-    
+
     .container.benefit-section {
         .col.push-m4 {
             text-align: right;
