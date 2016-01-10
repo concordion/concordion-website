@@ -1,9 +1,15 @@
 ---
 ---
-$orange: #d4481c;
-$green: #2eb14d;
-$green-hover: #006501;
-$off-white: #fafafa;
+
+$green: #1baf59;
+$green-light: #63ba86;
+$green-dark: #00934f;
+$red: #ae122a;
+$red-light: #be1e2d;
+$red-dark: #88172b;
+$off-white: #f1f1f2;
+$grey-light: #e6e7e8;
+$grey-dark: #d0d2d3;
 
 $nav-height: 64px;
 $nav-height-mobile: 56px;
@@ -42,6 +48,7 @@ $nav-height-mobile: 56px;
 
 html, body {
     background-color: $off-white;
+    overflow-x: hidden;
 }
 
 // ##########
@@ -139,6 +146,18 @@ nav.static {
     }
 }
 
+// ######
+// FOOTER
+// ######
+
+footer.page-footer {
+    background-color: $green;
+    
+    .footer-copyright {
+        background-color: $green-dark;
+    }
+}
+
 // #######
 // BUTTONS
 // #######
@@ -152,7 +171,7 @@ nav.static {
 }
 
 .btn:hover, .btn-large:hover, .btn.active, .btn-large.active {
-    background-color: $green-hover;
+    background-color: $green-dark;
 }
 
 // ########
@@ -334,6 +353,23 @@ nav.static {
 
     .container.benefit-section {
         display: none;
+        
+        .screenshot {
+            height: 500px;
+            
+            img {
+                height: 100%;
+            }
+
+        }
+        
+        .icon {
+            text-align: center;
+            
+            img {
+                height: 200px;
+            }
+        }
     }
     
     .container.benefit-section.active {
@@ -341,30 +377,11 @@ nav.static {
     }
 }
 
-// ####
-// DEMO
-// ####
-
-.concordion-demo {
-    @include calc(height, '100vh - 104px');
-}
-
-
-
-footer.page-footer {
-    background-color: $orange;
-}
-
-.centred {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transform(translate(-50%, -50%));
-    text-align: center;
-
-    span {
-        font-size: 25px;
+@media only screen and (min-width: 601px) {
+    
+    .container.benefit-section {
+        .col.push-m4 {
+            text-align: right;
+        }
     }
 }
-
