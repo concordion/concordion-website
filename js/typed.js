@@ -23,7 +23,7 @@
 
 
 
-! function($) {
+! function ($) {
 
     "use strict";
 
@@ -84,6 +84,7 @@
 
         // for stopping
         this.stop = false;
+        this.stopBackspace = false;
 
         // custom cursor
         this.cursorChar = this.options.cursorChar;
@@ -92,6 +93,8 @@
         this.shuffle = this.options.shuffle;
         // the order of strings
         this.sequence = [];
+
+        window.typedObject = this;
 
         // All systems go!
         this.build();
@@ -141,6 +144,7 @@
         typewrite: function(curString, curStrPos) {
             // exit when stopped
             if (this.stop === true) {
+                this.stopBackspace = false;
                 return;
             }
 
@@ -254,7 +258,7 @@
         ,
         backspace: function(curString, curStrPos) {
             // exit when stopped
-            if (this.stop === true) {
+            if (this.stopBackspace === true) {
                 return;
             }
 
@@ -320,14 +324,24 @@
                     self.arrayPos++;
 
                     if (self.arrayPos === self.strings.length) {
-                        self.arrayPos = 0;
+                        if(self.stop) {
+                            self.stopBackspace = true;
+                        } else {
 
-                        // Shuffle sequence again
-                        if(self.shuffle) self.sequence = self.shuffleArray(self.sequence);
+                            self.arrayPos = 0;
 
-                        self.init();
-                    } else
-                        self.typewrite(self.strings[self.sequence[self.arrayPos]], curStrPos);
+                            // Shuffle sequence again
+                            if(self.shuffle) self.sequence = self.shuffleArray(self.sequence);
+
+                            self.init();
+                        }
+                    } else {
+                        if(self.stop) {
+                            self.stopBackspace = true;
+                        } else {
+                            self.typewrite(self.strings[self.sequence[self.arrayPos]], curStrPos);
+                        }
+                    }
                 }
 
                 // humanized value for typing

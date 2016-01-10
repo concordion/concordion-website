@@ -333,7 +333,11 @@ nav.static {
 
 
     .container.benefit-section {
-
+        display: none;
+    }
+    
+    .container.benefit-section.active {
+        display: block;
     }
 }
 
