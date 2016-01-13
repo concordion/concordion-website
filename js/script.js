@@ -80,13 +80,24 @@ $(window).load(function() {
 });
 
 $(window).scroll(function() {
+    pauseScrolling();
+    colorNav();
+});
 
+function pauseScrolling() {
+    var cutoff = $(window).height() / 4;
+    if ($(document).scrollTop() + cutoff >= $('#stop-scrolling').offset().top && noButtonClicked) {
+        $('#benefits .btn.active').click();
+    }
+}
+
+function colorNav() {
     if ($(document).scrollTop() + $('#main-nav').height() >= $('#homepage-hero').offset().top + $('#homepage-hero').height()) {
         $('nav').addClass("static");
     } else {
         $('#main-nav').removeClass("static");
     }
-});
+}
 
 function backspaceAndType(typedObject, nextString) {
     typedObject.stop = true;
