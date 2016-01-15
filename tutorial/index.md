@@ -1,3 +1,8 @@
+---
+layout: sidenav
+title: "Concordion | Tutorial"
+description: ""
+---
 # Tutorial
 
 This runs through the basics of creating living documents using Concordion. 
@@ -32,11 +37,11 @@ The first step is to create a specification of the new feature. In the `src/test
 This uses a formatting language called Markdown, which makes it easy to create rich documents using plain text. 
 The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters.
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/authoring/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or in an editor that supports Markdown, we see it looks like ![preview of initial specification](img/tutorial-authored-preview.png)
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/authoring/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or in an editor that supports Markdown, we see it looks like ![preview of initial specification](../img/tutorial-authored-preview.png)
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
-[Find out more](/authoring) about authoring specifications.
+[Find out more](../authoring) about authoring specifications.
 
 ## 2. Instrumenting
 
@@ -46,7 +51,7 @@ The first step is to select the parts of the example that relate to _context_ (p
 
     The full name [Jane Smith]() is [broken]() into first name [Jane]() and last name [Smith]().
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-links/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links](img/tutorial-instrument-links-preview.png)
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-links/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links](../img/tutorial-instrument-links-preview.png)
 
 Next, we add commands to the links:
 
@@ -59,7 +64,7 @@ These commands are:
 2. executing our _action_, by executing the method `split()` with the variable `#name` and returning the value `#result`
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](img/tutorial-instrumented-preview.png).
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](../img/tutorial-instrumented-preview.png).
 
 [Find out more](/instrumenting) about instrumenting fixtures.
 
@@ -137,4 +142,4 @@ The test now passes:
 <!-- TODO copy to img folder -->
 ![output of successful run](http://concordion.org/image/tutorial/execute/Successful.png)
 
-[Find out more](/coding) about coding fixtures.
+[Find out more](../coding) about coding fixtures.

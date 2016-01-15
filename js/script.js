@@ -48,9 +48,16 @@ var previousBenefit = benefitTwo;
 $(document).ready(function() {
 
     // MOBILE NAVIGATION
-    $(".button-collapse").sideNav({
-        edge: 'right'
-    });
+    if ($(".button-collapse").hasClass("left-nav")) {
+        console.log("left-nav");
+        $(".button-collapse").sideNav({
+            edge: 'left'
+        });
+    } else {
+        $(".button-collapse").sideNav({
+            edge: 'right'
+        });
+    }
 
     // BENEFITS BUTTON
     $('#benefits .btn').click(function() {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <script type="text/javascript" charset="utf-8">
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+        {% include imports.html %}
+        <!-- LAYOUT SPECIFIC CSS/JS -->
+        <link rel="stylesheet" href="../css/sidenav.css">
+        
+        {% include analytics.html %}
+    </head>
+    <body>
+        <header>
+            {% include sidenav.html %}
+        </header>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>S   
+        </main>
+        <footer class="page-footer">
+            {% include footer.html %}
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+---
+---
+
+header, main, footer {
+    padding-left: 240px;
+}
+
+.side-nav-logo {
+    
+    text-align: center;
+    img {
+        width: 60%;
+        margin: 15px 0px;
+    }
+}
+
+.side-nav li.side-nav-logo:hover, .side-nav li.side-nav-logo:active {
+    background-color: transparent;
+}
+
+.button-collapse.left-nav {
+    display: none;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 85%;
+    }
+}
