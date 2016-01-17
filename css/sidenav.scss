@@ -6,11 +6,16 @@ header, main, footer {
 }
 
 .side-nav-logo {
-    
+
     text-align: center;
-    img {
-        width: 60%;
-        margin: 15px 0px;
+    
+    a {
+        height: auto;
+        
+        img {
+            width: 60%;
+            margin: 15px 0px;
+        }
     }
 }
 
@@ -22,6 +27,50 @@ header, main, footer {
     display: none;
 }
 
+.sidenav-header {
+    padding: 0 7.5%;
+    background-color: {{ site.green }};
+    color: white;
+
+    .col {
+        padding: 0 0;
+    }
+
+    p {
+        @extend .flow-text;
+        margin-bottom: 2.1rem;
+    }
+}
+
+.sidenav-content {
+
+    pre {
+        font-size: 1rem;
+        line-height: 1rem;
+        background: url(../img/pre.png) repeat 0 -1rem;
+        background-size: 1px 4rem;
+        margin: 2rem 0;
+        padding: 1rem 0.8rem 1rem 1.2rem;
+        border: 1px solid {{ site.red }};
+    border-left: 1rem solid {{ site.red }};
+
+code {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+}
+
+p {
+    @extend .flow-text;
+
+    img {
+        display: block;
+        margin: 0.5rem 0;
+        max-width: 100%;
+    }
+}
+}
+
 @media only screen and (max-width : 992px) {
     header, main, footer {
         padding-left: 0;
@@ -29,7 +78,99 @@ header, main, footer {
 }
 
 @media only screen and (min-width: 993px) {
-    .container {
+    .container.sidenav-content {
         width: 85%;
+    }
+}
+
+// #########
+// FLOW TEXT
+// #########
+
+.flow-text {
+    font-weight: 300;
+}
+
+@media only screen and (min-width: 360px) {
+    .flow-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 390px) {
+    .flow-text {
+        font-size: 1.224rem;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .flow-text {
+        font-size: 1.248rem;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .flow-text {
+        font-size: 1.272rem;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .flow-text {
+        font-size: 1.296rem;
+    }
+}
+
+@media only screen and (min-width: 510px) {
+    .flow-text {
+        font-size: 1.32rem;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    .flow-text {
+        font-size: 1.344rem;
+    }
+}
+
+@media only screen and (min-width: 570px) {
+    .flow-text {
+        font-size: 1.368rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .flow-text {
+        font-size: 1.392rem;
+    }
+}
+
+@media only screen and (min-width: 630px) {
+    .flow-text {
+        font-size: 1.416rem;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .flow-text {
+        font-size: 1.44rem;
+    }
+}
+
+@media only screen and (min-width: 690px) {
+    .flow-text {
+        font-size: 1.464rem;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .flow-text {
+        font-size: 1.488rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .flow-text {
+        font-size: 1.2rem;
     }
 }

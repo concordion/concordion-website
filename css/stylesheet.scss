@@ -1,19 +1,6 @@
 ---
 ---
 
-$green: #1baf59;
-$green-light: #63ba86;
-$green-dark: #00934f;
-$red: #ae122a;
-$red-light: #be1e2d;
-$red-dark: #88172b;
-$off-white: #f1f1f2;
-$grey-light: #e6e7e8;
-$grey-dark: #d0d2d3;
-
-$nav-height: 64px;
-$nav-height-mobile: 56px;
-
 @mixin calc($property, $expression) {
     #{$property}: -moz-calc(#{$expression});
     #{$property}: -webkit-calc(#{$expression});
@@ -47,7 +34,7 @@ $nav-height-mobile: 56px;
 // #######
 
 html, body {
-    background-color: $off-white;
+    background-color: {{ site.off-white }};
     overflow-x: hidden;
 }
 
@@ -75,7 +62,7 @@ nav {
 
 nav.static {
     position: fixed;
-    background-color: $green;
+    background-color: {{ site.green }};
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 
     ul li:hover, ul li:active {
@@ -99,7 +86,7 @@ nav.static {
 
     h2 {
         display: inline-block;
-        font-size: $nav-height-mobile - 20px;
+        font-size: {{ site.nav-height-mobile }} - 20px;
         line-height: 100%;
         margin: 10px 0px;
         @include transform(translateY(-15px));
@@ -130,7 +117,7 @@ nav.static {
         }
 
         h2 {
-            font-size: $nav-height - 30px;
+            font-size: {{ site.nav-height }} - 30px;
             margin: 15px 0px;
             @include transform(translateY(-20px));
         }
@@ -150,10 +137,10 @@ nav.static {
 // ######
 
 footer.page-footer {
-    background-color: $green;
+    background-color: {{ site.green }};
 
     .footer-copyright {
-        background-color: $green-dark;
+        background-color: {{ site.green-dark }};
     }
 }
 
@@ -166,11 +153,11 @@ footer.page-footer {
 }
 
 .btn, .btn-large {
-    background-color: $green;
+    background-color: {{ site.green }};
 }
 
 .btn:hover, .btn-large:hover, .btn.active, .btn-large.active {
-    background-color: $green-dark;
+    background-color: {{ site.green-dark }};
 }
 
 // ########
@@ -333,7 +320,7 @@ footer.page-footer {
 }
 
 .section-separator.white, .section-separator.white .fill {
-    background-color: $off-white !important;
+    background-color: {{ site.off-white }} !important;
 }
 
 // ########

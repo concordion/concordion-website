@@ -3,3 +3,16 @@ author:
 description: 
 baseurl: ""
 collections:
+
+green: '#1baf59'
+green-light: '#63ba86'
+green-dark: '#00934f'
+red: '#ae122a'
+red-light: '#be1e2d'
+red-dark: '#88172b'
+off-white: '#f1f1f2'
+grey-light: '#e6e7e8'
+grey-dark: '#d0d2d3'
+
+nav-height: '64px'
+nav-height-mobile: '56px'

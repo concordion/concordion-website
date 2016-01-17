@@ -2,11 +2,9 @@
 layout: sidenav
 title: "Concordion | Tutorial"
 description: ""
+heading: "Tutorial"
+subheading: "This runs through the basics of creating living documents using Concordion."
 ---
-# Tutorial
-
-This runs through the basics of creating living documents using Concordion. 
-
 Creating a living document is a 3 step process:
 
 1. Authoring
@@ -64,7 +62,7 @@ These commands are:
 2. executing our _action_, by executing the method `split()` with the variable `#name` and returning the value `#result`
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](../img/tutorial-instrumented-preview.png).
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-commands/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](../img/tutorial-instrumented-preview.png)
 
 [Find out more](/instrumenting) about instrumenting fixtures.
 
