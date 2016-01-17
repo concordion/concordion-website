@@ -47,12 +47,12 @@ header, main, footer {
     pre {
         font-size: 1rem;
         line-height: 1rem;
-        background: url(./img/pre.png) repeat 0 -1rem;
+        background: url(../img/pre.png) repeat 0 -1rem;
         background-size: 1px 4rem;
         margin: 2rem 0;
         padding: 1rem 0.8rem 1rem 1.2rem;
-        border: 1px solid {{ site.red }};
-    border-left: 1rem solid {{ site.red }};
+        border: 1px solid {{ site.red-light }};
+    border-left: 1rem solid {{ site.red-light }};
 
 code {
     font-size: 1.2rem;
@@ -68,6 +68,10 @@ p {
         margin: 0.5rem 0;
         max-width: 100%;
     }
+}
+
+ol li, ul li {
+    @extend .flow-text;
 }
 }
 

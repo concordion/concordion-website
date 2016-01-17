@@ -49,7 +49,6 @@ $(document).ready(function() {
 
     // MOBILE NAVIGATION
     if ($(".button-collapse").hasClass("left-nav")) {
-        console.log("left-nav");
         $(".button-collapse").sideNav({
             edge: 'left'
         });
