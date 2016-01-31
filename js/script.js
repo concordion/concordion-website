@@ -1,9 +1,9 @@
 // Benefit options
 // These are the 4 "classes" of people who benefit from Concordion
-var benefitOne = "developers";
-var benefitTwo = "testers";
-var benefitThree = "business-analysts";
-var benefitFour = "project-stakeholders";
+var benefitOne = "project-stakeholders";
+var benefitTwo = "business-analysts";
+var benefitThree = "developers";
+var benefitFour = "testers";
 
 var typedStrings = [
     printBenefit(benefitOne), 
