@@ -82,8 +82,12 @@ In the `src/test/java/marketing/mailshots` folder of the tutorial project, creat
     
     }
 
-You may have noticed that the fixture is implemented as a JUnit runner. If you run the fixture as a JUnit test, the output should look something like this:
-<!-- TODO copy to img folder -->
+You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradle test` from the command line, the location of the output will be shown on the console, such as:
+
+    file:///tmp/concordion/marketing/mailshots/SplittingNames.html
+
+Opening this URL in a browser, the output should look something like this:
+
 ![output broken due to missing code](http://concordion.org/image/tutorial/execute/BrokenDueToMissingFixtureCode.png)
 
 The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
