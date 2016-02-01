@@ -3,8 +3,111 @@ layout: sidenav
 title: "Concordion | Authoring Specifications"
 description: ""
 heading: "Authoring Specifications"
-subheading: "Introduction to Markdown or HTML for authoring specifications."
+subheading: "Structuring specifications with Markdown or HTML."
 ---
+<!--
+TODO:
+
+Create a separate page on discussing examples. Possibly move the _context_, _action_ and _outcome_ section to there? And add link to Liz Keogh http://lizkeogh.com/2011/09/22/conversational-patterns-in-bdd/
+
+I wonder about having this page with tabs so you select either Markdown or HTML, or expandable sections for Markdown and HTML like the spring.io guides.
+-->    
+
+# Specification Structure
+
+Concordion provides you the flexibility to structure your specifications however you like.
+
+As a guideline, specifications are often based on individual features of a system. Larger features are normally broken down into smaller features, creating small, focussed specifications that are faster to check.
+
+A common structure is:
+
+<!--
+    TODO - show as HTML spec
+-->
+
+----
+
+# Feature title
+
+Feature description
+
+## Business Rules or Acceptance Criteria
+
+
+- Rule 1
+- Rule 2
+
+...
+
+## Additional detail
+
+Any other background info
+
+## Example 1
+
+details of example 1
+
+## Example 2
+
+details of example 2
+
+...
+
+----
+
+## Example Structure
+
+Concordion also provides the flexibility to write examples however you like.
+
+As a guideline, for each example, you should consider the _context_, _action_ and _outcome_:
+
+
+- The _context_ describes the preconditions that are in place for the example to take place. You should consider not only the application state, but also any relevant global conditions such as the day of week, or the location of the user.
+- The _action_ describes the event you are testing.
+- The _outcome_ describes the expected postconditions that should hold true.
+
+If you wish, you can write these three parts using the Gherkin "Given, When, Then" language. This is often a good way to get started. Once you become familiar with thinking about the context, action and outcome, you may find ways to describe your example in a more natural language.
+
+For example, you could use either:
+
+    Given a user with full name _John Smith_
+    When the system splits the name
+    Then the first name is _John_ and the last name is _Smith_
+
+or:
+
+    The full name _John Smith_ will be broken into first name _John_ and last name _Smith_
+
+The [Hints and Tips](TODO) page contains some good practices for writing specifications, including:
+
+* Writing at a high level of abstraction
+* Only reveal data the specification actually needs
+* Create focussed examples
+
+## Creating a suite
+
+HTML links allow us to create a structured suite of specifications, with the pages nested under a hierarchical index
+
+    Product
+         Theme
+              Feature
+                  Sub-Feature
+                  Sub-Feature
+              Feature
+              Feature
+                  Sub-Feature
+         Theme
+              Feature
+                  Sub-Feature
+              Feature
+
+At each level, the specification contains links to all the specifications below it. For example, a theme page would describe the theme and link to all the features in the theme. The specifiications can be nested arbitrarily deep.
+
+By using this approach, and instrumenting the links to child specifications with the [run command](TODO), executing any specification will automatically execute all its child specifications, with the results aggregated upwards.
+
+
+# Specification language
+
 Concordion specifications can be authored using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension](ExtensionsAPI.html) to handle other formats).
 
 ## Markdown
@@ -153,4 +256,3 @@ Which produces:
 
 While you can edit HTML in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a HTML editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated HTML editors.
 
-TODO - add details of IDEA and Eclipse extensions to instrumentation.md when available..
