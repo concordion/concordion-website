@@ -335,10 +335,14 @@ footer.page-footer {
 }
 
 .benefits-wrapper {
-
-
+    margin-top: 50px;
+    
     .container.benefit-section {
         display: none;
+        
+        .row {
+            margin-bottom: 50px;
+        }
 
         .screenshot {
             height: 500px;
