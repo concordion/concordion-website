@@ -47,17 +47,19 @@ header, main, footer {
     pre {
         font-size: 1rem;
         line-height: 1rem;
-        background: url(../img/pre.png) repeat 0 -1rem;
+//        background: url(../img/pre.png) repeat 0 -1rem;
         background-size: 1px 4rem;
         margin: 2rem 0;
-        padding: 1rem 0.8rem 1rem 1.2rem;
+//        padding: 1rem 0.8rem 1rem 1.2rem;
+        padding: 0.8rem 0.6rem 0.8rem 0.5rem;
         border: 1px solid {{ site.red-light }};
-    border-left: 1rem solid {{ site.red-light }};
+//    border-left: 1rem solid {{ site.red-light }};
+    border-left: 0.5rem solid {{ site.red-light }};
 
-code {
-    font-size: 1.2rem;
-    line-height: 2rem;
-}
+//code {
+//    font-size: 1.2rem;
+//    line-height: 2rem;
+//}
 }
 
 p {

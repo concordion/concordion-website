@@ -16,3 +16,11 @@ grey-dark: '#d0d2d3'
 
 nav-height: '64px'
 nav-height-mobile: '56px'
+
+markdown: kramdown
+
+highlighter: null
+
+kramdown:
+  input: GFM
+  syntax_highlighter: null
