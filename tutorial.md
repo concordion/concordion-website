@@ -1,10 +1,11 @@
 ---
 layout: sidenav
-title: "Concordion | Tutorial"
+title: "Concordion | Getting Started"
 description: ""
-heading: "Tutorial"
+heading: "Getting Started"
 subheading: "This runs through the basics of creating living documents using Concordion."
 ---
+
 Creating a living document is a 3 step process:
 
 1. Authoring
@@ -20,7 +21,7 @@ To follow along the tutorial, we've created a template project you can [download
 
 The first step is to create a specification of the new feature. In the `src/test/resources/marketing/mailshots` folder of the tutorial project, edit the file `SplittingNames.md` to contain the following.
 
-~~~
+```markdown
 # Splitting Names
 
 To help personalise our mailshots we want to have the first name and last name of the customer. 
@@ -28,11 +29,11 @@ Unfortunately the customer data that we are supplied only contains full names.
 
 The system therefore attempts to break a supplied full name into its constituents by splitting 
 around whitespace.
-~~~
 
 ### Example
 
 The full name Jane Smith is broken into first name Jane and last name Smith.
+```
 
 This uses a formatting language called Markdown, which makes it easy to create rich documents using plain text. 
 The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters.
@@ -45,22 +46,24 @@ The team are happy with the specification, so we share it (for example, by addin
 
 ## 2. Instrumenting
 
-In order to execute the example in the specification, we _instrument_ it with commands.
+In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
-The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In this case, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example using Markdown's link syntax:
+![How it works](img/how-it-works.png)
 
-~~~
+The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example using Markdown's link syntax:
+
+```markdown
 The full name [Jane Smith]() is [broken]() into first name [Jane]() and last name [Smith]().
-~~~
+```
 
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/instrumenting-links/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links](./img/tutorial-instrument-links-preview.png)
 
 Next, we add commands to the links:
 
-~~~
+```markdown
 The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
 into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
-~~~
+```
 
 These commands are:
 
@@ -78,7 +81,7 @@ Finally we create some code, called a _fixture_, that links the instrumented spe
 
 In the `src/test/java/marketing/mailshots` folder of the tutorial project, create the file `SplittingNames.java` containing the following:
 
-~~~java
+```java
 package marketing.mailshots;
 
 import org.concordion.integration.junit4.ConcordionRunner;
@@ -88,13 +91,13 @@ import org.junit.runner.RunWith;
 public class SplittingNamesFixture {
 
 }
-~~~
+```
 
 You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradle test` from the command line, the location of the output will be shown on the console, such as:
 
-~~~console
+```console
 file:///tmp/concordion/marketing/mailshots/SplittingNames.html
-~~~
+```
 
 Opening this URL in a browser, the output should look something like this:
 
@@ -102,7 +105,7 @@ Opening this URL in a browser, the output should look something like this:
 
 The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
 
-~~~
+```java
 package marketing.mailshots;
 
 import org.concordion.integration.junit4.ConcordionRunner;
@@ -120,7 +123,7 @@ public class SplittingNamesTest {
         public String lastName = "TODO";
     }
 }
-~~~
+```
 
 Run it now and you get:
 
@@ -129,7 +132,7 @@ Run it now and you get:
 
 Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
 
-~~~
+```java
 package marketing.mailshots;
    
 import org.concordion.integration.junit4.ConcordionRunner;
@@ -151,7 +154,7 @@ public class SplittingNamesTest {
         public String lastName;
     }
 }
-~~~
+```
 
 The test now passes:
 
