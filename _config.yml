@@ -19,8 +19,8 @@ nav-height-mobile: '56px'
 
 markdown: kramdown
 
-highlighter: null
+highlighter: rouge
 
 kramdown:
   input: GFM
-  syntax_highlighter: null
+  syntax_highlighter: rouge

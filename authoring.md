@@ -1,9 +1,9 @@
 ---
 layout: sidenav
-title: "Concordion | Authoring Specifications"
+title: "Concordion | Authoring"
 description: ""
-heading: "Authoring Specifications"
-subheading: "Structuring specifications with Markdown or HTML."
+heading: "Authoring"
+subheading: "Creating specifications with Markdown or HTML"
 ---
 <!--
 TODO:
