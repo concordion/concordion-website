@@ -1,4 +1,3 @@
-
 With the HTML format, commands use a `concordion` namespace defined at the top of each document as follows:
 
 ~~~

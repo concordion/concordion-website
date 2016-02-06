@@ -4,7 +4,7 @@
         <script type="text/javascript" charset="utf-8">
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
         </script>
-        {% include imports.html %}
+        {% include imports-header.html %}
         <!-- LAYOUT SPECIFIC CSS/JS -->
         <link rel="stylesheet" href="./css/sidenav.css">
         
@@ -34,5 +34,6 @@
         <footer class="page-footer">
             {% include footer.html %}
         </footer>
+        {% include imports-endbody.html %}
     </body>
 </html>

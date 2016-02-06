@@ -1,0 +1,13 @@
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script src="./js/typed.js"></script>
+<script src="./js/script.js"></script>
+<script type="text/javascript">$(window).load(function(){
+    // set the active class in the sidenav for the current page
+    var url="{{ page.url | remove: "index.html" }}";
+    url = url.substring(1, url.length-5);
+    $( "side-nav a[href='$url']").addClass("active");
+})</script>
+<!--<script src="./js//highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>-->

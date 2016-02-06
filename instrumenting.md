@@ -1,18 +1,10 @@
 ---
 layout: sidenav
-title: "Concordion | Instrumenting Specifications"
+title: "Concordion | Instrumenting"
 description: ""
-heading: "Instrumenting Specifications"
+heading: "Instrumenting"
 subheading: "Linking the examples to the fixture code"
 ---
-
-# The Basics
-
-An executable specification consists of two parts: (i) a specification describing the functionality, and (ii) fixture code which executes the system under test.
-
-In order for the magic to happen, the document must first be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
-
-![How it works](img/how-it-works.png)
 
 The format of the instrumentation depends on the format of the specification:
 
@@ -60,24 +52,6 @@ The common theme is that the instrumentation is effectively invisible when the s
 </div> <!-- html -->
 </div> <!-- row -->
 
-
-# Commands
-
-Concordion has a purposefully small command set to make it easy to learn and use. 
-
-The full command set in Concordion core is:
-
-| Command | Description |
-| --------------- | --------------- |
-| example | marks a section of the specification as being a named example. Each example is run as a separate test by the test runner. |
-| set | sets a specification variable to a text value |
-| execute | executes code in the fixture, optionally setting a specification variable with the return value |
-| assert-equals | evaluates an expression and asserts the result against a text value |
-| verify-rows | compares the contents of a table with the contents of a collection |
-| run | runs a linked specification |
-| assert-true | evaluates an expression and asserts the result is true |
-| assert-false | evaluates an expression and asserts the result is false |
-| echo | evaluates an expression and inserts the result into the output HTML |
 
 If needed, additional commands can be implemented as [extensions][TODO].
  

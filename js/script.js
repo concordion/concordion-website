@@ -58,6 +58,9 @@ $(document).ready(function() {
         });
     }
 
+    // Initialize collapsible
+    $('.collapsible').collapsible();
+
     // BENEFITS BUTTON
     $('#benefits .btn').click(function() {
 
@@ -78,6 +81,7 @@ $(document).ready(function() {
         textToType = printBenefit(section);
         backspaceAndType(typedObject, textToType);
     });
+
 });
 
 
