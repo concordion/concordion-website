@@ -153,7 +153,7 @@ An alternative would be to change the getGreeting() method signature to allow th
 
 Sometimes you need to check more than one result of a behaviour. For example, here we want to check that both the first name and the last name are correctly extracted from the full name:
 
-~~~markdown
+~~~ markdown
 # Splitting Names
 
 To help personalise our mailshots we want to have the first name and last name of the customer. 
