@@ -484,7 +484,7 @@ When the completion date is today, return "today" from `getCompletionDay()` to s
 
 ![specification showing today as success](img/instrument-assert-equals-success.png)
 
-When the completion date is today, returning the actual date from `getCompletionDay()` to show the actual date in the output specification:
+When the completion date is not today, return the actual date from `getCompletionDay()` to show the actual date in the output specification:
 
 ![specification showing the actual date as failure](img/instrument-assert-equals-failure.png)
 

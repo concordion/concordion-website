@@ -147,7 +147,8 @@ This is a __bold text__ in a paragraph
 For further details, read the Markdown [basics](https://daringfireball.net/projects/markdown/basics) and [syntax](https://daringfireball.net/projects/markdown/syntax).
 
 In addition to standard Markdown, Concordion supports: 
-* MultiMarkdown format [tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to github flavored markdown tables.
+* MultiMarkdown format [tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to Github Flavored Markdown [tables](https://help.github.com/articles/github-flavored-markdown/#tables).
+
 * strikethrough format using `~~tildes around the words~~`.
 
 For syntax that is not covered by Markdown, you can use inline HTML.
