@@ -19,22 +19,22 @@ The format of the instrumentation depends on the format of the specification:
 <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
   <li>
     <div class="collapsible-header"><i class="mdi mdi-markdown"></i>Markdown</div>
-    <div class="collapsible-body" style="display: block;">
+    <div class="collapsible-body">
         <p>Markdown specifications use links:</p>
-        <p><pre><code class="markdown">
+        <pre><code class="markdown">
 When [Bob](- "#firstName") logs in 
 a greeting [Hello Bob!](- <b>"?=greetingFor(#firstName)"</b>) should be displayed.
-        </code></pre></p>
+        </code></pre>
     </div>
 </li>
   <li>
     <div class="collapsible-header"><i class="mdi mdi-code-tags"></i>HTML</div>
-    <div class="collapsible-body" style="display: block;">
+    <div class="collapsible-body">
         <p>HTML specifications use attributes:</p>
         <pre><code class="html">
 &lt;p>
     When &lt;<b>span concordion:set="#firstName"</b>>Bob&lt;/span> logs in a greeting
-    &lt;span <b>concordion:assertEquals="greetingFor(#firstName)"</b>>Hello Bob!&lt;/span>
+    &lt;span <b>concordion:assert-equals="greetingFor(#firstName)"</b>>Hello Bob!&lt;/span>
     should be displayed.
 &lt;/p>        
         </code></pre>
@@ -42,7 +42,24 @@ a greeting [Hello Bob!](- <b>"?=greetingFor(#firstName)"</b>) should be displaye
 </li>
 </ul>
 
-The common theme is that the instrumentation is effectively invisible when the specification is previewed. The Markdown and Excel formats have the added benefit that you can hover over the link or comment respectively to see the instrumentation.
+The common theme is that the instrumentation is effectively invisible when the specification is previewed. The Markdown format has the added benefit that you can hover over the link to see the instrumentation.
+
+{::options parse_block_html="true" /}
+<div class="row">
+<div class="col s12">
+  <ul class="tabs">
+    <li class="tab col s3"><a href="#markdown"><i class="mdi mdi-markdown"> </i>  Markdown</a></li>
+    <li class="tab col s3"><a href="#html"><i class="mdi mdi-code-tags"></i>  HTML</a></li>
+  </ul>
+</div>
+<div id="markdown" class="col s12">
+{% include instrumenting-markdown.md %}
+</div>
+<div id="html" class="col s12">
+{% include instrumenting-html.md %}
+</div> <!-- html -->
+</div> <!-- row -->
+
 
 # Commands
 
@@ -121,14 +138,14 @@ Reference-style links can be used for one or more of the links to improve readab
     [_add_]: - "#z=add(#x, #y)"
 
 ##### Verify Rows
-The verifyRows command is specified in the first table header column, followed by the command for that column (if any), with the commands for each column of the table specified in the relevant table header column.
+The `verify-rows` command is specified in the first table header column, followed by the command for that column (if any), with the commands for each column of the table specified in the relevant table header column.
 
     |[_check GST_][][Sub Total][]|[GST][]|
     | -------------------------- | ----: |
     |                         100|     15|
     |                          20|      2|
 
-    [_check GST_]: - "c:verifyRows=#detail:getInvoiceDetails()"
+    [_check GST_]: - "c:verify-rows=#detail:getInvoiceDetails()"
     [Sub Total]:   - "?=#detail.subTotal"
     [GST]:         - "?=#detail.gst"
 
@@ -333,3 +350,10 @@ Which produces:
 While you can edit HTML in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a HTML editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated HTML editors.
 
 TODO - add details of IDEA and Eclipse extensions to instrumentation.md when available..
+
+
+
+
+
+
+These are the essential features of Concordion and should be all you need to get started. Read the page on Technique for advice on the approach to writing the specifications, or see below if you wish to look at advanced features.

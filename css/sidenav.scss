@@ -53,28 +53,37 @@ header, main, footer {
 //        padding: 1rem 0.8rem 1rem 1.2rem;
         padding: 0.8rem 0.6rem 0.8rem 0.5rem;
         border: 1px solid {{ site.red-light }};
-//    border-left: 1rem solid {{ site.red-light }};
-    border-left: 0.5rem solid {{ site.red-light }};
+//        border-left: 1rem solid {{ site.red-light }};
+        border-left: 0.5rem solid {{ site.red-light }};
 
-//code {
-//    font-size: 1.2rem;
-//    line-height: 2rem;
-//}
-}
-
-p {
-    @extend .flow-text;
-
-    img {
-        display: block;
-        margin: 0.5rem 0;
-        max-width: 100%;
+//        code {
+//            font-size: 1.2rem;
+//            line-height: 2rem;
+//        }
     }
-}
 
-ol li, ul li {
-    @extend .flow-text;
-}
+    .collapsible-body {
+        p {
+            padding-bottom: 0rem;
+        }
+        pre {
+            margin: 1rem 2rem 2rem 2rem;
+        }
+    }
+
+    p {
+        @extend .flow-text;
+
+        img {
+            display: block;
+            margin: 0.5rem 0;
+            max-width: 100%;
+        }
+    }
+
+    ol li, ul li {
+        @extend .flow-text;
+    }
 }
 
 @media only screen and (max-width : 992px) {
