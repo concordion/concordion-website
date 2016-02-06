@@ -3,7 +3,7 @@ layout: sidenav
 title: "Concordion | Instrumenting"
 description: ""
 heading: "Instrumenting"
-subheading: "Linking the examples to the fixture code"
+subheading: "Making the examples executable"
 ---
 
 The format of the instrumentation depends on the format of the specification:

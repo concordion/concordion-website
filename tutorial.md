@@ -8,16 +8,20 @@ subheading: "This runs through the basics of creating living documents using Con
 
 Creating a living document is a 3 step process:
 
-1. Authoring
-2. Instrumenting
-3. Coding
+1. Discussing
+2. Documenting
+3. Instrumenting
+4. Coding
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
 To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-2.0/archive/master.zip) (or [fork](https://github.com/concordion/concordion-tutorial-2.0#fork-destination-box) if you have a Github account).
 
+## 1. Discussing
 
-## 1. Authoring
+TODO
+
+## 2. Documenting
 
 The first step is to create a specification of the new feature. In the `src/test/resources/marketing/mailshots` folder of the tutorial project, edit the file `SplittingNames.md` to contain the following.
 
@@ -42,9 +46,9 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
-[Find out more](./authoring) about authoring specifications.
+[Find out more](./documenting) about documenting specifications.
 
-## 2. Instrumenting
+## 3. Instrumenting
 
 In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
@@ -75,7 +79,7 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 
 [Find out more](/instrumenting) about instrumenting fixtures.
 
-## 3. Coding
+## 4. Coding
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 

@@ -1,8 +1,8 @@
 ---
 layout: sidenav
-title: "Concordion | Authoring"
+title: "Concordion | Documenting"
 description: ""
-heading: "Authoring"
+heading: "Documenting"
 subheading: "Creating specifications with Markdown or HTML"
 ---
 <!--
@@ -108,7 +108,7 @@ By using this approach, and instrumenting the links to child specifications with
 
 # Specification language
 
-Concordion specifications can be authored using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension](ExtensionsAPI.html) to handle other formats).
+Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension](ExtensionsAPI.html) to handle other formats).
 
 ## Markdown
 
