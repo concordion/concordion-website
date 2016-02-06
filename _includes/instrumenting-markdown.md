@@ -1,20 +1,24 @@
 Concordion commands are differentiated from other Markdown [links](https://daringfireball.net/projects/markdown/syntax#link) by using a hyphen (`-`) for the URL:
 
-~~~ markdown
-    [value](- "command")
+~~~markdown
+[value](- "command")
 ~~~
 
 As an alternative to inline links, reference style links are supported, for example:
 
-    [value][id]
+~~~markdown
+[value][id]
     
-    [id]: - "command"
+[id]: - "command"
+~~~
 
 or
 
-    [value][]
+~~~markdown
+[value][]
     
-    [value]: - "command"
+[value]: - "command"
+~~~
 
 Reference style links can help improve readability of the Markdown document, especially for table headers or lengthy commands. 
 
@@ -24,7 +28,7 @@ Let's start with a really simple example...
 
 Create a file `HelloWorld.md` containing:
 
-~~~
+~~~markdown
 [Hello World!](- "?=getGreeting()")
 ~~~
 
@@ -36,7 +40,7 @@ When run with a fixture that implements the `getGreeting()` method to return `He
 
 In the example above, the call to `getGreeting()` can be simplified to `greeting` since Concordion's expression language understands simple properties.
 
-~~~
+~~~markdown
 [Hello World!](- "?=greeting")
 ~~~
 
@@ -46,7 +50,7 @@ In the example above, the call to `getGreeting()` can be simplified to `greeting
 
 Given a specification like this:
 
-~~~
+~~~markdown
 The greeting for user Bob will be: Hello Bob!
 ~~~
 
@@ -54,13 +58,13 @@ We want the first name (`Bob`) to be a parameter and the greeting (`Hello Bob!`)
 
 To do this we place links around the two significant pieces of text in the document. When the specification is executed, these links will be changed into commands and will not show as links in the output specification.
 
-~~~
+~~~markdown
 The greeting for user [Bob]() will be: [Hello Bob!]()
 ~~~
 
 Now we can instrument the document:
 
-~~~
+~~~markdown
 The greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?=greetingFor(#firstName)")
 ~~~
 
@@ -74,7 +78,7 @@ _since: 2.0.0_
 
 To specify that a piece of the specification is an example, add a heading link with the name of the example set as the link title. For example:
 
-~~~
+~~~markdown
 ## [Example 1](- "example1")
 
 Example goes here
@@ -86,7 +90,7 @@ Each example is run and reported as a separate test. Any commands that are outsi
 
 To specify that a piece of the specification should be run before each example, add a heading link with the keyword `before` as the link title. For example
 
-~~~
+~~~markdown
 ## [Per example setup](- "before")
 
 Example goes here
@@ -103,7 +107,7 @@ An example is implicitly closed on any of these conditions:
 
 To explicitly close an example, create a header with the example heading struck-through. For example:  
 
-~~~
+~~~markdown
 ## ~~Example 1~~
 ~~~
 
@@ -127,7 +131,7 @@ As a rule of thumb, methods with a void result called from an execute should sta
 
 Take the following specification for example:
 
-~~~
+~~~markdown
 If the time is [09:00AM](- "#time") [ ](- "setCurrentTime(#time)")
 then the greeting will say:
 [Good Morning World!](- "?=getGreeting()")
@@ -135,7 +139,7 @@ then the greeting will say:
 
 We can actually remove the need for the set command by using the special variable #TEXT (which contains the text of the current element). The abbreviated instrumentation looks like this:
 
-~~~
+~~~markdown
 If the time is [09:00AM](- "setCurrentTime(#TEXT)") 
 then the greeting will say:
 [Good Morning World!](- "?=getGreeting()")
@@ -149,7 +153,7 @@ An alternative would be to change the getGreeting() method signature to allow th
 
 Sometimes you need to check more than one result of a behaviour. For example, here we want to check that both the first name and the last name are correctly extracted from the full name:
 
-~~~
+~~~markdown
 # Splitting Names
 
 To help personalise our mailshots we want to have the first name and last name of the customer. 
@@ -178,25 +182,25 @@ The execute command provides flexibility - however, you will need to embed HTML 
 
 For example, say we have the specification:
 
-~~~
+~~~markdown
 Upon login, the greeting for user [Bob]() will be: [Hello Bob!]())
 ~~~
 
 This is easy to instrument:
 
-~~~
+~~~markdown
 Upon login, the greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?=greetingFor(#firstName)")
 ~~~
 
 But what if our specification was written like this:
 
-~~~
+~~~markdown
 The greeting "[Hello Bob!]()" should be given to user [Bob]() when he logs in.
 ~~~
 
 In this case, the input parameter Bob occurs after the output greeting we want to check. We can solve this problem by changing this sentence to HTML and using an execute command on the outer element (the <p>).
 
-~~~
+~~~html
 <p concordion:execute="#greeting = greetingFor(#firstName)">
     The greeting "<span concordion:assert-equals="#greeting">Hello Bob!</span>"
     should be given to user <span concordion:set="#firstName">Bob</span>
@@ -216,7 +220,7 @@ For example:
 
 You can instrument this table, in a long-winded way, as follows:
 
-~~~
+~~~markdown
 # Splitting Names
 
 To help personalise our mailshots we want to have the first name and last name of the customer. 
@@ -240,7 +244,7 @@ However, this is repetitive so Concordion provides a shortcut by placing command
 
 For example:
 
-~~~
+~~~markdown
 # Splitting Names
 
 To help personalise our mailshots we want to have the first name and last name of the customer. 
@@ -287,7 +291,7 @@ The idea is that in the fixture code we'll set up the users in the system, perfo
 
 The instrumented HTML source for the specification looks like this:
 
-~~~
+~~~markdown
 # Partial Matches
 
 Username searches return partial matches, i.e. all usernames containing the search string are returned.
@@ -319,7 +323,7 @@ Searching for [arr](- "#searchString") will return:
 
 The syntax for a verify-rows command is:
 
-~~~
+~~~markdown
 #loopVar : expression
 ~~~
 
@@ -348,7 +352,7 @@ The `run` command lets you run another specification from this specification, an
 
 The format is:
 
-~~~
+~~~markdown
 [some link text](path/to/spec.html "c:run")
 ~~~
 
@@ -361,7 +365,7 @@ These commands are useful for asserting boolean conditions.
 
 They should be used sparingly, since on failure they can only report true or false. For example, when the specification:
 
-~~~
+~~~markdown
 The completion date should be set to [today](- "c:assertTrue="isCompletionToday()")
 ~~~
 
@@ -371,7 +375,7 @@ is run with a `isCompletionToday()` method that returns false, the output shows:
 
 As an alternative, use the `assert-equals` command to show better error messages. Reworking our example above:
 
-~~~
+~~~markdown
 The completion date should be set to [today](- "?=getCompletionDay()").
 ~~~
 
@@ -390,7 +394,7 @@ The `echo` command evaluates an expression and inserts the result into the outpu
 
 For example:
 
-~~~
+~~~markdown
 Username:[ ](- "c:echo=username")
 ~~~
 
