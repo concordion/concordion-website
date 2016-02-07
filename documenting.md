@@ -105,6 +105,21 @@ At each level, the specification contains links to all the specifications below 
 
 By using this approach, and instrumenting the links to child specifications with the [run command](TODO), executing any specification will automatically execute all its child specifications, with the results aggregated upwards.
 
+### Breadcrumbs
+
+To make it easier to navigate around the results, and to remove the headache of having to maintain upward links manually, breadcrumbs are automatically added to output.
+
+In order for breadcrumbs to be generated, certain conventions must be followed.
+
+![Example of breadcrumbs](./img/documenting-breadcrumbs.png)
+
+[More details](http://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
+
+### Styling your specifications
+
+Concordion comes with a default style out of the box.
+
+Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, the fixture will need to [specify](./coding#adding-resources) the resources to be copied to the output specification.
 
 # Specification language
 
