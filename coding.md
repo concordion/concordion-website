@@ -43,6 +43,62 @@ A fixture class is required for each specification.
 
 Unlike JUnit, we don't annotate methods with `@Test`. Instead, the tests are determined from the specification. Each example in the specification that uses the [example command](TODO) is created as a separate JUnit test. If the example command is not used, the specification is run as a single JUnit test.
 
+### Fixture methods
+
+#### Parameter types
+
+Type Coercion - __TODO__
+
+#### Return types
+
+__TODO__
+Simple
+Object
+
+##### Returning a Map result
+
+As described in the tutorial, to check more than one result of a behaviour, you can return an object from the execute command. An alternative is to return a Map object, for example:
+
+~~~java
+public Map split(String fullName) {
+    String[] words = fullName.split(" ");
+    Map<String, String> results = new HashMap<String, String>();
+    results.put("firstName", words[0]);
+    results.put("lastName", words[1]);
+    return results;
+}
+~~~
+
+This is particularly useful when calling existing methods that return Maps, or when using a JVM language with native language support for Maps, such as Groovy.
+
+##### Returning a MultiValueResult
+
+The [MultiValueResult](https://github.com/concordion/concordion/blob/master/src/main/java/org/concordion/api/MultiValueResult.java) class makes it even simpler to return more than one result from the execute command. For example, [SplittingNamesTest](./tutorial#complete-code) can be simplified to:
+
+~~~java
+package example;
+
+import org.concordion.api.MultiValueResult;
+import org.concordion.integration.junit4.ConcordionRunner;
+import org.junit.runner.RunWith;
+
+@RunWith(ConcordionRunner.class)
+public class SplittingNamesFixture {
+
+    public MultiValueResult split(String fullName) {
+        String[] words = fullName.split(" ");
+        return new MultiValueResult()
+                .with("firstName", words[0])
+                .with("lastName", words[1]);
+    }
+}
+~~~
+
+The specification can reference the properties of the MultiValueResult as if they were bean properties, as shown in the [Splitting Names](./tutorial#annotated-example) specification.
+
+
+
+
 ### Implementation status
 
 You can include partially-implemented specifications in your normal build without breaking the build, by annotating your fixture classes with one of the following annotations:
@@ -104,13 +160,17 @@ The [before and after hooks](http://concordion.github.io/concordion/latest/spec/
 
 |                           | Before                     |After|
 | ---------------------- | ----------------------------- | ----------------------------- |
-|__Example__      |@BeforeExample       |@AfterExample      |
-|__Specification__|@BeforeSpecification|@AfterSpecification|
-|__Suite__            |@BeforeSuite            |@AfterSuite           |
+|__Example__      |`@BeforeExample`       |`@AfterExample`      |
+|__Specification__|`@BeforeSpecification`|`@AfterSpecification`|
+|__Suite__            |`@BeforeSuite`            |`@AfterSuite`           |
 
 Note:
 1. the example hooks require you to use the [example command](http://concordion.github.io/concordion/latest/spec/command/example/Examples.html).
 2. the suite hooks must be in the fixture that is being run directly by JUnit. It won't be invoked on "child specifications" that are being run using the run command. A common pattern is to have a top level base class that contains the suite hooks and is extended by all fixtures.
+
+### Configuration Options
+
+The [@ConcordionOptions](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation allows you to configure extensions to the Markdown syntax, and output the source HTML that it generates for debug purposes.
 
 ### Adding resources
 
@@ -145,6 +205,10 @@ adds the following resources to the generated specification:
 - ../../resources.css
 
 See the [specification](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) for other examples.
+
+### Full OGNL
+
+__TODO__
 
 ### Adding Extensions
 

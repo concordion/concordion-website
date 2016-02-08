@@ -57,4 +57,7 @@ If needed, additional commands can be implemented as [extensions][TODO].
  
 TODO - add details of IDEA and Eclipse extensions to instrumentation.md when available..
 
+OGNL - expression languaga
+Specification variable scope
+
 These are the essential features of Concordion and should be all you need to get started. Read the page on Technique for advice on the approach to writing the specifications, or see below if you wish to look at advanced features.

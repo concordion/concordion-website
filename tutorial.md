@@ -72,6 +72,7 @@ Next, we add commands to the links:
 The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
 into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
 ~~~
+{: #annotated-example}
 
 These commands are:
 
@@ -163,6 +164,8 @@ public class SplittingNamesFixture {
     }
 }
 ~~~
+{: #complete-code}
+
 
 The test now passes:
 
