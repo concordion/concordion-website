@@ -6,7 +6,7 @@ heading: "Extensions"
 subheading: "Enhancing Concordion with flexible features"
 ---
 
-Concordion includes a flexible extension mechanism for adding functionality to Concordion, for example implementing new commands, listening to events, or modifying the Concordion output. It's simple to write your own, or use one of the following:
+Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own](coding#building-your-own-extension), or use one of the following:
 
 <div class="container">
     <div class="row">
@@ -216,10 +216,10 @@ Concordion includes a flexible extension mechanism for adding functionality to C
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-content">
-                    <span class="card-title">Timestamp Formatter</span>
                     <span class="card-title right">
                         <a class="github-button" href="https://github.com/concordion/concordion-timestamp-formatter-extension" data-count-href="/concordion/concordion-timestamp-formatter-extension/stargazers" data-count-api="/repos/concordion/concordion-timestamp-formatter-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-timestamp-formatter-extension on GitHub">Star</a>
                     </span>
+                    <span class="card-title">Timestamp Formatter</span>
                     <p>shows duration in hour, min, sec rather than milliseconds</p>
                 </div>
                 <div class="card-action">
@@ -237,10 +237,10 @@ Concordion includes a flexible extension mechanism for adding functionality to C
                     </a>
                 </div>               
                 <div class="card-content">
-                    <span class="card-title">Exception Translator</span>
                     <span class="card-title right">
                         <a class="github-button" href="https://github.com/concordion/concordion-exception-translator-extension" data-count-href="/concordion/concordion-exception-translator-extension/stargazers" data-count-api="/repos/concordion/concordion-exception-translator-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-exception-translator-extension on GitHub">Star</a>
                     </span>
+                    <span class="card-title">Exception Translator</span>
                     <p>modifies exception message text</p>
                 </div>
                 <div class="card-action">
