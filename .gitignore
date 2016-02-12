@@ -20,6 +20,9 @@ _site/
 # Windows shortcuts
 *.lnk
 
+# Gem
+Gemfile.lock
+
 # =========================
 # Operating System Files
 # =========================

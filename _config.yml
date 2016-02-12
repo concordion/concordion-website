@@ -2,6 +2,7 @@ title: Specification by Example | Concordion
 author: 
 description: 
 baseurl: /concordion-website-2.0
+exclude:  [ Gemfile, Gemfile.lock]
 collections:
 
 green: '#1baf59'
@@ -19,8 +20,5 @@ nav-height-mobile: '56px'
 
 markdown: kramdown
 
-highlighter: null
-
 kramdown:
   input: GFM
-  syntax_highlighter: null
