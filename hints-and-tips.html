@@ -1,0 +1,428 @@
+---
+layout: sidenav
+title: "Concordion | Hints and Tips"
+description: ""
+heading: "Hints and Tips"
+subheading: "Good practices for using Concordion"
+---
+
+<section id="technique">
+    <div class="container">
+
+        <div class="row">
+            <h1 class="header">Technique</h1>
+
+            <div class="section">
+                <h2 class="header">Write specifications, not scripts</h2>
+
+                <p class="subtext">
+                    Hide all scripting activity in the Java fixture code.
+                </p>
+
+                <a name="scripts"> </a>
+                <h3>Scripts over-specify</h3>
+                <p>
+                    Test scripts are a list of instructions to be followed. For example:
+                </p>
+
+                <blockquote class="example bad">
+                    <img src="./img/bad.png"/>
+                    Clear database
+                    <br/>Load database from "sample-data.sql"
+                    <br/>Start webserver
+                    <br/>Open URL: http://localhost:8080/myapp
+                    <br/>Enter username: admin
+                    <br/>Enter password: admin1
+                    <br/>Click the "Login" button
+                    <br/>Click the "User Administration" link
+                    <br/>Click the "Create User" button:
+                    <br/>Enter name: John Smith
+                    <br/>Enter username: john
+                    <br/>Enter password: john99
+                    <br/>Click the "OK" button
+                    <br/>Click the "Logout" link
+                    <br/>Enter username: john
+                    <br/>Enter password: john99
+                    <br/>Click the "Login" button
+                    <br/>Check page contains text: Hello John!
+                </blockquote>
+
+                <p>
+                    Concealed inside the script is a behaviour that the test is trying to
+                    demonstrate. But because the requirement is not explicit, it's hard to
+                    know what it is (e.g. "Can we change this link to a button,
+                    or is the link part of the requirement?").
+                </p>
+
+                <p>
+                    Scripts also tend to suffer badly from duplication. If we introduce
+                    an extra step into the authentication process then all the scripts that
+                    mention logging-in will need modification. This is exactly the kind of
+                    duplication that programming languages are designed to address and why
+                    plain English is not a good language for scripting.
+                </p>
+
+                <a name="specFreedom"> </a>
+                <h3>Specifications give you freedom</h3>
+                <p>
+                    Specifications tell you the requirements explicitly. They are
+                    written at a higher level of abstraction to test scripts.
+                    For example:
+                </p>
+
+                <blockquote class="example good">
+                    <img src="./img/good.png"/>
+                    When John logs in, a greeting "Hello John!" is displayed.
+                </blockquote>
+
+                <p>
+                    This can be implemented in multiple ways. All of the details about
+                    how to test the requirement are hidden inside the fixture code
+                    where they can be refactored as the system evolves.
+                </p>
+
+                <p>
+                    For another example see: <a href="ScriptingMakeover.html">Scripting Makeover</a>
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <a name="specStable"> </a>
+                <h2>Specifications should be stable</h2>
+
+                <p class="subtext">
+                    The specifications themselves should rarely change. Even on agile projects,
+                    though new behaviour is added frequently, existing behaviour is normally
+                    maintained from iteration to iteration.
+                </p>
+
+                <h3>Decouple using the fixture as a go-between</h3>
+                <p>
+                    Let the fixture code act as a buffer so that the specifications stay very stable.
+                    Anything implementation-specific should be hidden in the fixture code.
+                    You should find that the majority of specifications
+                    are written once and never changed.
+                </p>
+
+                <img id="specFixtureSystem" class="inline" src="./img/technique-spec-fixture-system-gray.png"/>
+
+                <a name="instrumentationStable"> </a>
+                <h3>Instrumentation should not change either</h3>
+                <p>
+                    The job of the instrumentation is to translate the examples in the
+                    specification into method calls into the fixture.
+                    The instrumentation should be very simple and should not show any
+                    knowledge of how the behaviour is actually implemented in the
+                    system. Once written, the public interface of the fixture should
+                    not change; the implementation of its methods may change though.
+                </p>
+
+                <a name="keepSpecsSimple"> </a>
+                <h3>Only reveal data the specification actually needs</h3>
+                <p>
+                    In general, it's better not to return domain objects directly from
+                    fixture methods, but return strings or small objects containing just
+                    the values needed for the examples in the specification. The interfaces
+                    of domain objects may change and we want to avoid having to make
+                    changes to the instrumentation.
+                </p>
+
+                <p>
+                    For example, don't reference a deep property of a domain object from
+                    the instrumentation:
+                </p>
+                <blockquote class="example bad">
+                    <img src="./img/bad.png"/>
+
+                    <code>order.phoneLine.phoneNumber</code>
+                    <br/><code>order.phoneLine.location.postcode</code>
+                </blockquote>
+
+                <p>
+                    But, instead create a new inner class in the fixture that has the
+                    exact properties needed, and populate it from the domain object.
+                    This decouples the specifications from the domain model and gives
+                    you the flexibility to improve the model.
+                </p>
+
+                <blockquote class="example good">
+                    <img src="./img/good.png"/>
+                    <code>phoneNumber</code>
+                    <br/><code>postcode</code>
+                </blockquote>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <a name="evolveDSL"> </a>
+                <h2>Evolve a domain-specific language</h2>
+
+                <p>
+                    As you write the fixture code, and refactor it to remove duplication,
+                    you'll find you gradually build up a scripting API &#150; a domain-specific
+                    language (DSL) &#150; that lets you manipulate the system under test.
+                    Eventually, the fixture code will become very stable too.
+                </p>
+                <img id="specFixtureScriptSystem" class="inline" src="./img/technique-spec-fixture-scripting-system-gray.png"/>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <a name="isolateBehaviours"> </a>
+                <h2>Isolate behaviours</h2>
+
+                <p>
+                    Each active specification should have a narrow focus and cover a single
+                    behaviour as independently as possible from other behaviours.
+                    For example, one specification might describe how text searches
+                    are case-insensitive, another will describe how date searches work,
+                    and another will describe how search results are to be presented (what
+                    data is displayed). The idea is to keep each specification very simple
+                    and to avoid overlaps, so that we can change the specification about
+                    the way search results are presented without having to make changes
+                    to the other specifications.
+                </p>
+
+                <p>
+                    If you want to test a combination of behaviours, write a separate
+                    specification of the behaviour for the combination. But always write
+                    the specifications for the individual behaviours first. When you
+                    combine behaviours there is a penalty in terms of complexity &#150;
+                    of both the specification and the fixture code to support it.
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <a name="thinkGWT"> </a>
+                <h2>Think "Given-When-Then"</h2>
+
+                <p>
+                    This is an excellent way of structuring the concrete
+                    examples in the specifications, and getting into the mindset of
+                    specifying instead of scripting.
+                    I believe it was <a class="externalLink" href="http://dannorth.net/">Dan North</a> and
+                    <a class="externalLink" href="http://abc.truemesh.com/">Chris Matts</a> who came up with
+                    the template:
+                </p>
+
+                <blockquote>
+                    <b>Given</b> (some context)
+                    <br/><b>When</b> (something happens)
+                    <br/><b>then</b> (some behaviour)
+                </blockquote>
+
+                <p>
+                    Example:
+                </p>
+
+                <blockquote class="example good">
+                    <img src="./img/good.png"/>
+                    Given a user called John;
+                    <br/>When John logs in,
+                    <br/>then a greeting is displayed saying "Hello John!".
+                </blockquote>
+
+                <p>
+                    Once you've written or thought about your behaviour using the Given-When-Then template,
+                    you can reword the sentence to make it less clunky. For example, in this case
+                    we can deduce that John is a user from the phrase "John logs in", so we can drop
+                    the "Given" part and write something more readable like this:
+                </p>
+
+                <blockquote class="example good">
+                    <img src="./img/good.png"/>
+                    When John logs in, a greeting
+                    "Hello John!" is displayed.
+                </blockquote>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <img class="smelly bin" src="./img/smelly-rubbish-bin.png"/>
+
+            <a name="commonSmells"> </a>
+            <h1>Common Smells</h1>
+
+            <div class="section">
+                <a name="specsChange"> </a>
+                <h2>Existing specifications are often changed</h2>
+
+                <h3>You're tied to an implementation</h3>
+                <p>
+                    If you find you're having to change the contents of specifications /
+                    instrumentation, on a regular basis, this is a strong indicator
+                    that the specifications are too closely coupled to the implementation.
+                </p>
+
+                <h3>So, pretend there are multiple implementations</h3>
+                <p>
+                    The solution is to describe the underlying behaviour in a more
+                    abstract way. It might help
+                    to imagine that there are several different implementations - a web application,
+                    a Swing application, and a command-line executable, for example. Only
+                    describe behaviour that is <em>required</em> so that you leave as
+                    many options open as possible for alternative implementations.
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <a name="lotsOfExecutes"> </a>
+                <h2>Lots of "execute" commands</h2>
+
+                <h3>You're writing a script</h3>
+                <p>
+                    If you have lots of "execute" commands you are probably writing
+                    a script instead of a specification.
+                </p>
+
+                <h3>So, hide the scripting in the fixture</h3>
+                <p>
+                    Avoid describing the steps of how to test
+                    the behaviour and simply state the context (as a sentence),
+                    and the behaviour you expect to see. Don't explain
+                    how to get into that context, don't explain how to perform the
+                    operation and don't explain how to extract the results. All of these
+                    things are implementation-specific and should be hidden in the
+                    fixture code.
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <a name="complicatedInstrumentation"> </a>
+                <h2>Complicated instrumentation</h2>
+
+                <h3>You're testing too much in one go</h3>
+                <p>
+                    As a rule of thumb, well-written fixtures should have no more than
+                    three public methods and no method should have more than one or two
+                    parameters. Complicated instrumentation is usually a sign of
+                    trying to test too many things at once.
+                </p>
+
+                <h3>So, decompose the behaviour</h3>
+                <p>
+                    Focus on one tiny behaviour at a time. Break the
+                    behaviour into smaller and smaller pieces until you cannot
+                    break it down any further. Then write separate specifications
+                    for each piece.
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <a name="complicatedFixtures"> </a>
+                <h2>Complicated fixture code</h2>
+
+                <h3>Your fixture code is verbose and hard to follow</h3>
+                <p>
+                    All the scripting should be done in the fixture code, but this
+                    can make the code seem complicated.
+                </p>
+
+                <h3>So, create classes to help with the scripting</h3>
+                <p>
+                    Begin to create objects to help with the scripting
+                    activity - push the implementation details into them. Eventually
+                    you'll create a little domain specific language (DSL).
+                </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <a name="sameStructure"> </a>
+                <h2>Examples all have the same structure</h2>
+
+                <h3>Your examples are too generic</h3>
+                <p>
+                    If the examples in your specifications look very similar (i.e. they have
+                    the same kind of context set-up, the same kind of checks etc.) this is
+                    a strong sign that the examples are too generic.
+                </p>
+
+                <h3>So, focus the examples more carefully</h3>
+                <p>
+                    The examples should demonstrate the particular behaviour you are
+                    describing and should not include any irrelevant details. Push
+                    everything you can into the fixture code.
+                </p>
+
+                <blockquote class="example bad">
+                    <img src="./img/bad.png"/>
+                    Given the following orders:
+                    <br/>
+                    <br/>
+                    <table class="bordered responsive">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Status</th>
+                            <th>Requester</th>
+                            <th>Date</th>
+                            <th>Service Level</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Active</td>
+                            <td>john.smith</td>
+                            <td>13-Oct-2007</td>
+                            <td>High</td>
+                        </tr>
+                    </table>
+                    <br />When order <b>1</b> is <b>cancelled</b>,
+                    <br />Then the orders become:
+                    <br/>
+                    <br/>
+                    <table class="bordered responsive">
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Status</th>
+                            <th>Requester</th>
+                            <th>Date</th>
+                            <th>Service Level</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Cancelled</td>
+                            <td>john.smith</td>
+                            <td>13-Oct-2007</td>
+                            <td>High</td>
+                        </tr>
+                    </table>
+                </blockquote>
+
+                <p>
+                    The layout above is "one size fits all". It contains lots of
+                    context that is not relevant to the behaviour we want to show.
+                </p>
+
+                <p>
+                    Focusing the examples improves their clarity and reduces duplication:
+                </p>
+
+                <blockquote class="example good">
+                    <img src="./img/good.png"/>
+                    When an <b>Active</b> order is cancelled,
+                    its status is displayed as <b>Cancelled</b>.
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>

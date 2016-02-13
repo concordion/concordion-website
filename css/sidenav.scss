@@ -107,10 +107,39 @@ header, main, footer {
         font-size: 1.8rem;
     }
 
+    img.inline {
+        padding: 20px 20px 20px 64px;
+    }
+
+    img.smelly {
+        float: right;
+        width: 7rem;
+    }
+
     blockquote {
         border: 0;
         padding: 12px;
     }
+}
+
+.example {
+    position: relative;
+    padding-right: 50px; 
+    img {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 3px;
+    }
+}
+
+.example.bad {
+    background-color: #ffd9d9;
+}
+
+.example.good {
+    background-color: #d9ffd9;
+    border-color: {{ site.green }};
 }
 
 @media only screen and (max-width : 992px) {
