@@ -1,0 +1,126 @@
+---
+layout: sidenav
+title: "Concordion | Integrations"
+description: ""
+heading: "Integrations"
+subheading: "Integrating Concordion with other tools"
+---
+
+<section id="ide">
+    <div class="container">
+
+        <div class="row">
+            <h1 class="header">IDEs</h1>
+
+            <div class="section">
+                <h2 class="header">IntelliJ IDEA</h2>
+                <p>The excellent <a href="https://plugins.jetbrains.com/plugin/7978?pr=idea">Concordion support</a> plugin for IDEA provides support such as autocompletion, 2-way navigation between specifications and fixtures, run test from specification, go to declaration and renaming.</p>
+                <p>This plugin currently supports HTML format specifications (not Markdown).</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="header">Eclipse</h2>
+                <p>The <a href="https://code.google.com/archive/p/concordion-eclipse/">concordion-eclipse</a> plugin provides content assist and validation for Concordion specifications, integrated into Eclipse's HTML and Web Page (Source) editors.</p>
+                <p>This plugin currently supports HTML format specifications (not Markdown). It has not been updated with the Concordion 2.0 commands yet, so will show these as errors, but still works well.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1 class="header">Build tools</h1>
+
+            <div class="section">
+                <h2 class="header">Gradle</h2>
+                <p>Concordion tests can be run using the standard test task. A typical build script is:
+                <pre>
+                    <code class="language-gradle">
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "org.concordion:concordion:<i>x.y.z</i>"
+}
+
+test {
+    testLogging.showStandardStreams = true   // display test output on console
+    systemProperties['concordion.output.dir'] = "$reporting.baseDir/spec"  // write output to build/reports/spec
+    outputs.upToDateWhen { false }   // force tests to run even if code hasn't changed
+}</code>
+                </pre>
+<p>, where <i>x.y.z</i> is replaced by the Concordion version, for example 2.0.0.</p>
+
+<p>If you have created a suite of specifications using the run command, you should run only your main fixture class by adding this line inside the `test` block:
+
+            <pre>
+                <code class="language-gradle">
+    include '**/_MainFixture.*_' 
+</code>
+                </pre>
+                <p>, where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.</p>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="header">Maven</h2>
+                <p>Concordion tests can be run using the surefire plugin. For example:
+                <pre>
+                    <code class="language-xml">
+&lt;build&gt;
+    &lt;plugins&gt;
+......
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.19.1&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;systemPropertyVariables&gt;
+                    &lt;property&gt;
+                        &lt;name&gt;concordion.output.dir&lt;/name&gt;
+                        &lt;value&gt;target/concordion&lt;/value&gt;
+                    &lt;/property&gt;
+                &lt;/systemPropertyVariables&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+......
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code>
+                </pre>
+
+<p>If you have created a suite of specifications using the run command, you should run only your main fixture class by adding these lines inside the `configuration` element:
+
+            <pre>
+                <code class="language-xml">
+                &lt;includes&gt;
+                  &lt;include&gt;**/<i>MainFixture.java</i>&lt;/include&gt;
+                &lt;/includes&gt;
+</code>
+                </pre>
+                <p>, where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.</p>
+
+                <p>There is also a <a href="https://github.com/bassman5/maven-concordion-reporting-plugin">maven-concordion-reporting-plugin</a> which allows you to incorporate concordion reports into a maven site report in the project reports section.</p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <h1 class="header">Build servers</h1>
+
+            <div class="section">
+                <h2 class="header">Jenkins</h2>
+
+                <p>
+                    The <a class="externalLink" href="https://wiki.jenkins-ci.org/display/JENKINS/HTML+Publisher+Plugin">HTML Publisher plugin</a> can publish the Concordion results, maintain a per-build history, and let you download the output as a zip file.
+                </p>
+                <p><b>NOTE:</b> as of Jenkins 1.641 / 1.625.3, the new <a href="https://wiki.jenkins-ci.org/display/JENKINS/Configuring+Content+Security+Policy">Content Security Policy</a> results in Concordion reports being no longer viewable in Jenkins, with the error <code>"Refused to apply inline style because it violates the following Content Security Policy directive: "style-src 'self'"</code>. Concordion reports use inline CSS and Javascript.
+                </p>
+                <p>While we investigate the issue further, the only workaround is to restore the security vulnerability. To do this, relax the policy to allow <code>script-src 'unsafe-inline'</code> and <code>style-src 'unsafe-inline'</code> by appending <code>-Dhudson.model.DirectoryBrowserSupport.CSP=\" sandbox; default-src 'none'; img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline';\"</code> to the value of the JAVA_ARGS variable in the Jenkins startup script (/etc/default/jenkins on Linux) and restarting Jenkins. Note that we are still investigating this further - see the <a class="externalLink" href="https://groups.google.com/d/msg/concordion/RSp92D2CNuc/nwYW4yqvEQAJ">discussion</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
