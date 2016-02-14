@@ -33,8 +33,7 @@ subheading: "Integrating Concordion with other tools"
             <div class="section">
                 <h2 class="header">Gradle</h2>
                 <p>Concordion tests can be run using the standard test task. A typical build script is:
-                <pre>
-                    <code class="language-gradle">
+{% highlight groovy %}
 apply plugin: 'java'
 
 repositories {
@@ -42,24 +41,23 @@ repositories {
 }
 
 dependencies {
-    testCompile "org.concordion:concordion:<i>x.y.z</i>"
+    testCompile "org.concordion:concordion:x.y.z"
 }
 
 test {
     testLogging.showStandardStreams = true   // display test output on console
     systemProperties['concordion.output.dir'] = "$reporting.baseDir/spec"  // write output to build/reports/spec
     outputs.upToDateWhen { false }   // force tests to run even if code hasn't changed
-}</code>
-                </pre>
+}
+{% endhighlight %}                    
 <p>, where <i>x.y.z</i> is replaced by the Concordion version, for example 2.0.0.</p>
 
 <p>If you have created a suite of specifications using the run command, you should run only your main fixture class by adding this line inside the `test` block:
 
-            <pre>
-                <code class="language-gradle">
+{% highlight groovy %}
     include '**/_MainFixture.*_' 
-</code>
-                </pre>
+{% endhighlight %}                    
+
                 <p>, where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.</p>
 
             </div>
@@ -69,38 +67,35 @@ test {
             <div class="section">
                 <h2 class="header">Maven</h2>
                 <p>Concordion tests can be run using the surefire plugin. For example:
-                <pre>
-                    <code class="language-xml">
-&lt;build&gt;
-    &lt;plugins&gt;
+{% highlight xml %}
+<build>
+    <plugins>
 ......
-        &lt;plugin&gt;
-            &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
-            &lt;version&gt;2.19.1&lt;/version&gt;
-            &lt;configuration&gt;
-                &lt;systemPropertyVariables&gt;
-                    &lt;property&gt;
-                        &lt;name&gt;concordion.output.dir&lt;/name&gt;
-                        &lt;value&gt;target/concordion&lt;/value&gt;
-                    &lt;/property&gt;
-                &lt;/systemPropertyVariables&gt;
-            &lt;/configuration&gt;
-        &lt;/plugin&gt;
+        <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.19.1</version>
+            <configuration>
+                <systemPropertyVariables>
+                    <property>
+                        <name>concordion.output.dir</name>
+                        <value>target/concordion</value>
+                    </property>
+                </systemPropertyVariables>
+            </configuration>
+        </plugin>
 ......
-    &lt;/plugins&gt;
-&lt;/build&gt;
-</code>
-                </pre>
+    </plugins>
+</build>
+{% endhighlight %}                    
 
 <p>If you have created a suite of specifications using the run command, you should run only your main fixture class by adding these lines inside the `configuration` element:
 
-            <pre>
-                <code class="language-xml">
-                &lt;includes&gt;
-                  &lt;include&gt;**/<i>MainFixture.java</i>&lt;/include&gt;
-                &lt;/includes&gt;
-</code>
-                </pre>
+{% highlight xml %}
+                <includes>
+                  <include>**/MainFixture.java</include>
+                </includes>
+{% endhighlight %}                    
+
                 <p>, where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.</p>
 
                 <p>There is also a <a href="https://github.com/bassman5/maven-concordion-reporting-plugin">maven-concordion-reporting-plugin</a> which allows you to incorporate concordion reports into a maven site report in the project reports section.</p>
