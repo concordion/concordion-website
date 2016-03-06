@@ -6,7 +6,7 @@
         <ul>
           <li><a href="{{site.baseurl}}/discussing">Discussing</a></li>
           <li><a href="{{site.baseurl}}/documenting">Documenting</a></li>
-          <li><a href="{{site.baseurl}}/instrumenting/markdown">Instrumenting</a></li>
+          <li><a href="{{site.baseurl}}/instrumenting/{% if page.specType %}{{ page.specType | downcase }}{% else %}markdown{% endif %}">Instrumenting</a></li>
           <li><a href="{{site.baseurl}}/coding">Coding</a></li>
       </ul>
   </li>
