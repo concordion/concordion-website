@@ -1,10 +1,15 @@
----
-layout: sidenav
-title: "Concordion | Getting Started"
-description: ""
-heading: "Getting Started"
-subheading: "This runs through the basics of creating living documents using Concordion."
----
+{% assign specType=include.specType %}
+{% if specType == 'HTML' %}
+{% assign html=true %}
+{% assign md=false  %}
+{% assign ext='html' %}
+{% elsif specType == 'Markdown' %}
+{% assign html=false %}
+{% assign md=true    %}
+{% assign ext='md'    %}
+{% endif %}
+
+_This page explains getting started with __{{ specType }}__ specifications._ If you prefer to use {% if html %}Markdown specifications, click [here]({{site.baseurl}}/tutorial/markdown){% elsif md %}HTML specifications, click [here]({{site.baseurl}}/tutorial/html){% endif %}.
 
 Creating a living document is a 4 step process:
 
@@ -15,13 +20,30 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
+{% if html %}
+__TODO - create HTML tutorial__
+{% endif %}
 To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-2.0/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-2.0`. This project contains folders for each stage of the tutorial. 
 
 To start from scratch, start from the `initial` folder of the project.
 
 ## 1. Discussing
 
-TODO
+By collaboratively exploring requirements with realistic examples, teams build a shared understanding and detect issues and misunderstandings prior to developing a new feature.
+
+For this tutorial, we are working on a system for creating marketing mailshots. We want to have the first name and last name of the customer. Unfortunately the customer data that we are supplied only contains full names.
+
+We start off discussing a simple example:
+
+![Hand-drawn diagram showing the full name Jane Smith split into Jane and Smith]({{ site.baseurl }}/img/tutorial-discuss-names.png)
+
+When discussing examples, we need to consider the _context_ (preconditions), _actions_ and _outcomes_ for each example. In this example, the context is the name `Jane Smith`, the action is `split` and the outcomes are the first name `Jane` and last name `Smith`.
+
+As we progress, we discuss more complex cases. We often find it convenient to use tables, timelines or other diagrams to quickly and concisely describe examples:
+
+![Hand-drawn diagram showing a table of example names being split]({{ site.baseurl }}/img/tutorial-discuss-names-table.png)
+
+[Find out more]({{ site.baseurl }}/discussing) about discussing examples.
 
 ## 2. Documenting
 
@@ -46,17 +68,17 @@ The full name Jane Smith is broken into first name Jane and last name Smith.
 This uses a formatting language called Markdown, which makes it easy to create rich documents using plain text. 
 The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters.
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or in an editor that supports Markdown, we see it looks like ![preview of initial specification](./img/tutorial-authored-preview.png)
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or in an editor that supports Markdown, we see it looks like ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
-[Find out more](./documenting) about documenting specifications.
+[Find out more]({{ site.baseurl }}/documenting) about documenting specifications.
 
 ## 3. Instrumenting
 
 In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
-![How it works](img/how-it-works.png)
+![How it works]({{ site.baseurl }}/img/how-it-works.png)
 
 The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example using Markdown's link syntax:
 
@@ -64,7 +86,7 @@ The first step is to select the words in the example that define the _context_ (
 The full name [Jane Smith]() is [broken]() into first name [Jane]() and last name [Smith]().
 ~~~
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumenting/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links](./img/tutorial-instrument-links-preview.png)
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumenting/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links]({{ site.baseurl }}/img/tutorial-instrument-links-preview.png)
 
 Next, we add commands to the links:
 
@@ -80,9 +102,9 @@ These commands are:
 2. executing our _action_, by executing the method `split()` with the variable `#name` and returning the value `#result`
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumented/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification](./img/tutorial-instrumented-preview.png)
+Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumented/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification]({{ site.baseurl }}/img/tutorial-instrumented-preview.png)
 
-[Find out more](/instrumenting) about instrumenting fixtures.
+[Find out more]({{ site.baseurl }}/instrumenting) about instrumenting fixtures.
 
 ## 4. Coding
 
@@ -110,7 +132,7 @@ file:///tmp/concordion/marketing/mailshots/SplittingNames.html
 
 Opening this URL in a browser, the output should look something like this:
 
-![output broken due to missing code](http://concordion.org/image/tutorial/execute/BrokenDueToMissingFixtureCode.png)
+![output broken due to missing code]({{ site.baseurl }}/img/tutorial-broken-due-to-missing-code.png)
 
 The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
 
@@ -136,8 +158,7 @@ public class SplittingNamesFixture {
 
 Run it now and you get:
 
-<!-- TODO copy to img folder -->
-![output broken because not fully implemented](http://concordion.org/image/tutorial/execute/BrokenBecauseNotFullyImplemented.png)
+![output broken because not fully implemented]({{ site.baseurl }}/img/tutorial-not-fully-implemented.png)
 
 Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
 
@@ -169,7 +190,6 @@ public class SplittingNamesFixture {
 
 The test now passes:
 
-<!-- TODO copy to img folder -->
-![output of successful run](http://concordion.org/image/tutorial/execute/Successful.png)
+![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
-[Find out more](./coding) about coding fixtures.
+[Find out more]({{ site.baseurl }}/coding) about coding fixtures.

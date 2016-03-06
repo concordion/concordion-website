@@ -1,12 +1,13 @@
+{% capture specType %}{% if page.specType %}{{ page.specType | downcase }}{% else %}markdown{% endif %}{% endcapture %}
 <ul id="slide-out" class="side-nav fixed  collapsible collapsible-accordion">
     <li class="side-nav-logo"><a href="{{site.baseurl}}"><img src="{{site.baseurl}}/img/concordion-logo-green.png" alt="Concordion Logo"/></a></li>
     <li><a href="{{site.baseurl}}/extensions">Extensions</a></li>
-    <li><a href="{{site.baseurl}}/tutorial">Getting Started</a></li>
+    <li><a href="{{site.baseurl}}/tutorial/{{ specType }}">Getting Started</a></li>
     <li><a>Next steps</a>
         <ul>
           <li><a href="{{site.baseurl}}/discussing">Discussing</a></li>
           <li><a href="{{site.baseurl}}/documenting">Documenting</a></li>
-          <li><a href="{{site.baseurl}}/instrumenting/{% if page.specType %}{{ page.specType | downcase }}{% else %}markdown{% endif %}">Instrumenting</a></li>
+          <li><a href="{{site.baseurl}}/instrumenting/{{ specType }}">Instrumenting</a></li>
           <li><a href="{{site.baseurl}}/coding">Coding</a></li>
       </ul>
   </li>
