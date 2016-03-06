@@ -4,7 +4,9 @@ title: "Concordion | Download"
 description: ""
 heading: "Download"
 subheading: "Downloads and release notes"
----
+redirect_from:
+  - /Download.html
+  ---
 
   <div class="github-fork-ribbon-wrapper right">
     <div class="github-fork-ribbon">
