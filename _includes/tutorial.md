@@ -1,15 +1,28 @@
-{% assign specType=include.specType %}
-{% if specType == 'HTML' %}
+{% assign spec_type=page.spec_type %}
+{% if spec_type == 'html' %}
 {% assign html=true %}
 {% assign md=false  %}
+{% assign spec_type_desc = 'HTML' %}
 {% assign ext='html' %}
-{% elsif specType == 'Markdown' %}
+{% elsif spec_type == 'markdown' %}
 {% assign html=false %}
 {% assign md=true    %}
+{% assign spec_type_desc = 'Markdown' %}
 {% assign ext='md'    %}
 {% endif %}
 
-_This page explains getting started with __{{ specType }}__ specifications._ If you prefer to use {% if html %}Markdown specifications, click [here]({{site.baseurl}}/tutorial/markdown){% elsif md %}HTML specifications, click [here]({{site.baseurl}}/tutorial/html){% endif %}.
+{% assign fixture_language=page.fixture_language %}
+{% if fixture_language == 'java' %}
+{% assign java=true %}
+{% assign csharp=false  %}
+{% assign fixture_language_desc = 'Java' %}
+{% elsif fixture_language == 'csharp' %}
+{% assign java=false %}
+{% assign csharp=true %}
+{% assign fixture_language_desc = 'C#' %}
+{% endif %}
+
+_This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
 
 Creating a living document is a 4 step process:
 
