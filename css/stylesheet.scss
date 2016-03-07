@@ -227,6 +227,10 @@ footer.page-footer {
     100% { opacity:1; }
 }
 
+.output {
+    background-color: {{ site.grey-light }};    
+}
+
 @media only screen and (min-width: 601px) {
     #homepage-hero {
         background-position: 45% 0%;
