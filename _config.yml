@@ -28,3 +28,39 @@ gems:
 
 whitelist:
   - jekyll-redirect-from
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: sidenav
+      description: ""
+  -
+    scope:
+      path: "coding"
+    values:
+      title: "Concordion | Coding"
+      heading: "Coding" 
+      subheading: "Implementing the examples"
+      subject: 'coding'
+  -
+    scope:
+      path: "instrumenting"
+    values:
+       title: "Concordion | Instrumenting"
+       heading: "Instrumenting"
+       subheading: "Making the examples executable"
+       subject: 'instrumenting'
+  -
+    scope:
+      path: "tutorial"
+    values:
+      title: "Concordion | Getting Started"
+      heading: "Getting Started"
+      subheading: "The basics of creating living documents using Concordion"
+      subject: 'tutorial'
+
+
+
+

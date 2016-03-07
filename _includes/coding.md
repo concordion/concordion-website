@@ -1,19 +1,46 @@
----
-layout: sidenav
-title: "Concordion | Coding"
-description: ""
-heading: "Coding"
-subheading: "Implementing the examples"
----
-Concordion fixtures find concrete examples in the specification and use them to verify the system under test. The fixtures can be written in Java or [C#](TODO).
+{% assign spec_type=page.spec_type %}
+{% if spec_type == 'html' %}
+{% assign html=true %}
+{% assign md=false  %}
+{% assign spec_type_desc = 'HTML' %}
+{% assign ext='html' %}
+{% elsif spec_type == 'markdown' %}
+{% assign html=false %}
+{% assign md=true    %}
+{% assign spec_type_desc = 'Markdown' %}
+{% assign ext='md'    %}
+{% endif %}
+
+{% assign fixture_language=page.fixture_language %}
+{% if fixture_language == 'java' %}
+{% assign java=true %}
+{% assign csharp=false  %}
+{% assign fixture_language_desc = 'Java' %}
+{% elsif fixture_language == 'csharp' %}
+{% assign java=false %}
+{% assign csharp=true %}
+{% assign fixture_language_desc = 'C#' %}
+{% endif %}
+
+_This page describes writing fixtures in __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
+
+{% if csharp %}
+----
+__TODO:__ This page has not been translated to C# yet.
+
+----
+
+{% endif %}
+
+Concordion fixtures find concrete examples in the specification and use them to verify the system under test. 
 
 Concordion is a test runner that can invoke your application code directly:
 
-![Fixture calling application code directly](./img/coding-application-layer.png)
+![Fixture calling application code directly]({{ site.baseurl }}/img/coding-application-layer.png)
 
 It can also drive the interfaces of your deployed application:
 
-![Fixture calling driver calling deployed application](./img/coding-driver-layers.png)
+![Fixture calling driver calling deployed application]({{ site.baseurl }}/img/coding-driver-layers.png)
 
 It is good practice to create a separate driver layer for the code that drives your application interface, keeping the runner free of driver logic and the driver layer free of test assertions. Other libraries are required for the driver layer, such as [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for web applications; [wslite](https://github.com/jwagenleitner/groovy-wslite), JAX/WS or JAX/RS for web services; JDBC for databases, etc. Any Java library can be used with Concordion, providing a lot of flexibility in how you use it.
 
@@ -21,7 +48,7 @@ It is good practice to create a separate driver layer for the code that drives y
 
 The fixture must be in the same package as the specification. It can be in a different source folder, as long as that folder is on the Java classpath. For instance the [tutorial](./tutorial) uses the conventional `src/test/java` folder for the fixture class, and the `src/test/resources` folder for the specification:
 
-![Folder structure of tutorial project](./img/coding-folder-structure.png)
+![Folder structure of tutorial project]({{ site.baseurl }}/img/coding-folder-structure.png)
 
 Some users prefer to have the specifications and fixture classes in the same folder, and adjust their build tool settings accordingly. Another common pattern is to create a distinct folder, such as `src/spec`, to keep the specifications and fixtures separate from unit tests.
 
