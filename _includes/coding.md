@@ -16,10 +16,12 @@
 {% assign java=true %}
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
+{% assign supports_2.0 = true %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
+{% assign supports_2.0 = false %}
 {% endif %}
 
 _This page describes writing fixtures in __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.

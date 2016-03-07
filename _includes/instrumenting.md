@@ -16,10 +16,12 @@
 {% assign java=true %}
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
+{% assign supports_2_0=true %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
+{% assign supports_2_0=false %}
 {% endif %}
 
 _This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Click the buttons above to choose other formats.
@@ -186,6 +188,7 @@ When Concordion processes the document, it will set a specification variable `#f
 _Note that the `#` syntax is short for `c:set=#`_
 {% endif %}
 
+{% if supports_2_0 %}
 ----
 
 ## example command
@@ -248,6 +251,8 @@ will close the example with the heading `Example 1`
 {% endif %}
 
 [Further details](http://concordion.github.io/concordion/latest/spec/command/example/Examples.html){% if md %} and [Markdown grammar](http://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+
+{% endif %}
 
 ----
 
@@ -715,9 +720,11 @@ The syntax for a verify-rows command is:
 
 where expression returns an Iterable object with a predictable iteration order, (e.g. a List, LinkedHashSet or a TreeSet). And #loopVar provides access to the current object during iteration and allows the assert-equals method to check its value.
 
-By default, the order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
+{% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
 
-(As an alternative, you can apply a [match strategy](http://concordion.github.io/concordion/latest/spec/command/verify-rows/strategies/Strategies.html) to define how the rows are matched).
+{% if supports_2_0 %}
+(_since: 2.0.0_, As an alternative, you can apply a [match strategy](http://concordion.github.io/concordion/latest/spec/command/verify-rows/strategies/Strategies.html) to define how the rows are matched).
+{% endif %}
 
 When run with a fixture that returns an empty collection, we get:
 

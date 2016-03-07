@@ -1,10 +1,29 @@
----
-layout: sidenav
-title: "Concordion | Documenting"
-description: ""
-heading: "Documenting"
-subheading: "Creating specifications with Markdown or HTML"
----
+{% assign spec_type=page.spec_type %}
+{% if spec_type == 'html' %}
+{% assign html=true %}
+{% assign md=false  %}
+{% assign spec_type_desc = 'HTML' %}
+{% assign ext='html' %}
+{% elsif spec_type == 'markdown' %}
+{% assign html=false %}
+{% assign md=true    %}
+{% assign spec_type_desc = 'Markdown' %}
+{% assign ext='md'    %}
+{% endif %}
+
+{% assign fixture_language=page.fixture_language %}
+{% if fixture_language == 'java' %}
+{% assign java=true %}
+{% assign csharp=false  %}
+{% assign fixture_language_desc = 'Java' %}
+{% elsif fixture_language == 'csharp' %}
+{% assign java=false %}
+{% assign csharp=true %}
+{% assign fixture_language_desc = 'C#' %}
+{% endif %}
+
+_This page introduces documenting specifications in __{{ spec_type_desc }}__._  Click the buttons above to choose other options.
+
 <!--
 TODO:
 
@@ -111,7 +130,7 @@ To make it easier to navigate around the results, and to remove the headache of 
 
 In order for breadcrumbs to be generated, certain conventions must be followed.
 
-![Example of breadcrumbs](./img/documenting-breadcrumbs.png)
+![Example of breadcrumbs]({{ site.baseurl }}/img/documenting-breadcrumbs.png)
 
 [More details](http://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
 
@@ -124,6 +143,8 @@ Should you wish to enhance your specifications, you can add CSS, JavaScript, ima
 # Specification language
 
 Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension](ExtensionsAPI.html) to handle other formats).
+
+{% if md %}
 
 ## Markdown
 
@@ -203,6 +224,9 @@ In order to have editing features and the ability to view with tables and strike
 
 _Please let us know what editor you are using, and what support you get from it. Either edit this page and raise a pull request or create an issue on this project to let us know. Thanks :)_
 
+{% endif %}
+
+{% if html %}
 
 ## HTML
 
@@ -272,3 +296,4 @@ Which produces:
 
 While you can edit HTML in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a HTML editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated HTML editors.
 
+{% endif %}

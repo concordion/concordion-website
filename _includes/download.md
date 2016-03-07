@@ -1,12 +1,36 @@
----
-layout: sidenav
-title: "Concordion | Download"
-description: ""
-heading: "Download"
-subheading: "Downloads and release notes"
-redirect_from:
-  - /Download.html
-  ---
+{% assign spec_type=page.spec_type %}
+{% if spec_type == 'html' %}
+{% assign html=true %}
+{% assign md=false  %}
+{% assign spec_type_desc = 'HTML' %}
+{% assign ext='html' %}
+{% elsif spec_type == 'markdown' %}
+{% assign html=false %}
+{% assign md=true    %}
+{% assign spec_type_desc = 'Markdown' %}
+{% assign ext='md'    %}
+{% endif %}
+
+{% assign fixture_language=page.fixture_language %}
+{% if fixture_language == 'java' %}
+{% assign java=true %}
+{% assign csharp=false  %}
+{% assign fixture_language_desc = 'Java' %}
+{% assign supports_2.0 = true %}
+{% elsif fixture_language == 'csharp' %}
+{% assign java=false %}
+{% assign csharp=true %}
+{% assign fixture_language_desc = 'C#' %}
+{% assign supports_2.0 = false %}
+{% endif %}
+
+_This page shows the downloads for __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
+
+{% if csharp %}
+<hr/>
+<p><b>TODO:</b> This page has not been translated to C# yet.</p>
+<hr/>
+{% endif %}
 
   <div class="github-fork-ribbon-wrapper right">
     <div class="github-fork-ribbon">
@@ -25,14 +49,14 @@ redirect_from:
       </p>
     </li>
     <li class="collection-item avatar">
-      <img src="img/download-gradle.jpg" alt="maven image" class="circle">
+      <img src="{{ site.baseurl }}/img/download-gradle.jpg" alt="maven image" class="circle">
       <span class="title">Gradle</span>
       <pre>
 testCompile 'org.concordion:concordion:1.5.1'
       </pre>
     </li>
     <li class="collection-item avatar">
-      <img src="img/download-maven.png" alt="maven image" class="circle">
+      <img src="{{ site.baseurl }}/img/download-maven.png" alt="maven image" class="circle">
       <span class="title">Maven</span>
             <pre>
 &lt;dependency&gt;

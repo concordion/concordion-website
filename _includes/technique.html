@@ -1,11 +1,26 @@
----
-layout: sidenav
-title: "Concordion | Hints and Tips"
-description: ""
-heading: "Hints and Tips"
-subheading: "Good practices for using Concordion"
----
+{% assign spec_type=page.spec_type %}
+{% if spec_type == 'html' %}
+{% assign html=true %}
+{% assign md=false  %}
+{% assign spec_type_desc = 'HTML' %}
+{% assign ext='html' %}
+{% elsif spec_type == 'markdown' %}
+{% assign html=false %}
+{% assign md=true    %}
+{% assign spec_type_desc = 'Markdown' %}
+{% assign ext='md'    %}
+{% endif %}
 
+{% assign fixture_language=page.fixture_language %}
+{% if fixture_language == 'java' %}
+{% assign java=true %}
+{% assign csharp=false  %}
+{% assign fixture_language_desc = 'Java' %}
+{% elsif fixture_language == 'csharp' %}
+{% assign java=false %}
+{% assign csharp=true %}
+{% assign fixture_language_desc = 'C#' %}
+{% endif %}
 <section id="technique">
     <div class="container">
 
@@ -26,7 +41,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example bad">
-                    <img src="./img/bad.png"/>
+                    <img src="{{ site.baseurl }}/img/bad.png"/>
                     Clear database
                     <br/>Load database from "sample-data.sql"
                     <br/>Start webserver
@@ -71,7 +86,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example good">
-                    <img src="./img/good.png"/>
+                    <img src="{{ site.baseurl }}/img/good.png"/>
                     When John logs in, a greeting "Hello John!" is displayed.
                 </blockquote>
 
@@ -106,7 +121,7 @@ subheading: "Good practices for using Concordion"
                     are written once and never changed.
                 </p>
 
-                <img id="specFixtureSystem" class="inline" src="./img/technique-spec-fixture-system-gray.png"/>
+                <img id="specFixtureSystem" class="inline" src="{{ site.baseurl }}/img/technique-spec-fixture-system-gray.png"/>
 
                 <a name="instrumentationStable"> </a>
                 <h3>Instrumentation should not change either</h3>
@@ -134,7 +149,7 @@ subheading: "Good practices for using Concordion"
                     the instrumentation:
                 </p>
                 <blockquote class="example bad">
-                    <img src="./img/bad.png"/>
+                    <img src="{{ site.baseurl }}/img/bad.png"/>
 
                     <code>order.phoneLine.phoneNumber</code>
                     <br/><code>order.phoneLine.location.postcode</code>
@@ -148,7 +163,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example good">
-                    <img src="./img/good.png"/>
+                    <img src="{{ site.baseurl }}/img/good.png"/>
                     <code>phoneNumber</code>
                     <br/><code>postcode</code>
                 </blockquote>
@@ -167,7 +182,7 @@ subheading: "Good practices for using Concordion"
                     language (DSL) &#150; that lets you manipulate the system under test.
                     Eventually, the fixture code will become very stable too.
                 </p>
-                <img id="specFixtureScriptSystem" class="inline" src="./img/technique-spec-fixture-scripting-system-gray.png"/>
+                <img id="specFixtureScriptSystem" class="inline" src="{{ site.baseurl }}/img/technique-spec-fixture-scripting-system-gray.png"/>
 
             </div>
 
@@ -224,7 +239,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example good">
-                    <img src="./img/good.png"/>
+                    <img src="{{ site.baseurl }}/img/good.png"/>
                     Given a user called John;
                     <br/>When John logs in,
                     <br/>then a greeting is displayed saying "Hello John!".
@@ -238,7 +253,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example good">
-                    <img src="./img/good.png"/>
+                    <img src="{{ site.baseurl }}/img/good.png"/>
                     When John logs in, a greeting
                     "Hello John!" is displayed.
                 </blockquote>
@@ -247,7 +262,7 @@ subheading: "Good practices for using Concordion"
         </div>
 
         <div class="row">
-            <img class="smelly bin" src="./img/smelly-rubbish-bin.png"/>
+            <img class="smelly bin" src="{{ site.baseurl }}/img/smelly-rubbish-bin.png"/>
 
             <a name="commonSmells"> </a>
             <h1>Common Smells</h1>
@@ -277,7 +292,7 @@ subheading: "Good practices for using Concordion"
             <div class="divider"></div>
 
             <div class="section">
-                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png"/>
                 <a name="lotsOfExecutes"> </a>
                 <h2>Lots of "execute" commands</h2>
 
@@ -302,7 +317,7 @@ subheading: "Good practices for using Concordion"
             <div class="divider"></div>
 
             <div class="section">
-                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png"/>
                 <a name="complicatedInstrumentation"> </a>
                 <h2>Complicated instrumentation</h2>
 
@@ -326,7 +341,7 @@ subheading: "Good practices for using Concordion"
             <div class="divider"></div>
 
             <div class="section">
-                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png"/>
                 <a name="complicatedFixtures"> </a>
                 <h2>Complicated fixture code</h2>
 
@@ -347,7 +362,7 @@ subheading: "Good practices for using Concordion"
             <div class="divider"></div>
 
             <div class="section">
-                <img class="smelly fish" src="./img/smelly-fish.png"/>
+                <img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png"/>
                 <a name="sameStructure"> </a>
                 <h2>Examples all have the same structure</h2>
 
@@ -366,7 +381,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example bad">
-                    <img src="./img/bad.png"/>
+                    <img src="{{ site.baseurl }}/img/bad.png"/>
                     Given the following orders:
                     <br/>
                     <br/>
@@ -418,7 +433,7 @@ subheading: "Good practices for using Concordion"
                 </p>
 
                 <blockquote class="example good">
-                    <img src="./img/good.png"/>
+                    <img src="{{ site.baseurl }}/img/good.png"/>
                     When an <b>Active</b> order is cancelled,
                     its status is displayed as <b>Cancelled</b>.
                 </blockquote>

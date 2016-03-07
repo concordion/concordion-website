@@ -46,6 +46,30 @@ defaults:
       subject: 'coding'
   -
     scope:
+      path: "documenting"
+    values:
+      title: "Concordion | Documenting"
+      heading: "Documenting"
+      subheading: "Creating specifications with Markdown or HTML"
+      subject: "documenting"
+  -
+    scope:
+      path: "download"
+    values:
+      title: "Concordion | Download"
+      heading: "Download"
+      subheading: "Downloads and release notes"
+      subject: "download"
+  -
+    scope:
+      path: "extensions"
+    values:
+      title: "Concordion | Extensions"
+      heading: "Extensions"
+      subheading: "Enhancing Concordion with flexible features"
+      subject: "extensions"
+  -
+    scope:
       path: "instrumenting"
     values:
        title: "Concordion | Instrumenting"
@@ -54,12 +78,37 @@ defaults:
        subject: 'instrumenting'
   -
     scope:
+      path: "integrations"
+    values:
+      title: "Concordion | Integrations"
+      heading: "Integrations"
+      subheading: "Integrating Concordion with other tools"
+      subject: 'integrations'
+  -
+    scope:
+      path: "questions"
+    values:
+      title: "Concordion | FAQ"
+      heading: "FAQ"
+      subheading: "Frequently Asked Questions about Concordion"
+      subject: 'questions'
+  -
+    scope:
+      path: "technique"
+    values:
+      title: "Concordion | Hints and Tips"
+      heading: "Hints and Tips"
+      subheading: "Good practices for using Concordion"
+      subject: 'technique'
+  -
+    scope:
       path: "tutorial"
     values:
       title: "Concordion | Getting Started"
       heading: "Getting Started"
       subheading: "The basics of creating living documents using Concordion"
       subject: 'tutorial'
+
 
 
 
