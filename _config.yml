@@ -46,6 +46,14 @@ defaults:
       subject: 'coding'
   -
     scope:
+      path: "discussing"
+    values:
+      title: "Concordion | Discussing"
+      heading: "Discussing"
+      subheading: "Collaboratively specifying examples"
+      subject: "discussing"
+  -
+    scope:
       path: "documenting"
     values:
       title: "Concordion | Documenting"
