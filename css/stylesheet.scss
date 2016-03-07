@@ -227,8 +227,11 @@ footer.page-footer {
     100% { opacity:1; }
 }
 
-.output {
+.awesomeness {
     background-color: {{ site.grey-light }};    
+    .card-content {
+      min-height: 200px;
+    }
 }
 
 @media only screen and (min-width: 601px) {
