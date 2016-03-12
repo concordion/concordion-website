@@ -44,7 +44,7 @@ To start from scratch, start from the `initial` folder of the project.
 
 By collaboratively exploring requirements with realistic examples, teams build a shared understanding and detect issues and misunderstandings prior to developing a new feature.
 
-For this tutorial, we are working on a system for creating marketing mailshots. We want to have the first name and last name of the customer. Unfortunately the customer data that we are supplied only contains full names.
+For this tutorial, we are working on a system for creating marketing mailshots. We want to have the first name and last name of the customer. Unfortunately the customer data that we are supplied only contains full names, so we will need to split them.
 
 We start off discussing a simple example:
 
@@ -123,7 +123,7 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 
-In the `src/test/java/marketing/mailshots` folder of the tutorial project, create the file `SplittingNames.java` containing the following:
+In the `src/test/java/marketing/mailshots` folder of the tutorial project, create the file `SplittingNamesFixture.java` containing the following:
 
 ~~~java
 package marketing.mailshots;
