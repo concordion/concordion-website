@@ -7,12 +7,64 @@
         {% include imports-header.html %}
         <!-- LAYOUT SPECIFIC CSS/JS -->
         <link rel="stylesheet" href="{{site.baseurl}}/css/sidenav.css">
-        
+
         {% include analytics.html %}
     </head>
     <body>
         <header>
             {% include sidenav.html %}
+            <nav id="toggle-nav">
+                <div class="nav-wrapper">
+                    <ul class="right content-switches">
+                        {% if page.spec_type == "markdown" %}
+                        <li>
+                            <div class="switch">
+                                <label class="white-text">
+                                    Markdown
+                                    <input type="checkbox" data-url="{{ site.baseurl }}/{{ page.subject }}/{{ page.fixture_language}}/html"/>
+                                    <span class="lever"></span>
+                                    HTML
+                                </label>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li>
+                            <div class="switch">
+                                <label class="white-text">
+                                    Markdown
+                                    <input type="checkbox" checked data-url="{{ site.baseurl }}/{{ page.subject }}/{{ page.fixture_language}}/markdown"/>
+                                    <span class="lever"></span>
+                                    HTML
+                                </label>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% if page.fixture_language == "java" %}
+                        <li>
+                            <div class="switch">
+                                <label id="java-label" class="white-text">
+                                    Java
+                                    <input type="checkbox" data-url="{{ site.baseurl }}/{{ page.subject }}/csharp/{{ page.spec_type }}"/>
+                                    <span class="lever"></span>
+                                    C#
+                                </label>
+                            </div>
+                        </li>
+                        {% else %}
+                        <li>
+                            <div class="switch">
+                                <label id="java-label" class="white-text">
+                                    Java
+                                    <input type="checkbox" checked data-url="{{ site.baseurl }}/{{ page.subject }}/java/{{ page.spec_type }}"/>
+                                    <span class="lever"></span>
+                                    C#
+                                </label>
+                            </div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>                    
         </header>
         <main>
             <section class="sidenav-header">
@@ -22,18 +74,6 @@
                         <p>{{ page.subheading}}</p>
                     </div>
                 </div>
-            </section>
-            <section class="toggle-header">
-                <nav>
-                    <div class="nav-wrapper">
-                        <ul class="right">
-                            <li><a href="{{ site.baseurl }}/{{ page.subject }}/{{ page.fixture_language}}/markdown"><i class="mdi mdi-markdown" title="Markdown"></i></a></li>
-                            <li><a href="{{ site.baseurl }}/{{ page.subject }}/{{ page.fixture_language}}/html"><i class="mdi mdi-code-tags" title="HTML"></i></a></li>
-                            <li><a href="{{ site.baseurl }}/{{ page.subject }}/java/{{ page.spec_type }}"><i class="mdi mdi-coffee" title="Java"></i></a></li>
-                            <li><a href="{{ site.baseurl }}/{{ page.subject }}/csharp/{{ page.spec_type }}"><i class="mdi mdi-language-csharp" title="C#"></i></a></li>
-                        </ul>
-                    </div>
-                </nav>                    
             </section>
             <div class="container sidenav-content">
                 <div class="row">

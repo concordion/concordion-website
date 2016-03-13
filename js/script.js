@@ -81,6 +81,11 @@ $(document).ready(function() {
         textToType = printBenefit(section);
         backspaceAndType(typedObject, textToType);
     });
+    
+    // TUTORIAL SWITCHES
+    $('.switch input').click(function() {
+        window.location.replace($(this).data("url"));
+    });
 
 });
 
