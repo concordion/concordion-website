@@ -151,7 +151,13 @@ footer.page-footer {
     padding-top: 40px;
 
     .footer-copyright {
+        padding-top: 20px;
+        height: auto;
+        line-height: 1.5em;
         background-color: {{ site.green-dark }};
+        img {
+            vertical-align: middle;
+        }
     }
 }
 
