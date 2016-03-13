@@ -1,17 +1,37 @@
 ---
 ---
 
+body::-webkit-scrollbar { 
+    width: 0 !important; 
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
 header, main, footer {
     padding-left: 240px;
+}
+
+header {
+    position: relative;
+}
+
+.button-collapse.left-nav {
+    position: absolute;
+    z-index: 950;
+    font-size: 32px;
+    padding: 26px;
+    margin-left: 13px;
 }
 
 .side-nav-logo {
 
     text-align: center;
-    
+
     a {
         height: auto;
-        
+
         img {
             width: 60%;
             margin: 15px 0px;
@@ -21,10 +41,6 @@ header, main, footer {
 
 .side-nav li.side-nav-logo:hover, .side-nav li.side-nav-logo:active {
     background-color: transparent;
-}
-
-.button-collapse.left-nav {
-    display: none;
 }
 
 .sidenav-header {
@@ -42,84 +58,184 @@ header, main, footer {
     }
 }
 
+#slide-out::-webkit-scrollbar { 
+    width: 0 !important; 
+}
+
+#slide-out {
+    -ms-overflow-style: none;
+}
+
+#slide-out > li:last-child {
+    margin-bottom: 64px;
+}
+
+#next-steps {
+
+    padding: 0px 0px 0px 0px;
+
+    .fa {
+        font-size: 70%;
+        float: none;
+        display: inline-block;
+        -webkit-transition: all 0.3s; /* Safari */
+        transition: all 0.3s;
+    }
+
+    .collapsible-header {
+
+    }
+
+    .collapsible-body ul li a {
+
+    }
+}
+
+#next-steps.active {
+    background-color: transparent;
+    
+    .fa {
+        transform: rotate(90deg);
+    }
+}
+
+#next-steps:hover, #next-steps.active:hover {
+    background-color: #ddd;
+}
+
+#toggle-nav {
+    height: 84px;
+    line-height: 84px;
+    position: static;
+    background-color: {{ site.green }};
+}
+
+@media only screen and (min-width: 993px) {
+
+    .button-collapse.left-nav {
+        display: none;
+    }
+
+    #toggle-nav {
+        position: absolute;
+        background-color: transparent;
+
+        .nav-wrapper {
+            width: calc(100% - 240px);
+            width: -moz-calc(100% - 240px);
+            margin: 0px 0px 0px 0px;
+        }
+    }
+}
+
+.content-switches {
+
+    margin-right: 40px;
+    margin-top: 20px;
+
+    #java-label {    
+        margin-left: 30px;
+    }
+
+    li {
+        clear: left;
+    }
+
+
+    .switch {
+
+        height: 32px;
+        line-height: 32px;
+
+        label input[type=checkbox]:checked+.lever:after {
+            background-color: #F1F1F1;
+        }
+
+        label input[type=checkbox]:checked+.lever {
+            background-color: #818181;
+        }
+    }
+}
+
 .sidenav-content {
 
     pre {
         font-size: 1rem;
         line-height: 1rem;
-//        background: url(../img/pre.png) repeat 0 -1rem;
+        //        background: url(../img/pre.png) repeat 0 -1rem;
         background-size: 1px 4rem;
         margin: 2rem 0;
-//        padding: 1rem 0.8rem 1rem 1.2rem;
+        //        padding: 1rem 0.8rem 1rem 1.2rem;
         padding: 0.8rem 0.6rem 0.8rem 0.5rem;
         border: 1px solid {{ site.red-light }};
-//        border-left: 1rem solid {{ site.red-light }};
-        border-left: 0.5rem solid {{ site.red-light }};
+    //        border-left: 1rem solid {{ site.red-light }};
+    border-left: 0.5rem solid {{ site.red-light }};
 
 //        code {
 //            font-size: 1.2rem;
 //            line-height: 2rem;
 //        }
-    }
+}
 
-    .collapsible-body {
-        p {
-            padding-bottom: 0rem;
-        }
-        pre {
-            margin: 1rem 2rem 2rem 2rem;
-        }
-    }
-
+.collapsible-body {
     p {
-        @extend .flow-text;
-
-        img {
-            display: block;
-            margin: 0.5rem 0;
-            max-width: 100%;
-        }
+        padding-bottom: 0rem;
     }
-
-    ol li, ul li {
-        @extend .flow-text;
+    pre {
+        margin: 1rem 2rem 2rem 2rem;
     }
+}
 
-    h1, h2 {
-        color: {{ site.green }};
-    }
+p {
+    @extend .flow-text;
 
-    h1 + .section {
-        padding-top: 0.1rem;
+    img {
+        display: block;
+        margin: 0.5rem 0;
+        max-width: 100%;
     }
+}
 
-    h1 {
-        font-size: 3.2rem;
-        padding-bottom: .6rem;
-        border-bottom:2px solid;
-    }
+ol li, ul li {
+    @extend .flow-text;
+}
 
-    h2 {
-        font-size: 2.6rem;
-    }
+h1, h2 {
+    color: {{ site.green }};
+}
 
-    h3 {
-        font-size: 1.8rem;
-    }
+h1 + .section {
+    padding-top: 0.1rem;
+}
 
-    img.inline {
-        padding: 20px 20px 20px 64px;
-    }
+h1 {
+    font-size: 3.2rem;
+    padding-bottom: .6rem;
+    border-bottom:2px solid;
+}
 
-    img.smelly {
-        float: right;
-        width: 7rem;
-    }
+h2 {
+    font-size: 2.6rem;
+}
 
-    blockquote {
-        border: 0;
-        padding: 12px;
-    }
+h3 {
+    font-size: 1.8rem;
+}
+
+img.inline {
+    padding: 20px 20px 20px 64px;
+    max-width: 100%;
+}
+
+img.smelly {
+    float: right;
+    width: 7rem;
+}
+
+blockquote {
+    border: 0;
+    padding: 12px;
+}
 }
 
 .example {
