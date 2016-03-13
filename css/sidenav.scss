@@ -1,12 +1,32 @@
 ---
 ---
 
-body::-webkit-scrollbar { 
-    width: 0 !important; 
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: calc(#{$expression});
 }
 
-body {
-    -ms-overflow-style: none;
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin text-shadow($shadow) {
+    -moz-text-shadow: $shadow;
+    -webkit-text-shadow: $shadow;
+    text-shadow: $shadow;
 }
 
 header, main, footer {
@@ -78,16 +98,7 @@ header {
         font-size: 70%;
         float: none;
         display: inline-block;
-        -webkit-transition: all 0.3s; /* Safari */
-        transition: all 0.3s;
-    }
-
-    .collapsible-header {
-
-    }
-
-    .collapsible-body ul li a {
-
+        @include transition(all 0.3s);
     }
 }
 
@@ -95,7 +106,7 @@ header {
     background-color: transparent;
     
     .fa {
-        transform: rotate(90deg);
+        @include transform(rotate(90deg));
     }
 }
 
@@ -121,8 +132,7 @@ header {
         background-color: transparent;
 
         .nav-wrapper {
-            width: calc(100% - 240px);
-            width: -moz-calc(100% - 240px);
+            @include calc(width, '100% - 240px');
             margin: 0px 0px 0px 0px;
         }
     }

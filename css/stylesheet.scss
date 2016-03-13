@@ -33,6 +33,15 @@
 // GENERAL
 // #######
 
+
+body::-webkit-scrollbar { 
+    width: 0 !important; 
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
 html, body {
     background-color: {{ site.off-white }};
     overflow-x: hidden;
@@ -138,6 +147,8 @@ nav.static {
 
 footer.page-footer {
     background-color: {{ site.green }};
+    margin-top: 0px;
+    padding-top: 40px;
 
     .footer-copyright {
         background-color: {{ site.green-dark }};
@@ -228,7 +239,9 @@ footer.page-footer {
 }
 
 .awesomeness {
-    background-color: {{ site.grey-light }};    
+    background-color: {{ site.grey-light }};   
+    padding-bottom: 10px;
+    padding-top: 20px;
     .card-content {
       min-height: 200px;
     }
