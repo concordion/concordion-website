@@ -209,9 +209,17 @@ To specify that a piece of the specification is an example,{% if html %} annotat
 
 Example goes here
 ~~~
+
+The example name is optional and will be generated from the heading text if not supplied. For example:
+
+~~~markdown
+## [Check 3 items](-)
+~~~
+
+will create an example named `check-3-items` with the heading `Check 3 items`.
 {% endif %}
 
-Each example is run and reported as a separate test. Any commands that are outside of named examples are executed in an anonymous "outer" example.
+Each example is run and reported as a separate test. Any commands that are outside of named examples are executed in a single anonymous "outer" example that is run before the named examples.
 
 ### "before" examples
 
@@ -250,7 +258,23 @@ To explicitly close an example, create a header with the example heading struck-
 will close the example with the heading `Example 1`    
 {% endif %}
 
-[Further details](http://concordion.github.io/concordion/latest/spec/command/example/Examples.html){% if md %} and [Markdown grammar](http://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+### Implementation Status
+As an alternative to setting the [implementation status]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) for the whole specification, you can set it for individual examples. This allows partially-implemented examples in the specification without breaking the build.
+
+{% if html %}
+~~~html
+<div concordion:example="example3" concordion:status="ExpectedToFail">
+        Example goes here
+</div>
+~~~
+{% elsif md %}
+~~~markdown
+## [Example 3](- "example3 c:status=ExpectedToFail")
+~~~
+{% endif %}
+The status can be either `ExpectedToFail` or `Unimplemented`.
+
+[Further details](http://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](http://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 {% endif %}
 
@@ -266,7 +290,7 @@ The execute command has three main uses:
 
 ### Executing an instruction with a void result
 
-It can occasionally be useful to execute an instruction that sets up some system state. Every time you do this, however, alarm bells should ring in your head and you should question yourself to make sure that you are not inadvertently writing a script instead of a specification. E.g. a call to "clearDatabase()" would be a blatant misuse (see [Technique](TODO) for more on this topic).
+It can occasionally be useful to execute an instruction that sets up some system state. Every time you do this, however, alarm bells should ring in your head and you should question yourself to make sure that you are not inadvertently writing a script instead of a specification. E.g. a call to "clearDatabase()" would be a blatant misuse (see [Hints and Tips]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}) for more on this topic).
 
 As a rule of thumb, methods with a void result called from an execute should start with the word set or setUp. E.g. setUpUser(#username).
 
@@ -444,8 +468,9 @@ The greeting "[Hello Bob!]()" should be given to user [Bob]() when he logs in.
 ~~~
 {% endif %}
 
-In this case, the input parameter Bob occurs after the output greeting we want to check. We can solve this problem by{% if md %} changing this sentence to HTML and{% endif %} using an execute command on the outer element (the <p>).
+In this case, the input parameter Bob occurs after the output greeting we want to check. We can solve this problem by{% if md %} changing this sentence to HTML, wrapping it in a `<div>` element and{% endif %} using an execute command on the outer element (the <p>).
 
+{% if html %}
 ~~~html
 <p concordion:execute="#greeting = greetingFor(#firstName)">
     The greeting "<span concordion:assert-equals="#greeting">Hello Bob!</span>"
@@ -453,6 +478,17 @@ In this case, the input parameter Bob occurs after the output greeting we want t
     when he logs in.
 </p>
 ~~~
+{% elsif md %}
+~~~html
+<div>
+    <p concordion:execute="#greeting = greetingFor(#firstName)">
+        The greeting "<span concordion:assert-equals="#greeting">Hello Bob!</span>"
+        should be given to user <span concordion:set="#firstName">Bob</span>
+        when he logs in.
+    </p>
+</div>
+~~~
+{% endif %}
 
 How does this work? It works because the execute command is designed to process commands on its child elements in a special order. First of all it processes any child set commands then it runs its own command, then any child execute commands and finally any child assert-equals commands.
 
@@ -619,13 +655,13 @@ This instrumentation has identical behaviour to the previous example.
 
 _since 1.4.6_
 
-{% if md %}
-TODO - Markdown variant
-{% endif %}
-
 The `execute` command has special behavior when placed on a list element (`<ol>` or `<ul>`). Instead of executing once, it executes every list item in the list (and all its sub lists) and transfers the commands from the list element to each list item element. This feature can for example be used to setup a hierarchical structure of test data.
 
-[Further details](http://concordion.github.io/concordion/latest/spec/command/execute/ExecutingList.html)
+{% if md %}
+There is currently no explicit support for this in the Concordion Markdown syntax. Instead the HTML version of this must be used, wrapped in a `<div>` element.
+{% endif %}
+
+[Further details](http://concordion.github.io/concordion/latest/spec/command/execute/ExecutingList.html){% if md %} and [Markdown syntax](http://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
 
 ----
 
@@ -822,3 +858,13 @@ Username:[ ](- "c:echo=username")
 {% endif %}
 
 [Further details](http://concordion.github.io/concordion/latest/spec/command/echo/Echo.html)
+
+----
+
+## Expression language
+
+In order to keep your specifications [simple and maintainable]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple), Concordion deliberately restricts the [expression language](http://concordion.github.io/concordion/latest/spec/command/expressions/Expressions.html) that is allowed when instrumenting specifications. 
+
+This can be [overridden]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#full-ognl) to allow complex expressions.
+
+

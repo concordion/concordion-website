@@ -34,39 +34,61 @@ As a guideline, specifications are often based on individual features of a syste
 
 A common structure is:
 
-<!--
-    TODO - show as HTML spec
--->
+{% if md %}
+    # Feature title
 
-----
+    Feature description
 
-# Feature title
-
-Feature description
-
-## Business Rules or Acceptance Criteria
+    ## Business Rules or Acceptance Criteria
 
 
-- Rule 1
-- Rule 2
+    - Rule 1
+    - Rule 2
 
-...
+    ...
 
-## Additional detail
+    ## Additional detail
 
-Any other background info
+    Any other background info
 
-## Example 1
+    ### Example 1
 
-details of example 1
+    details of example 1
 
-## Example 2
+    ### Example 2
 
-details of example 2
+    details of example 2
 
-...
+    ...
 
-----
+{% elsif html %}
+
+    <h1>Feature title</h1>
+
+    Feature description
+
+    <h2>Business Rules or Acceptance Criteria</h2>
+
+    - Rule 1
+    - Rule 2
+
+    ...
+
+    <h2>Additional detail</h2>
+
+    Any other background info
+
+    <h3>Example 1</h3>
+
+    details of example 1
+
+    <h3>Example 2</h3>
+
+    details of example 2
+
+    ...
+
+{% endif %}
 
 ## Example Structure
 

@@ -70,23 +70,27 @@ public class SplittingNamesFixture {
 
 A fixture class is required for each specification.
 
-Unlike JUnit, we don't annotate methods with `@Test`. Instead, the tests are determined from the specification. Each example in the specification that uses the [example command](TODO) is created as a separate JUnit test. If the example command is not used, the specification is run as a single JUnit test.
+Unlike JUnit, we don't annotate methods with `@Test`. Instead, the tests are determined from the specification. Each example in the specification that uses the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command) is created as a separate JUnit test. If the example command is not used, the specification is run as a single JUnit test.
 
 ### Fixture methods
 
 #### Parameter types
 
-Type Coercion - __TODO__
+Methods in Concordion fixtures can take the following parameter types:
+
+* Numeric types (Integer, Long, Short, Double, Float, BigInteger, BigDecimal, and their primitive equivalents), 
+* String types (String, Character), 
+* Boolean and boolean
+
+When executed from a Concordion specification, Concordion will automatically convert the value to the parameter type. Boolean values must be specified as `true` or `false` in the specification.
 
 #### Return types
 
-__TODO__
-Simple
-Object
+Methods can return void, a primitive or an Object.
 
 ##### Returning a Map result
 
-As described in the tutorial, to check more than one result of a behaviour, you can return an object from the execute command. An alternative is to return a Map object, for example:
+As described in the tutorial, to check more than one result of a behaviour, you can return an Object from the execute command. An alternative is to return a Map Object, for example:
 
 ~~~java
 public Map split(String fullName) {
@@ -155,7 +159,7 @@ public class GreetingTest {
 
 See [here](http://concordion.org/dist/1.5.1/spec/concordion/annotation/Annotation.html) for an explanation of the semantics of each annotation.
 
-You can also set the [implementation status](TODO) for individual examples in the specification.
+You can also set the [implementation status]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) for individual examples in the specification.
 
 ### Fail-fast
 
@@ -194,7 +198,7 @@ The [before and after hooks](http://concordion.github.io/concordion/latest/spec/
 |__Suite__            |`@BeforeSuite`            |`@AfterSuite`           |
 
 Note:
-1. the example hooks require you to use the [example command](http://concordion.github.io/concordion/latest/spec/command/example/Examples.html).
+1. the example hooks require you to use the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command).
 2. the suite hooks must be in the fixture that is being run directly by JUnit. It won't be invoked on "child specifications" that are being run using the run command. A common pattern is to have a top level base class that contains the suite hooks and is extended by all fixtures.
 
 ### Configuration Options
@@ -237,7 +241,9 @@ See the [specification](http://concordion.github.io/concordion/latest/spec/annot
 
 ### Full OGNL
 
-__TODO__
+Concordion deliberately restricts the [expression language]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#expression-language) for instrumenting specifications.
+
+This can be overridden by annotating the fixture with `@FullOGNL` to allow [complex expresssions](http://concordion.github.io/concordion/latest/spec/command/expressions/ComplexExpressions.html).
 
 ### Adding Extensions
 
