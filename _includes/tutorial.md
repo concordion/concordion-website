@@ -22,7 +22,7 @@
 {% assign fixture_language_desc = 'C#' %}
 {% endif %}
 
-_This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
+_This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
 Creating a living document is a 4 step process:
 

@@ -24,7 +24,7 @@
 {% assign supports_2.0 = false %}
 {% endif %}
 
-_This page shows the downloads for __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
+_This page shows the downloads for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
 {% if csharp %}
 <hr/>

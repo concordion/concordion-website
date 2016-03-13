@@ -22,7 +22,7 @@
 {% assign fixture_language_desc = 'C#' %}
 {% endif %}
 
-_This page introduces the extensions for __{{ fixture_language_desc }}__._  Click the buttons above to choose other options.
+_This page introduces the extensions for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
 Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own](coding#building-your-own-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
 

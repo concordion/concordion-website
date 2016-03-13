@@ -22,7 +22,7 @@
 {% assign fixture_language_desc = 'C#' %}
 {% endif %}
 
-_This page introduces documenting specifications in __{{ spec_type_desc }}__._  Click the buttons above to choose other options.
+_This page introduces documenting specifications in __{{ spec_type_desc }}__._  Click the toggle buttons above to choose other options.
 
 Once we have discussed the examples, we create a Concordion specification describing the feature with examples.
 

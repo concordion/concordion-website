@@ -24,7 +24,7 @@
 {% assign supports_2_0=false %}
 {% endif %}
 
-_This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Click the buttons above to choose other formats.
+_This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Click the toggle buttons above to choose other formats.
 
 {% if html %}
 Concordion commands require a `concordion` namespace to be defined at the top of each HTML specification as follows:
