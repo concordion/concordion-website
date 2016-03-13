@@ -106,7 +106,7 @@ or:
 
     The full name _John Smith_ will be broken into first name _John_ and last name _Smith_
 
-The [Hints and Tips](TODO) page contains some good practices for writing specifications, including:
+The [Hints and Tips]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}) page contains some good practices for writing specifications, including:
 
 * Writing at a high level of abstraction
 * Only reveal data the specification actually needs
@@ -131,7 +131,7 @@ HTML links allow us to create a structured suite of specifications, with the pag
 
 At each level, the specification contains links to all the specifications below it. For example, a theme page would describe the theme and link to all the features in the theme. The specifiications can be nested arbitrarily deep.
 
-By using this approach, and instrumenting the links to child specifications with the [run command](TODO), executing any specification will automatically execute all its child specifications, with the results aggregated upwards.
+By using this approach, and instrumenting the links to child specifications with the [run command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#run-command), executing any specification will automatically execute all its child specifications, with the results aggregated upwards.
 
 ### Breadcrumbs
 

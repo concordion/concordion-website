@@ -117,6 +117,12 @@ These commands are:
 
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumented/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification]({{ site.baseurl }}/img/tutorial-instrumented-preview.png)
 
+We also mark up the example header, to turn it into a named example. When the specification is run, this will show as a JUnit test named `basic`.
+
+~~~markdown
+### [Example](- "basic")
+~~~
+
 [Find out more]({{ site.baseurl }}/instrumenting) about instrumenting fixtures.
 
 ## 4. Coding
