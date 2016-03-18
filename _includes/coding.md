@@ -34,6 +34,7 @@ __TODO:__ This page has not been translated to C# yet.
 
 {% endif %}
 
+{% unless csharp %}
 Concordion fixtures find concrete examples in the specification and use them to verify the system under test. 
 
 Concordion is a test runner that can invoke your application code directly:
@@ -48,7 +49,7 @@ It is good practice to create a separate driver layer for the code that drives y
 
 ## Project Structure
 
-The fixture must be in the same package as the specification. It can be in a different source folder, as long as that folder is on the Java classpath. For instance the [tutorial](./tutorial) uses the conventional `src/test/java` folder for the fixture class, and the `src/test/resources` folder for the specification:
+The fixture must be in the same package as the specification. It can be in a different source folder, as long as that folder is on the Java classpath. For instance the [tutorial]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}) uses the conventional `src/test/java` folder for the fixture class, and the `src/test/resources` folder for the specification:
 
 ![Folder structure of tutorial project]({{ site.baseurl }}/img/coding-folder-structure.png)
 
@@ -106,7 +107,7 @@ This is particularly useful when calling existing methods that return Maps, or w
 
 ##### Returning a MultiValueResult
 
-The [MultiValueResult](https://github.com/concordion/concordion/blob/master/src/main/java/org/concordion/api/MultiValueResult.java) class makes it even simpler to return more than one result from the execute command. For example, [SplittingNamesTest](./tutorial#complete-code) can be simplified to:
+The [MultiValueResult](https://github.com/concordion/concordion/blob/master/src/main/java/org/concordion/api/MultiValueResult.java) class makes it even simpler to return more than one result from the execute command. For example, [SplittingNamesTest]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}#complete-code) can be simplified to:
 
 ~~~java
 package example;
@@ -127,7 +128,7 @@ public class SplittingNamesFixture {
 }
 ~~~
 
-The specification can reference the properties of the MultiValueResult as if they were bean properties, as shown in the [Splitting Names](./tutorial#annotated-example) specification.
+The specification can reference the properties of the MultiValueResult as if they were bean properties, as shown in the [Splitting Names]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}#annotated-example) specification.
 
 
 
@@ -183,13 +184,13 @@ public class MyDataTest {
 }
 ~~~
 
-See [here](http://concordion.github.io/concordion/latest/spec/command/execute/FailFast.html) and [here](http://concordion.github.io/concordion/latest/spec/command/execute/FailFastOnSpecificExceptions.html) for further details.
+See [here](https://concordion.github.io/concordion/latest/spec/command/execute/FailFast.html) and [here](https://concordion.github.io/concordion/latest/spec/command/execute/FailFastOnSpecificExceptions.html) for further details.
 
 If using the concordion:run command, adding the @FailFast annotation to the corresponding fixture will cause the specification to fail-fast if any of the specifications it runs fail-fast. For this to work, the @FailFast annotation is required on the fixture classes for both the calling and called specifications.
 
 ### Before and After hooks
 
-The [before and after hooks](http://concordion.github.io/concordion/latest/spec/annotation/BeforeAndAfterMethodHooks.html) mark fixture methods to be invoked before or after an __example__, __specification__ or __suite__:
+The [before and after hooks](https://concordion.github.io/concordion/latest/spec/annotation/BeforeAndAfterMethodHooks.html) mark fixture methods to be invoked before or after an __example__, __specification__ or __suite__:
 
 |                           | Before                     |After|
 | ---------------------- | ----------------------------- | ----------------------------- |
@@ -203,11 +204,11 @@ Note:
 
 ### Configuration Options
 
-The [@ConcordionOptions](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation allows you to configure extensions to the Markdown syntax, and output the source HTML that it generates for debug purposes.
+The [@ConcordionOptions](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation allows you to configure extensions to the Markdown syntax, and output the source HTML that it generates for debug purposes.
 
 ### Adding resources
 
-The [@ConcordionResources](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) annotation can be used to add new CSS, JavaScript, images, or other resources to your specification in order to tweak or completely overhaul the existing styling.
+The [@ConcordionResources](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) annotation can be used to add new CSS, JavaScript, images, or other resources to your specification in order to tweak or completely overhaul the existing styling.
 
 This annotation:
 
@@ -237,13 +238,13 @@ adds the following resources to the generated specification:
 - resources.txt
 - ../../resources.css
 
-See the [specification](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) for other examples.
+See the [specification](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) for other examples.
 
 ### Full OGNL
 
 Concordion deliberately restricts the [expression language]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#expression-language) for instrumenting specifications.
 
-This can be overridden by annotating the fixture with `@FullOGNL` to allow [complex expresssions](http://concordion.github.io/concordion/latest/spec/command/expressions/ComplexExpressions.html).
+This can be overridden by annotating the fixture with `@FullOGNL` to allow [complex expresssions](https://concordion.github.io/concordion/latest/spec/command/expressions/ComplexExpressions.html).
 
 ### Adding Extensions
 
@@ -281,11 +282,11 @@ For further details see the [extension configuration](http://concordion.org/dist
 
 The Extensions API allows you to add functionality to Concordion, for example implementing new commands, listening to events, or modifying the Concordion output.
 
-For full details, see the [specifications](http://concordion.github.io/concordion/latest/spec/extension/Extension.html), the classes in [org.concordion.api.extension](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension) and the [fixtures](https://github.com/concordion/concordion/tree/master/src/test/resources/spec/concordion/extension) that demonstrate it.
+For full details, see the [specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html), the classes in [org.concordion.api.extension](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension) and the [fixtures](https://github.com/concordion/concordion/tree/master/src/test/resources/spec/concordion/extension) that demonstrate it.
 
-See also the source code of the extensions listed on the [extensions](./extensions) page.
+See also the source code of the extensions listed on the [extensions]({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}) page.
 
-Extensions must implement the [ConcordionExtension](http://concordion.github.io/concordion/latest/javadoc/org/concordion/api/extension/ConcordionExtension.html) interface, which allows extensions to hook into the Concordion build phase through the [ConcordionExtender](http://concordion.github.io/concordion/latest/javadoc/org/concordion/api/extension/ConcordionExtender.html) interface.
+Extensions must implement the [ConcordionExtension](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/extension/ConcordionExtension.html) interface, which allows extensions to hook into the Concordion build phase through the [ConcordionExtender](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/extension/ConcordionExtender.html) interface.
 
 ### Example: Adding a style to "set" commands
 
@@ -321,5 +322,4 @@ public class InputStyleOutputter implements SetListener {
 ~~~
 
 If you'd prefer to embed the CSS in the HTML, use concordionExtender.withEmbeddedCSS(). Similar methods exist for including JavaScript in the output, or you can use withResource() to copy images or other resources to the output.
-
-
+{% endunless %}

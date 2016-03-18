@@ -141,7 +141,7 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 ![Example of breadcrumbs]({{ site.baseurl }}/img/documenting-breadcrumbs.png)
 
-[More details](http://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
+[More details](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
 
 ### Styling your specifications
 
@@ -202,9 +202,9 @@ For syntax that is not covered by Markdown, you can use inline HTML.
 
 Markdown extensions allow you to change and/or extend the behaviour of the Markdown parser, for example to change the behaviour of new lines, or to support definition lists.
 
-See the [MarkdownExtensions](http://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html) javadoc for a definition of the available extensions.
+See the [MarkdownExtensions](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html) javadoc for a definition of the available extensions.
 
-_Note that the Concordion fixture will need to be [configured](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) to enable the markdown extensions._
+_Note that the Concordion fixture will need to be [configured](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) to enable the markdown extensions._
 
 ### Markdown editors
 
