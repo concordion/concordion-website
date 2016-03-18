@@ -67,7 +67,7 @@ $(document).ready(function() {
         var typedObject = window.typedObject;
 
         noButtonClicked = false;
-        
+
         var id = $(this).attr("id");
         // remove 'btn-' prefix
         var section = id.substring(4, id.length)
@@ -77,11 +77,11 @@ $(document).ready(function() {
         $(this).addClass("active");
         $('#' + section).addClass("active");
 
-        
+
         textToType = printBenefit(section);
         backspaceAndType(typedObject, textToType);
     });
-    
+
     // TUTORIAL SWITCHES
     $('.switch input').click(function() {
         window.location.replace($(this).data("url"));
@@ -108,17 +108,26 @@ function backgroundLoaded(id) {
 
 function pauseScrolling() {
     var cutoff = $(window).height() / 4;
-    
-    if ($(document).scrollTop() + cutoff >= $('#stop-scrolling').offset().top && noButtonClicked) {
-        $('#benefits .btn.active').click();
+    var scrollUntil = $('#stop-scrolling');
+
+    // Only if the element exists
+    if (scrollUntil.offset()) {
+        if ($(document).scrollTop() + cutoff >= scrollUntil.offset().top && noButtonClicked) {
+            $('#benefits .btn.active').click();
+        }
     }
 }
 
 function colorNav() {
-    if ($(document).scrollTop() + $('#main-nav').height() >= $('#homepage-hero').offset().top + $('#homepage-hero').height()) {
-        $('nav').addClass("static");
-    } else {
-        $('#main-nav').removeClass("static");
+    var homepageHero = $('#homepage-hero');
+
+    // Only if the element exists
+    if (homepageHero.offset()) {
+        if ($(document).scrollTop() + $('#main-nav').height() >= homepageHero.offset().top + $('#homepage-hero').height()) {
+            $('nav').addClass("static");
+        } else {
+            $('#main-nav').removeClass("static");
+        }
     }
 }
 
