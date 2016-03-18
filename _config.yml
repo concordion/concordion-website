@@ -38,6 +38,11 @@ defaults:
       description: ""
   -
     scope:
+      path: "redirect.html"
+    values:
+      layout: 
+  -
+    scope:
       path: "coding"
     values:
       title: "Concordion | Coding"
