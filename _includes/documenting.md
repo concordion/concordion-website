@@ -22,6 +22,9 @@
 {% assign fixture_language_desc = 'C#' %}
 {% endif %}
 
+
+{% unless csharp %}
+
 _This page introduces documenting specifications in __{{ spec_type_desc }}__._  Click the toggle buttons above to choose other options.
 
 Once we have discussed the examples, we create a Concordion specification describing the feature with examples.
@@ -151,7 +154,7 @@ Should you wish to enhance your specifications, you can add CSS, JavaScript, ima
 
 # Specification language
 
-Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension) to handle other formats).
+Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension) to handle other formats).
 
 {% if md %}
 
@@ -306,3 +309,5 @@ Which produces:
 While you can edit HTML in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a HTML editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated HTML editors.
 
 {% endif %}
+
+{% endunless %}

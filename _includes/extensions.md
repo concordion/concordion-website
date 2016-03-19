@@ -24,7 +24,11 @@
 
 _This page introduces the extensions for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
-Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own](coding#building-your-own-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
+<!-- TODO remove the unless clause -->
+{% unless csharp %}
+Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
+
+{% endunless %}
 
 {% if csharp %}
 
@@ -39,8 +43,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
 <div class="col s12 m6 offset-m3">
     <div class="card blue-grey darken-1 white-text">
         <div class="card-image">
-            <a href="https://github.com/concordion/concordion-excel-extension-tutorial/blob/master/README.md" alt="Excel spreadsheet with Concordion commands as comments">
-                <img src="https://github.com/concordion/concordion-excel-extension-tutorial/raw/master/tutorial/images/ExcelConcordionSetDistance.png"/>
+            <a href="https://github.com/concordion/concordion-excel-extension-tutorial/blob/master/README.md">
+                <img src="https://github.com/concordion/concordion-excel-extension-tutorial/raw/master/tutorial/images/ExcelConcordionSetDistance.png" alt="Excel spreadsheet with Concordion commands as comments"/>
             </a>
         </div>
         <div class="card-content">
@@ -92,8 +96,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/org/concordion/ext/demo/StoryboardDemo.html" alt="Example of output specification with storyboard">
-                        <img src="{{ site.baseurl }}/img/extensions-storyboard.png"/>
+                    <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/org/concordion/ext/demo/StoryboardDemo.html">
+                        <img src="{{ site.baseurl }}/img/extensions-storyboard.png" alt="Example of output specification with storyboard"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -114,8 +118,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/ScreenshotDemo.html" alt="Example of output specification with screenshot showing when hovering over failure">
-                        <img src="{{ site.baseurl }}/img/extensions-screenshot.png"/>
+                    <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/ScreenshotDemo.html">
+                        <img src="{{ site.baseurl }}/img/extensions-screenshot.png" alt="Example of output specification with screenshot showing when hovering over failure"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -136,8 +140,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html" alt="Example of output specification with logging info showing when hovering over tooltip">
-                        <img src="{{ site.baseurl }}/img/extensions-logging-tooltip.png"/>
+                    <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html">
+                        <img src="{{ site.baseurl }}/img/extensions-logging-tooltip.png" alt="Example of output specification with logging info showing when hovering over tooltip"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -158,8 +162,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/ext/demo/LogbackLoggingDemo.html" alt="Example of logging info">
-                        <img src="{{ site.baseurl }}/img/extensions-logback.png"/>
+                    <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/ext/demo/LogbackLoggingDemo.html">
+                        <img src="{{ site.baseurl }}/img/extensions-logback.png" alt="Example of logging info"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -180,8 +184,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6  offset-m3">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://github.com/concordion/concordion-run-totals-extension/blob/master/README.md" alt="Example of run totals showing on specification">
-                        <img src="{{ site.baseurl }}/img/extensions-run-totals.png"/>
+                    <a href="https://github.com/concordion/concordion-run-totals-extension/blob/master/README.md">
+                        <img src="{{ site.baseurl }}/img/extensions-run-totals.png" alt="Example of run totals showing on specification"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -193,7 +197,6 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
                 <div class="card-action">
                     <a href="https://github.com/concordion/concordion-run-totals-extension/blob/master/README.md">README</a>
-                    <a href="https://github.com/concordion/concordion-run-totals-extension-demo">Demo</a>
                 </div>
             </div>
         </div>
@@ -202,8 +205,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-input-style-extension/spec/spec/concordion/ext/inputstyle/InputStyle.html" alt="Example of input style showing on specification">
-                        <img src="{{ site.baseurl }}/img/extensions-input-style.png"/>
+                    <a href="https://concordion.github.io/concordion-input-style-extension/spec/spec/concordion/ext/inputstyle/InputStyle.html">
+                        <img src="{{ site.baseurl }}/img/extensions-input-style.png" alt="Example of input style showing on specification"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -224,8 +227,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-timestamp-formatter-extension/spec/spec/concordion/ext/collapse/usage/Usage.html" alt="Example of specification with content collapsed">
-                        <img src="{{ site.baseurl }}/img/extensions-collapse-output.png"/>
+                    <a href="https://concordion.github.io/concordion-collapse-output-extension/spec/spec/concordion/ext/collapse/usage/Usage.html">
+                        <img src="{{ site.baseurl }}/img/extensions-collapse-output.png alt="Example of specification with content collapsed"/>
                     </a>
                 </div>
                 <div class="card-content">
@@ -262,8 +265,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-exception-translator-extension-demo/spec/ExceptionTranslatorDemo.html" alt="Example of exception message being translated">
-                        <img src="{{ site.baseurl }}/img/extensions-exception-translator.png"/>
+                    <a href="https://concordion.github.io/concordion-exception-translator-extension-demo/spec/ExceptionTranslatorDemo.html">
+                        <img src="{{ site.baseurl }}/img/extensions-exception-translator.png" alt="Example of exception message being translated"/>
                     </a>
                 </div>               
                 <div class="card-content">

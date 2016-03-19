@@ -26,6 +26,8 @@
 
 _This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Click the toggle buttons above to choose other formats.
 
+{% unless csharp %}
+
 {% if html %}
 Concordion commands require a `concordion` namespace to be defined at the top of each HTML specification as follows:
 
@@ -759,7 +761,7 @@ where expression returns an Iterable object with a predictable iteration order, 
 {% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
 
 {% if supports_2_0 %}
-(_since: 2.0.0_, As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verify-rows/strategies/Strategies.html) to define how the rows are matched).
+(_since: 2.0.0_, As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verifyRows/strategies/Strategies.html) to define how the rows are matched).
 {% endif %}
 
 When run with a fixture that returns an empty collection, we get:
@@ -867,4 +869,4 @@ In order to keep your specifications [simple and maintainable]({{site.baseurl}}/
 
 This can be [overridden]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#full-ognl) to allow complex expressions.
 
-
+{% endunless %}

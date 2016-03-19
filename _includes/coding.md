@@ -158,7 +158,7 @@ public class GreetingTest {
 }
 ~~~
 
-See [here](http://concordion.org/dist/1.5.1/spec/concordion/annotation/Annotation.html) for an explanation of the semantics of each annotation.
+See [here](https://concordion.github.io/concordion/latest/spec/annotation/Annotation.html) for an explanation of the semantics of each annotation.
 
 You can also set the [implementation status]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) for individual examples in the specification.
 
@@ -276,7 +276,7 @@ ConcordionExtension extension = new ScreenshotExtension().setScreenshotTaker(cam
 java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acme.Extra"
 ~~~
 
-For further details see the [extension configuration](http://concordion.org/dist/1.5.1/spec/concordion/extension/ExtensionConfiguration.html) specification.
+For further details see the [extension configuration](https://concordion.github.io/concordion/latest/spec/extension/ExtensionConfiguration.html) specification.
 
 ## Building your own extension
 

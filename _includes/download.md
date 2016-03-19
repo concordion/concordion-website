@@ -79,7 +79,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
 <div class="row">
     <h1>Extension downloads</h1>
     <div>
-        <p>See the Concordion <a href="./extensions">extensions</a> page for download and installation details for extensions.</p>
+        <p>See the Concordion <a href="{{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}">extensions</a> page for download and installation details for extensions.</p>
     </div>
 </div>
 
