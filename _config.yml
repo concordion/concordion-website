@@ -25,7 +25,6 @@ kramdown:
 
 gems:
   - jekyll-redirect-from
-  - jekyll-toc  
 
 whitelist:
   - jekyll-redirect-from
@@ -90,7 +89,6 @@ defaults:
        heading: "Instrumenting"
        subheading: "Making the examples executable"
        subject: 'instrumenting'
-       toc: true       
   -
     scope:
       path: "integrations"
