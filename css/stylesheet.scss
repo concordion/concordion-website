@@ -96,10 +96,10 @@ nav.static {
     h2 {
         display: inline-block;
         font-size: {{ site.nav-height-mobile }} - 20px;
-        line-height: 100%;
-        margin: 10px 0px;
-        @include transform(translateY(-15px));
-    }
+    line-height: 100%;
+    margin: 10px 0px;
+    @include transform(translateY(-15px));
+}
 }
 
 .text-shadow {
@@ -127,10 +127,10 @@ nav.static {
 
         h2 {
             font-size: {{ site.nav-height }} - 30px;
-            margin: 15px 0px;
-            @include transform(translateY(-20px));
-        }
+        margin: 15px 0px;
+        @include transform(translateY(-20px));
     }
+}
 }
 
 @media only screen and (min-width: 993px) {
@@ -150,13 +150,108 @@ footer.page-footer {
     margin-top: 0px;
     padding-top: 40px;
 
+    a {
+        text-decoration: underline;
+    }
+
     .footer-copyright {
         padding-top: 20px;
         height: auto;
         line-height: 1.5em;
         background-color: {{ site.green-dark }};
+
+        a {
+            text-decoration: none;
+        }
+
         img {
             vertical-align: middle;
+        }
+    }
+}
+
+// #####
+// MODAL
+// #####
+
+.modal {
+
+    .collection {
+
+        .collection-item.avatar {
+            padding-left: 94px;
+
+            .circle {
+                width: 64px;
+                height: 64px;
+            }
+        }
+
+        .secondary-content, .secondary-content .fa {
+            color: rgba(0,0,0,0.87);
+            @include transition(all 0.3s);
+        }
+        
+        .secondary-content .fa-linkedin-square:hover, .secondary-content .fa-linkedin-square:active, {
+            color: #0077b5;
+        }
+        
+        .secondary-content .fa-github-square:hover, .secondary-content .fa-github-square:active, {
+            color: #4183c4;
+        }
+        
+        .secondary-content .fa-behance-square:hover, .secondary-content .fa-behance-square:active, {
+            color: #1769ff;
+        }
+    }
+
+    .modal-content {
+
+        h5 {
+            margin-top: 0px;
+        }
+    }
+
+    .modal-footer {
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+#modal-contributors {
+    .modal-header {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 20px;
+        heigh: 78px;
+
+        h4 {
+            margin-bottom: 0px;
+        }
+    }
+    
+    .modal-content {
+        height: calc(100% - 56px - 78px);
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .modal {
+        .collection {
+            .secondary-content {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .modal {
+        .collection {
+            .secondary-content {
+                font-size: 30px;
+            }
         }
     }
 }
@@ -191,7 +286,7 @@ footer.page-footer {
         position: relative;
         text-align: center;
     }
-    
+
     .background {
         position: absolute;
         top: 0px;
@@ -206,7 +301,7 @@ footer.page-footer {
 section .background {
     opacity: 0;
     @include transition(opacity 0.5s ease-in-out);
-    
+
     .background-placeholder {
         display: none;
     }
@@ -267,7 +362,7 @@ section .background {
     padding-bottom: 10px;
     padding-top: 20px;
     .card-content {
-      min-height: 200px;
+        min-height: 200px;
     }
 }
 
@@ -380,10 +475,10 @@ section .background {
 
 .benefits-wrapper {
     margin-top: 50px;
-    
+
     .container.benefit-section {
         display: none;
-        
+
         .row {
             margin-bottom: 50px;
         }

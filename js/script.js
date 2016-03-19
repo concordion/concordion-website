@@ -58,8 +58,11 @@ $(document).ready(function() {
         });
     }
 
-    // Initialize collapsible
+    // INITIALIZE COLLAPSIBLE
     $('.collapsible').collapsible();
+    
+    // FIRE UP MODALS
+    $('.modal-trigger').leanModal();
 
     // BENEFITS BUTTON
     $('#benefits .btn').click(function() {
