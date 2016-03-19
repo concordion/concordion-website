@@ -776,7 +776,7 @@ After the feature is implemented, when we run it we get a success:
 
 Note that either `verify-rows` or `verifyRows` can be used for the command name.
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html)
+[Further details](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 ----
 
