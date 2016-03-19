@@ -2,4 +2,5 @@
 set -e # halt script on error
 
 bundle exec jekyll build
-bundle exec htmlproofer ./_site --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!
+# linkedin.com is blocked from travisci
+bundle exec htmlproofer ./_site --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,nz.linkedin.com,www.linkedin.com
