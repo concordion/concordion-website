@@ -204,7 +204,11 @@ Note:
 
 ### Configuration Options
 
-The [@ConcordionOptions](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation allows you to configure extensions to the Markdown syntax, and output the source HTML that it generates for debug purposes.
+The [@ConcordionOptions](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation allows you to:
+
+- configure extensions to the Markdown syntax, 
+- add namespace declarations to Markdown specifications, and 
+- output the source HTML that are generated for alternate specification types, which is useful for debug purposes.
 
 ### Adding resources
 
