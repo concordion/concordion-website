@@ -147,11 +147,11 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 Concordion comes with a default style out of the box.
 
-Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, the fixture will need to [specify](./coding#adding-resources) the resources to be copied to the output specification.
+Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, the fixture will need to [specify]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources) the resources to be copied to the output specification.
 
 # Specification language
 
-Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension](ExtensionsAPI.html) to handle other formats).
+Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension) to handle other formats).
 
 {% if md %}
 
@@ -217,7 +217,7 @@ The syntax used for this extension is compatible with Github Flavored Markdown, 
 The official IntelliJ IDEA Markdown editor is not recommended since it does not support tables. 
 Instead, the [Markdown](https://plugins.jetbrains.com/plugin?id=5970) plugin is recommended. 
 This plugin uses the same underlying Pegdown library as the Concordion Markdown extension. 
-After installing the plugin, you will need to configure the [settings](https://plugins.jetbrains.com/files/5970/screenshot_14568.png) to enable Tables and Strikethrough, plus any additional Markdown language extensions that you [configure](../../annotations/ConcordionOptions.html).
+After installing the plugin, you will need to configure the [settings](https://plugins.jetbrains.com/files/5970/screenshot_14568.png) to enable Tables and Strikethrough, plus any additional Markdown language extensions that you [configure](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html).
 
 #### Eclipse
 Available Eclipse plugins include:
