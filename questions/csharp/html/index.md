@@ -7,4 +7,4 @@ redirect_from:
   - "/questions/csharp/"
 ---
 
-{% include questions.html %}
+{% include {{page.include}} %}

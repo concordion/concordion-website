@@ -5,4 +5,4 @@ title: "Concordion | Instrumenting HTML"
 description: "How to instrument Concordion specifications written in HTML. Instrumentation links the examples in the specification to the Java fixture."
 ---
 
-{% include instrumenting.md %}
+{% include {{page.include}} %}

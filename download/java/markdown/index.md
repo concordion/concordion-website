@@ -9,4 +9,4 @@ redirect_from:
   - "/Download.html"
 ---
 
-{% include download.md %}
+{% include {{page.include}} %}

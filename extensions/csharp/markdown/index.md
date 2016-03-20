@@ -5,4 +5,4 @@ title: "Concordion | Extensions | C#"
 description: "Extensions for Concordion for fixtures written in C#."
 ---
 
-{% include extensions.md %}
+{% include {{page.include}} %}

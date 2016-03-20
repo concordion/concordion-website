@@ -7,4 +7,4 @@ redirect_from:
   - "/download/csharp/"
 ---
 
-{% include download.md %}
+{% include {{page.include}} %}

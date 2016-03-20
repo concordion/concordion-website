@@ -7,4 +7,4 @@ redirect_from:
   - "/discussing/java/"
 ---
 
-{% include discussing.md %}
+{% include {{page.include}} %}

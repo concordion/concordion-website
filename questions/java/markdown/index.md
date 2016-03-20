@@ -9,4 +9,4 @@ redirect_from:
   - "/Questions.html"
 ---
 
-{% include questions.html %}
+{% include {{page.include}} %}

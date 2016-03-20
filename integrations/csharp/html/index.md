@@ -7,4 +7,4 @@ redirect_from:
   - "/integrations/csharp/"
 ---
 
-{% include integrations.html %}
+{% include {{page.include}} %}

@@ -7,4 +7,4 @@ redirect_from:
   - "/technique/csharp/"
 ---
 
-{% include technique.html %}
+{% include {{page.include}} %}

@@ -3,4 +3,4 @@ spec_type: 'markdown'
 fixture_language: 'csharp'
 ---
 
-{% include discussing.md %}
+{% include {{page.include}} %}

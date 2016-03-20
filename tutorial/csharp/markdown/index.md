@@ -13,4 +13,4 @@ In the meantime, you can use [HTML]({{ site.baseurl }}/{{ page.subject }}/{{ pag
 
 Please subscribe to our twitter feed for announcements. If you would like to help create the 2.0 release, or discuss, please join our Google groups. See the links below.
 
-<!-- {% include tutorial.md %} -->
+<!-- {% include {{page.include}} %} -->

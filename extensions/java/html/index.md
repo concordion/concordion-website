@@ -5,4 +5,4 @@ title: "Concordion | Extensions | Java"
 description: "Extensions for Concordion for fixtures written in Java."
 ---
 
-{% include extensions.md %}
+{% include {{page.include}} %}

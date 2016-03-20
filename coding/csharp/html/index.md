@@ -7,4 +7,4 @@ redirect_from:
   - "/coding/csharp/"
 ---
 
-{% include coding.md %}
+{% include {{page.include}} %}

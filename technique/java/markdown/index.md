@@ -9,4 +9,4 @@ redirect_from:
   - "/Technique.html"
 ---
 
-{% include technique.html %}
+{% include {{page.include}} %}

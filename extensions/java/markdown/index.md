@@ -9,4 +9,4 @@ redirect_from:
   - "/Extensions.html"
 ---
 
-{% include extensions.md %}
+{% include {{page.include}} %}

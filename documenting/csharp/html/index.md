@@ -8,4 +8,4 @@ redirect_from:
   - "/documenting/csharp/"
 ---
 
-{% include documenting.md %}
+{% include {{page.include}} %}

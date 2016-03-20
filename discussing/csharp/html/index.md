@@ -5,4 +5,4 @@ redirect_from:
   - "/discussing/csharp/"
 ---
 
-{% include discussing.md %}
+{% include {{page.include}} %}

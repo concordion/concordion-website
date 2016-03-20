@@ -7,4 +7,4 @@ description: "How to create and evolve a documentation system of Concordion spec
 redirect_from: "/documenting/index.html"
 ---
 
-{% include documenting.md %}
+{% include {{page.include}} %}

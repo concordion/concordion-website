@@ -3,4 +3,4 @@ spec_type: 'html'
 fixture_language: 'java'
 ---
 
-{% include discussing.md %}
+{% include {{page.include}} %}

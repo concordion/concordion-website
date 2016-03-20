@@ -160,7 +160,16 @@ footer.page-footer {
     a {
         text-decoration: underline;
     }
-    
+
+    i {
+       margin-right: 6px;
+    }
+
+    iframe {
+        position: absolute;
+        margin-left: 12px;
+    }
+
     .read-more li {
         margin-bottom: 5px;
     }

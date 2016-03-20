@@ -1,3 +1,4 @@
+{% capture github_file %}{% if page.path contains '/' %}_includes/{{page.include}}{% else %}{{page.path}}{% endif %}{% endcapture %}
 <div class="container">
     <div class="row">
         <div class="col l6 s12">
@@ -5,10 +6,11 @@
             <p class="grey-text text-lighten-2">Concordion is an open-source tool for automating Specification by Example. It's used by product teams all over the world to help them deliver great software, and maintained by a <a class="modal-trigger white-text" href="#modal-contributors">team of volunteers</a>.</p>        
         </div>
         <div class="col l4 push-l2 s12">
-            <h5 class="white-text">Read more</h5>
+            <h5 class="white-text">Keep in touch</h5>
             <ul class="read-more">
-                <li><a class="white-text" target="_blank" href="https://github.com/concordion">Concordion on Github</a></li>
-                <li><a class="white-text" target="_blank" href="https://en.wikipedia.org/wiki/Specification_by_example">Specification by Example</a></li>
+                <li><a class="white-text" target="_blank" href="https://twitter.com/concordion"><i class="fa fa-twitter-square white-text"></i>Follow us on Twitter</a></li>
+                <li><a class="white-text" target="_blank" href="https://groups.google.com/forum/#!forum/concordion"><i class="fa fa-google white-text"></i>Join our Google Group</a></li>
+                <li><a class="white-text" target="_blank" href="https://github.com/concordion/concordion"><i class="fa fa-github white-text"></i>Github</a><a class="github-button" href="https://github.com/concordion/concordion" data-icon="octicon-star" data-count-href="/concordion/concordion/stargazers" data-count-api="/repos/concordion/concordion#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion on GitHub">Star</a></li>
             </ul>
         </div>
     </div>
@@ -22,9 +24,9 @@
             </div>
             <div class="col s6 m4">
                 <div id="github" class="right">
-                    <a class="white-text" target="_blank" href="https://github.com/concordion/concordion-website-2.0/edit/gh-pages/{{page.path}}" title="Edit {{page.path}} on GitHub"><i class="fa fa-github"></i>Improve this page</a>
+                    <a class="white-text" target="_blank" href="https://github.com/concordion/concordion-website-2.0/edit/gh-pages/{{ github_file }}" title="Edit {{ github_file }} on GitHub"><i class="fa fa-github"></i>Improve this page</a>
                      | 
-                    <a class="white-text" target="_blank" href="https://github.com/concordion/concordion-website-2.0/commits/gh-pages/{{page.path}}" title="View {{page.path}} history on GitHub">Page history</a>
+                    <a class="white-text" target="_blank" href="https://github.com/concordion/concordion-website-2.0/commits/gh-pages/{{ github_file }}" title="View {{ github_file }} history on GitHub">Page history</a>
                 </div>
             </div>
         </div>

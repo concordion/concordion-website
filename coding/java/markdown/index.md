@@ -6,4 +6,4 @@ description: "How to code your Concordion fixtures in Java to make your specific
 redirect_from: "/coding/index.html"
 ---
 
-{% include coding.md %}
+{% include {{page.include}} %}

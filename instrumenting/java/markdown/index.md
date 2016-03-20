@@ -6,4 +6,4 @@ description: "How to instrument Concordion specifications written in Markdown. I
 redirect_from: "/instrumenting/index.html"
 ---
 
-{% include instrumenting.md %}
+{% include {{page.include}} %}

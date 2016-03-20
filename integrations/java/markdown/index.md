@@ -8,4 +8,4 @@ redirect_from:
   - "/integrations/java/"
 ---
 
-{% include integrations.html %}
+{% include {{page.include}} %}

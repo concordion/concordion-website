@@ -9,4 +9,4 @@ redirect_from:
   - "/Tutorial.html"
 ---
 
-{% include tutorial.md %}
+{% include {{page.include}} %}

@@ -7,4 +7,4 @@ redirect_from:
   - "/instrumenting/csharp"
 ---
 
-{% include instrumenting.md %}
+{% include {{page.include}} %}

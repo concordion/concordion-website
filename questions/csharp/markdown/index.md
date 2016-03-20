@@ -5,4 +5,4 @@ title: "Concordion | FAQ | C# + Markdown"
 description: "Frequently Asked Questions about Concordion with C# and Markdown."
 ---
 
-{% include questions.html %}
+{% include {{page.include}} %}

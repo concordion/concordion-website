@@ -7,4 +7,4 @@ redirect_from:
   - "/extensions/csharp/"
 ---
 
-{% include extensions.md %}
+{% include {{page.include}} %}

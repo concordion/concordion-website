@@ -5,4 +5,4 @@ title: "Concordion | Downloads | C#"
 description: "Downloads for Concordion.NET for fixtures written in C#."
 ---
 
-{% include download.md %}
+{% include {{page.include}} %}
