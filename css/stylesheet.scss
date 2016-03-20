@@ -40,11 +40,18 @@ body::-webkit-scrollbar {
 
 body {
     -ms-overflow-style: none;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 html, body {
     background-color: {{ site.off-white }};
     overflow-x: hidden;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 // ##########
