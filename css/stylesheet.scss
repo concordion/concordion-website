@@ -207,6 +207,10 @@ footer.page-footer {
         .secondary-content .fa-twitter-square:hover, .secondary-content .fa-twitter-square:active, {
             color: #55acee;
         }
+        
+        .secondary-content .fa-globe:hover, .secondary-content .fa-globe:active, {
+            color: #006994;
+        }
     }
 
     .modal-content {
@@ -227,8 +231,8 @@ footer.page-footer {
 #modal-contributors {
     .modal-header {
         border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding: 20px;
-        heigh: 78px;
+        padding: 24px;
+        height: 86px;
 
         h4 {
             margin-bottom: 0px;
@@ -236,7 +240,28 @@ footer.page-footer {
     }
     
     .modal-content {
-        height: calc(100% - 56px - 78px);
+        height: calc(100% - 56px - 86px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #modal-contributors {
+        width: 95%;
+        
+        .modal-header {
+            padding: 15px;
+            height: 68px;
+        }
+        
+        .modal-content {
+            padding: 15px;
+            height: calc(100% - 56px - 68px);
+        }
+        
+        .collection .collection-item.avatar .secondary-content {
+            top: 10px;
+            right: 10px;
+        }
     }
 }
 
