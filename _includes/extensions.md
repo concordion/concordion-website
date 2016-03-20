@@ -343,7 +343,4 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
 
 Note: Additional contributions are welcome. Please get in touch on the [concordion-dev](http://groups.google.com/forum/#!forum/concordion-dev) list.
 
-<!-- Place this tag right after the last button or just before your close body tag. -->
-<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
-
 {% endif %}
