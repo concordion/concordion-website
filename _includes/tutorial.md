@@ -33,10 +33,10 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
-{% if html %}
-__TODO - create HTML tutorial__
+{% if csharp %}
+__TODO - create C# tutorial__
 {% endif %}
-To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-2.0/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-2.0`. This project contains folders for each stage of the tutorial. 
+To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. This project contains folders for each stage of the tutorial. 
 
 To start from scratch, start from the `initial` folder of the project.
 
@@ -62,8 +62,9 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 The next step is to create a specification of the new feature.
 
-In the `src/test/resources/marketing/mailshots` folder of the tutorial project, edit the file `SplittingNames.md` to contain the following.
+In the `src/test/resources/marketing/mailshots` folder of the tutorial project, edit the file `SplittingNames.{{ ext }}` to contain the following.
 
+{% if md %}
 ~~~markdown
 # Splitting Names
 
@@ -78,14 +79,54 @@ around whitespace.
 The full name Jane Smith is broken into first name Jane and last name Smith.
 ~~~
 
-This uses a formatting language called Markdown, which makes it easy to create rich documents using plain text. 
-The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters.
+{% elsif html %}
+~~~html
+<html>
+<head>
+    <link href="../../concordion.css" rel="stylesheet" type="text/css" />
+</head>
 
-Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or in an editor that supports Markdown, we see it looks like ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
+<body>
+
+   <h1>Splitting Names</h1>
+
+   <p>To help personalise our mailshots we want to have the first name and last name
+      of the customer. 
+      Unfortunately the customer data that we are supplied only contains full names.</p>
+
+   <p>The system therefore attempts to break a supplied full name into its constituents by 
+      splitting around whitespace.</p>
+
+   <h3>Example</h3>
+
+   <p>The full name Jane Smith will be broken into first name Jane and last name Smith.</p>
+</body>
+</html>
+~~~
+{% endif %}
+
+{% if md %}
+This uses a formatting language called Markdown, which makes it easy to create rich documents using plain text. In the Markdown above:
+
+- The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters. 
+- The lines without a `#` character are treated as plain paragraphs.
+
+_Note:_ Prior to v2.0, Concordion only supported [HTML specifications]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/html#documenting), which are harder to read and write than Markdown. However, HTML provides a richer language, so may be preferred for complex scenarios.
+{% elsif html %}
+This uses HTML, which is the markup language that web pages are written in. It enables you to create rich documents using plain text. Typically, you only need a small subset of HTML for Concordion specifications. In the HTML above:
+
+- The `<link>` element in the header tells the browser to use the concordion.css stylesheet.
+- `<h1>` and `<h3>` are headings at level 1 and 3 respectively.
+- `<p>` is a paragraph.
+
+Previewing our {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in an editor that supports {{ spec_type_desc }}, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
 [Find out more]({{ site.baseurl }}/documenting) about documenting specifications.
+
+_Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/markdown#documenting), which are easier to read and write than HTML. However, HTML provides a richer language, so may be preferred for complex scenarios.
+{% endif %}
 
 ## 3. Instrumenting
 
@@ -93,20 +134,48 @@ In order to make the specification executable, it must be _instrumented_ with co
 
 ![How it works]({{ site.baseurl }}/img/how-it-works.png)
 
-The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example using Markdown's link syntax:
+The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example {% if md %}using Markdown's link syntax{% elsif html %}and create span tags around them (we can actually use any HTML tag){% endif %}:
 
+{% if md %}
 ~~~markdown
 The full name [Jane Smith]() is [broken]() into first name [Jane]() and last name [Smith]().
 ~~~
+{% elsif html %}
+~~~html
+The full name <span>Jane Smith</span> will be <span>broken</span>span>
+into first name <span>Jane</span> and last name <span>Smith</span>.
+~~~
+{% endif %}
 
+{% if md %}
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumenting/src/test/resources/marketing/mailshots/SplittingNames.md), we now see the example looks like ![preview of specification with links]({{ site.baseurl }}/img/tutorial-instrument-links-preview.png)
+{% endif %}
 
+{% if md %}
 Next, we add commands to the links:
 
 ~~~markdown
 The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
 into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
 ~~~
+
+{% elsif html %}
+Concordion commands use a "concordion" namespace. We define this at the top of each document as follows:
+
+~~~html
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+~~~
+
+Next, we add Concordion commands as attributes on elements in the XHTML document. Web browsers ignore attributes that they don't understand, so these commands are effectively invisible.
+
+~~~html
+The full name <span concordion:set="#name">Jane Smith</span>
+will be <span concordion:execute="#result = split(#name)">broken</span>
+into first name <span concordion:assertEquals="#result.firstName">Jane</span>
+and last name <span concordion:assertEquals="#result.lastName">Smith</span>.
+~~~
+{% endif %}
+
 {: #annotated-example}
 
 These commands are:
@@ -115,13 +184,32 @@ These commands are:
 2. executing our _action_, by executing the method `split()` with the variable `#name` and returning the value `#result`
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
+{% if md %}
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumented/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification]({{ site.baseurl }}/img/tutorial-instrumented-preview.png)
+{% endif %}
 
-We also mark up the example header, to turn it into a named example. When the specification is run, this will show as a JUnit test named `basic`.
+We also {% if md %}mark up the example header{% elsif html %}wrap the example in a `<div>` element with the concordion example command{% endif %}, to turn it into a named example. When the specification is run, this will show as a JUnit test named `basic`.
 
+{% if md %}
 ~~~markdown
 ### [Example](- "basic")
 ~~~
+{% elsif html %}
+~~~html
+<div concordion:example="basic">
+
+    <h3>Example</h3>
+
+    <p>
+        The full name <span concordion:set="#name">Jane Smith</span>
+        will be <span concordion:execute="#result = split(#name)">broken</span>
+        into first name <span concordion:assertEquals="#result.firstName">Jane</span>
+        and last name <span concordion:assertEquals="#result.lastName">Smith</span>.
+    </p>
+
+</div>
+~~~
+{% endif %}
 
 [Find out more]({{ site.baseurl }}/instrumenting) about instrumenting fixtures.
 
@@ -143,7 +231,7 @@ public class SplittingNamesFixture {
 }
 ~~~
 
-You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradle test` from the command line, the location of the output will be shown on the console, such as:
+You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradlew test` from the command line, the location of the output will be shown on the console, such as:
 
 ~~~console
 file:///tmp/concordion/marketing/mailshots/SplittingNames.html
