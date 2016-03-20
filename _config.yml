@@ -1,6 +1,8 @@
 title: Specification by Example | Concordion
 author: 
 description: 
+# TODO for sitemap 
+url: http://concordion.org
 baseurl: /concordion-website-2.0
 exclude:  [ Gemfile, Gemfile.lock, vendor, script, .travis.yml ]
 collections:
@@ -25,7 +27,6 @@ kramdown:
 
 gems:
   - jekyll-redirect-from
-  - jekyll-sitemap
 
 whitelist:
   - jekyll-redirect-from
@@ -46,10 +47,9 @@ defaults:
     scope:
       path: "coding"
     values:
-      title: "Concordion | Coding"
       heading: "Coding" 
       subheading: "Implementing the examples"
-      subject: 'coding'
+      subject: "coding"
   -
     scope:
       path: "discussing"
@@ -58,11 +58,11 @@ defaults:
       heading: "Discussing"
       subheading: "Collaboratively specifying examples"
       subject: "discussing"
+      description: "Collaborative Specification techniques for discussing Concordion specifications. Exploring stories, acceptance criteria and examples using specification workshops, three amigos sessions or example mapping techniques. Discussing examples is the most important aspect of Specification by Example (SBE) and Behaviour Driven Development (BDD)."
   -
     scope:
       path: "documenting"
     values:
-      title: "Concordion | Documenting"
       heading: "Documenting"
       subheading: "Creating specifications with Markdown or HTML"
       subject: "documenting"
@@ -70,7 +70,6 @@ defaults:
     scope:
       path: "download"
     values:
-      title: "Concordion | Download"
       heading: "Download"
       subheading: "Downloads and release notes"
       subject: "download"
@@ -78,7 +77,6 @@ defaults:
     scope:
       path: "extensions"
     values:
-      title: "Concordion | Extensions"
       heading: "Extensions"
       subheading: "Enhancing Concordion with flexible features"
       subject: "extensions"
@@ -86,7 +84,6 @@ defaults:
     scope:
       path: "instrumenting"
     values:
-       title: "Concordion | Instrumenting"
        heading: "Instrumenting"
        subheading: "Making the examples executable"
        subject: 'instrumenting'
@@ -94,7 +91,6 @@ defaults:
     scope:
       path: "integrations"
     values:
-      title: "Concordion | Integrations"
       heading: "Integrations"
       subheading: "Integrating Concordion with other tools"
       subject: 'integrations'
@@ -102,7 +98,6 @@ defaults:
     scope:
       path: "questions"
     values:
-      title: "Concordion | FAQ"
       heading: "FAQ"
       subheading: "Frequently Asked Questions about Concordion"
       subject: 'questions'
@@ -110,7 +105,6 @@ defaults:
     scope:
       path: "technique"
     values:
-      title: "Concordion | Hints and Tips"
       heading: "Hints and Tips"
       subheading: "Good practices for using Concordion"
       subject: 'technique'
@@ -118,12 +112,8 @@ defaults:
     scope:
       path: "tutorial"
     values:
-      title: "Concordion | Getting Started"
       heading: "Getting Started"
       subheading: "The basics of creating living documents using Concordion"
       subject: 'tutorial'
-
-
-
-
-
+      sitemap:
+        priority: 0.7

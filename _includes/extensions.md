@@ -228,7 +228,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
                     <a href="https://concordion.github.io/concordion-collapse-output-extension/spec/spec/concordion/ext/collapse/usage/Usage.html">
-                        <img src="{{ site.baseurl }}/img/extensions-collapse-output.png alt="Example of specification with content collapsed"/>
+                        <img src="{{ site.baseurl }}/img/extensions-collapse-output.png" alt="Example of specification with content collapsed"/>
                     </a>
                 </div>
                 <div class="card-content">

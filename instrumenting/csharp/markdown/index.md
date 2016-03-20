@@ -1,6 +1,8 @@
 ---
 spec_type: 'markdown'
 fixture_language: 'csharp'
+title: "Concordion | Instrumenting Markdown"
+description: "How to instrument Concordion specifications written in Markdown. Instrumentation links the examples in the specification to the C# fixture."
 ---
 
 Sorry, Markdown format specifications are not yet available for C#. We're working towards a 2.0 release fo Concordion.NET which will support Markdown.

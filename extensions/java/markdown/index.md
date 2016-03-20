@@ -1,7 +1,12 @@
 ---
 spec_type: 'markdown'
 fixture_language: 'java'
-redirect_from: "/extensions/index.html"
+title: "Concordion | Extensions | Java"
+description: "Extensions for Concordion for fixtures written in Java."
+redirect_from: 
+  - "/extensions/"
+  - "/extensions/java/"
+  - "/Extensions.html"
 ---
 
 {% include extensions.md %}
