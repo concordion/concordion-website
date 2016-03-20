@@ -153,6 +153,10 @@ footer.page-footer {
     a {
         text-decoration: underline;
     }
+    
+    .read-more li {
+        margin-bottom: 5px;
+    }
 
     .footer-copyright {
         padding-top: 20px;
@@ -166,6 +170,14 @@ footer.page-footer {
 
         img {
             vertical-align: middle;
+        }
+        
+        #github a {
+            padding: 0px 5px;
+            
+            i {
+                padding-right: 5px;
+            }
         }
     }
 }
@@ -496,6 +508,8 @@ section .background {
 // ########
 
 #benefits {
+    overflow-x: hidden;
+    
     .btn {
         width: 100%;
         margin-bottom: 1rem;
@@ -504,6 +518,7 @@ section .background {
 
 .benefits-wrapper {
     margin-top: 50px;
+    overflow-x: hidden;
 
     .container.benefit-section {
         display: none;
