@@ -36,6 +36,8 @@ Depending on your skillset and role you might be involved in one or more of thes
 {% if csharp %}
 __TODO - create C# tutorial__
 {% endif %}
+
+{% unless csharp %}
 To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. This project contains folders for each stage of the tutorial. 
 
 To start from scratch, start from the `initial` folder of the project.
@@ -300,3 +302,4 @@ The test now passes:
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
 [Find out more]({{ site.baseurl }}/coding) about coding fixtures.
+{% endunless %}
