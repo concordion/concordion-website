@@ -38,34 +38,37 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
 
 {% else %}
 
+<section class="extensions">
 <h4>Alternate Specification Types</h4>
 <!-- EXCEL -->
-<div class="col s12 m6 offset-m3">
-    <div class="card blue-grey darken-1 white-text">
-        <div class="card-image">
-            <a href="https://github.com/concordion/concordion-excel-extension-tutorial/blob/master/README.md">
-                <img src="https://github.com/concordion/concordion-excel-extension-tutorial/raw/master/tutorial/images/ExcelConcordionSetDistance.png" alt="Excel spreadsheet with Concordion commands as comments"/>
-            </a>
-        </div>
-        <div class="card-content">
-            <span class="card-title">Excel</span>
-            <span class="card-title right">
-                <a class="github-button" href="https://github.com/concordion/concordion-excel-extension" data-count-href="/concordion/concordion-excel-extension/stargazers" data-count-api="/repos/concordion/concordion-excel-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-excel-extension on GitHub">Star</a>
-            </span>
-            <p>write your specifications in Excel</p>
-        </div>
-        <div class="card-action">
-            <a href="https://github.com/concordion/concordion-excel-extension/blob/master/README.md">README</a>
-            <a href="https://github.com/concordion/concordion-excel-extension-tutorial">Tutorial</a>
+<div class="row">
+    <div class="col s12 m6 offset-m3">
+        <div class="card blue-grey darken-1 white-text">
+            <div class="card-image">
+                <a href="https://github.com/concordion/concordion-excel-extension-tutorial/blob/master/README.md">
+                    <img src="https://github.com/concordion/concordion-excel-extension-tutorial/raw/master/tutorial/images/ExcelConcordionSetDistance.png" alt="Excel spreadsheet with Concordion commands as comments"/>
+                </a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Excel</span>
+                <span class="card-title right">
+                    <a class="github-button" href="https://github.com/concordion/concordion-excel-extension" data-count-href="/concordion/concordion-excel-extension/stargazers" data-count-api="/repos/concordion/concordion-excel-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-excel-extension on GitHub">Star</a>
+                </span>
+                <p>write your specifications in Excel</p>
+            </div>
+            <div class="card-action">
+                <a href="https://github.com/concordion/concordion-excel-extension/blob/master/README.md">README</a>
+                <a href="https://github.com/concordion/concordion-excel-extension-tutorial">Tutorial</a>
+            </div>
         </div>
     </div>
 </div>
-    
+
 <div class="divider"></div>
 
 <div class="section">
+    <h4>Runners</h4>
     <div class="row">
-        <h4>Runners</h4>
         <!-- PARALLEL RUN -->
         <div class="col s12 m6 offset-m3">
             <div class="card blue-grey darken-1">
@@ -135,8 +138,10 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- LOGGING TOOLTIP -->
+    <div class="row">
+    <!-- LOGGING TOOLTIP -->
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
@@ -179,7 +184,9 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
         <!-- RUN TOTALS -->
         <div class="col s12 m6  offset-m3">
             <div class="card blue-grey darken-1 white-text">
@@ -200,7 +207,9 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
         <!-- INPUT STYLE -->
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
@@ -244,10 +253,15 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="row">
         <!-- TIMESTAMP FORMATTER -->
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
+                <div class="card-image">
+                    <img src="{{ site.baseurl }}/img/extensions-timestamp-formatter.png" alt="Example of footer with timestamp formatted"/>
+                </div>
                 <div class="card-content">
                     <span class="card-title right">
                         <a class="github-button" href="https://github.com/concordion/concordion-timestamp-formatter-extension" data-count-href="/concordion/concordion-timestamp-formatter-extension/stargazers" data-count-api="/repos/concordion/concordion-timestamp-formatter-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-timestamp-formatter-extension on GitHub">Star</a>
@@ -325,6 +339,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
     </div>
 
 </div>
+</section>
 
 Note: Additional contributions are welcome. Please get in touch on the [concordion-dev](http://groups.google.com/forum/#!forum/concordion-dev) list.
 

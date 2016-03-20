@@ -270,6 +270,16 @@ header {
     }
 }
 
+.extensions {
+    padding-bottom: 10px;
+    padding-top: 20px;
+    .card-content {
+        min-height: 140px;
+    }
+}
+
+
+
 @media only screen and (max-width : 992px) {
     header, main, footer {
         padding-left: 0;
