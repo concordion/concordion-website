@@ -190,10 +190,12 @@ header {
         -ms-overflow-style: auto;
     }
     
-    ul {
+    ul:not(.collection) {
         padding-left: 40px;
         list-style-type: disc;
         
+
+
         li {
             list-style-type: disc;
         }
