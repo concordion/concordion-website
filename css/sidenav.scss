@@ -187,7 +187,7 @@ header {
         padding: 0.8rem 0.6rem 0.8rem 0.5rem;
         border: 1px solid {{ site.red-light }};
         border-left: 0.5rem solid {{ site.red-light }};
-        ms-overflow-style: scrollbar;
+        -ms-overflow-style: auto;
     }
     
     ul {
