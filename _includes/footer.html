@@ -1,4 +1,10 @@
 {% capture github_file %}{% if page.path contains '/' %}_includes/{{page.include}}{% else %}{{page.path}}{% endif %}{% endcapture %}
+{% if page.fixture_language == 'java' %}
+{% assign repo = 'concordion' %}
+{% elsif page.fixture_language == 'csharp' %}
+{% assign repo = 'concordion.net' %}
+{% endif %}
+
 <div class="container">
     <div class="row">
         <div class="col l6 s12">
@@ -10,7 +16,7 @@
             <ul class="read-more">
                 <li><a class="white-text" target="_blank" href="https://twitter.com/concordion"><i class="fa fa-twitter-square white-text"></i>Follow us on Twitter</a></li>
                 <li><a class="white-text" target="_blank" href="https://groups.google.com/forum/#!forum/concordion"><i class="fa fa-google white-text"></i>Join our Google Group</a></li>
-                <li><a class="white-text" target="_blank" href="https://github.com/concordion/concordion"><i class="fa fa-github white-text"></i>Github</a><a class="github-button" href="https://github.com/concordion/concordion" data-icon="octicon-star" data-count-href="/concordion/concordion/stargazers" data-count-api="/repos/concordion/concordion#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion on GitHub">Star</a></li>
+                <li><a class="white-text" target="_blank" href="https://github.com/concordion/{{ repo }}"><i class="fa fa-github white-text"></i>Github</a><a class="github-button" href="https://github.com/concordion/{{ repo }}" data-icon="octicon-star" data-count-href="/concordion/{{ repo }}/stargazers" data-count-api="/repos/concordion/{{ repo }}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/{{ repo }} on GitHub">Star</a></li>
             </ul>
         </div>
     </div>
