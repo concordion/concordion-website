@@ -9,7 +9,7 @@ sitemap:
     {% assign split_path = page.path | split: "." %}
     {% assign extension = split_path | last %}
 
-    {% if page.sitemap.exclude != "yes" and page.path != "404.md" and page.path != "redirect.html" %}
+    {% if page.sitemap.exclude != "yes" and page.path != "404.md" and page.path != "redirect.html" and page.path != "ExtensionsAPI.html" %}
       {% unless page.path contains "css/" %}
         <url>
           <loc>{{ site.url }}/{{ page.path | remove: "/index.html" | remove: "/index.md" | remove: "index.html" }}</loc>
