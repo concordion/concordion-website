@@ -35,7 +35,7 @@ For instance, an acceptance criterion might be that “All orders of $50 or over
 
 It is important that each example relates to an acceptance criterion and that each acceptance criterion has corresponding examples.
 
-![Story mapping to many acceptance criteria mapping to many examples]({{ site.baseurl }}/img/discuss-3-levels.png).
+![Story mapping to many acceptance criteria mapping to many examples]({{ site.baseurl }}/img/discuss-3-levels.png)
 
 By discussing examples, we often find gaps in acceptance criteria, or even missing stories. 
 
@@ -72,9 +72,9 @@ Further details: [Conversational Patterns in BDD](http://lizkeogh.com/2011/09/22
 
 ## Collaborative Specification Approaches
 
-![team discussing a spec]({{ site.baseurl }}/img/discuss-spec.png)
-
 Including a range of disciplines, including users, business analysts, developers and testers in the discussion is crucial to exploring examples from different angles, and gaining a shared understanding of the feature.
+
+![team discussing a spec]({{ site.baseurl }}/img/discuss-spec.png)
 
 Common approaches to specifying collaboratively include:
 
