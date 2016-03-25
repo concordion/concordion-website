@@ -16,10 +16,16 @@
 {% assign java=true %}
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
+{% assign supports_2_0=true %}
+{% assign method_name='split' %}
+{% assign file_suffix='java' %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
+{% assign supports_2_0=false %}
+{% assign method_name='Split' %}
+{% assign file_suffix='cs' %}
 {% endif %}
 
 _This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
@@ -33,11 +39,6 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
-{% if csharp %}
-__TODO - create C# tutorial__
-{% endif %}
-
-{% unless csharp %}
 To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. This project contains folders for each stage of the tutorial. 
 
 To start from scratch, start from the `initial` folder of the project.
@@ -58,13 +59,13 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 ![Hand-drawn diagram showing a table of example names being split]({{ site.baseurl }}/img/tutorial-discuss-names-table.png)
 
-[Find out more]({{ site.baseurl }}/discussing) about discussing examples.
+[Find out more]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}) about discussing examples.
 
 ## 2. Documenting
 
 The next step is to create a specification of the new feature.
 
-In the `src/test/resources/marketing/mailshots` folder of the tutorial project, edit the file `SplittingNames.{{ ext }}` to contain the following.
+In the {% if java %}`src/test/resources/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNames.{{ ext }}` to contain the following.
 
 {% if md %}
 ~~~markdown
@@ -113,22 +114,32 @@ This uses a formatting language called Markdown, which makes it easy to create r
 - The `#` characters at the start of the line create headings, where the heading level is determined by the number of `#` characters. 
 - The lines without a `#` character are treated as plain paragraphs.
 
-_Note:_ Prior to v2.0, Concordion only supported [HTML specifications]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/html#documenting), which are harder to read and write than Markdown. However, HTML provides a richer language, so may be preferred for complex scenarios.
 {% elsif html %}
+
 This uses HTML, which is the markup language that web pages are written in. It enables you to create rich documents using plain text. Typically, you only need a small subset of HTML for Concordion specifications. In the HTML above:
 
 - The `<link>` element in the header tells the browser to use the concordion.css stylesheet.
 - `<h1>` and `<h3>` are headings at level 1 and 3 respectively.
 - `<p>` is a paragraph.
 
-Previewing our {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in an editor that supports {{ spec_type_desc }}, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
+{% endif %}
+
+Previewing our {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in {% if html %}a browser or {% endif %} an editor that supports {{ spec_type_desc }} preview, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
-[Find out more]({{ site.baseurl }}/documenting) about documenting specifications.
+{% if md %}
+_Note:_ Prior to v2.0, Concordion only supported [HTML specifications]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/html#documenting), which are harder to read and write than Markdown. However, HTML provides a richer language, so may be preferred for complex scenarios.
 
+{% elsif html %}
+{% if supports_2_0 %}
 _Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/markdown#documenting), which are easier to read and write than HTML. However, HTML provides a richer language, so may be preferred for complex scenarios.
 {% endif %}
+
+{% endif %}
+
+
+[Find out more]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}) about documenting specifications.
 
 ## 3. Instrumenting
 
@@ -156,10 +167,10 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 {% endif %}
 
 {% if md %}
-Next, we add commands to the links:
+Next, we add Concordion commands to the links:
 
 ~~~markdown
-The full name [Jane Smith](- "#name") is [broken](- "#result = split(#name)") 
+The full name [Jane Smith](- "#name") is [broken](- "#result = {{ method_name }}(#name)") 
 into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
 ~~~
 
@@ -174,10 +185,11 @@ Next, we add Concordion commands as attributes on elements in the XHTML document
 
 ~~~html
 The full name <span concordion:set="#name">Jane Smith</span>
-will be <span concordion:execute="#result = split(#name)">broken</span>
-into first name <span concordion:assertEquals="#result.firstName">Jane</span>
-and last name <span concordion:assertEquals="#result.lastName">Smith</span>.
+will be <span concordion:execute="#result = {{method_name}}(#name)">broken</span>
+into first name <span concordion:assert-equals="#result.firstName">Jane</span>
+and last name <span concordion:assert-equals="#result.lastName">Smith</span>.
 ~~~
+
 {% endif %}
 
 {: #annotated-example}
@@ -185,14 +197,16 @@ and last name <span concordion:assertEquals="#result.lastName">Smith</span>.
 These commands are:
 
 1. setting our _context_, by setting a new variable `#name` to the value `Jane Smith`
-2. executing our _action_, by executing the method `split()` with the variable `#name` and returning the value `#result`
+2. executing our _action_, by executing the method `{{ method_name }}()` with the variable `#name` and returning the value `#result`
 3. verifying our _outcomes_, by checking whether `#result.firstName` is set to `Jane`, and `#result.lastName` is set to `Smith`.
 
 {% if md %}
 Previewing our [specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/instrumented/src/test/resources/marketing/mailshots/SplittingNames.md), we can hover over the links to see the command on each link ![preview of instrumented specification]({{ site.baseurl }}/img/tutorial-instrumented-preview.png)
 {% endif %}
 
+{% if supports_2_0 %}
 We also {% if md %}mark up the example header{% elsif html %}wrap the example in a `<div>` element with the concordion example command{% endif %}, to turn it into a named example. When the specification is run, this will show as a JUnit test named `basic`.
+{% endif supports_2_0 %}
 
 {% if md %}
 ~~~markdown
@@ -206,23 +220,24 @@ We also {% if md %}mark up the example header{% elsif html %}wrap the example in
 
     <p>
         The full name <span concordion:set="#name">Jane Smith</span>
-        will be <span concordion:execute="#result = split(#name)">broken</span>
-        into first name <span concordion:assertEquals="#result.firstName">Jane</span>
-        and last name <span concordion:assertEquals="#result.lastName">Smith</span>.
+        will be <span concordion:execute="#result = {{ method_name }}(#name)">broken</span>
+        into first name <span concordion:assert-equals="#result.firstName">Jane</span>
+        and last name <span concordion:assert-equals="#result.lastName">Smith</span>.
     </p>
 
 </div>
 ~~~
 {% endif %}
 
-[Find out more]({{ site.baseurl }}/instrumenting) about instrumenting fixtures.
+[Find out more]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}) about instrumenting fixtures.
 
 ## 4. Coding
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 
-In the `src/test/java/marketing/mailshots` folder of the tutorial project, create the file `SplittingNamesFixture.java` containing the following:
+In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNamesFixture.{{ file_suffix }}` to contain the following:
 
+{% if java %}
 ~~~java
 package marketing.mailshots;
 
@@ -234,19 +249,57 @@ public class SplittingNamesFixture {
 
 }
 ~~~
+{% else %}
+~~~csharp
+using Concordion.NET.Integration;
 
+namespace Marketing.Mailshot.Instrumented
+{
+    [ConcordionTest]
+    public class SplittingNamesFixture
+    {
+    }
+}
+~~~
+_(where the last part of the namespace depends on which subfolder of the tutorial project you are using)._
+{% endif %}
+
+{% if java %}
 You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradlew test` from the command line, the location of the output will be shown on the console, such as:
 
 ~~~console
 file:///tmp/concordion/marketing/mailshots/SplittingNames.html
 ~~~
 
+{% elsif csharp %}
+
+If you run the fixture as a NUnit test, for example from an IDE, the console will show the test results, such as:
+
+~~~console
+------ Test started: Assembly: Marketing.Mailshot.dll ------
+
+Test 'Executable Specification: SplittingNamesFixture' failed: NUnit.Core.NUnitException : Exception in Concordion test: please see Concordion test reports
+
+TestFixture failed: NUnit.Core.NUnitException : Exception in Concordion test: please see Concordion test reports
+
+0 passed, 1 failed, 0 skipped, took 0.78 seconds (NUnit 2.6.4).
+~~~
+
+The Concordion output is written to your temp folder, for example to 
+
+~~~console
+%TEMP%\Marketing\Mailshot\Instrumented\SplittingNames.html
+~~~
+
+{% endif csharp %}
+
 Opening this URL in a browser, the output should look something like this:
 
 ![output broken due to missing code]({{ site.baseurl }}/img/tutorial-broken-due-to-missing-code.png)
 
-The test of the example is failing since we haven't implemented the `split()` method. We'll flesh out our fixture code:
+The test of the example is failing since we haven't implemented the `{{ method_name }}()` method. We'll flesh out our fixture code:
 
+{% if java %}
 ~~~java
 package marketing.mailshots;
 
@@ -256,7 +309,7 @@ import org.junit.runner.RunWith;
 @RunWith(ConcordionRunner.class)
 public class SplittingNamesFixture {
 
-    public Result split(String fullName) {
+    public Result {{ method_name }}(String fullName) {
         return new Result();
     }
 
@@ -267,12 +320,37 @@ public class SplittingNamesFixture {
 }
 ~~~
 
+{% elsif csharp %}
+~~~csharp
+using Concordion.NET.Integration;
+
+namespace Marketing.Mailshot.Complete
+{
+    [ConcordionTest]
+    public class SplittingNamesFixture
+    {
+        public Result Split(string fullName)
+        {
+            return new Result();
+        }
+    }
+
+    public class Result
+    {
+        public string firstName = "TODO";
+        public string lastName = "TODO";
+    }
+}
+~~~
+{% endif csharp %}
+
 Run it now and you get:
 
 ![output broken because not fully implemented]({{ site.baseurl }}/img/tutorial-not-fully-implemented.png)
 
 Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
 
+{% if java %}
 ~~~java
 package marketing.mailshots;
    
@@ -298,10 +376,39 @@ public class SplittingNamesFixture {
 ~~~
 {: #complete-code}
 
+{% elsif csharp %}
+
+~~~csharp
+using Concordion.NET.Integration;
+
+namespace Marketing.Mailshot.Complete
+{
+    [ConcordionTest]
+    public class SplittingNamesFixture
+    {
+        public Result Split(string fullName)
+        {
+            Result result = new Result();
+            string[] words = fullName.Split(' ');
+            result.firstName = words[0];
+            result.lastName = words[1];
+            return result;
+        }
+    }
+
+    public class Result
+    {
+        public string firstName;
+        public string lastName;
+    }
+}
+~~~
+{: #complete-code}
+
+{% endif csharp %}
 
 The test now passes:
 
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
-[Find out more]({{ site.baseurl }}/coding) about coding fixtures.
-{% endunless %}
+[Find out more]({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }}) about coding fixtures.
