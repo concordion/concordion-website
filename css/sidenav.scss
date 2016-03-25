@@ -78,6 +78,10 @@ header {
     }
 }
 
+.sidenav-header.error {
+    background-color: {{ site.red }};
+}
+
 #slide-out::-webkit-scrollbar { 
     width: 0 !important; 
 }

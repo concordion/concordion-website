@@ -67,7 +67,11 @@
             </nav>                    
         </header>
         <main>
+{% if page.error_page %}
+            <section class="sidenav-header error">
+{% else %}
             <section class="sidenav-header">
+{% endif %}
                 <div class="row">
                     <div class="col s12">
                         <h1>{{ page.heading}}</h1>
@@ -83,7 +87,11 @@
                 </div>
             </div>
         </main>
+{% if page.error_page %}
+        <footer class="page-footer error">
+{% else %}
         <footer class="page-footer">
+{% endif %}
             {% include footer.html %}
         </footer>
         {% include imports-endbody.html %}

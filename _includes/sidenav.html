@@ -1,6 +1,12 @@
+{% if page.error_page %}
+{% assign logo_colour = 'red' %}
+{% else %}
+{% assign logo_colour = 'green' %}
+{% endif %}
 <ul id="slide-out" class="side-nav fixed collapsible collapsible-accordion">
-    <li class="side-nav-logo"><a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/img/concordion-logo-green.png" alt="Concordion Logo"/></a></li>
-    <li><a href="{{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}">Getting Started</a></li>
+    <li class="side-nav-logo"><a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/img/concordion-logo-{{ logo_colour }}.png" alt="Concordion Logo"/></a></li>
+    <li><a href="{{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}">Getting Started
+</a></li>
     <li id="next-steps">
         <div class="collapsible-header active">Next steps <i class="fa fa-chevron-right"></i></div>
         <div class="collapsible-body">

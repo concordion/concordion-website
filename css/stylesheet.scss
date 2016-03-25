@@ -202,6 +202,15 @@ footer.page-footer {
     }
 }
 
+footer.page-footer.error {
+    background-color: {{ site.red }};
+
+    .footer-copyright {
+        background-color: {{ site.red-dark }};
+    }
+}
+
+
 // #####
 // MODAL
 // #####
