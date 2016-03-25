@@ -60,7 +60,7 @@ The fixture must be in the same package as the specification. It can be in a dif
 
 Some users prefer to have the specifications and fixture classes in the same folder, and adjust their build tool settings accordingly. Another common pattern is to create a distinct folder, such as `src/spec`, to keep the specifications and fixtures separate from unit tests.
 
-The name of the fixture class and the specification share the same base name. The fixture has an optional suffix of "Fixture" or "Test" - for example, the fixture for the "SplttingNames.md" specification could be named "SplittingNames.java", "SplittingNamesFixture.java" or "SplittingNamesTest.java".
+The name of the fixture class and the specification share the same base name. The fixture has an optional suffix of "Fixture" or "Test" - for example, the fixture for the "SplittingNames.md" specification could be named "SplittingNames.java", "SplittingNamesFixture.java" or "SplittingNamesTest.java".
 
 ## Fixture classes
 Concordion fixtures use the JUnit library, with a specialised ConcordionRunner:
