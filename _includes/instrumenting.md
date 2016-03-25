@@ -28,6 +28,11 @@ _This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Cli
 
 {% unless csharp %}
 
+* TOC
+{:toc}
+
+## Overview
+
 {% if html %}
 Concordion commands require a `concordion` namespace to be defined at the top of each HTML specification as follows:
 
@@ -667,7 +672,7 @@ There is currently no explicit support for this in the Concordion Markdown synta
 
 ----
 
-### verify-rows command
+## verify-rows command
 
 When you want to check the contents of a collection of results returned from the system, use the `verify-rows` command.
 
@@ -761,6 +766,7 @@ where expression returns an Iterable object with a predictable iteration order, 
 {% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
 
 {% if supports_2_0 %}
+### Match Strategy
 (_since: 2.0.0_, As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verifyRows/strategies/Strategies.html) to define how the rows are matched).
 {% endif %}
 
@@ -780,7 +786,7 @@ Note that either `verify-rows` or `verifyRows` can be used for the command name.
 
 ----
 
-### run command
+## run command
 The `run` command lets you run another specification from this specification, and build up test suites. Executing the specification will automatically execute all its linked specifications (recursively), with the results aggregated up.
 
 The format is:
@@ -805,7 +811,7 @@ The `runner-name` should normally be `concordion`.
 
 ----
 
-### assert-true and assert-false commands
+## assert-true and assert-false commands
 These commands are useful for asserting boolean conditions. 
 
 They should be used sparingly, since on failure they can only report true or false. For example, when the specification:
@@ -848,7 +854,7 @@ When the completion date is not today, return the actual date from `getCompletio
 
 ----
 
-### echo command
+## echo command
 The `echo` command evaluates an expression and inserts the result into the output HTML. One usage is to display environment details in a page footer.
 
 {% if md %}
