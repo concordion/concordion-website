@@ -16,14 +16,13 @@
 {% assign java=true %}
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
+{% assign supports_2_0 = true %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
+{% assign supports_2_0 = false %}
 {% endif %}
-
-
-{% unless csharp %}
 
 
 _This page introduces documenting specifications in __{{ spec_type_desc }}__._  Click the toggle buttons above to choose other options.
@@ -154,11 +153,11 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 Concordion comes with a default style out of the box.
 
-Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, the fixture will need to [specify]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources) the resources to be copied to the output specification.
+Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for{% endif supports_2_0 %} the resources to be copied to the output specification.
 
 # Specification language
 
-Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension) to handle other formats).
+Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) to handle other formats).
 
 {% if md %}
 
@@ -313,5 +312,3 @@ Which produces:
 While you can edit HTML in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a HTML editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated HTML editors.
 
 {% endif %}
-
-{% endunless %}

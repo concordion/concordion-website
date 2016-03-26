@@ -138,7 +138,7 @@ When executed from a Concordion specification, Concordion will automatically con
 
 Methods can return void, a primitive or an Object.
 
-##### Returning a Map result
+##### Returning a {% if java %}Map{% elsif csharp %}Dictionary{% endif %} result
 
 As described in the tutorial, to check more than one result of a behaviour, you can return an Object from the execute command. An alternative is to return a {% if java %}Map{% elsif csharp %}Dictionary{% endif %} object, for example:
 
@@ -156,8 +156,8 @@ public Map split(String fullName) {
 ~~~java
 public Dictionary<String, String> Split(string fullName)
 {
-    Dictionary<String, String> result = new Dictionary<String, String>();
     string[] words = fullName.Split(' ');
+    Dictionary<String, String> result = new Dictionary<String, String>();
     result.Add("firstName", words[0]);
     result.Add("lastName", words[1]);
     return result;
@@ -165,7 +165,7 @@ public Dictionary<String, String> Split(string fullName)
 ~~~
 {% endif csharp %}
 
-This is particularly useful when calling existing methods that return Maps{% if java %}, or when using a JVM language with native language support for Maps, such as Groovy{% endif %}.
+This is particularly useful when calling existing methods that return {% if java %}Map objects, or when using a JVM language with native language support for Maps, such as Groovy{% elsif csharp %}Dictionary objects.{% endif %}
 
 {% if java %}
 ##### Returning a MultiValueResult
@@ -417,7 +417,7 @@ java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acm
 
 For further details see the [extension configuration]({% if java %}https://concordion.github.io/concordion/latest/spec/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}) specification.
 
-## Building your own extension
+## Creating an extension
 
 The Extensions API allows you to add functionality to Concordion, for example implementing new commands, listening to events, or modifying the Concordion output.   
 

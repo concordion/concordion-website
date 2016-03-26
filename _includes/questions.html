@@ -16,21 +16,18 @@
 {% assign java=true %}
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
+{% assign supports_full_ognl = true %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
+{% assign supports_full_ognl = false %}
 {% endif %}
 
-_This page shows the FAQ for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
-
-{% if csharp %}
-<hr/>
-<p><b>TODO:</b> The C# translation is nearly complete on this page.</p>
-<hr/>
-{% endif %}
 
 <div class="row">
+
+<p><i>This page shows the FAQ for <b>{{ fixture_language_desc }}</b>.</I>  Click the toggle buttons above to choose other options.</p>
 
     <a name="whoDevelopedIt"> </a>
     <h3>Who developed Concordion{% if csharp %}.NET{% endif %}?</h3>
@@ -99,13 +96,9 @@ _This page shows the FAQ for __{{ fixture_language_desc }}__._  Click the toggle
         Concordion uses a "Fork &amp; Pull" model for collaborative development. If you have changes that you would like us to consider for introduction to Concordion, 
         you will need to <a href="https://help.github.com/articles/fork-a-repo">fork</a> the repository, commit and push your changes to your forked project, and send us a <a href="https://help.github.com/articles/using-pull-requests">pull request</a> referencing the URL of the issue that you created.
     </p>
-<!-- TODO apply this block to C#
--->    
-{% if java %}
     <p>
-        Please note that, in order to keep Concordion clean and minimal, we consider all enhancement requests carefully. Should your enhancement not be appropriate for Concordion core, you may wish to package it as a Concordion <a href="{{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#building-your-own-extension">extension</a>. 
+        Please note that, in order to keep Concordion clean and minimal, we consider all enhancement requests carefully. Should your enhancement not be appropriate for Concordion core, you may wish to package it as a Concordion <a href="{{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension">extension</a>. 
     </p>
-{% endif %}    
 {% if java %}
     <p>
         See README-DEVELOPERS.txt in the concordion repository for the development standards.
@@ -129,8 +122,7 @@ project demonstrates Concordion working with Selenium WebDriver.
 </p>
 {% endif %}
 
-{% if java %}
-<!-- TODO - is FullOGNL available in .NET? -->
+{% if supports_full_ognl %}
 <a name="complexExpressions"> </a>
 <h3>How do I use complex expressions in my Concordion specifications?</h3>
 <p>

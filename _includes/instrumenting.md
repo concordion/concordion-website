@@ -17,16 +17,22 @@
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
 {% assign supports_2_0=true %}
+{% assign supports_full_ognl=true %}
+{% assign g = "g" %}
+{% assign i = "i" %}
+{% assign s = "s" %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
 {% assign supports_2_0=false %}
+{% assign supports_full_ognl=false %}
+{% assign g = "G" %}
+{% assign i = "I" %}
+{% assign s = "S" %}
 {% endif %}
 
 _This page explains instrumenting __{{ spec_type_desc }}__ specifications._  Click the toggle buttons above to choose other formats.
-
-{% unless csharp %}
 
 * TOC
 {:toc}
@@ -84,23 +90,23 @@ Create a file `HelloWorld.{{ ext }}` containing:
 ~~~html
 <html xmlns:concordion="http://www.concordion.org/2007/concordion">
     <body>
-        <p concordion:assert-equals="getGreeting()">Hello World!</p>
+        <p concordion:assert-equals="{{g}}etGreeting()">Hello World!</p>
     </body>
 </html>
 ~~~
 {% elsif md %}
 ~~~markdown
-[Hello World!](- "?=getGreeting()")
+[Hello World!](- "?={{g}}etGreeting()")
 ~~~
 {% endif %}
 
-When run with a fixture that implements the `getGreeting()` method to return `Hello World!`, the output specification will show:
+When run with a fixture that implements the `{{g}}etGreeting()` method to return `Hello World!`, the output specification will show:
 
 ![successful specification]({{site.baseurl}}/img/hello-world-success.png)
 
 ### Properties support
 
-In the example above, the call to `getGreeting()` can be simplified to `greeting` since Concordion's expression language includes properties support.
+In the example above, the call to `{{g}}etGreeting()` can be simplified to `greeting` since Concordion's expression language includes properties support.
 
 {% if html %}
 ~~~html
@@ -178,18 +184,18 @@ Now we can instrument the document:
         <p>
             The greeting for user <span concordion:set="#firstName">Bob</span>
             will be:
-            <span concordion:assert-equals="greetingFor(#firstName)">Hello Bob!</span>
+            <span concordion:assert-equals="{{g}}reetingFor(#firstName)">Hello Bob!</span>
         </p>
     </body>
 </html>
 ~~~
 {% elsif md %}
 ~~~markdown
-The greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?=greetingFor(#firstName)")
+The greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?={{g}}reetingFor(#firstName)")
 ~~~
 {% endif %}
 
-When Concordion processes the document, it will set a specification variable `#firstName` to the value `Bob` and then call the `greetingFor()` method with that value and check that the result is equal to `Hello Bob!`.
+When Concordion processes the document, it will set a specification variable `#firstName` to the value `Bob` and then call the `{{g}}reetingFor()` method with that value and check that the result is equal to `Hello Bob!`.
 
 {% if md %}
 _Note that the `#` syntax is short for `c:set=#`_
@@ -310,18 +316,18 @@ Take the following specification for example:
         <p>
             If the time is
             <span concordion:set="#time">09:00AM</span>
-            <span concordion:execute="setCurrentTime(#time)" />
+            <span concordion:execute="{{s}}etCurrentTime(#time)" />
             then the greeting will say:
-            <span concordion:assert-equals="getGreeting()">Good Morning World!</span>
+            <span concordion:assert-equals="{{g}}etGreeting()">Good Morning World!</span>
         </p>
     </body>
 </html>
 ~~~
 {% elsif md %}
 ~~~markdown
-If the time is [09:00AM](- "#time") [ ](- "setCurrentTime(#time)")
+If the time is [09:00AM](- "#time") [ ](- "{{s}}etCurrentTime(#time)")
 then the greeting will say:
-[Good Morning World!](- "?=getGreeting()")
+[Good Morning World!](- "?={{g}}etGreeting()")
 ~~~
 {% endif %}
 
@@ -334,22 +340,22 @@ We can actually remove the need for the set command by using the special variabl
     <body>
         <p>
             If the time is
-            <span concordion:execute="setCurrentTime(#TEXT)">09:00AM</span>
+            <span concordion:execute="{{s}}etCurrentTime(#TEXT)">09:00AM</span>
             then the greeting will say:
-            <span concordion:assert-equals="getGreeting()">Good Morning World!</span>
+            <span concordion:assert-equals="{{g}}etGreeting()">Good Morning World!</span>
         </p>
     </body>
 </html>
 ~~~
 {% elsif md %}
 ~~~markdown
-If the time is [09:00AM](- "setCurrentTime(#TEXT)") 
+If the time is [09:00AM](- "{{s}}etCurrentTime(#TEXT)") 
 then the greeting will say:
-[Good Morning World!](- "?=getGreeting()")
+[Good Morning World!](- "?={{g}}etGreeting()")
 ~~~
 {% endif %}
 
-An alternative would be to change the getGreeting() method signature to allow the time to be passed in as a parameter. This is the approach you should normally take. An execute with no return value often indicates a "bad smell" - e.g. you're writing a script or your specification contains too many variables and covers too many behaviours. However, the functionality is there if you need it.
+An alternative would be to change the {{g}}etGreeting() method signature to allow the time to be passed in as a parameter. This is the approach you should normally take. An execute with no return value often indicates a "bad smell" - e.g. you're writing a script or your specification contains too many variables and covers too many behaviours. However, the functionality is there if you need it.
 
 {% if md %}
 (Note that in the execute command is deduced by the absence of a `#`, `?=` or `c:` prefix in the link title. It is equivalent to prefixing the command with `c:execute=`).
@@ -382,15 +388,15 @@ Sometimes you need to check more than one result of a behaviour. For example, he
             its constituents by splitting around whitespace.
         </p>
 
-        <div concordion:example="simple-name">
+        <div {% if supports_2_0 %}concordion:example="simple-name"{% else %}class="example"{% endif %}>
 
             <h3>Example</h3>
 
             <p>
                 The full name
-                <span concordion:execute="#result = split(#TEXT)">John Smith</span>
+                <span concordion:execute="#result = {{s}}plit(#TEXT)">Jane Smith</span>
                 will be broken into first name
-                <span concordion:assert-equals="#result.firstName">John</span>
+                <span concordion:assert-equals="#result.firstName">Jane</span>
                 and last name
                 <span concordion:assert-equals="#result.lastName">Smith</span>.
             </p>
@@ -410,15 +416,15 @@ The system therefore attempts to break a supplied full name into its constituent
 
 ### [Example](- "simple-name")
 
-The full name [John Smith](- "#result = split(#TEXT)")
-will be broken into first name [John](- "?=#result.firstName")
+The full name [Jane Smith](- "#result = split(#TEXT)")
+will be broken into first name [Jane](- "?=#result.firstName")
 and last name [Smith](- "?=#result.lastName")
 ~~~
 {% endif %}
 
-The variable `#result` is going to be an object returned by the `split()` method. This object will have `firstName` and `lastName` properties. 
+The variable `#result` is going to be an object returned by the `{{s}}plit()` method. This object will have `firstName` and `lastName` properties. 
 
-Alternatively, the [MultiValueResult]() class makes it easy to return multiple values without creating a new object, or you can return a `Map` result.
+Alternatively, to make it easier to return multiple values without creating a new object, you can {% if java %}[return a MultiValueResult]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#returning-a-multivalueresult) or [return a Map result]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#returning-a-map-result){% elsif csharp %}[return a Dictionary result]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#returning-a-dictionary-result){% endif %}.
 
 ### Handling unusual sentence structures
 
@@ -452,12 +458,12 @@ This is easy to instrument:
 <p>
     Upon login, the greeting for user <span concordion:set="#firstName">Bob</span>
     will be:
-    <span concordion:assert-equals="greetingFor(#firstName)">Hello Bob!</span>
+    <span concordion:assert-equals="{{g}}reetingFor(#firstName)">Hello Bob!</span>
 </p>
 ~~~
 {% elsif md %}
 ~~~markdown
-Upon login, the greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?=greetingFor(#firstName)")
+Upon login, the greeting for user [Bob](- "#firstName") will be: [Hello Bob!](- "?={{g}}reetingFor(#firstName)")
 ~~~
 {% endif %}
 
@@ -479,7 +485,7 @@ In this case, the input parameter Bob occurs after the output greeting we want t
 
 {% if html %}
 ~~~html
-<p concordion:execute="#greeting = greetingFor(#firstName)">
+<p concordion:execute="#greeting = {{g}}reetingFor(#firstName)">
     The greeting "<span concordion:assert-equals="#greeting">Hello Bob!</span>"
     should be given to user <span concordion:set="#firstName">Bob</span>
     when he logs in.
@@ -488,7 +494,7 @@ In this case, the input parameter Bob occurs after the output greeting we want t
 {% elsif md %}
 ~~~html
 <div>
-    <p concordion:execute="#greeting = greetingFor(#firstName)">
+    <p concordion:execute="#greeting = {{g}}reetingFor(#firstName)">
         The greeting "<span concordion:assert-equals="#greeting">Hello Bob!</span>"
         should be given to user <span concordion:set="#firstName">Bob</span>
         when he logs in.
@@ -532,7 +538,7 @@ You can instrument this table, in a long-winded way, as follows:
             its constituents by splitting around whitespace.
         </p>
 
-        <div concordion:example="simple-names">
+        <div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
 
             <h3>Examples</h3>
 
@@ -542,12 +548,12 @@ You can instrument this table, in a long-winded way, as follows:
                     <th>First Name</th>
                     <th>Last Name</th>
                 </tr>
-                <tr concordion:execute="#result = split(#fullName)">
+                <tr concordion:execute="#result = {{s}}plit(#fullName)">
                     <td concordion:set="#fullName">John Smith</td>
                     <td concordion:assert-equals="#result.firstName">John</td>
                     <td concordion:assert-equals="#result.lastName">Smith</td>
                 </tr>
-                <tr concordion:execute="#result = split(#fullName)">
+                <tr concordion:execute="#result = {{s}}plit(#fullName)">
                     <td concordion:set="#fullName">David Peterson</td>
                     <td concordion:assert-equals="#result.firstName">David</td>
                     <td concordion:assert-equals="#result.lastName">Peterson</td>
@@ -574,7 +580,7 @@ The system therefore attempts to break a supplied full name into its constituent
 | [John Smith][split] | [John][first] | [Smith][last] |
 | [David Peterson][split] | [David][first] | [Peterson][last] |
 
-[split]: - "#result = split(#TEXT)"
+[split]: - "#result = {{s}}plit(#TEXT)"
 [first]: - "?=#result.firstName"
 [last]:  - "?=#result.lastName"
 ~~~
@@ -607,11 +613,11 @@ For example:
             its constituents by splitting around whitespace.
         </p>
 
-        <div concordion:example="simple-names">
+        <div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
 
             <h3>Examples</h3>
 
-            <table concordion:execute="#result = split(#fullName)">
+            <table concordion:execute="#result = {{s}}plit(#fullName)">
                 <tr>
                     <th concordion:set="#fullName">Full Name</th>
                     <th concordion:assert-equals="#result.firstName">First Name</th>
@@ -649,7 +655,7 @@ The system therefore attempts to break a supplied full name into its constituent
 | John Smith | John] | Smith |
 | David Peterson | David | Peterson |
 
-[split]: - "#result = split(#fullName)"
+[split]: - "#result = {{s}}plit(#fullName)"
 [full]: - "#fullName"
 [first]: - "?=#result.firstName"
 [last]:  - "?=#result.lastName"
@@ -696,13 +702,13 @@ The instrumented source for the specification looks like this:
     the search string are returned.
 </p>
 
-<div concordion:example="beatles">
+<div {% if supports_2_0 %}concordion:example="beatles"{% else %}class="example"{% endif %}>
 
     <h3>Example</h3>
 
     <p>Given these users:</p>
 
-    <table concordion:execute="setUpUser(#username)">
+    <table concordion:execute="{{s}}etUpUser(#username)">
         <tr><th concordion:set="#username">Username</th></tr>
         <tr><td>john.lennon</td></tr>
         <tr><td>ringo.starr</td></tr>
@@ -712,7 +718,7 @@ The instrumented source for the specification looks like this:
 
     <p>Searching for "<b concordion:set="#searchString">arr</b>" will return:</p>
 
-    <table concordion:verify-rows="#username : getSearchResultsFor(#searchString)">
+    <table concordion:verify-rows="#username : {{g}}etSearchResultsFor(#searchString)">
         <tr><th concordion:assert-equals="#username">Matching Usernames</th></tr>
         <tr><td>george.harrison</td></tr>
         <tr><td>ringo.starr</td></tr>
@@ -740,7 +746,7 @@ Given these users:
 | george.harrison |
 | paul.mccartney |
 
-[setup]: - "setUpUser(#username)"
+[setup]: - "{{s}}etUpUser(#username)"
 [user]:   - "#username"
 
 Searching for [arr](- "#searchString") will return:
@@ -750,7 +756,7 @@ Searching for [arr](- "#searchString") will return:
 | george.harrison |
 | ringo.starr |
 
-[search]: - "c:verify-rows=#username:getSearchResultsFor(#searchString)"
+[search]: - "c:verify-rows=#username:{{g}}etSearchResultsFor(#searchString)"
 [match]: - "?=#username"
 ~~~
 {% endif %}
@@ -761,7 +767,7 @@ The syntax for a verify-rows command is:
 #loopVar : expression
 ~~~
 
-where expression returns an Iterable object with a predictable iteration order, (e.g. a List, LinkedHashSet or a TreeSet). And #loopVar provides access to the current object during iteration and allows the assert-equals method to check its value.
+where `expression` returns an Iterable object with a predictable iteration order, (e.g. {% if java %}a List, LinkedHashSet or a TreeSet{% elsif csharp %}a collection extending ICollection{% endif %}), and `#loopVar` provides access to the current object during iteration and allows the assert-equals method to check its value.
 
 {% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
 
@@ -804,10 +810,14 @@ The format is:
 where `spec.html` is the name of the specification to be run, with the relative path `path/to`.
 
 {% if html %}
-The `runner-name` should normally be `concordion`. 
+The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`. 
 {% endif %}
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/run/Run.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+{% if csharp %}
+To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](http://concordion.org/dotnet/Concordion/Configuration/Runner.html).
+{% endif %}
+
+[Further details]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 ----
 
@@ -818,15 +828,15 @@ They should be used sparingly, since on failure they can only report true or fal
 
 {% if html %}
 ~~~html
-<p>The completion date should be set to <span concordion:assertTrue="isCompletionToday()">today</span>.</p>
+<p>The completion date should be set to <span concordion:assert-true="{{i}}sCompletionToday()">today</span>.</p>
 ~~~
 {% elsif md %}
 ~~~markdown
-The completion date should be set to [today](- "c:assertTrue="isCompletionToday()")
+The completion date should be set to [today](- "c:assert-true="{{i}}sCompletionToday()")
 ~~~
 {% endif %}
 
-is run with a `isCompletionToday()` method that returns false, the output shows:
+is run with a `{{i}}sCompletionToday()` method that returns false, the output shows:
 
 ![specification showing false result]({{site.baseurl}}/img/instrument-assert-true.png)
 
@@ -834,19 +844,19 @@ As an alternative, use the `assert-equals` command to show better error messages
 
 {% if html %}
 ~~~
-<p>The completion date should be set to <span concordion:assertEquals="getCompletionDay()">today</span>.</p>
+<p>The completion date should be set to <span concordion:assertEquals="{{g}}etCompletionDay()">today</span>.</p>
 ~~~
 {% elsif md %}
 ~~~markdown
-The completion date should be set to [today](- "?=getCompletionDay()").
+The completion date should be set to [today](- "?={{g}}etCompletionDay()").
 ~~~
 {% endif %}
 
-When the completion date is today, return "today" from `getCompletionDay()` to show success:
+When the completion date is today, return "today" from `{{g}}etCompletionDay()` to show success:
 
 ![specification showing today as success]({{site.baseurl}}/img/instrument-assert-equals-success.png)
 
-When the completion date is not today, return the actual date from `getCompletionDay()` to show the actual date in the output specification:
+When the completion date is not today, return the actual date from `{{g}}etCompletionDay()` to show the actual date in the output specification:
 
 ![specification showing the actual date as failure]({{site.baseurl}}/img/instrument-assert-equals-failure.png)
 
@@ -873,6 +883,6 @@ Username:[ ](- "c:echo=username")
 
 In order to keep your specifications [simple and maintainable]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple), Concordion deliberately restricts the [expression language](https://concordion.github.io/concordion/latest/spec/command/expressions/Expressions.html) that is allowed when instrumenting specifications. 
 
+{% if supports_full_ognl %}
 This can be [overridden]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#full-ognl) to allow complex expressions.
-
-{% endunless %}
+{% endif supports_full_ognl %}
