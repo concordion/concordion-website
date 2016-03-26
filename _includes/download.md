@@ -37,7 +37,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
     <ul class="collection">
 {% if java %}
         <li class="collection-item avatar">
-            <img src="{{ site.baseurl }}/img/download-gradle.jpg" alt="maven image" class="circle">
+            <img src="{{ site.baseurl }}/img/download-gradle.jpg" alt="gradle image" class="circle">
             <span class="download title">Gradle</span>
             <pre>
  testCompile 'org.concordion:concordion:1.5.1'
@@ -59,7 +59,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
         <li class="collection-item avatar">
             <img src="{{ site.baseurl }}/img/download-nuget.png" alt="nuget image" class="circle">
             <span class="download title">NuGet</span>
-        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.0/Concordion.NET-1.5.0.zip" id="download-link">https://www.nuget.org/packages/Concordion.NET/</a></b></p>
+        <p><b><a href="https://www.nuget.org/packages/Concordion.NET" id="download-link">https://www.nuget.org/packages/Concordion.NET/</a></b></p>
         </li>
 {% endif %}
         <li class="collection-item avatar">

@@ -3,12 +3,12 @@
 {% assign html=true %}
 {% assign md=false  %}
 {% assign spec_type_desc = 'HTML' %}
-{% assign ext='html' %}
+{% assign spec_ext='html' %}
 {% elsif spec_type == 'markdown' %}
 {% assign html=false %}
 {% assign md=true    %}
 {% assign spec_type_desc = 'Markdown' %}
-{% assign ext='md'    %}
+{% assign spec_ext='md'    %}
 {% endif %}
 
 {% assign fixture_language=page.fixture_language %}
@@ -18,14 +18,14 @@
 {% assign fixture_language_desc = 'Java' %}
 {% assign supports_2_0=true %}
 {% assign method_name='split' %}
-{% assign file_suffix='java' %}
+{% assign fixture_ext='java' %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
 {% assign fixture_language_desc = 'C#' %}
 {% assign supports_2_0=false %}
 {% assign method_name='Split' %}
-{% assign file_suffix='cs' %}
+{% assign fixture_ext='cs' %}
 {% endif %}
 
 _This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
@@ -65,7 +65,7 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 The next step is to create a specification of the new feature.
 
-In the {% if java %}`src/test/resources/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNames.{{ ext }}` to contain the following.
+In the {% if java %}`src/test/resources/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNames.{{ spec_ext }}` to contain the following.
 
 {% if md %}
 ~~~markdown
@@ -235,7 +235,7 @@ We also {% if md %}mark up the example header{% elsif html %}wrap the example in
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 
-In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNamesFixture.{{ file_suffix }}` to contain the following:
+In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNamesFixture.{{ fixture_ext }}` to contain the following:
 
 {% if java %}
 ~~~java
