@@ -100,7 +100,7 @@ defaults:
       heading: "Integrations"
       subheading: "Integrating Concordion with other tools"
       subject: 'integrations'
-      include: 'integrations.html'
+      include: 'integrations.md'
   -
     scope:
       path: "questions"

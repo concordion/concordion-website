@@ -50,11 +50,16 @@ It is good practice to create a separate driver layer for the code that drives y
 ## Project Structure
 
 ### Dependencies
-Concordion requires a number of libraries to be present, including Concordion, {{ test_library }}, XOM and OGNL libraries. 
+Version 3.5 or higher of the .NET framework must be used as target framework in the project that contains your Concordion.NET fixture classes.
 
-The best way to manage these dependencies is to use {% if java %}a build tool such as Gradle or Maven{% elsif csharp %}NuGet{% endif %}. See the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page for details{% if java %} of the dependencies section that must be added to the `build.gradle` or `pom.xml` file respectively{% endif %}.
+Concordion{% if csharp %}.NET{% endif %} requires a number of libraries to be present, including Concordion, {{ test_library }}, XOM and OGNL libraries. 
+
+The best way to manage these dependencies is to use {% if java %}a build tool such as Gradle or Maven{% elsif csharp %}NuGet{% endif %}. See the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page for details{% if java %} of the dependencies section that must be added to the `build.gradle` or `pom.xml` file respectively{% endif %}. {% if csharp %}Note that Concordion.NUnit.dll is [not currently included](https://github.com/concordion/concordion.net/issues/1) in the NuGet package, so must be downloaded separately and adding as a reference to the project.{% endif %}
 
 As an altenative, you can download the full distribution from the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page. After extracting the files, you must add references to all the downloaded libraries to the project{% if java %} classpath{% endif %}. 
+
+### Assembly Info
+Add the attribute [assembly: RequiredAddin("ConcordionNUnitAddin")] to the AssemblyInfo.cs of your project. This tells NUnit that the Concordion-NUnit-Addin is required to run your Concordion.NET tests.
 
 ### Locating the Specification
 {% if java %}
@@ -81,6 +86,8 @@ and appending the `Completed` folder that the specification is in:
 ![Folder structure showing specification in the Completed folder]({{ site.baseurl }}/img/coding-dotnet-folder-structure.png)
 
 The name of the fixture class and the specification share the same base name. The fixture has an optional suffix of "Fixture" or "Test" - for example, the fixture for the "SplittingNames.{{ spec_ext }}" specification could be named "SplittingNames.{{ fixture_ext }}", "SplittingNamesFixture.{{ fixture_ext }}" or "SplittingNamesTest.{{ fixture_ext }}".
+
+As an alternative, you can [configure](#configuration-options) the BaseInputDirectory to specify the location of your specification documents.
 
 ### Including the Specification in the DLL
 
