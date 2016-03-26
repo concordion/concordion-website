@@ -130,7 +130,13 @@ The [HTML Publisher plugin](https://wiki.jenkins-ci.org/display/JENKINS/HTML+Pub
 
 __Note:__ as of Jenkins 1.641 / 1.625.3, the new [Content Security Policy](https://wiki.jenkins-ci.org/display/JENKINS/Configuring+Content+Security+Policy) results in Concordion reports no longer being fully functional in Jenkins, with the error `"Refused to apply inline style because it violates the following Content Security Policy directive: "style-src 'self'"`. Concordion reports use inline CSS and Javascript.
 
-While we investigate the issue further, the only workaround is to restore the security vulnerability. To do this, relax the policy to allow `script-src 'unsafe-inline'` and `style-src 'unsafe-inline'` by appending `-Dhudson.model.DirectoryBrowserSupport.CSP=\" sandbox; default-src 'none'; img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline';\"` to the value of the JAVA_ARGS variable in the Jenkins startup script (/etc/default/jenkins on Linux) and restarting Jenkins. Note that we are still investigating this further - see the [discussion](https://groups.google.com/d/msg/concordion/RSp92D2CNuc/nwYW4yqvEQAJ).
+While we investigate the issue further, the only workaround is to restore the security vulnerability. To do this, relax the policy to allow `script-src 'unsafe-inline'` and `style-src 'unsafe-inline'` by appending 
+
+~~~console
+-Dhudson.model.DirectoryBrowserSupport.CSP=\" sandbox; default-src 'none'; img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline';\"
+~~~
+
+to the value of the `JAVA_ARGS` variable in the Jenkins startup script (/etc/default/jenkins on Linux) and restarting Jenkins. Note that we are still investigating this further - see the [discussion](https://groups.google.com/d/msg/concordion/RSp92D2CNuc/nwYW4yqvEQAJ).
     
 {% elsif csharp %}
 
