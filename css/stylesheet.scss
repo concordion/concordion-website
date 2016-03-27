@@ -90,18 +90,9 @@ nav.static {
 }
 
 .brand-logo {
-
     img {
         width: 208px;
     }
-
-    h2 {
-        display: inline-block;
-        font-size: {{ site.nav-height-mobile }} - 20px;
-    line-height: 100%;
-    margin: 10px 0px;
-    @include transform(translateY(-15px));
-}
 }
 
 .text-shadow {
@@ -122,17 +113,10 @@ nav.static {
 @media only screen and (min-width: 601px) {
 
     .brand-logo {
-
         img {
             width: 238px;
         }
-
-        h2 {
-            font-size: {{ site.nav-height }} - 30px;
-        margin: 15px 0px;
-        @include transform(translateY(-20px));
     }
-}
 }
 
 @media only screen and (min-width: 993px) {
@@ -403,6 +387,7 @@ section .background {
 .typed {
     text-align: center;
     margin-top: 0px;
+    font-size: 1.75rem;
 }
 
 .typed-cursor{
@@ -528,15 +513,47 @@ section .background {
     background-color: {{ site.off-white }} !important;
 }
 
+
+// ########
+// HEADINGS - Overview, Awesomeness
+// ########
+
+h2 {
+    font-size: 1.75rem; 
+}
+
+@media only screen and (min-width: 601px) {
+    h2 {
+        font-size: 2.25rem; 
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    h2 {
+        font-size: 2.5rem; 
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    h2 {
+        font-size: 2.75rem; 
+    }
+}
+
+@media only screen and (min-width: 1441px) {
+    h2 {
+        font-size: 3rem; 
+    }
+}
+
 // ########
 // OVERVIEW
 // ########
 
 #overview {
     h2 {
-        font-size: 2.5rem;
         color: #444;
-        line-height: 100%;
+        line-height: 120%;
         text-align: center;
         padding-bottom: 2rem;
     }
@@ -574,7 +591,7 @@ section .background {
         display: none;
 
         .row {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .screenshot {
@@ -583,14 +600,13 @@ section .background {
             img {
                 height: 100%;
             }
-
         }
 
         .icon {
             text-align: center;
 
             img {
-                height: 200px;
+                height: 170px;
             }
         }
     }
@@ -623,6 +639,36 @@ section .background {
         }
     }
 }
+
+h4 {
+    font-size: 1.75rem; 
+}
+
+@media only screen and (min-width: 601px) {
+    h4 {
+        font-size: 2.25rem; 
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    h4 {
+        font-size: 2.5rem; 
+    }
+}
+
+@media only screen and (min-width: 1281px) {
+    h4 {
+        font-size: 2.75rem; 
+    }
+}
+
+@media only screen and (min-width: 1441px) {
+    h4 {
+        font-size: 3rem; 
+    }
+}
+
+
 
 // ########
 // AWESOMENESS
