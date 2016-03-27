@@ -125,8 +125,7 @@ The [screenshot extension demo](https://github.com/concordion/concordion-screens
 
 ### How do I use complex expressions in my Concordion specifications?
 
-In order to [keep your specifications simple]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple") and maintainable, Concordion deliberately restricts the expression format that is allowed when instrumenting specifications. Complexity should be moved into the fixture code, and then [evolved into a DSL]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#evolveDSL), where it is easier to maintain. The idea is to have the fixture do all the work of fetching and munging the data and then return exactly the data that the spec needs, which helps to decouple the spec from the implementation.
-
+In order to [keep your specifications simple]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple) and maintainable, Concordion deliberately restricts the expression format that is allowed when instrumenting specifications. Complexity should be moved into the fixture code, and then [evolved into a DSL]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#evolveDSL), where it is easier to maintain. The idea is to have the fixture do all the work of fetching and munging the data and then return exactly the data that the spec needs, which helps to decouple the spec from the implementation.
 
 However, if you really want to remove this restriction you can apply the annotation @FullOGNL to your fixture class. This would allow you to do things like [pass property values of Java beans into methods](http://stackoverflow.com/questions/23658633/use-result-object-of-first-concordion-call-as-arg-in-secound-concordion-call), or [use constant values in concordion:execute commands](http://stackoverflow.com/questions/19681470/sending-a-constant-parameter-to-concoridion-execute-call). 
 
