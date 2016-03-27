@@ -212,7 +212,7 @@ header {
     p {
         @extend .flow-text;
 
-        img {
+        img  :not(.smelly) {
             display: block;
             margin: 1rem 2rem 2rem 2rem;
             max-width: 100%;

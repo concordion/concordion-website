@@ -116,7 +116,7 @@ defaults:
       heading: "Hints and Tips"
       subheading: "Good practices for using Concordion"
       subject: 'technique'
-      include: 'technique.html'
+      include: 'technique.md'
   -
     scope:
       path: "tutorial"
