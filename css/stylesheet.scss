@@ -34,12 +34,7 @@
 // #######
 
 
-body::-webkit-scrollbar { 
-    width: 0 !important; 
-}
-
 body {
-    -ms-overflow-style: none;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
