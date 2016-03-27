@@ -185,13 +185,20 @@ header {
 
     pre {
         font-size: 1rem;
-        line-height: 1.3rem;
+        line-height: 1.2rem;
         background-size: 1px 4rem;
-        margin: 1.5rem 1rem 2rem 1.5rem;
+        margin: 1.5 rem 0rem;
         padding: 0.8rem 0.6rem 0.8rem 0.5rem;
         border: 1px solid {{ site.red-light }};
         border-left: 0.5rem solid {{ site.red-light }};
         -ms-overflow-style: auto;
+    }
+
+    @media only screen and (min-width: 768px) {
+        pre {
+            margin: 1.5rem 1rem 2rem 1.5rem;
+            line-height: 1.3rem;
+        }
     }
 
     code {
@@ -201,8 +208,6 @@ header {
     ul:not(.collection) {
         padding-left: 40px;
         list-style-type: disc;
-        
-
 
         li {
             list-style-type: disc;
@@ -218,12 +223,20 @@ header {
 
         img:not(.smelly) {
             display: block;
-            margin: 1rem 1rem;
-            max-width: 90%; /* all browsers */
-            max-width: calc(100% - 2rem); /* CSS3+ */
+            margin: 1rem 0rem;
+            max-width: 95%; /* all browsers */
+            max-width: calc(100% - 10px); /* CSS3+ */
             border-style: solid;
             border-width: 1px;
             box-shadow: 10px 10px 5px #bbbbbb;
+        }
+
+        @media only screen and (min-width: 414px) {
+            img:not(.smelly) {
+                margin: 1rem 1rem;
+                max-width: 90%; /* all browsers */
+                max-width: calc(100% - 2rem); /* CSS3+ */
+            }
         }
     }
 
