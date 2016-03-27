@@ -108,7 +108,7 @@ defaults:
       heading: "FAQ"
       subheading: "Frequently Asked Questions about Concordion"
       subject: 'questions'
-      include: 'questions.html'
+      include: 'questions.md'
   -
     scope:
       path: "technique"
