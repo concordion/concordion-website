@@ -196,7 +196,6 @@ The solution is to describe the underlying behaviour in a more abstract way. It 
 ----
 
 <img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/>
-<a name="lotsOfExecutes"> </a>
 
 ## Lots of "execute" commands
 
@@ -213,8 +212,7 @@ Avoid describing the steps of how to test the behaviour and simply state the con
 
 ----
 
-<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/>
-<a name="complicatedInstrumentation"> </a>
+<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/><a name="complicatedInstrumentation"> </a>
 
 ## Complicated instrumentation
 
@@ -230,8 +228,7 @@ Focus on one tiny behaviour at a time. Break the behaviour into smaller and smal
 
 ----
 
-<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/>
-<a name="complicatedFixtures"> </a>
+<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/><a name="complicatedFixtures"> </a>
 
 ## Complicated fixture code
 
@@ -247,8 +244,7 @@ Begin to create objects to help with the scripting activity - push the implement
 
 ----
 
-<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/>
-<a name="sameStructure"> </a>
+<img class="smelly fish" src="{{ site.baseurl }}/img/smelly-fish.png" alt="smell"/><a name="sameStructure"> </a>
 
 ## Examples all have the same structure
 

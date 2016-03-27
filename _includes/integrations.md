@@ -54,17 +54,17 @@ Concordion tests can be run using the standard test task. A typical build script
 apply plugin: 'java'
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    testCompile "org.concordion:concordion:x.y.z"
+  testCompile "org.concordion:concordion:x.y.z"
 }
 
 test {
-    testLogging.showStandardStreams = true   // display test output on console
-    systemProperties['concordion.output.dir'] = "$reporting.baseDir/spec"  // write output to build/reports/spec
-    outputs.upToDateWhen { false }   // force tests to run even if code hasn't changed
+  testLogging.showStandardStreams = true   // display test output on console
+  systemProperties['concordion.output.dir'] = "$reporting.baseDir/spec"  // write output to build/reports/spec
+  outputs.upToDateWhen { false }   // force tests to run even if code hasn't changed
 }
 ~~~
 
@@ -73,7 +73,7 @@ where _x.y.z_ is replaced by the Concordion version, for example 2.0.0.
 If you have created a suite of specifications using the run command, you may want to run only your main fixture class by adding this line inside the `test` block:
 
 ~~~groovy
-    include '**/MainFixture.*' 
+  include '**/MainFixture.*' 
 ~~~
 
 where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.
@@ -87,31 +87,31 @@ Concordion tests can be run using the surefire plugin. For example:
 
 ~~~xml
 <build>
-    <plugins>
-        ......
-        <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.19.1</version>
-            <configuration>
-                <systemPropertyVariables>
-                    <property>
-                        <name>concordion.output.dir</name>
-                        <value>target/concordion</value>
-                    </property>
-                </systemPropertyVariables>
-            </configuration>
-        </plugin>
-        ......
-    </plugins>
+  <plugins>
+    ......
+    <plugin>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>2.19.1</version>
+      <configuration>
+        <systemPropertyVariables>
+          <property>
+            <name>concordion.output.dir</name>
+            <value>target/concordion</value>
+          </property>
+        </systemPropertyVariables>
+      </configuration>
+    </plugin>
+    ......
+  </plugins>
 </build>
 ~~~
 
 If you have created a suite of specifications using the run command, you may want to run only your main fixture class by adding these lines inside the `configuration` element:
 
 ~~~xml
-                <includes>
-                    <include>**/MainFixture.java</include>
-                </includes>
+  <includes>
+    <include>**/MainFixture.java</include>
+  </includes>
 ~~~
 
 where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.

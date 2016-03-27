@@ -39,7 +39,11 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
-To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. 
+To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: 
+
+~~~console
+git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}
+~~~ 
 
 This project contains folders for each stage of the tutorial. You can either start from scratch with the `initial` folder of the project, jump some steps to the `documented` or `instrumented` folders, or go straight to the `completed` folder to see the final solution.
 
