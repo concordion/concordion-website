@@ -39,9 +39,9 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
-To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. This project contains folders for each stage of the tutorial. 
+To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: `git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}`. 
 
-To start from scratch, start from the `initial` folder of the project.
+This project contains folders for each stage of the tutorial. You can either start from scratch with the `initial` folder of the project, jump some steps to the `documented` or `instrumented` folders, or go straight to the `completed` folder to see the final solution.
 
 ## 1. Discussing
 
@@ -63,7 +63,9 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 ## 2. Documenting
 
-The next step is to create a specification of the new feature.
+The next step is to create a specification of the new feature. 
+
+_If starting the tutorial from this stage, start with the `initial` folder of the tutorial project._
 
 In the {% if java %}`src/test/resources/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNames.{{ spec_ext }}` to contain the following.
 
@@ -143,6 +145,8 @@ _Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.ba
 
 ## 3. Instrumenting
 
+_If starting the tutorial from this stage, start with the `documented` folder of the tutorial project._
+
 In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
 <span id="how-it-works">
@@ -157,7 +161,7 @@ The full name [Jane Smith]() is [broken]() into first name [Jane]() and last nam
 ~~~
 {% elsif html %}
 ~~~html
-The full name <span>Jane Smith</span> will be <span>broken</span>span>
+The full name <span>Jane Smith</span> will be <span>broken</span>
 into first name <span>Jane</span> and last name <span>Smith</span>.
 ~~~
 {% endif %}
@@ -232,6 +236,8 @@ We also {% if md %}mark up the example header{% elsif html %}wrap the example in
 [Find out more]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}) about instrumenting fixtures.
 
 ## 4. Coding
+
+_If starting the tutorial from this stage, start with the `instrumented` folder of the tutorial project._
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 
