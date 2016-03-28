@@ -24,15 +24,11 @@
 
 _This page introduces the extensions for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
-<!-- TODO remove the unless clause -->
-{% unless csharp %}
 Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
-
-{% endunless %}
 
 {% if csharp %}
 
-At this time, there are no extensions ported to .NET. We'd love your help on porting them across. Please get in touch on the [concordion-dev](http://groups.google.com/forum/#!forum/concordion-dev) list. Alternatively, please subscribe to our twitter feed for announcements of new extensions.
+At this time, there are no extensions ported to .NET. We'd love your help to port them across. Please get in touch on the [concordion-dev](http://groups.google.com/forum/#!forum/concordion-dev) list. Alternatively, please subscribe to our twitter feed for announcements of new extensions.
 
 For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{{ page.subject }}/java/{{ page.spec_type }}).
 
@@ -176,7 +172,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                     <span class="card-title right">
                         <a class="github-button" href="https://github.com/concordion/concordion-logback-extension" data-count-href="/concordion/concordion-logback-extension/stargazers" data-count-api="/repos/concordion/concordion-logback-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-logback-extension on GitHub">Star</a>
                     </span>
-                    <p>adds Logback logs as tooltips and as a link</p>
+                    <p>adds logging tooltips and a log file viewer, with a unique log per test</p>
                 </div>
                 <div class="card-action">
                     <a href="https://github.com/concordion/concordion-logback-extension/blob/master/README.md">README</a>

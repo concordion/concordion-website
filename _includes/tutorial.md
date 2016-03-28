@@ -19,6 +19,9 @@
 {% assign supports_2_0=true %}
 {% assign method_name='split' %}
 {% assign fixture_ext='java' %}
+{% assign c='c' %}
+{% assign d='d' %}
+{% assign i='i' %}
 {% elsif fixture_language == 'csharp' %}
 {% assign java=false %}
 {% assign csharp=true %}
@@ -26,6 +29,9 @@
 {% assign supports_2_0=false %}
 {% assign method_name='Split' %}
 {% assign fixture_ext='cs' %}
+{% assign c='C' %}
+{% assign d='D' %}
+{% assign i='I' %}
 {% endif %}
 
 _This page explains getting started with __{{ spec_type_desc }}__ specifications in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
@@ -39,13 +45,13 @@ Creating a living document is a 4 step process:
 
 Depending on your skillset and role you might be involved in one or more of these steps.
 
-To follow along the tutorial, we've created a template project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: 
+To follow along the tutorial, we've created a project you can [download](https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}/archive/master.zip), or clone using Git: 
 
 ~~~console
 git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_language }}-{{ page.spec_type }}
 ~~~ 
 
-This project contains folders for each stage of the tutorial. You can either start from scratch with the `initial` folder of the project, jump some steps to the `documented` or `instrumented` folders, or go straight to the `completed` folder to see the final solution.
+{% if csharp %}Under the `Marketing.Mailshot` folder, t{% elsif java %}T{% endif %}his project contains folders for each stage of the tutorial. You can either start from scratch with the `{{i}}nitial` folder of the project, jump some steps to the `{{d}}ocumented` or `{{i}}nstrumented` folders, or go straight to the `{{c}}ompleted` folder to see the final solution.
 
 ## 1. Discussing
 
@@ -69,7 +75,7 @@ Find out more about [discussing examples]({{ site.baseurl }}/discussing/{{ page.
 
 The next step is to create a specification of the new feature. 
 
-_If starting the tutorial from this stage, start with the `initial` folder of the tutorial project._
+_If starting the tutorial from this stage, start with the `{{i}}nitial` folder of the tutorial project._
 
 In the {% if java %}`src/test/resources/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNames.{{ spec_ext }}` to contain the following.
 
@@ -92,7 +98,7 @@ The full name Jane Smith is broken into first name Jane and last name Smith.
 ~~~html
 <html>
 <head>
-    <link href="../../concordion.css" rel="stylesheet" type="text/css" />
+    <link href="{% if java %}../{% endif %}../concordion.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -130,7 +136,7 @@ This uses HTML, which is the markup language that web pages are written in. It e
 
 {% endif %}
 
-Previewing our {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in {% if html %}a browser or {% endif %} an editor that supports {{ spec_type_desc }} preview, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
+Opening this {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in {% if html %}a browser or {% endif %} an editor that supports {{ spec_type_desc }} preview, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
@@ -148,7 +154,7 @@ Find out more about [documenting specifications]({{ site.baseurl }}/documenting/
 
 ## 3. Instrumenting
 
-_If starting the tutorial from this stage, start with the `documented` folder of the tutorial project._
+_If starting the tutorial from this stage, start with the `{{d}}ocumented` folder of the tutorial project._
 
 In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
@@ -183,7 +189,7 @@ into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#resu
 {: #annotated-example}
 
 {% elsif html %}
-Concordion commands use a "concordion" namespace. We define this at the top of each document as follows:
+Concordion commands use a "concordion" namespace. Change the opening `<html>` tag of your specification to add this namespace:
 
 ~~~html
 <html xmlns:concordion="http://www.concordion.org/2007/concordion">
@@ -213,7 +219,6 @@ Previewing our [specification](https://github.com/concordion/concordion-tutorial
 
 {% if supports_2_0 %}
 We also {% if md %}mark up the example header{% elsif html %}wrap the example in a `<div>` element with the concordion example command{% endif %}, to turn it into a named example. When the specification is run, this will show as a JUnit test named `basic`.
-{% endif supports_2_0 %}
 
 {% if md %}
 ~~~markdown
@@ -236,15 +241,37 @@ We also {% if md %}mark up the example header{% elsif html %}wrap the example in
 ~~~
 {% endif %}
 
+{% else %}
+
+We also wrap the example in a `<div>` element with the class set to example, so that it is styled as a distinct example:
+
+~~~html
+<div class="example">
+
+    <h3>Example</h3>
+
+    <p>
+        The full name <span concordion:set="#name">Jane Smith</span>
+        will be <span concordion:execute="#result = {{ method_name }}(#name)">broken</span>
+        into first name <span concordion:assert-equals="#result.firstName">Jane</span>
+        and last name <span concordion:assert-equals="#result.lastName">Smith</span>.
+    </p>
+
+</div>
+~~~
+
+{% endif supports_2_0 %}
+
+
 Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 ## 4. Coding
 
-_If starting the tutorial from this stage, start with the `instrumented` folder of the tutorial project._
+_If starting the tutorial from this stage, start with the `Instrumented` folder of the tutorial project._
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 
-In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, edit the file `SplittingNamesFixture.{{ fixture_ext }}` to contain the following:
+In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, the file `SplittingNamesFixture.{{ fixture_ext }}` already contains the following:
 
 {% if java %}
 ~~~java
@@ -274,7 +301,7 @@ _(where the last part of the namespace depends on which subfolder of the tutoria
 {% endif %}
 
 {% if java %}
-You may have noticed that the fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradlew test` from the command line, the location of the output will be shown on the console, such as:
+You may have noticed that this fixture uses a JUnit runner. If you run the fixture as a JUnit test, for example from an IDE or running `gradlew test` from the command line, the location of the output will be shown on the console, such as:
 
 ~~~console
 file:///tmp/concordion/marketing/mailshots/SplittingNames.html
@@ -282,7 +309,9 @@ file:///tmp/concordion/marketing/mailshots/SplittingNames.html
 
 {% elsif csharp %}
 
-If you run the fixture as a NUnit test, for example from an IDE, the console will show the test results, such as:
+The tutorial project is already configured with the Concordion dependencies needed to run this fixture as a test. It also has a 'Concordion.Tutorial' solution file you can open with Visual Studio.
+
+If you [run the fixture as a NUnit test]({{ site.baseurl }}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}), the console will show the test results, such as:
 
 ~~~console
 ------ Test started: Assembly: Marketing.Mailshot.dll ------
@@ -297,8 +326,10 @@ TestFixture failed: NUnit.Core.NUnitException : Exception in Concordion test: pl
 The Concordion output is written to your temp folder, for example to 
 
 ~~~console
-%TEMP%\Marketing\Mailshot\Instrumented\SplittingNames.html
+%TEMP%\Marketing\Mailshot\Initial\SplittingNames.html
 ~~~
+
+, dependent on the folder that you are running the test from. By default, %TEMP% is set to your `%USERPROFILE%\AppData\Local\Temp` folder, for example `C:\Users\<your-windows-user>\AppData\Local\Temp`.
 
 {% endif csharp %}
 
@@ -331,10 +362,7 @@ public class SplittingNamesFixture {
 
 {% elsif csharp %}
 ~~~csharp
-using Concordion.NET.Integration;
-
-namespace Marketing.Mailshot.Complete
-{
+...
     [ConcordionTest]
     public class SplittingNamesFixture
     {
@@ -388,10 +416,7 @@ public class SplittingNamesFixture {
 {% elsif csharp %}
 
 ~~~csharp
-using Concordion.NET.Integration;
-
-namespace Marketing.Mailshot.Complete
-{
+...
     [ConcordionTest]
     public class SplittingNamesFixture
     {

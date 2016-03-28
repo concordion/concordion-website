@@ -29,7 +29,7 @@
 
 ## Overview
 
-Before developing a new feature, discussing behavioural examples enables teams to build the feature right first time. Issues and requirements gaps are detected and misunderstandings corrected before the team starts developing code and tests.
+Before developing a new feature, discussing behavioural examples helps teams to build the feature right first time. Issues and requirements gaps are detected and misunderstandings corrected before the team starts developing code and tests.
 
 This collaborative discussion practice is a key aspect of the Specification by Example (SBE) and Behaviour Driven Development (BDD) approaches to software development.
 
@@ -77,7 +77,7 @@ Further details: [Conversational Patterns in BDD](http://lizkeogh.com/2011/09/22
 
 ## Collaborative Specification Approaches
 
-Including a range of disciplines, including users, business analysts, developers and testers in the discussion is crucial to exploring examples from different angles, and gaining a shared understanding of the feature.
+Involving a range of disciplines, including users, business analysts, developers and testers in the discussion is crucial to exploring examples from different angles, and gaining a shared understanding of the feature.
 
 ![team discussing a spec]({{ site.baseurl }}/img/discuss-spec.png)
 
