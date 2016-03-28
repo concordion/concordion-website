@@ -689,3 +689,18 @@ h4 {
         }
     }
 }
+
+// ########
+// NEXT ACTION
+// ########
+.next-action-button {
+    text-align: center;
+
+    .button-wrapper {
+        display: inline-block;
+
+        .btn {
+            margin: 0 1rem 3rem 1rem;
+        }
+    }
+}
