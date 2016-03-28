@@ -420,4 +420,4 @@ The test now passes:
 
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
-Find out more about [coding fixtures](({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }})).
+Find out more about [coding fixtures]({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }}).
