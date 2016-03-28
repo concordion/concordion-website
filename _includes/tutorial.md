@@ -63,7 +63,7 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 ![Hand-drawn diagram showing a table of example names being split]({{ site.baseurl }}/img/tutorial-discuss-names-table.png)
 
-[Find out more]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}) about discussing examples.
+Find out more about [discussing examples]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 ## 2. Documenting
 
@@ -144,8 +144,7 @@ _Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.ba
 
 {% endif %}
 
-
-[Find out more]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}) about documenting specifications.
+Find out more about [documenting specifications]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 ## 3. Instrumenting
 
@@ -181,6 +180,7 @@ Next, we add Concordion commands to the links:
 The full name [Jane Smith](- "#name") is [broken](- "#result = {{ method_name }}(#name)") 
 into first name [Jane](- "?=#result.firstName") and last name [Smith](- "?=#result.lastName").
 ~~~
+{: #annotated-example}
 
 {% elsif html %}
 Concordion commands use a "concordion" namespace. We define this at the top of each document as follows:
@@ -197,10 +197,9 @@ will be <span concordion:execute="#result = {{method_name}}(#name)">broken</span
 into first name <span concordion:assert-equals="#result.firstName">Jane</span>
 and last name <span concordion:assert-equals="#result.lastName">Smith</span>.
 ~~~
+{: #annotated-example}
 
 {% endif %}
-
-{: #annotated-example}
 
 These commands are:
 
@@ -237,7 +236,7 @@ We also {% if md %}mark up the example header{% elsif html %}wrap the example in
 ~~~
 {% endif %}
 
-[Find out more]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}) about instrumenting fixtures.
+Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 ## 4. Coding
 
@@ -421,4 +420,4 @@ The test now passes:
 
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
-[Find out more]({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }}) about coding fixtures.
+Find out more about [coding fixtures](({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }})).

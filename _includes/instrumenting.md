@@ -53,7 +53,7 @@ _Note, you can choose any namespace prefix you want. Many users shorten the name
 {% elsif md %}
 Concordion commands are added as links in Markdown documents.
 
-Concordion commands are differentiated from other Markdown [links](https://daringfireball.net/projects/markdown/syntax#link) by using a hyphen (`-`) for the URL:
+Concordion commands are differentiated from other [Markdown links](https://daringfireball.net/projects/markdown/syntax#link) by using a hyphen (`-`) for the URL:
 
 ~~~markdown
 [value](- "command")
@@ -127,7 +127,7 @@ _Note that the `?=` syntax is short for `c:assert-equals`_
 {% endif %}
 
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/assertEquals/AssertEquals.html)
+Further details: [assert-equals command specification](https://concordion.github.io/concordion/latest/spec/command/assertEquals/AssertEquals.html)
 
 ----
 
@@ -202,6 +202,9 @@ _Note that the `#` syntax is short for `c:set=#`_
 {% endif %}
 
 {% if supports_2_0 %}
+
+Further details: [set command specification](https://concordion.github.io/concordion/latest/spec/command/set/Set.html)
+
 ----
 
 ## example command
@@ -287,7 +290,7 @@ As an alternative to setting the [implementation status]({{site.baseurl}}/coding
 {% endif %}
 The status can be either `ExpectedToFail` or `Unimplemented`.
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 {% endif %}
 
@@ -505,6 +508,8 @@ In this case, the input parameter Bob occurs after the output greeting we want t
 
 How does this work? It works because the execute command is designed to process commands on its child elements in a special order. First of all it processes any child set commands then it runs its own command, then any child execute commands and finally any child assert-equals commands.
 
+Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/command/execute/Execute.html)
+
 ### execute command on a table
 
 When you want to show several examples of a behaviour, repeating the same sentence structure over and over again probably isn't going to be very nice to read. It would be better to use a table.
@@ -664,6 +669,8 @@ The system therefore attempts to break a supplied full name into its constituent
 
 This instrumentation has identical behaviour to the previous example.
 
+Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
+
 ### execute command on a list
 
 _since 1.4.6_
@@ -674,7 +681,7 @@ The `execute` command has special behavior when placed on a list element (`<ol>`
 There is currently no explicit support for this in the Concordion Markdown syntax. Instead the HTML version of this must be used, wrapped in a `<div>` element.
 {% endif %}
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingList.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
+Further details: [execute command on a list specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingList.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
 
 ----
 
@@ -788,7 +795,7 @@ After the feature is implemented, when we run it we get a success:
 
 Note that either `verify-rows` or `verifyRows` can be used for the command name.
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [verify-rows specification](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 ----
 
@@ -817,7 +824,7 @@ The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`.
 To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](http://concordion.org/dotnet/Concordion/Configuration/Runner.html).
 {% endif %}
 
-[Further details]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
 
 ----
 
@@ -844,7 +851,7 @@ As an alternative, use the `assert-equals` command to show better error messages
 
 {% if html %}
 ~~~
-<p>The completion date should be set to <span concordion:assertEquals="{{g}}etCompletionDay()">today</span>.</p>
+<p>The completion date should be set to <span concordion:assert-equals="{{g}}etCompletionDay()">today</span>.</p>
 ~~~
 {% elsif md %}
 ~~~markdown
@@ -860,7 +867,7 @@ When the completion date is not today, return the actual date from `{{g}}etCompl
 
 ![specification showing the actual date as failure]({{site.baseurl}}/img/instrument-assert-equals-failure.png)
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/assertTrue/AssertTrue.html)
+Further details: [assert-true command specification](https://concordion.github.io/concordion/latest/spec/command/assertTrue/AssertTrue.html)
 
 ----
 
@@ -875,7 +882,7 @@ Username:[ ](- "c:echo=username")
 ~~~
 {% endif %}
 
-[Further details](https://concordion.github.io/concordion/latest/spec/command/echo/Echo.html)
+Further details: [echo command specification](https://concordion.github.io/concordion/latest/spec/command/echo/Echo.html)
 
 ----
 

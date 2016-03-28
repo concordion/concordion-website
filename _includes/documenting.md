@@ -147,13 +147,13 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 ![Example of breadcrumbs]({{ site.baseurl }}/img/documenting-breadcrumbs.png)
 
-[More details](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
+Further details: [Breadcrumbs specification]](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
 
 ### Styling your specifications
 
 Concordion comes with a default style out of the box.
 
-Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for{% endif supports_2_0 %} the resources to be copied to the output specification.
+Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify the resources]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for the resources{% endif supports_2_0 %} to be copied to the output specification.
 
 # Specification language
 
@@ -161,7 +161,7 @@ Concordion specifications can be written using either Markdown or HTML (alternat
 
 {% if md %}
 
-## Markdown
+## Markdown format specifications
 
 Markdown provides an easy-to-read and easy-to-write syntax for specifications.
 
@@ -183,11 +183,13 @@ results in:
 -----------
 
 # Heading
+{:.no_toc}
 
 This is a __bold text__ in a paragraph
 
 ## Subheading
-
+{:.no_toc}
+ 
 | Name              | Age |
 | ---------------------- | --- |
 | Fred Flintstone | 35 |
@@ -199,7 +201,7 @@ For further details, read the Markdown [basics](https://daringfireball.net/proje
 
 In addition to standard Markdown, Concordion supports: 
 
-* MultiMarkdown format [tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to Github Flavored Markdown [tables](https://help.github.com/articles/github-flavored-markdown/#tables).
+* [MultiMarkdown format tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to [Github Flavored Markdown tables](https://help.github.com/articles/github-flavored-markdown/#tables).
 * strikethrough format using `~~tildes around the words~~`.
 
 For syntax that is not covered by Markdown, you can use inline HTML.
@@ -208,7 +210,7 @@ For syntax that is not covered by Markdown, you can use inline HTML.
 
 Markdown extensions allow you to change and/or extend the behaviour of the Markdown parser, for example to change the behaviour of new lines, or to support definition lists.
 
-See the [MarkdownExtensions](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html) javadoc for a definition of the available extensions.
+See the [MarkdownExtensions javadoc](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html) for a definition of the available extensions.
 
 _Note that the Concordion fixture will need to be [configured](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) to enable the markdown extensions._
 
@@ -243,7 +245,7 @@ _Please let us know what editor you are using, and what support you get from it.
 
 {% if html %}
 
-## HTML
+## HTML format specifications
 
 Prior to Concordion 2.0, HTML was the only specification format available in Concordion core. It remains the canonical format.
 

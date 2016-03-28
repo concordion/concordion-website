@@ -26,7 +26,7 @@ _This page introduces the extensions for __{{ fixture_language_desc }}__._  Clic
 
 <!-- TODO remove the unless clause -->
 {% unless csharp %}
-Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
+Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. It's simple to [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension){% if csharp %}.{% else %}, or use one of the following:{% endif %}
 
 {% endunless %}
 

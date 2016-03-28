@@ -198,7 +198,7 @@ public class SplittingNamesFixture {
 }
 ~~~
 
-The specification can reference the properties of the `MultiValueResult` as if they were bean properties, as shown in the [Splitting Names]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}#annotated-example) specification.
+The specification can reference the properties of the `MultiValueResult` as if they were bean properties, as shown in the [Splitting Names specification]({{site.baseurl}}/tutorial/{{ page.fixture_language }}/{{ page.spec_type }}#annotated-example).
 
 {% endif java %}
 
@@ -207,9 +207,9 @@ The specification can reference the properties of the `MultiValueResult` as if t
 {% if java %}
 You can include partially-implemented specifications in your normal build without breaking the build, by annotating your fixture classes with one of the following annotations:
 
-* @ExpectedToPass
-* @ExpectedToFail
-* @Unimplemented
+* `@ExpectedToPass`
+* `@ExpectedToFail`
+* `@Unimplemented`
 
 For example:
 
@@ -228,7 +228,7 @@ public class GreetingTest {
 }
 ~~~
 
-See [here](https://concordion.github.io/concordion/latest/spec/annotation/Annotation.html) for an explanation of the semantics of each annotation.
+Further details: [annotation specification](https://concordion.github.io/concordion/latest/spec/annotation/Annotation.html).
 
 You can also set the [implementation status]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) for individual examples in the specification.
 
@@ -261,9 +261,9 @@ public class MyDataTest {
 }
 ~~~
 
-See [here](https://concordion.github.io/concordion/latest/spec/command/execute/FailFast.html) and [here](https://concordion.github.io/concordion/latest/spec/command/execute/FailFastOnSpecificExceptions.html) for further details.
+Further details: [Fail-Fast specification](https://concordion.github.io/concordion/latest/spec/command/execute/FailFast.html) and [Fail-Fast on specific exceptions specification](https://concordion.github.io/concordion/latest/spec/command/execute/FailFastOnSpecificExceptions.html).
 
-If using the concordion:run command, adding the @FailFast annotation to the corresponding fixture will cause the specification to fail-fast if any of the specifications it runs fail-fast. For this to work, the @FailFast annotation is required on the fixture classes for both the calling and called specifications.
+If using the run command, adding the `@FailFast` annotation to the corresponding fixture will cause the specification to fail-fast if any of the specifications it runs fail-fast. For this to work, the `@FailFast` annotation is required on the fixture classes for both the calling and called specifications.
 
 {% endif java %}
 
@@ -282,6 +282,8 @@ The [before and after hooks](https://concordion.github.io/concordion/latest/spec
 Note:
 1. the example hooks require you to use the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command).
 2. the suite hooks must be in the fixture that is being run directly by JUnit. It won't be invoked on "child specifications" that are being run using the run command. A common pattern is to have a top level base class that contains the suite hooks and is extended by all fixtures.
+
+See the [Concordion scope examples](https://github.com/concordion/concordion-scope-examples) project for example usage of before and after hooks.
 
 {% elsif csharp %}
 ### Fixture Setup Methods
@@ -348,7 +350,7 @@ adds the following resources to the generated specification:
 - resources.txt
 - ../../resources.css
 
-See the [specification](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) for other examples.
+See the [ConcordionResources specification](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionResources.html) for other examples.
 
 {% endif java %}
 
@@ -422,7 +424,7 @@ java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acm
 
 {% endif csharp %}
 
-For further details see the [extension configuration]({% if java %}https://concordion.github.io/concordion/latest/spec/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}) specification.
+For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
 
 ## Creating an extension
 
@@ -430,7 +432,7 @@ The Extensions API allows you to add functionality to Concordion, for example im
 
 {% if java %}
 
-For full details, see the [specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html), the classes in [org.concordion.api.extension](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension) and the [fixtures](https://github.com/concordion/concordion/tree/master/src/test/resources/spec/concordion/extension) that demonstrate it.
+For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html), the classes in [org.concordion.api.extension](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension) and the [fixtures](https://github.com/concordion/concordion/tree/master/src/test/resources/spec/concordion/extension) that demonstrate it.
 
 {% elsif csharp %}
 

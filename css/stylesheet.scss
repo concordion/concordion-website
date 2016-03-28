@@ -550,7 +550,7 @@ h2 {
 // OVERVIEW
 // ########
 
-#overview {
+section#overview {
     h2 {
         color: #444;
         line-height: 120%;
@@ -572,7 +572,7 @@ h2 {
 // BENEFITS
 // ########
 
-#benefits {
+section#benefits {
     background-color: {{ site.grey-light }};
     padding-bottom: 3rem;
 
