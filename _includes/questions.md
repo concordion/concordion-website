@@ -135,4 +135,4 @@ However, if you really want to remove this restriction you can apply the annotat
 
 ### Does Concordion itself have active specifications?
 
-Yes, see the [Concordion{% if csharp %}.NET{% endif %}]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}) specifications.
+Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).

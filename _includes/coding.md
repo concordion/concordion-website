@@ -400,7 +400,7 @@ ConcordionExtension extension = new ScreenshotExtension().setScreenshotTaker(cam
 ~~~csharp
 ...
 [Extension]
-public ConcordionExtension extension = new ScreenshotExtension().setScreenshotTaker(camera);
+public ConcordionExtension extension = new ScreenshotExtension().SetScreenshotTaker(camera);
 ...
 ~~~
 {% endif csharp %}

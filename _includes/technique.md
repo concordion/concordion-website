@@ -98,7 +98,7 @@ Let the fixture code act as a buffer so that the specifications stay very stable
 ### Instrumentation should not change either
 {:.no_toc}
 
-The job of the instrumentation is to translate the examples in the specification into method calls into the fixture. The instrumentation should be very simple and should not show any knowledge of how the behaviour is actually implemented in the system. Once written, the public interface of the fixture should not change; the implementation of its methods may change though.
+The job of the instrumentation is to translate the examples in the specification into method calls in the fixture. The instrumentation should be very simple and should not show any knowledge of how the behaviour is actually implemented in the system. Once written, the public interface of the fixture should not change; the implementation of its methods may change though.
 
 <a name="keepSpecsSimple"> </a>
 

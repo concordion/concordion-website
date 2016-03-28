@@ -98,7 +98,7 @@ A common structure is:
 
 ## Sample Structure
 
-Concordion also provides the flexibility to write examples however you like.
+Concordion provides the flexibility to write examples however you like.
 
 When documenting the _context_, _action_ and _outcome_ of an example, you can write these three parts using the Gherkin "Given, When, Then" language. This is often a good way to get started. Once you become familiar with thinking about the context, action and outcome, you may find ways to describe your example in a more natural language.
 
@@ -120,7 +120,7 @@ The [Hints and Tips]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ p
 
 ## Creating a suite
 
-HTML links allow us to create a structured suite of specifications, with the pages nested under a hierarchical index
+HTML links allow us to create a structured suite of specifications, with the pages nested under a hierarchical index. For example:
 
     Product
          Theme
@@ -135,7 +135,7 @@ HTML links allow us to create a structured suite of specifications, with the pag
                   Sub-Feature
               Feature
 
-At each level, the specification contains links to all the specifications below it. For example, a theme page would describe the theme and link to all the features in the theme. The specifiications can be nested arbitrarily deep.
+At each level, the specification contains links to all the specifications below it. For example, a theme page would describe the theme and link to all the features in the theme. The specifications can be nested arbitrarily deep.
 
 By using this approach, and instrumenting the links to child specifications with the [run command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#run-command), executing any specification will automatically execute all its child specifications, with the results aggregated upwards.
 
@@ -147,17 +147,17 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 ![Example of breadcrumbs]({{ site.baseurl }}/img/documenting-breadcrumbs.png)
 
-Further details: [Breadcrumbs specification]](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
+Further details: [Breadcrumbs specification](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
 
 ### Styling your specifications
 
 Concordion comes with a default style out of the box.
 
-Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify the resources]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for the resources{% endif supports_2_0 %} to be copied to the output specification.
+Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify the resources]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for the resources{% endif supports_2_0 %} to be copied to the output specification. {% unless supports_2_0 %}(Concordion.NET 2.0 will include a feature to simplify this.){% endunless %}
 
 # Specification language
 
-Concordion specifications can be written using either Markdown or HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) to handle other formats).
+Concordion specifications can be written using {% if supports_2_0 %}either Markdown or {% endif %}HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) to handle other formats).{% unless supports_2_0 %} (It is planned for Concordion.NET 2.0 to support Markdown format.){% endunless %}
 
 {% if md %}
 
@@ -247,9 +247,15 @@ _Please let us know what editor you are using, and what support you get from it.
 
 ## HTML format specifications
 
+{% if supports_2_0 %}
 Prior to Concordion 2.0, HTML was the only specification format available in Concordion core. It remains the canonical format.
+{% endif %}
 
+{% if supports_2_0 %}
 While typically only a very small subset of HTML is needed (eg. &lt;p&gt;, &lt;table&gt;, &lt;b&gt;), HTML syntax provides more advanced formatting than Markdown should you need it.
+{% else %}
+Typically only a very small subset of HTML is needed (eg. &lt;p&gt;, &lt;table&gt;, &lt;b&gt;).
+{% endif supports_2_0 %}
 
 Concordion requires that the HTML be well-structured XHTML, ie. each start tag must have a corresponding end tag.
 

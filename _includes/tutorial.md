@@ -311,7 +311,9 @@ file:///tmp/concordion/marketing/mailshots/SplittingNames.html
 
 The tutorial project is already configured with the Concordion dependencies needed to run this fixture as a test. It also has a 'Concordion.Tutorial' solution file you can open with Visual Studio.
 
-If you [run the fixture as a NUnit test]({{ site.baseurl }}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}), the console will show the test results, such as:
+To be able to run the Concordion.NET tests with NUnit you need to copy Concordion.NUnit.dll from the `lib\Concordion` folder of the tutorial project to your installation of NUnit (eg. `<nunit-2.6.4-installation-path>\bin\addins\`). See [Test runners]({{ site.baseurl }}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}) for further details.
+
+If you run the fixture as a NUnit test, the console will show the test results, such as:
 
 ~~~console
 ------ Test started: Assembly: Marketing.Mailshot.dll ------
