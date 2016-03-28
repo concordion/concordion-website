@@ -51,6 +51,8 @@ defaults:
       subheading: "Implementing the examples"
       subject: "coding"
       include: 'coding.md'
+      next_page: 'technique'
+      next_page_text: 'Hints and Tips'
   -
     scope:
       path: "discussing"
@@ -61,6 +63,8 @@ defaults:
       subject: "discussing"
       description: "Collaborative Specification techniques for discussing Concordion specifications. Exploring stories, acceptance criteria and examples using specification workshops, three amigos sessions or example mapping techniques. Discussing examples is the most important aspect of Specification by Example (SBE) and Behaviour Driven Development (BDD)."
       include: 'discussing.md'
+      next_page: 'documenting'
+      next_page_text: 'Documenting'
   -
     scope:
       path: "documenting"
@@ -69,6 +73,8 @@ defaults:
       subheading: "Creating specifications with Markdown or HTML"
       subject: "documenting"
       include: 'documenting.md'
+      next_page: 'instrumenting'
+      next_page_text: 'Instrumenting'
   -
     scope:
       path: "download"
@@ -85,6 +91,8 @@ defaults:
       subheading: "Enhancing Concordion with flexible features"
       subject: "extensions"
       include: 'extensions.md'
+      next_page: 'integrations'
+      next_page_text: 'Integrations'
   -
     scope:
       path: "instrumenting"
@@ -93,6 +101,8 @@ defaults:
       subheading: "Making the examples executable"
       subject: 'instrumenting'
       include: 'instrumenting.md'
+      next_page: 'coding'
+      next_page_text: 'Coding'
   -
     scope:
       path: "integrations"
@@ -101,6 +111,8 @@ defaults:
       subheading: "Integrating Concordion with other tools"
       subject: 'integrations'
       include: 'integrations.md'
+      next_page: 'questions'
+      next_page_text: 'FAQ'
   -
     scope:
       path: "questions"
@@ -109,6 +121,8 @@ defaults:
       subheading: "Frequently Asked Questions about Concordion"
       subject: 'questions'
       include: 'questions.md'
+      next_page: 'download'
+      next_page_text: 'Download'
   -
     scope:
       path: "technique"
@@ -116,7 +130,11 @@ defaults:
       heading: "Hints and Tips"
       subheading: "Good practices for using Concordion"
       subject: 'technique'
+      next_page: 'discussing'
+      next_page_text: 'discussing'
       include: 'technique.md'
+      next_page: 'extensions'
+      next_page_text: 'Extensions'
   -
     scope:
       path: "tutorial"
@@ -125,5 +143,7 @@ defaults:
       subheading: "The basics of creating living documents using Concordion"
       subject: 'tutorial'
       include: 'tutorial.md'
+      next_page: 'discussing'
+      next_page_text: 'Discussing'
       sitemap:
         priority: 0.7

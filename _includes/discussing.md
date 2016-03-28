@@ -88,5 +88,3 @@ Common approaches to specifying collaboratively include:
 * [3 Amigos](http://www.velocitypartners.net/blog/2014/02/11/the-3-amigos-in-agile-teams/) - suggests a minimum of 3 functional roles; developer(s), tester(s) and business analyst or product owner.
 
 * [Example mapping](https://cucumber.io/blog/2015/12/08/example-mapping-introduction) - uses index cards as a means to engage all team members collaboratively and visually map the story, acceptance criteria or rules, and examples.
-
-----
