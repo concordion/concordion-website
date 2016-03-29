@@ -26,6 +26,9 @@
 
 _This page shows the FAQ for __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
+* TOC
+{:toc}
+
 <a name="whoDevelopedIt"> </a>
 
 ### Who developed Concordion{% if csharp %}.NET{% endif %}?
@@ -136,3 +139,22 @@ However, if you really want to remove this restriction you can apply the annotat
 ### Does Concordion itself have active specifications?
 
 Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).
+
+{% if csharp %}
+### Why do I get the error "The target type doesn't contain tests from a known test framework or a 'Main' method"?
+
+Possible causes are:
+
+* `Concordion.NUnit.dll` is not in the NUnit addins folder. See how to [install the Concordion NUnit dll as a NUnit addin]({{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}).
+* An old version of `Concordion.NUnit.dll` is in the NUnit addins folder. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) the latest version and [install it as a NUnit addin]({{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}).
+* The attribute `[assembly: RequiredAddin("ConcordionNUnitAddin")]` is not in the `AssemblyInfo.cs` file of the project. See [Assembly Info]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#assembly-info) for further information.
+
+
+### Why do I get the error "no specification extensions defined for: Concordion.NET.Internal.SpecificationConfig"?
+
+The Concordion.NET runner is unable to find a matching specification for the fixture. Possible causes are:
+
+* The default namespace + path of the specification does not match the namespace of the fixture. See [locating the specification]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#locating-the-specification) for more details.
+* The specification isn't included in the DLL. You need to set the value “Embedded Resource” on the property “Build Action” to [include the specification in the DLL]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#including-the-specification-in-the-dll).
+
+{% endif %}

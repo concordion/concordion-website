@@ -54,12 +54,12 @@ Version 3.5 or higher of the .NET framework must be used as target framework in 
 
 Concordion{% if csharp %}.NET{% endif %} requires a number of libraries to be present, including Concordion, {{ test_library }}, XOM and OGNL libraries. 
 
-The best way to manage these dependencies is to use {% if java %}a build tool such as Gradle or Maven{% elsif csharp %}NuGet{% endif %}. See the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page for details{% if java %} of the dependencies section that must be added to the `build.gradle` or `pom.xml` file respectively{% endif %}. {% if csharp %}Note that Concordion.NUnit.dll is [not currently included](https://github.com/concordion/concordion.net/issues/1) in the NuGet package, so must be downloaded separately and adding as a reference to the project.{% endif %}
+The best way to manage these dependencies is to use {% if java %}a build tool such as Gradle or Maven{% elsif csharp %}NuGet{% endif %}. See the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page for details{% if java %} of the dependencies section that must be added to the `build.gradle` or `pom.xml` file respectively{% endif %}. 
 
-As an altenative, you can download the full distribution from the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page. After extracting the files, you must add references to all the downloaded libraries to the project{% if java %} classpath{% endif %}. 
+As an alternative, you can download the full distribution from the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page. After extracting the files, you must add references to all the downloaded libraries to the project{% if java %} classpath{% endif %}. 
 
 ### Assembly Info
-Add the attribute [assembly: RequiredAddin("ConcordionNUnitAddin")] to the AssemblyInfo.cs of your project. This tells NUnit that the Concordion-NUnit-Addin is required to run your Concordion.NET tests.
+Add the attribute `[assembly: RequiredAddin("ConcordionNUnitAddin")]` to the `AssemblyInfo.cs` of your project. This tells NUnit that the Concordion-NUnit-Addin is required to run your Concordion.NET tests.
 
 ### Locating the Specification
 {% if java %}
@@ -94,6 +94,9 @@ As an alternative, you can [configure](#configuration-options) the BaseInputDire
  In order for the specification to be found, it must be included in your DLL file: In Visual Studio, open the properties for the specification and set the value "Embedded Resource" on the property "Build Action":
 
 ![Properties for specification]({{ site.baseurl }}/img/coding-dotnet-spec-properties.png)
+
+### Setup your NUnit Runner
+Finally, if you haven't already added the current version of `Concordion.NUnit.dll` to your NUnit addins folder, you will need to [install the Concordion NUnit dll as a NUnit addin]({{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 {% endif %}
 
@@ -133,10 +136,8 @@ Unlike {{ test_library }}, we don't {% if java %}annotate methods with `@Test`{%
 
 Methods in Concordion fixtures can take the following parameter types:
 
-__TODO__: needs checking
-
-* Numeric types (integer, long, short, float, double, decimal, BigInteger), 
-* String types (string, char), 
+* Numeric types (int, long, float, double, decimal)
+* string
 * bool
 
 When executed from a Concordion specification, Concordion will automatically convert the value to the parameter type. Boolean values must be specified as `true` or `false` in the specification.

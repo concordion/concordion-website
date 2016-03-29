@@ -152,7 +152,9 @@ You can use [TestDriven.NET](http://testdriven.net) to execute Concordion.NET te
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET
 2. Install [TestDriven.NET](http://testdriven.net/)
-3. Copy Concordion.NUnit.dll from the `tools` folder of your Concordion.NET package, or the `lib\Concordion` folder of the tutorial project, into the TestDriven.NET folder under `<testdriven.net-installation-path>\NUnit\2.6\addins`.
+3. Copy `Concordion.NUnit.dll` into the TestDriven.NET folder under `<testdriven.net-installation-path>\NUnit\2.6\addins`. 
+    (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
+    When updating Concordion.NET, make sure you update this DLL.
 4. To run a test, use the "Run Test(s)" command of TestDriven.NET on your Concordion.NET fixture class ([http://testdriven.net/quickstart.aspx](http://testdriven.net/quickstart.aspx)).
 
 When you run Concordion.NET tests with TestDriven.NET in Visual Studio, you should see an output similar to:
@@ -190,7 +192,9 @@ You can run Concordion.NET acceptance tests within Visual Studio with [ReSharper
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET
 2. Install ReSharper
-3. Copy Concordion.NUnit.dll from the `tools` folder of your Concordion.NET package, or the `lib\Concordion` folder of the tutorial project, into the addin directory of your ReSharper installation (&lt;resharper-installation-path&gt;\Bin\addins\)
+3. Copy `Concordion.NUnit.dll` into the addin directory of your ReSharper installation (`<resharper-installation-path>\Bin\addins\`) 
+    (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
+    When updating Concordion.NET, make sure you update this DLL.
     * Using specific NUnit installation: If you aren't using the build-in NUnit, but your specified NUnit installation (ReSharper -&gt; Options ... -&gt; Tools -&gt; Unit Testing -&gt; NUnit), you have to copy Concordion.NUnit.dll into the used NUnit installation (&lt;nunit-installation-path&gt;\bin\addins\).
     * Make sure you use NUnit version 2.6.4 in any setup.
 4. Run your Concordion.NET acceptance tests with ReSharper
@@ -211,8 +215,9 @@ NUnit provides [different runners](http://nunit.org/index.php?p=runningTests&r=2
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET.
 2. Download and [install NUnit version 2.6.4](http://www.nunit.org/index.php?p=installation&r=2.6.4).
-3. Copy Concordion.NUnit.dll from the `tools` folder of your Concordion.NET package, or the `lib\Concordion` folder of the tutorial project, into the addin directory of your NUnit installation (&lt;NUnit-installation-path&gt;\bin\addins).
-  When updating Concordion.NET, make sure you update this DLL.
+3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\bin\addins`).
+    (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
+   When updating Concordion.NET, make sure you update this DLL.
 4. Load your tests with the NUnit GUI runner.
   Tip: You can open your Visual Studio solutions and/or projects in NUnit, when you activate the [IDE Support Settings - Visual Studio](http://nunit.org/index.php?p=settingsDialog&r=2.6.4).
 5. Select the Concordion.NET test you want to run in the tree view and press the Run button.
@@ -229,8 +234,9 @@ NUnit provides a [command line client](http://nunit.org/index.php?p=nunit-consol
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET
 2. Download and [install NUnit version 2.6.4](http://www.nunit.org/index.php?p=installation&r=2.6.4)
-3. Copy Concordion.NUnit.dll from the `tools` folder of your Concordion.NET package, or the `lib\Concordion` folder of the tutorial project, into the addin directory of your NUnit installation (&lt;NUnit-installation-path&gt;\bin\addins).
-  When updating Concordion.NET, make sure you update this DLL.
+3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\bin\addins`).
+    (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
+   When updating Concordion.NET, make sure you update this DLL.
 4. In the command line window, [run the nunit-console application](http://nunit.org/index.php?p=nunit-console&r=2.6.4) and pass in the DLL containing your Concordion.NET specifications and tests.
 
 ### Debugging Concordion.NET tests
