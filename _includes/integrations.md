@@ -36,6 +36,8 @@ The excellent [Concordion support](https://plugins.jetbrains.com/plugin/7978?pr=
 
 This plugin supports both HTML and Markdown format specifications.
 
+<a class="github-button" href="https://github.com/concordion/idea-concordion-support" data-count-href="/concordion/idea-concordion-support/stargazers" data-count-api="/repos/concordion/idea-concordion-support#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/idea-concordion-support on GitHub">Star</a>
+
 ## Eclipse
 
 The [concordion-eclipse](https://code.google.com/archive/p/concordion-eclipse/) plugin provides content assist and validation for Concordion specifications, integrated into Eclipse's HTML and Web Page (Source) editors.
