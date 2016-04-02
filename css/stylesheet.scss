@@ -153,7 +153,7 @@ nav.static {
 
 @media only screen and (max-width: 992px) {
     nav .brand-logo {
-        left: 15%;
+        left: 10%;
         -webkit-transform: none;
         transform: none;
     }
@@ -425,6 +425,9 @@ section .background {
 
     h1 {
         font-size: 27px;
+        @media only screen and (max-width: 400px) {
+            font-size: 22px;
+        }
     }
 }
 
