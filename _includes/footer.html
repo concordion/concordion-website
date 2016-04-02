@@ -1,7 +1,6 @@
 {% capture github_file %}{% if page.path contains '/' %}_includes/{{page.include}}{% else %}{{page.path}}{% endif %}{% endcapture %}
-{% if page.fixture_language == 'java' %}
 {% assign repo = 'concordion' %}
-{% elsif page.fixture_language == 'csharp' %}
+{% if page.fixture_language == 'csharp' %}
 {% assign repo = 'concordion.net' %}
 {% endif %}
 
