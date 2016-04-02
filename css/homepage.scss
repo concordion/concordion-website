@@ -1,0 +1,15 @@
+---
+---
+
+footer.page-footer {
+    background-color: white;
+    color: {{ site.green }} !important;
+    
+    .footer-copyright {
+        background-color: {{ site.off-white }};
+    }
+    
+    h1, h2, h3, h4, h5, h6, p, a, .grey-text, .white-text, div {
+        color: {{ site.green }} !important;
+    }
+}

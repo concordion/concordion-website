@@ -81,6 +81,10 @@ nav {
     #logo-white {
         display: none;
     }
+    
+    .button-collapse {
+        color: {{ site.green }};
+    }
 
     ul li:hover, ul li:active {
         background-color: transparent;
@@ -102,6 +106,10 @@ nav.static {
     
     #logo-white {
         display: block;
+    }
+    
+    .button-collapse {
+        color: white;
     }
     
     .text-shadow {
@@ -140,6 +148,14 @@ nav.static {
         img {
             width: 238px;
         }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    nav .brand-logo {
+        left: 15%;
+        -webkit-transform: none;
+        transform: none;
     }
 }
 
@@ -436,6 +452,11 @@ section .background {
     -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
+}
+
+#typed-text {
+    color: {{ site.green }};
+    font-weight: bold;
 }
 
 @keyframes blink{
