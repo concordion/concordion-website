@@ -88,9 +88,13 @@
             </div>
 {% if page.next_page %}
             <section id="call-to-action">
-                <div class="next-action-button">
-                    <div class="button-wrapper">
-                        <a href="{{site.baseurl}}/{{ page.next_page }}/{{ page.fixture_language}}/{{ page.spec_type }}" class="btn btn-large waves-effect waves-light">{{ page.next_page_text }}<i class="material-icons right">skip_next</i></a>
+                <div class="container  sidenav-content">
+                    <div class="row">
+                        <div class="next-action-button right">
+                            <div class="button-wrapper">
+                                <a href="{{site.baseurl}}/{{ page.next_page }}/{{ page.fixture_language}}/{{ page.spec_type }}" class="btn btn-large waves-effect waves-light">{{ page.next_page_text }}<i class="material-icons right">chevron_right</i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
