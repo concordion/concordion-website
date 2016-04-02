@@ -82,14 +82,6 @@ header {
     background-color: {{ site.red }};
 }
 
-#slide-out::-webkit-scrollbar { 
-    width: 0 !important; 
-}
-
-#slide-out {
-    -ms-overflow-style: none;
-}
-
 #slide-out > li:last-child {
     margin-bottom: 64px;
 }
