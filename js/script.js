@@ -102,13 +102,6 @@ $(window).scroll(function() {
     colorNav();
 });
 
-function backgroundLoaded(id) {
-    var url = "url(" + $("#" + id).attr("src") + ")";
-    var selector = "#homepage-hero .background";
-    $(selector).css('background-image', url);
-    $(selector).css('opacity', '1');
-}
-
 function pauseScrolling() {
     var cutoff = $(window).height() / 4;
     var scrollUntil = $('#stop-scrolling');
