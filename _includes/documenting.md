@@ -235,6 +235,7 @@ Available Eclipse plugins include:
 |Mylyn Wikitext Editor| Y | Y | N |
 |[Markdown Text Editor](https://marketplace.eclipse.org/content/markdown-text-editor)| Y | N | N |
 |[Github Flavored Markdown Viewer](https://marketplace.eclipse.org/content/github-flavored-markdown-viewer-plugin)| N | Y | Y |
+ {: .striped}
 
 In order to have editing features and the ability to view with tables and strikethrough, you may want to install either of the first 2 editor plugins listed along with the viewer plugin.
 
