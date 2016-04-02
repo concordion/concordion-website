@@ -49,12 +49,16 @@ main {
     flex: 1 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p {
     color: {{ site.text }};
 }
 
 .light {
     color: {{ site.text-light }};
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+    background-color: white;
 }
 
 // ##########
@@ -373,10 +377,9 @@ footer.page-footer.error {
     position: relative;
 
     .container {
-        @include calc(height, '100vh - 100px');
         width: 95%;
         z-index: 10;
-        min-height: 525px;
+        height: 525px;
         position: relative;
         text-align: center;
     }
@@ -455,8 +458,7 @@ section .background {
     #homepage-hero {
 
         .container {
-            @include calc(height, '100vh - 120px');
-            min-height: 675px;
+            height: 675px;
         }
     }
 
@@ -472,7 +474,8 @@ section .background {
 @media only screen and (min-width: 993px) {
     #homepage-hero {
         .container {
-            min-height: 600px;
+            height: 600px;
+            
             .row {
                 position: absolute;
                 right: 0px;
@@ -490,7 +493,7 @@ section .background {
 @media only screen and (min-width: 1281px) {
     #homepage-hero {
         .container {
-            min-height: 650px;
+            height: 650px;
         }
     }
 
@@ -502,7 +505,7 @@ section .background {
 @media only screen and (min-width: 1441px) {
     #homepage-hero {
         .container {
-            min-height: 600px;
+            height: 600px;
         }
     }
 
