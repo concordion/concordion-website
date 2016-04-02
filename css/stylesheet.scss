@@ -49,6 +49,14 @@ main {
     flex: 1 0 auto;
 }
 
+h1, h2, h3, h4, h5, h6, p, a {
+    color: {{ site.text }};
+}
+
+.light {
+    color: {{ site.text-light }};
+}
+
 // ##########
 // NAVIGATION
 // ##########
@@ -141,7 +149,7 @@ footer.page-footer {
     }
 
     i {
-       margin-right: 6px;
+        margin-right: 6px;
     }
 
     iframe {
@@ -151,7 +159,7 @@ footer.page-footer {
 
     .read-more li {
         margin-bottom: 5px;
-        
+
         a {
             text-decoration: none;
         }
@@ -170,10 +178,10 @@ footer.page-footer {
         img {
             vertical-align: middle;
         }
-        
+
         #github a {
             padding: 0px 5px;
-            
+
             i {
                 padding-right: 5px;
             }
@@ -211,23 +219,23 @@ footer.page-footer.error {
             color: rgba(0,0,0,0.87);
             @include transition(all 0.3s);
         }
-        
+
         .secondary-content .fa-linkedin-square:hover, .secondary-content .fa-linkedin-square:active, {
             color: #0077b5;
         }
-        
+
         .secondary-content .fa-github-square:hover, .secondary-content .fa-github-square:active, {
             color: #4183c4;
         }
-        
+
         .secondary-content .fa-behance-square:hover, .secondary-content .fa-behance-square:active, {
             color: #1769ff;
         }
-        
+
         .secondary-content .fa-twitter-square:hover, .secondary-content .fa-twitter-square:active, {
             color: #55acee;
         }
-        
+
         .secondary-content .fa-globe:hover, .secondary-content .fa-globe:active, {
             color: #006994;
         }
@@ -259,7 +267,7 @@ footer.page-footer.error {
         }
 
     }
-    
+
     .modal-content {
         height: calc(100% - 56px - 86px);
     }
@@ -267,23 +275,23 @@ footer.page-footer.error {
 
 .contributors .text .title {
     font-size: 16px;
-  }
+}
 
 
 @media only screen and (max-width: 600px) {
     #modal-contributors {
         width: 95%;
-        
+
         .modal-header {
             padding: 15px;
             height: 68px;
         }
-        
+
         .modal-content {
             padding: 15px;
             height: calc(100% - 56px - 68px);
         }
-        
+
         .collection .collection-item.avatar .secondary-content {
             top: 10px;
             right: 10px;
@@ -323,8 +331,26 @@ footer.page-footer.error {
     background-color: {{ site.green }};
 }
 
-.btn:hover, .btn-large:hover, .btn.active, .btn-large.active {
+.btn:hover, .btn-large:hover {
     background-color: {{ site.green-dark }};
+}
+
+.btn.btn-light, .btn-large.btn-light {
+    background-color: white;
+    color: {{ site.text }};
+}
+
+.btn.btn-light.active, .btn-large.btn-light.active {
+    background-color: {{ site.green }};
+    color: white;
+}
+
+.btn.btn-light:hover, .btn-large.btn-light:hover {
+    background-color: {{ site.grey-light }};
+}
+
+.btn.btn-light.active:hover, .btn-large.btn-light.active:hover {
+    background-color: {{ site.green }};
 }
 
 // ########
@@ -562,9 +588,9 @@ section#overview {
         margin-left: auto;
         margin-right: auto;
         max-width: 100%;
-   }
+    }
 
-   padding-bottom: 6rem;
+    padding-bottom: 6rem;
 }
 
 
@@ -577,7 +603,7 @@ section#benefits {
     padding-bottom: 3rem;
 
     overflow-x: hidden;
-    
+
     .btn {
         width: 100%;
         margin-bottom: 1rem;
@@ -585,11 +611,11 @@ section#benefits {
 }
 
 .benefits-wrapper {
-    margin-top: 50px;
     overflow-x: hidden;
 
     .container.benefit-section {
         display: none;
+        padding: 50px 0px 10px 0px;
 
         .row {
             margin-bottom: 30px;
@@ -614,6 +640,24 @@ section#benefits {
 
     .container.benefit-section.active {
         display: block;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .row#stop-scrolling {
+        //margin-bottom: 0px;
+        //border-bottom: 2px solid rgba(0,0,0,0.12);
+        
+        .btn {
+            //margin-bottom: 5px;
+            //border-bottom-right-radius: 0px;
+            //border-bottom-left-radius: 0px;
+            //border-bottom: 2px solid rgba(0,0,0,0.12);
+        }
+        
+        .btn.active {
+            //border-bottom: 0px;
+        }
     }
 }
 

@@ -16,6 +16,8 @@ red-dark: '#88172b'
 off-white: '#f1f1f2'
 grey-light: '#e6e7e8'
 grey-dark: '#d0d2d3'
+text: '#5f5f60'
+text-light: '#7f7f82'
 
 nav-height: '64px'
 nav-height-mobile: '56px'
