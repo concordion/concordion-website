@@ -73,6 +73,10 @@ nav {
         float: right;
         padding-right: 16px;
     }
+    
+    #logo-white {
+        display: none;
+    }
 
     ul li:hover, ul li:active {
         background-color: transparent;
@@ -87,7 +91,15 @@ nav.static {
     ul li:hover, ul li:active {
         background-color: rgba(0,0,0,0.1);
     }
-
+    
+    #logo-green {
+        display: none;
+    }
+    
+    #logo-white {
+        display: block;
+    }
+    
     .text-shadow {
         @include text-shadow(none);
     }
@@ -393,8 +405,7 @@ section .background {
     margin-top: 18rem;
 
     h1 {
-        font-size: 1.75rem;
-        @include calc(font-size, '4.5vw + 1px');
+        font-size: 27px;
     }
 }
 
