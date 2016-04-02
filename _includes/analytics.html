@@ -1,0 +1,17 @@
+{% if site.google_analytics %}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '{{ site.google_analytics }}', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script type="text/javascript">
+function handleOutboundLinkClicks(event) {
+  ga('send', 'event', {
+    eventCategory: 'Outbound Link',
+    eventAction: 'click',
+    eventLabel: event.target.href
+  });
+}
+</script>
+{% endif %}

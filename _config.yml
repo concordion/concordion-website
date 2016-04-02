@@ -33,6 +33,8 @@ gems:
 whitelist:
   - jekyll-redirect-from
 
+google_analytics: UA-58172036-1
+
 defaults:
   -
     scope:
