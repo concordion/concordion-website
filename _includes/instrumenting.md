@@ -127,7 +127,7 @@ _Note that the `?=` syntax is short for `c:assert-equals`_
 {% endif %}
 
 
-Further details: [assert-equals command specification](https://concordion.github.io/concordion/latest/spec/command/assertEquals/AssertEquals.html)
+Further details: [assert-equals command specification](https://concordion.github.io/concordion/latest/spec/command/assertEquals/AssertEquals.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownAssertEqualsCommand.html){% endif %}
 
 ----
 
@@ -203,7 +203,7 @@ _Note that the `#` syntax is short for `c:set=#`_
 
 {% if supports_2_0 %}
 
-Further details: [set command specification](https://concordion.github.io/concordion/latest/spec/command/set/Set.html)
+Further details: [set command specification](https://concordion.github.io/concordion/latest/spec/command/set/Set.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownSetCommand.html){% endif %}
 
 ----
 
@@ -271,7 +271,7 @@ To explicitly close an example, create a header with the example heading struck-
 ## ~~Example 1~~
 ~~~
 
-will close the example with the heading `Example 1`    
+will close the example with the heading `Example 1`. The struck-through header will not appear in the output specification.
 {% endif %}
 
 ### Implementation Status
@@ -290,7 +290,7 @@ As an alternative to setting the [implementation status]({{site.baseurl}}/coding
 {% endif %}
 The status can be either `ExpectedToFail` or `Unimplemented`.
 
-Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExampleCommand.html){% endif %}
 
 {% endif %}
 
@@ -361,7 +361,7 @@ then the greeting will say:
 An alternative would be to change the {{g}}etGreeting() method signature to allow the time to be passed in as a parameter. This is the approach you should normally take. An execute with no return value often indicates a "bad smell" - e.g. you're writing a script or your specification contains too many variables and covers too many behaviours. However, the functionality is there if you need it.
 
 {% if md %}
-(Note that in the execute command is deduced by the absence of a `#`, `?=` or `c:` prefix in the link title. It is equivalent to prefixing the command with `c:execute=`).
+(Note that the execute command is deduced by the absence of a `#`, `?=` or `c:` prefix in the link title. It is equivalent to prefixing the command with `c:execute=`).
 {% endif %}
 
 ### Executing an instruction with an object result
@@ -433,11 +433,7 @@ Alternatively, to make it easier to return multiple values without creating a ne
 
 One of the great things about Concordion is that when you're writing the specifications you do not have to worry about how you're going to instrument it. You can just concentrate on making the document as readable as possible.
 
-Most English sentences can be instrumented. If you can't work out how to instrument it then you can always tweak the wording, but in general this should not be necessary. The execute command provides flexibility.
-
-{% if md %}
-The execute command provides flexibility - however, you will need to embed HTML in your Markdown specification to achieve this, so will need to weigh that up against changing the wording.
-{% endif %}
+Most English sentences can be instrumented. If you can't work out how to instrument it then you can always tweak the wording, but in general this should not be necessary. The execute command provides flexibility {% if md %} - however, you will need to embed HTML in your Markdown specification to achieve this, so will need to weigh that up against changing the wording{% endif %}.
 
 For example, say we have the specification:
 
@@ -504,11 +500,12 @@ In this case, the input parameter Bob occurs after the output greeting we want t
     </p>
 </div>
 ~~~
+{: #embedded-html}
 {% endif %}
 
 How does this work? It works because the execute command is designed to process commands on its child elements in a special order. First of all it processes any child set commands then it runs its own command, then any child execute commands and finally any child assert-equals commands.
 
-Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/command/execute/Execute.html)
+Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/command/execute/Execute.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html){% endif %}
 
 ### execute command on a table
 
@@ -522,62 +519,32 @@ You can instrument this table, in a long-winded way, as follows:
 
 {% if html %}
 ~~~html
-<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
 
-    <head>
-        <link href="../concordion.css" rel="stylesheet" type="text/css" />
-    </head>
+    <h3>Examples</h3>
 
-    <body>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr concordion:execute="#result = {{s}}plit(#fullName)">
+            <td concordion:set="#fullName">John Smith</td>
+            <td concordion:assert-equals="#result.firstName">John</td>
+            <td concordion:assert-equals="#result.lastName">Smith</td>
+        </tr>
+        <tr concordion:execute="#result = {{s}}plit(#fullName)">
+            <td concordion:set="#fullName">David Peterson</td>
+            <td concordion:assert-equals="#result.firstName">David</td>
+            <td concordion:assert-equals="#result.lastName">Peterson</td>
+        </tr>
+    </table>
 
-        <h1>Splitting Names</h1>
-
-        <p>
-            To help personalise our mailshots we want to have the first name
-            and last name of the customer. Unfortunately the customer data
-            that we are supplied only contains full names.
-        </p>
-
-        <p>
-            The system therefore attempts to break a supplied full name into
-            its constituents by splitting around whitespace.
-        </p>
-
-        <div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
-
-            <h3>Examples</h3>
-
-            <table>
-                <tr>
-                    <th>Full Name</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                </tr>
-                <tr concordion:execute="#result = {{s}}plit(#fullName)">
-                    <td concordion:set="#fullName">John Smith</td>
-                    <td concordion:assert-equals="#result.firstName">John</td>
-                    <td concordion:assert-equals="#result.lastName">Smith</td>
-                </tr>
-                <tr concordion:execute="#result = {{s}}plit(#fullName)">
-                    <td concordion:set="#fullName">David Peterson</td>
-                    <td concordion:assert-equals="#result.firstName">David</td>
-                    <td concordion:assert-equals="#result.lastName">Peterson</td>
-                </tr>
-            </table>
-
-        </div>
-    </body>
-</html>
+</div>
 ~~~
 {% elsif md %}
 ~~~markdown
-# Splitting Names
-
-To help personalise our mailshots we want to have the first name and last name of the customer. 
-Unfortunately the customer data that we are supplied only contains full names.
-
-The system therefore attempts to break a supplied full name into its constituents by splitting around whitespace.
-
 ### [Examples](- "simple-names")
 
 | Full Name | First Name | Last Name |
@@ -597,62 +564,32 @@ For example:
 
 {% if html %}
 ~~~html
-<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
 
-    <head>
-        <link href="../concordion.css" rel="stylesheet" type="text/css" />
-    </head>
+    <h3>Examples</h3>
 
-    <body>
+    <table concordion:execute="#result = {{s}}plit(#fullName)">
+        <tr>
+            <th concordion:set="#fullName">Full Name</th>
+            <th concordion:assert-equals="#result.firstName">First Name</th>
+            <th concordion:assert-equals="#result.lastName">Last Name</th>
+        </tr>
+        <tr>
+            <td>John Smith</td>
+            <td>John</td>
+            <td>Smith</td>
+        </tr>
+        <tr>
+            <td>David Peterson</td>
+            <td>David</td>
+            <td>Peterson</td>
+        </tr>
+    </table>
 
-        <h1>Splitting Names</h1>
-
-        <p>
-            To help personalise our mailshots we want to have the first name
-            and last name of the customer. Unfortunately the customer data
-            that we are supplied only contains full names.
-        </p>
-
-        <p>
-            The system therefore attempts to break a supplied full name into
-            its constituents by splitting around whitespace.
-        </p>
-
-        <div {% if supports_2_0 %}concordion:example="simple-names"{% else %}class="example"{% endif %}>
-
-            <h3>Examples</h3>
-
-            <table concordion:execute="#result = {{s}}plit(#fullName)">
-                <tr>
-                    <th concordion:set="#fullName">Full Name</th>
-                    <th concordion:assert-equals="#result.firstName">First Name</th>
-                    <th concordion:assert-equals="#result.lastName">Last Name</th>
-                </tr>
-                <tr>
-                    <td>John Smith</td>
-                    <td>John</td>
-                    <td>Smith</td>
-                </tr>
-                <tr>
-                    <td>David Peterson</td>
-                    <td>David</td>
-                    <td>Peterson</td>
-                </tr>
-            </table>
-
-        </div>
-    </body>
-</html>
+</div>
 ~~~
 {% elsif md %}
 ~~~markdown
-# Splitting Names
-
-To help personalise our mailshots we want to have the first name and last name of the customer. 
-Unfortunately the customer data that we are supplied only contains full names.
-
-The system therefore attempts to break a supplied full name into its constituents by splitting around whitespace.
-
 ### [Examples](- "simple-names")
 
 | [ ][split][Full Name][full] | [First Name][first] | [Last Name][last] |
@@ -669,7 +606,7 @@ The system therefore attempts to break a supplied full name into its constituent
 
 This instrumentation has identical behaviour to the previous example.
 
-Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
+Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html#execute-on-a-table){% endif %}
 
 ### execute command on a list
 
@@ -776,12 +713,7 @@ The syntax for a verify-rows command is:
 
 where `expression` returns an Iterable object with a predictable iteration order, (e.g. {% if java %}a List, LinkedHashSet or a TreeSet{% elsif csharp %}a collection extending ICollection{% endif %}), and `#loopVar` provides access to the current object during iteration and allows the assert-equals method to check its value.
 
-{% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). 
-
-{% if supports_2_0 %}
-### Match Strategy
-(_since: 2.0.0_, As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verifyRows/strategies/Strategies.html) to define how the rows are matched).
-{% endif %}
+{% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). {% if supports_2_0 %}As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verifyRows/strategies/Strategies.html) to define how the rows are matched (_since: 2.0.0_).{% endif %}
 
 When run with a fixture that returns an empty collection, we get:
 
@@ -795,7 +727,7 @@ After the feature is implemented, when we run it we get a success:
 
 Note that either `verify-rows` or `verifyRows` can be used for the command name.
 
-Further details: [verify-rows specification](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [verify-rows specification](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownVerifyRowsCommand.html){% endif %}
 
 ----
 
@@ -824,7 +756,7 @@ The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`.
 To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](http://concordion.org/dotnet/Concordion/Configuration/Runner.html).
 {% endif %}
 
-Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html){% endif %}.
+Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownRunCommand.html){% endif %}
 
 ----
 
@@ -839,7 +771,7 @@ They should be used sparingly, since on failure they can only report true or fal
 ~~~
 {% elsif md %}
 ~~~markdown
-The completion date should be set to [today](- "c:assert-true="{{i}}sCompletionToday()")
+The completion date should be set to [today](- "c:assert-true={{i}}sCompletionToday()")
 ~~~
 {% endif %}
 
@@ -850,7 +782,7 @@ is run with a `{{i}}sCompletionToday()` method that returns false, the output sh
 As an alternative, use the `assert-equals` command to show better error messages. Reworking our example above:
 
 {% if html %}
-~~~
+~~~html
 <p>The completion date should be set to <span concordion:assert-equals="{{g}}etCompletionDay()">today</span>.</p>
 ~~~
 {% elsif md %}
@@ -878,7 +810,7 @@ The `echo` command evaluates an expression and inserts the result into the outpu
 For example:
 
 ~~~markdown
-Username:[ ](- "c:echo=username")
+Username:[ ](- "c:echo=#username")
 ~~~
 {% endif %}
 

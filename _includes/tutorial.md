@@ -158,11 +158,10 @@ _If starting the tutorial from this stage, start with the `{{d}}ocumented` folde
 
 In order to make the specification executable, it must be _instrumented_ with commands. The instrumentation is invisible to a browser, but is processed by the fixture code.
 
-<span id="how-it-works">
 ![How it works]({{ site.baseurl }}/img/how-it-works.png)
-</span>
+{:#how-it-works}
 
-The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example {% if md %}using Markdown's link syntax{% elsif html %}and create span tags around them (we can actually use any HTML tag){% endif %}:
+The first step is to select the words in the example that define the _context_ (preconditions), _actions_ and _outcomes_. In our example, the context is the name `Jane Smith`, the action is `broken` and the outcomes are the first name `Jane` and last name `Smith`. We select these parts of the example {% if md %}using Markdown's link syntax{% elsif html %}and create `<span>` tags around them (we can actually use any HTML tag){% endif %}:
 
 {% if md %}
 ~~~markdown
@@ -267,7 +266,7 @@ Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{
 
 ## 4. Coding
 
-_If starting the tutorial from this stage, start with the `Instrumented` folder of the tutorial project._
+_If starting the tutorial from this stage, start with the `{{i}}nstrumented` folder of the tutorial project._
 
 Finally we create some code, called a _fixture_, that links the instrumented specification with the system under test.
 

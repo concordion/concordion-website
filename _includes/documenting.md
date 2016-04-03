@@ -96,21 +96,21 @@ A common structure is:
 
 {% endif %}
 
-## Sample Structure
+## Structure of Examples
 
-Concordion provides the flexibility to write examples however you like.
+Concordion provides the flexibility to structure examples however you like.
 
 When documenting the _context_, _action_ and _outcome_ of an example, you can write these three parts using the Gherkin "Given, When, Then" language. This is often a good way to get started. Once you become familiar with thinking about the context, action and outcome, you may find ways to describe your example in a more natural language.
 
 For example, you could use either:
 
-    Given a user with full name _John Smith_
+    Given a user with full name John Smith
     When the system splits the name
-    Then the first name is _John_ and the last name is _Smith_
+    Then the first name is John and the last name is Smith
 
 or:
 
-    The full name _John Smith_ will be broken into first name _John_ and last name _Smith_
+    The full name John Smith will be broken into first name John and last name Smith
 
 The [Hints and Tips]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}) page contains some good practices for writing specifications, including:
 
@@ -120,7 +120,7 @@ The [Hints and Tips]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ p
 
 ## Creating a suite
 
-HTML links allow us to create a structured suite of specifications, with the pages nested under a hierarchical index. For example:
+{{ spec_type_desc }} links allow us to create a structured suite of specifications, with the pages nested under a hierarchical index. For example:
 
     Product
          Theme
@@ -149,15 +149,27 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 Further details: [Breadcrumbs specification](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
 
-### Styling your specifications
+## Styling your specifications
 
-Concordion comes with a default style out of the box.
+Concordion comes with a default style out of the box that is automatically applied to output specifications.
+
+{% if html %}
+Should you wish to apply this styling while you are documenting your specification, you will need to add the following to the `<head>` section of your HTML file:
+
+    <link href="../concordion.css" rel="stylesheet" type="text/css" />
+
+where `../` is replaced by the relative location of your concordion.css file (`..` represents the parent folder of the folder containing the specification). You may need to copy `concordion.css` from the tutorial folder, or [download concordion.css](https://raw.githubusercontent.com/concordion/concordion/master/src/test/resources/concordion.css).
+
+See the [HTML example](#html-example) below for a full HTML file with a link to the concordion.css stylesheet.
+{% endif %}
+
+### Additional styling
 
 Should you wish to enhance your specifications, you can add CSS, JavaScript, images, or other resources to tweak or completely overhaul the existing styling. If applying additional styling, {% if supports_2_0 %}the fixture will need to [specify the resources]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#adding-resources){% else %}you'll need to [create an extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) for the resources{% endif supports_2_0 %} to be copied to the output specification. {% unless supports_2_0 %}(Concordion.NET 2.0 will include a feature to simplify this.){% endunless %}
 
 # Specification language
 
-Concordion specifications can be written using {% if supports_2_0 %}either Markdown or {% endif %}HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) to handle other formats).{% unless supports_2_0 %} (It is planned for Concordion.NET 2.0 to support Markdown format.){% endunless %}
+Concordion specifications can be written using {% if supports_2_0 %}either Markdown or {% endif %}HTML (alternatively you can use Excel with the [Excel Extension](https://github.com/concordion/concordion-excel-extension), or [write your own extension]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#creating-an-extension) to handle other formats).{% unless supports_2_0 %} It is planned for Concordion.NET 2.0 to support Markdown format. {% endunless %} Specification suites can contain specifications written in a mixture of specification languages.
 
 {% if md %}
 
@@ -167,44 +179,32 @@ Markdown provides an easy-to-read and easy-to-write syntax for specifications.
 
 As a crash course, typing the following:
 
-    # Heading
-
-    This is a __bold text__ in a paragraph
-
-    ## Subheading
-
-    | Name              | Age |
-    | ---------------------- | --- |
-    | Fred Flintstone | 35 |
-    | Betty Rubble    | 27 |
-
-results in:
-
------------
-
+~~~markdown
 # Heading
-{:.no_toc}
 
 This is a __bold text__ in a paragraph
 
 ## Subheading
-{:.no_toc}
- 
-| Name              | Age |
-| ---------------------- | --- |
-| Fred Flintstone | 35 |
-| Betty Rubble    | 27 |
 
------------
+| Name            | Age |
+| --------------- | --- |
+| Fred Flintstone | 35  |
+| Betty Rubble    | 27  |
+~~~
+{: #markdown-example}
 
-For further details, read the Markdown [basics](https://daringfireball.net/projects/markdown/basics) and [syntax](https://daringfireball.net/projects/markdown/syntax).
+results in:
+
+![HTML output including table]({{ site.baseurl }}/img/documenting-example.png)
+
+For further details about Markdown, read the Markdown [basics](https://daringfireball.net/projects/markdown/basics) and [syntax](https://daringfireball.net/projects/markdown/syntax).
 
 In addition to standard Markdown, Concordion supports: 
 
 * [MultiMarkdown format tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to [Github Flavored Markdown tables](https://help.github.com/articles/github-flavored-markdown/#tables).
 * strikethrough format using `~~tildes around the words~~`.
 
-For syntax that is not covered by Markdown, you can use inline HTML.
+For syntax that is not covered by Markdown, you can use __inline HTML__. For example, this is used for expressing [unusual sentence structures]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#embedded-html).
 
 ### Extending the Markdown syntax
 
@@ -216,16 +216,17 @@ _Note that the Concordion fixture will need to be [configured](https://concordio
 
 ### Markdown editors
 
-While you can edit Markdown in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a Markdown editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated Markdown editors. If you wish to use any of the Markdown extensions (see above), you might want to make sure your editor supports it.
+While you can edit Markdown in a text editor, you'll get additional features such as preview, syntax highlighting and auto indent with a Markdown editor. There are lots of options available, including online editors, plugins to text editors such as Notepad++ and dedicated Markdown editors. You might want to make sure your editor supports tables, strikethrough and any of the other Markdown extensions you configure (see above).
 
 #### Github 
 The syntax used for this extension is compatible with Github Flavored Markdown, allowing specifications to be edited and previewed in the Github editor.
 
 #### IDEA
-The official IntelliJ IDEA Markdown editor is not recommended since it does not support tables. 
-Instead, the [Markdown](https://plugins.jetbrains.com/plugin?id=5970) plugin is recommended. 
-This plugin uses the same underlying Pegdown library as the Concordion Markdown extension. 
-After installing the plugin, you will need to configure the [settings](https://plugins.jetbrains.com/files/5970/screenshot_14568.png) to enable Tables and Strikethrough, plus any additional Markdown language extensions that you [configure](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html).
+The official IntelliJ IDEA Markdown Support plugin is not recommended since it does not support tables. 
+
+Instead, the [Markdown](https://plugins.jetbrains.com/plugin?id=5970) plugin is recommended. This plugin uses the same underlying Pegdown library as the Concordion Markdown extension. After installing the plugin, you will need to configure the [settings](https://plugins.jetbrains.com/files/5970/screenshot_14568.png) to enable Tables and Strikethrough, plus any additional Markdown language extensions that you [configure](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) in Concordion.
+
+Note that the [Concordion Support](https://plugins.jetbrains.com/plugin/7978?pr=idea) plugin can be used with either the Markdown or Markdown Support plugins.
 
 #### Eclipse
 Available Eclipse plugins include:
@@ -237,10 +238,10 @@ Available Eclipse plugins include:
 |[Github Flavored Markdown Viewer](https://marketplace.eclipse.org/content/github-flavored-markdown-viewer-plugin)| N | Y | Y |
  {: .striped}
 
-In order to have editing features and the ability to view with tables and strikethrough, you may want to install either of the first 2 editor plugins listed along with the viewer plugin.
+In order to have editing features and the ability to view with tables and strikethrough, we suggest installing either of the first 2 editor plugins listed above for editing, along with the Github Flavored Markdown Viewer plugin for viewing.
 
 
-_Please let us know what editor you are using, and what support you get from it. Either edit this page and raise a pull request or create an issue on this project to let us know. Thanks :)_
+_If you have other recommendations for editors, please let us know what you are using, and what support you get from it. Click on the __Improve this page__ link below to edit this page and raise a pull request or [create an issue](https://github.com/concordion/concordion-website-2.0/issues/new) on this project to let us know. Thanks :)_
 
 {% endif %}
 
@@ -268,53 +269,48 @@ HTML documents are written in text with special start and end tags around items.
 
 The tag &lt;p&gt; signals the start of the paragraph and &lt;/p&gt; signals the end.
 
-You can nest tags.
+You can nest tags. For example:
 
     <p>This is <b>bold text</b> in a paragraph</p>
-
-When the document is displayed in a web browser, it will be rendered like this:
-
-This is __bold text__ in a paragraph
 
 The syntax for a table is more complicated, but once you understand this, you'll have everything you need to write tests in Concordion.
 
 A table uses the following tags: &lt;table&gt;, &lt;tr&gt; (table row) , &lt;th&gt; (table heading), &lt;td&gt; (table data). The table is expressed row by row. The first row contains the headings, the following rows are data. For example:
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>
-        <tr>
-            <td>Fred Flintstone</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td>Betty Rubble</td>
-            <td>27</td>
-        </tr>
-    </table>
+~~~html
+<html>
+    <head>
+        <link href="../concordion.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1>Heading</h1>
 
-Which produces:
+        <p>This is a <b>bold text</b> in a paragraph</p>
 
-----
+        <h2>Subheading</h2>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    <tr>
-        <td>Fred Flintstone</td>
-        <td>35</td>
-    </tr>
-    <tr>
-        <td>Betty Rubble</td>
-        <td>27</td>
-    </tr>
-</table>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>Fred Flintstone</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Betty Rubble</td>
+                <td>27</td>
+            </tr>
+        </table>
+    </body>
+</html>
+~~~
+{: #html-example}
 
-----
+results in:
+
+![HTML output including table]({{ site.baseurl }}/img/documenting-example.png)
 
 ### HTML editors
 

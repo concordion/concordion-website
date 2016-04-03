@@ -28,14 +28,14 @@
 {% assign supports_2_0 = false %}
 {% endif %}
 
-_This page describes writing fixtures in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
+_This page describes coding fixtures in __{{ fixture_language_desc }}__._  Click the toggle buttons above to choose other options.
 
 * TOC
 {:toc}
 
 ## Overview 
 
-Concordion fixtures find concrete examples in the specification and use them to verify the system under test. 
+Concordion fixtures find commands in the instrumented specification and use them to verify the system under test. 
 
 Concordion is a test runner that can invoke your application code directly:
 
@@ -50,7 +50,9 @@ It is good practice to create a separate driver layer for the code that drives y
 ## Project Structure
 
 ### Dependencies
+{% if csharp %}
 Version 3.5 or higher of the .NET framework must be used as target framework in the project that contains your Concordion.NET fixture classes.
+{% endif csharp %}
 
 Concordion{% if csharp %}.NET{% endif %} requires a number of libraries to be present, including Concordion, {{ test_library }}, XOM and OGNL libraries. 
 
@@ -58,8 +60,10 @@ The best way to manage these dependencies is to use {% if java %}a build tool su
 
 As an alternative, you can download the full distribution from the [download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) page. After extracting the files, you must add references to all the downloaded libraries to the project{% if java %} classpath{% endif %}. 
 
+{% if csharp %}
 ### Assembly Info
 Add the attribute `[assembly: RequiredAddin("ConcordionNUnitAddin")]` to the `AssemblyInfo.cs` of your project. This tells NUnit that the Concordion-NUnit-Addin is required to run your Concordion.NET tests.
+{% endif csharp %}
 
 ### Locating the Specification
 {% if java %}
@@ -128,7 +132,7 @@ namespace Marketing.Mailshot.Initial
 
 A fixture class is required for each specification.
 
-Unlike {{ test_library }}, we don't {% if java %}annotate methods with `@Test`{% elsif csharp %}add a `[Test]` attribute to methods{% endif %}. Instead, the tests are determined from the specification. {% if supports_2_0 %}Each example in the specification that uses the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command) is created as a separate JUnit test. If the example command is not used, the{% else %}The{% endif supports_2_0 %} specification is run as a single {{ test_library }} test.
+Unlike {{ test_library }}, we don't {% if java %}annotate methods with `@Test`{% elsif csharp %}add a `[Test]` attribute to methods{% endif %}. Instead, the tests are determined from the specification. {% if supports_2_0 %}Each example in the specification that uses the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command) is created as a separate JUnit test, and an additional `[outer]` test is added for any commands that exist outside of examples. If the example command is not used, the{% else %}The{% endif supports_2_0 %} specification is run as a single {{ test_library }} test.
 
 ### Fixture methods
 
@@ -206,7 +210,7 @@ The specification can reference the properties of the `MultiValueResult` as if t
 ### Implementation status
 
 {% if java %}
-You can include partially-implemented specifications in your normal build without breaking the build, by annotating your fixture classes with one of the following annotations:
+For specifications that don't use the example command. you can include partially-implemented specifications in your normal build without breaking the build, by annotating your fixture classes with one of the following annotations:
 
 * `@ExpectedToPass`
 * `@ExpectedToFail`
@@ -231,7 +235,7 @@ public class GreetingTest {
 
 Further details: [annotation specification](https://concordion.github.io/concordion/latest/spec/annotation/Annotation.html).
 
-You can also set the [implementation status]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) for individual examples in the specification.
+If you are using the example command, you must set the [implementation status]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#implementation-status) on the individual examples in the specification.
 
 {% elsif csharp %}
 
