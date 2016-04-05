@@ -194,6 +194,14 @@ Concordion commands use a "concordion" namespace. Change the opening `<html>` ta
 <html xmlns:concordion="http://www.concordion.org/2007/concordion">
 ~~~
 
+To use Unicode (in case of accents for example), specify the content type after the html tag as follows:
+
+~~~html
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+~~~
+
 Next, we add Concordion commands as attributes on elements in the XHTML document. Web browsers ignore attributes that they don't understand, so these commands are effectively invisible.
 
 ~~~html

@@ -281,6 +281,7 @@ A table uses the following tags: &lt;table&gt;, &lt;tr&gt; (table row) , &lt;th&
 <html>
     <head>
         <link href="../concordion.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
         <h1>Heading</h1>
@@ -311,6 +312,12 @@ A table uses the following tags: &lt;table&gt;, &lt;tr&gt; (table row) , &lt;th&
 results in:
 
 ![HTML output including table]({{ site.baseurl }}/img/documenting-example.png)
+
+Note that we include the following line in the header to support the full Unicode character set:
+
+~~~html
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+~~~
 
 ### HTML editors
 

@@ -374,6 +374,7 @@ Sometimes you need to check more than one result of a behaviour. For example, he
 
     <head>
         <link href="../concordion.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
 
     <body>
