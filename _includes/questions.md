@@ -158,3 +158,11 @@ The Concordion.NET runner is unable to find a matching specification for the fix
 * The specification isn't included in the DLL. You need to set the value “Embedded Resource” on the property “Build Action” to [include the specification in the DLL]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#including-the-specification-in-the-dll).
 
 {% endif %}
+
+<a name="furtherQuestions"> </a>
+
+### I've got a question that hasn't been answered. How do I get further help?
+
+If you believe the question should be answered on this website, please raise a [website issue](https://github.com/concordion/concordion-website/issues).
+
+For more general questions, start a discussion on our Google Group (see link below), or ask on [Stack Overflow](http://stackoverflow.com/questions/tagged/concordion).
