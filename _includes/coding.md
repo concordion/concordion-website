@@ -272,6 +272,32 @@ If using the run command, adding the `@FailFast` annotation to the corresponding
 
 {% endif java %}
 
+### Field Scope
+
+Concordion encourages you to keep your examples completely independent of each other. This allows individual examples to be run in isolation. It also makes the specification easier to follow when you can read examples in isolation.
+
+{% if supports_2_0 %}
+To support this behaviour, Concordion reinitialises the fields in fixture objects for each Concordion example (where the example is using the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command)). This is standard JUnit behaviour (in fact, JUnit creates a new fixture object for each test).
+
+However, we recognise that sometimes you will want to share fields across a specification when the field is expensive to initialise, for example a browser instance or database connection. Concordion provides support for specification scoped instance fields, in addition to the default example scope.
+
+For example:
+
+~~~java
+@ConcordionScoped(Scope.SPECIFICATION)
+private ScopedObjectHolder<AtomicInteger> specScopedCounter = new ScopedObjectHolder<AtomicInteger>() {
+    @Override
+    protected AtomicInteger create() {
+        return new AtomicInteger();
+    }
+};
+~~~
+
+See the [ScopedField](http://concordion.github.io/concordion/latest/spec/command/example/ScopedField.html) specification for details.
+
+The [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples) project demonstrates the possible combinations of scope (global, specification, example) and runner (serial, parallel) using a web test suite where the browser is created per example, per specification or once for the whole suite.
+{% endif %}
+
 {% if java %}
 
 ### Before and After hooks
@@ -437,7 +463,7 @@ The Extensions API allows you to add functionality to Concordion, for example im
 
 {% if java %}
 
-For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html), the classes in [org.concordion.api.extension](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension) and the [fixtures](https://github.com/concordion/concordion/tree/master/src/test/resources/spec/concordion/extension) that demonstrate it.
+For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html) and the [extensions API](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension). Refer also to the source code for the published [extensions](({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}/).
 
 {% elsif csharp %}
 
