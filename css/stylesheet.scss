@@ -121,14 +121,10 @@ nav.static {
     }
 }
 
-nav .brand-logo {
+.brand-logo {
     img {
         width: 208px;
     }
-
-    left: 15%;
-    -webkit-transform: none;
-    transform: none;
 }
 
 .text-shadow {
@@ -148,18 +144,22 @@ nav .brand-logo {
 
 @media only screen and (min-width: 601px) {
 
-    nav .brand-logo {
+    .brand-logo {
         img {
             width: 238px;
         }
     }
 }
 
-@media only screen and (min-width: 993px) {
-
+@media only screen and (max-width: 992px) {
     nav .brand-logo {
-        left: 4%;
+        left: 10%;
+        -webkit-transform: none;
+        transform: none;
     }
+}
+
+@media only screen and (min-width: 993px) {
 
     .nav-wrapper {
         width: 70%;
@@ -393,19 +393,11 @@ footer.page-footer.error {
     position: relative;
 
     .container {
-        @include calc(height, '100vh - 100px');
         width: 95%;
         z-index: 10;
-        min-height: 525px;
+        height: 525px;
         position: relative;
         text-align: center;
-    }
-
-    .row {
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-        padding-bottom: 60px;
     }
 
     .background {
@@ -490,10 +482,8 @@ section .background {
     #homepage-hero {
 
         .container {
-            @include calc(height, '100vh - 60px');
-            min-height: 675px;
+            height: 675px;
         }
-
     }
 
     .hero-heading h1, .typed{
@@ -506,6 +496,18 @@ section .background {
 }
 
 @media only screen and (min-width: 993px) {
+    #homepage-hero {
+        .container {
+            height: 600px;
+            
+            .row {
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+                padding-bottom: 60px;
+            }
+        }
+    }
 
     .hero-heading h1, .typed{
         font-size: 2.75rem; 
@@ -513,6 +515,11 @@ section .background {
 }
 
 @media only screen and (min-width: 1281px) {
+    #homepage-hero {
+        .container {
+            height: 650px;
+        }
+    }
 
     .hero-heading h1, .typed{
         font-size: 3rem; 
@@ -520,6 +527,11 @@ section .background {
 }
 
 @media only screen and (min-width: 1441px) {
+    #homepage-hero {
+        .container {
+            height: 600px;
+        }
+    }
 
     .hero-heading h1, .typed{
         font-size: 3.25rem; 
