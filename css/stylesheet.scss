@@ -125,10 +125,12 @@ nav .brand-logo {
     img {
         width: 208px;
     }
-
-    left: 15%;
-    -webkit-transform: none;
-    transform: none;
+    
+    @media only screen and (max-width: 992px) {
+        left: 15%;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
 
 .text-shadow {
