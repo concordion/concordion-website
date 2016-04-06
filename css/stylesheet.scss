@@ -77,11 +77,11 @@ nav {
         float: right;
         padding-right: 16px;
     }
-    
+
     #logo-white {
         display: none;
     }
-    
+
     .button-collapse {
         color: {{ site.green }};
     }
@@ -99,19 +99,19 @@ nav.static {
     ul li:hover, ul li:active {
         background-color: rgba(0,0,0,0.1);
     }
-    
+
     #logo-green {
         display: none;
     }
-    
+
     #logo-white {
         display: block;
     }
-    
+
     .button-collapse {
         color: white;
     }
-    
+
     .text-shadow {
         @include text-shadow(none);
     }
@@ -125,7 +125,7 @@ nav .brand-logo {
     img {
         width: 208px;
     }
-    
+
     left: 15%;
     -webkit-transform: none;
     transform: none;
@@ -398,6 +398,7 @@ footer.page-footer.error {
 
     .container {
         width: 95%;
+        max-width: 1680px;
         z-index: 10;
         height: 525px;
         position: relative;
@@ -493,7 +494,7 @@ section .background {
     .hero-heading h1, .typed{
         font-size: 2.5rem; 
     }
-    
+
     .hero-heading {
         margin-top: 22rem;
     }
@@ -503,7 +504,7 @@ section .background {
     #homepage-hero {
         .container {
             height: 600px;
-            
+
             .row {
                 position: absolute;
                 right: 0px;
@@ -533,12 +534,31 @@ section .background {
 @media only screen and (min-width: 1441px) {
     #homepage-hero {
         .container {
-            height: 600px;
+            @include calc(height, "100vh - 200px");
+            max-height: 1200px;
+
+            .row {
+                bottom: 10%;
+            }
         }
     }
 
     .hero-heading h1, .typed{
         font-size: 3.25rem; 
+    }
+}
+
+@media only screen and (min-width: 1681px) {
+
+    .hero-heading h1 {
+        font-size: 4rem; 
+    }
+}
+
+@media only screen and (min-width: 1921px) {
+
+    .hero-heading h1 {
+        font-size: 4.5rem; 
     }
 }
 
@@ -699,14 +719,14 @@ section#benefits {
     .row#stop-scrolling {
         //margin-bottom: 0px;
         //border-bottom: 2px solid rgba(0,0,0,0.12);
-        
+
         .btn {
             //margin-bottom: 5px;
             //border-bottom-right-radius: 0px;
             //border-bottom-left-radius: 0px;
             //border-bottom: 2px solid rgba(0,0,0,0.12);
         }
-        
+
         .btn.active {
             //border-bottom: 0px;
         }
