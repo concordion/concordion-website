@@ -3,7 +3,7 @@ author:
 description: 
 # TODO for sitemap 
 url: http://concordion.org
-baseurl: /concordion-website-2.0
+baseurl: /
 exclude:  [ Gemfile, Gemfile.lock, vendor, script, .travis.yml ]
 collections:
 
