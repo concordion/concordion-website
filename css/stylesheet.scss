@@ -121,10 +121,14 @@ nav.static {
     }
 }
 
-.brand-logo {
+nav .brand-logo {
     img {
         width: 208px;
     }
+    
+    left: 15%;
+    -webkit-transform: none;
+    transform: none;
 }
 
 .text-shadow {
@@ -144,7 +148,7 @@ nav.static {
 
 @media only screen and (min-width: 601px) {
 
-    .brand-logo {
+    nav .brand-logo {
         img {
             width: 238px;
         }
