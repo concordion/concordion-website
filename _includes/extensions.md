@@ -95,7 +95,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/org/concordion/ext/demo/StoryboardDemo.html">
+                    <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html">
                         <img src="{{ site.baseurl }}/img/extensions-storyboard.png" alt="Example of output specification with storyboard"/>
                     </a>
                 </div>
@@ -117,7 +117,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/ScreenshotDemo.html">
+                    <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html">
                         <img src="{{ site.baseurl }}/img/extensions-screenshot.png" alt="Example of output specification with screenshot showing when hovering over failure"/>
                     </a>
                 </div>
