@@ -739,15 +739,17 @@ The format is:
 
 {% if html %}
 ~~~
-<a concordion:run="runner-name" href="path/to/spec.html">some link text</a>
+<a concordion:run="runner-name" href="path/to/spec.{{ ext }}">some link text</a>
 ~~~
 {% elsif md %}
 ~~~markdown
-[some link text](path/to/spec.html "c:run")
+[some link text](path/to/spec.{{ ext }} "c:run")
 ~~~
 {% endif %}
 
-where `spec.html` is the name of the specification to be run, with the relative path `path/to`.
+where `spec.{{ ext }}` is the name of the specification to be run, with the relative path `path/to`.
+
+{% if supports_2_0 %}You can link to specifications with different file extensions (eg. `.md`, `.html`, `.xlsx` if the Excel extension is installed). Concordion will automatically update the `href` value to use the `.html` file extension in the output specification.{% endif supports_2_0 %}
 
 {% if html %}
 The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`. 
