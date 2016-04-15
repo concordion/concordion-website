@@ -140,6 +140,16 @@ While we investigate the issue further, the only workaround is to restore the se
 
 to the value of the `JAVA_ARGS` variable in the Jenkins startup script (/etc/default/jenkins on Linux) and restarting Jenkins. Note that we are still investigating this further - see the [discussion](https://groups.google.com/d/msg/concordion/RSp92D2CNuc/nwYW4yqvEQAJ).
     
+----
+
+# Frameworks
+
+## Spring
+
+The [chiiknrice/concordion-spring-runner](https://github.com/chiknrice/concordion-spring-runner) provides integration between Concordion and Spring Framework.
+
+JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extension-model) to allow combinations of runners to work together. We're aiming to support this in Concordion 2.1.
+
 {% elsif csharp %}
 
 # Test Runners
