@@ -275,7 +275,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-exception-translator-extension-demo/spec/ExceptionTranslatorDemo.html">
+                    <a href="https://concordion.github.io/concordion-exception-translator-extension-demo/spec/org/concordion/ext/demo/selenium/ExceptionTranslatorDemo.html">
                         <img src="{{ site.baseurl }}/img/extensions-exception-translator.png" alt="Example of exception message being translated"/>
                     </a>
                 </div>               
