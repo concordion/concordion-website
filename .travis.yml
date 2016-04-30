@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.1
+- 2.2
 
 # script from https://jekyllrb.com/docs/continuous-integration/
 
