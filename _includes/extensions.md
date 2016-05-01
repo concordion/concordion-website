@@ -42,7 +42,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="card blue-grey darken-1 white-text">
             <div class="card-image">
                 <a href="https://github.com/concordion/concordion-excel-extension-tutorial/blob/master/README.md">
-                    <img src="https://github.com/concordion/concordion-excel-extension-tutorial/raw/master/tutorial/images/ExcelConcordionSetDistance.png" alt="Excel spreadsheet with Concordion commands as comments"/>
+                    <img src="{{ site.baseurl }}/img/extensions-excel.png" alt="Excel spreadsheet with Concordion commands as comments"/>
                 </a>
             </div>
             <div class="card-content">
