@@ -1,0 +1,47 @@
+img#logo-green, img#osi {
+    background: inherit;
+}
+
+.reveal table {
+    font-size: 75%;
+}
+
+.reveal table th[scope='row'] {
+    border-right: 1px solid;
+}
+
+.reveal table td {
+    border-bottom: 1px solid;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  color: #1baf59;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: inherit;
+  word-wrap: break-word; }
+
+
+.reveal .section img.github {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+}
+
+.reveal .footer {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  font-size: 0.35em;
+}
+.footer img {
+  vertical-align: -25%;
+}
