@@ -593,7 +593,7 @@ For example:
 ~~~markdown
 ### [Examples](- "simple-names")
 
-| [ ][split][Full Name][full] | [First Name][first] | [Last Name][last] |
+| [split][][Full Name][full] | [First Name][first] | [Last Name][last] |
 | --------------- | --------------- | --------------- |
 | John Smith | John] | Smith |
 | David Peterson | David | Peterson |
