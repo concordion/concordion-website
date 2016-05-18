@@ -809,9 +809,15 @@ Further details: [assert-true command specification](https://concordion.github.i
 ## echo command
 The `echo` command evaluates an expression and inserts the result into the output HTML. One usage is to display environment details in a page footer.
 
-{% if md %}
 For example:
 
+{% if html %}
+~~~html
+<p>
+    Username: <span concordion:echo="username" />
+</p> 
+~~~
+{% elsif md %}
 ~~~markdown
 Username:[ ](- "c:echo=#username")
 ~~~
