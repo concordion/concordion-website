@@ -13,7 +13,17 @@
   <link rel="stylesheet" href="lib/css/zenburn.css">
 
   <link rel="stylesheet" href="css/concordion.css">
-  
+  <link rel="stylesheet" href="css/gh-fork-ribbon.min.css" />
+<!--[if lt IE 9]>
+  <link rel="stylesheet" href="css/gh-fork-ribbon.ie.min.css" />
+<![endif]-->
+  <style>
+      .github-fork-ribbon {
+        position: absolute !important;
+        font: initial !important;
+      }
+    </style>
+
   <!-- Printing and PDF exports -->
   <script>
   var link = document.createElement( 'link' );
@@ -112,6 +122,26 @@
             <h2>What's new in 2.0?</h2>
         </section>
 
+        <section>
+            <h2>Markdown support</h2>
+            <p>Markdown is a simple, natural format for creating rich text:</p>
+            <pre><code>
+                ## This is a H2
+
+                This is a paragraph
+
+                * This is a
+                * bullet point list
+
+                This is an [example](example.html "Title") link
+
+                | Table | Heading |
+                | ----- | ------- |
+                | Table | Row 1   |
+                | Table | Row 2   |
+            </code></pre>
+            
+        </section>
         <section>
             <section>
                 <h2>Markdown commands</h2>
@@ -345,7 +375,7 @@ private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder
                  and more...</p>
         </section>
 
-        <section>
+        <section data-state="show-github-ribbon">
             <h2>Learn more</h2>
             <br/>
             <p><a href="http://concordion.org/">http://concordion.org</a></p>
@@ -358,11 +388,11 @@ private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder
     <div class='footer'>
         <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></span>
     </div>    
-<!--    <div class='logo'>
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Concordion" src="img/concordion-logo-green-64.png" /></a>
-    </div>    
--->    
-</div>
+    <div class="ribbon">
+        <a class="github-fork-ribbon right-top" href="https://github.com/concordion/concordion-website/tree/gh-pages/presentations/2016-05-Concordion-2.0" title="Fork me on GitHub">Fork me on GitHub</a>    
+    </div>
+</div>        
+
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>

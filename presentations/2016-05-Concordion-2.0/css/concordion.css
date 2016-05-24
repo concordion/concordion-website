@@ -49,3 +49,6 @@ img#logo-green, img#osi {
 .footer img {
   vertical-align: -25%;
 }
+
+.ribbon { display: none; }
+.show-github-ribbon .ribbon { display: block; }
