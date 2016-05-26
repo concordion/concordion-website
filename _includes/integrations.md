@@ -82,6 +82,13 @@ where <i>MainFixture.java</i> is the fixture class corresponding to the main ind
 
 (This is not strictly necessary since Concordion will cache test results so that tests are not run multiple times within a single test run. The number of tests reported will be less if you only run the main fixture class.)
 
+### Gradle Bug
+The gradle command line option "--tests" does not currently work correctly with Concordion and will:
+
+* prevent @AfterSuite annotated methods from running
+* construct all test classes (but not run them)
+
+Until this is corrected either use the older command line option "-DtaskName.single = testNamePattern" or use includes as shown above.
 
 ## Maven
 
