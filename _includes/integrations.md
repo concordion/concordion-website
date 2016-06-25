@@ -103,10 +103,7 @@ Concordion tests can be run using the surefire plugin. For example:
       <version>2.19.1</version>
       <configuration>
         <systemPropertyVariables>
-          <property>
-            <name>concordion.output.dir</name>
-            <value>target/concordion</value>
-          </property>
+          <concordion.output.dir>target/concordion</concordion.output.dir>
         </systemPropertyVariables>
       </configuration>
     </plugin>
@@ -115,17 +112,13 @@ Concordion tests can be run using the surefire plugin. For example:
 </build>
 ~~~
 
-If you have created a suite of specifications using the run command, you may want to run only your main fixture class by adding these lines inside the `configuration` element:
+Note that the Surefire plugin, by default, only includes test classes with filenames that start or end with `Test` or end with `TestCase`. If your Concordion fixture class names don't end with `Test` or you want to limit the fixture classes that are run, you will need to specify the fixtures you want to include. For example:
 
 ~~~xml
   <includes>
     <include>**/MainFixture.java</include>
   </includes>
 ~~~
-
-where <i>MainFixture.java</i> is the fixture class corresponding to the main index page.
-
-(This is not strictly necessary since Concordion will cache test results so that tests are not run multiple times within a single test run. The number of tests reported will be less if you only run the main fixture class.)
 
 There is also a [maven-concordion-reporting-plugin](https://github.com/bassman5/maven-concordion-reporting-plugin) which allows you to incorporate Concordion reports into a Maven site report in the project reports section.
 
