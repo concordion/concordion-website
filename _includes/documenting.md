@@ -204,7 +204,9 @@ In addition to standard Markdown, Concordion supports:
 * [MultiMarkdown format tables](http://fletcher.github.io/MultiMarkdown-4/tables.html). If using Github, you might want to limit yourself to [Github Flavored Markdown tables](https://help.github.com/articles/github-flavored-markdown/#tables).
 * strikethrough format using `~~tildes around the words~~`.
 
-For syntax that is not covered by Markdown, you can use __inline HTML__. For example, this is used for expressing [unusual sentence structures]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#embedded-html).
+### Inline HTML
+
+For syntax that is not covered by Markdown, you can use __inline HTML__. The HTML will normally need to be wrapped in a `<div>` element. For an example, see how inline HTML is used for [unusual sentence structures]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#embedded-html). 
 
 ### Extending the Markdown syntax
 
