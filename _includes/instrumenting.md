@@ -825,6 +825,8 @@ Username:[ ](- "c:echo=#username")
 
 Further details: [echo command specification](https://concordion.github.io/concordion/latest/spec/command/echo/Echo.html)
 
+The echo command allows you to insert the results of evaluating an expression as text. Should you wish to insert HTML into the document, you will need to use the [embed extension](https://github.com/concordion/concordion-embed-extension).
+
 ----
 
 ## Expression language
