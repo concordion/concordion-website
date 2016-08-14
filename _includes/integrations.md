@@ -36,6 +36,8 @@ The excellent [Concordion support](https://plugins.jetbrains.com/plugin/7978?pr=
 
 This plugin supports both HTML and Markdown format specifications.
 
+For Markdown format specifications, a Markdown plugin is also required. The official IntelliJ IDEA [Markdown Support](https://plugins.jetbrains.com/plugin/7793?pr=idea) plugin is recommended. The [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896?pr=idea) plugin is also supported.
+
 <a class="github-button" href="https://github.com/concordion/idea-concordion-support" data-count-href="/concordion/idea-concordion-support/stargazers" data-count-api="/repos/concordion/idea-concordion-support#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/idea-concordion-support on GitHub">Star</a>
 
 ## Eclipse
