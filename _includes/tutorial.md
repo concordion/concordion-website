@@ -130,13 +130,17 @@ This uses a formatting language called Markdown, which makes it easy to create r
 
 This uses HTML, which is the markup language that web pages are written in. It enables you to create rich documents using plain text. Typically, you only need a small subset of HTML for Concordion specifications. In the HTML above:
 
-- The `<link>` element in the header tells the browser to use the concordion.css stylesheet.
+- The `<link>` element in the header tells the browser to use the `concordion.css` stylesheet.
 - `<h1>` and `<h3>` are headings at level 1 and 3 respectively.
 - `<p>` is a paragraph.
 
 {% endif %}
 
 Opening this {% if html %}specification{% elsif md %}[specification](https://github.com/concordion/concordion-tutorial-2.0/blob/master/documented/src/test/resources/marketing/mailshots/SplittingNames.md) in Github, or{% endif %} in {% if html %}a browser or {% endif %} an editor that supports {{ spec_type_desc }} preview, we see it looks like: ![preview of initial specification]({{ site.baseurl }}/img/tutorial-authored-preview.png)
+
+{% if html %}
+The tutorial project includes a [concordion.css](https://github.com/concordion/concordion-tutorial-java-html/blob/master/initial/src/test/resources/concordion.css) file containing the default Concordion styling, so that the preview looks similar to the actual Concordion output. 
+{% endif %}
 
 The team are happy with the specification, so we share it (for example, by adding the file to our version control system).
 
