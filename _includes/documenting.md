@@ -224,11 +224,11 @@ While you can edit Markdown in a text editor, you'll get additional features suc
 The syntax used for this extension is compatible with Github Flavored Markdown, allowing specifications to be edited and previewed in the Github editor.
 
 #### IDEA
-The official IntelliJ IDEA Markdown Support plugin is not recommended since it does not support tables. 
+The official IntelliJ IDEA [Markdown Support](https://plugins.jetbrains.com/plugin/7793?pr=idea) plugin is recommended, along with the excellent [Concordion Support](https://plugins.jetbrains.com/plugin/7978?pr=idea) plugin, which makes it easy to author and run Concordion specifications.
 
-Instead, the [Markdown](https://plugins.jetbrains.com/plugin?id=5970) plugin is recommended. This plugin uses the same underlying Pegdown library as the Concordion Markdown extension. After installing the plugin, you will need to configure the [settings](https://plugins.jetbrains.com/files/5970/screenshot_14568.png) to enable Tables and Strikethrough, plus any additional Markdown language extensions that you [configure](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) in Concordion.
+ The [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896?pr=idea) plugin is also supported.
 
-Note that the [Concordion Support](https://plugins.jetbrains.com/plugin/7978?pr=idea) plugin can be used with either the Markdown or Markdown Support plugins.
+Previously, we recommended the [Markdown](https://github.com/nicoulaj/idea-markdown) plugin, but this plugin is no longer maintained and has been removed from the Jetbrains plugin repository.
 
 #### Eclipse
 Available Eclipse plugins include:
