@@ -205,6 +205,30 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         </div>
     </div>
 
+
+    <div class="row">
+        <!-- TIMINGS -->
+        <div class="col s12 m6  offset-m3">
+            <div class="card blue-grey darken-1 white-text">
+                <div class="card-image">
+                    <a href="https://github.com/concordion/concordion-timing-extension/blob/master/README.md">
+                        <img src="{{ site.baseurl }}/img/timing-extension.png" alt="Example of timings showing on specification"/>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Specification Timings</span>
+                    <span class="card-title right">
+                        <a class="github-button" href="https://github.com/concordion/concordion-timing-extension" data-count-href="/concordion/concordion-timing-extension/stargazers" data-count-api="/repos/concordion/concordion-timing-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-run-totals-extension on GitHub">Star</a>
+                    </span>
+                    <p>shows running time for each specification</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://github.com/concordion/concordion-timing-extension/blob/master/README.md">README</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <!-- INPUT STYLE -->
         <div class="col s12 m6">

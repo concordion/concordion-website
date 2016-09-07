@@ -20,6 +20,9 @@ _site/
 # Windows shortcuts
 *.lnk
 
+# IntelliJ File
+*.idea
+
 # Gem
 Gemfile.lock
 
