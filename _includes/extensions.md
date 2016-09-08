@@ -184,7 +184,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
 
     <div class="row">
         <!-- RUN TOTALS -->
-        <div class="col s12 m6  offset-m3">
+        <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
                     <a href="https://github.com/concordion/concordion-run-totals-extension/blob/master/README.md">
@@ -203,12 +203,9 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="row">
         <!-- TIMINGS -->
-        <div class="col s12 m6  offset-m3">
+        <div class="col s12 m6 ">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
                     <a href="https://github.com/concordion/concordion-timing-extension/blob/master/README.md">
@@ -224,6 +221,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
                 <div class="card-action">
                     <a href="https://github.com/concordion/concordion-timing-extension/blob/master/README.md">README</a>
+                        <a href="https://concordion.github.io/concordion-timing-extension-demo/spec/spec/Timing.html">Demo</a>
                 </div>
             </div>
         </div>
