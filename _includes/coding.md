@@ -297,7 +297,7 @@ _Note:_ fields for [extensions](#adding-extensions) that are annotated with `@Ex
 
 See the [ScopedField](http://concordion.github.io/concordion/latest/spec/command/example/ScopedField.html) specification for details.
 
-The [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples) project demonstrates the possible combinations of scope (global, specification, example) and runner (serial, parallel) using a web test suite where the browser is created per example, per specification or once for the whole suite.
+The [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples) project demonstrates the possible combinations of scope (suite, specification, example) and runner (serial, parallel) using a web test suite where the browser is created per example, per specification or once for the whole suite.
 {% endif %}
 
 {% if java %}
@@ -313,8 +313,25 @@ The [before and after hooks](https://concordion.github.io/concordion/latest/spec
 |__Suite__            |`@BeforeSuite`            |`@AfterSuite`           |
 
 Note:
+
 1. the example hooks require you to use the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command).
-2. the suite hooks must be in the fixture that is being run directly by JUnit. It won't be invoked on "child specifications" that are being run using the run command. A common pattern is to have a top level base class that contains the suite hooks and is extended by all fixtures.
+2. the [suite]({{site.baseurl}}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#creating-a-suite) hooks must be in the fixture that is being run directly by JUnit. Suite hooks on "child specifications" that are being run using the [run command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}#run-command) will be ignored.
+
+   For example, assuming we have the following suite:
+
+   ~~~  
+        Product
+            Theme 1
+                 Feature 1
+                     Sub-Feature 1
+                     Sub-Feature 2
+                 Feature 2
+   ~~~
+
+   where the specification at each level contains a run command that runs its child specifications. When the `Product` fixture is run, its suite hooks will be invoked. The suite hooks on the child specifications that are invoked by the run command will be ignored.
+
+   A common pattern is to have a base fixture class that contains common suite hooks and is extended by all fixtures. This allows a fixture at any level of the suite (eg. `Product`, `Theme`, `Feature`, `Sub-Feature`) to be run with the common suite hooks invoked at the start and end of the suite.
+
 
 See the [Concordion scope examples](https://github.com/concordion/concordion-scope-examples) project for example usage of before and after hooks.
 
