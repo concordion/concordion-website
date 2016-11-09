@@ -29,18 +29,61 @@ _This page shows the FAQ for __{{ fixture_language_desc }}__._  Click the toggle
 * TOC
 {:toc}
 
+<a name="webTesting"> </a>
+
+### How do I automate web browser testing with Concordion?
+
+Concordion integrates well with [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for specification and testing of web browser applications.{% if java %} It provides rich output, allowing you to view screenshots on failure, create storyboards and add logging information. To speed up testing, you can run tests in parallel.
+
+You can choose to create a new browser per example, per specification or just once for the whole test run.
+
+A good place to get started is the [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples/blob/master/README.md) project. This provides sample code for each permutation of browser scope, and parallel or serial testing. It runs tests against the Google home page and generates specifications that show a screenshot on failure (see the Arithmetic specification).
+
+You might also want to add other [extensions]({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}), such as Storyboard, Logback or others.
+
+{% endif %}
+
+<a name="comparisonWithSelenium"> </a>
+
+### How does Concordion differ from Selenium?
+
+[Selenium](http://docs.seleniumhq.org) is a test scripting tool for driving web browsers.
+Concordion is a specification tool and hides scripting activity inside Java fixture code. For tests that exercise the browser, we recommend  [Selenium WebDriver](http://docs.seleniumhq.org/projects/webdriver/) with Concordion.
+
+<a name="interfaceTesting"> </a>
+
+### How do I automate my web service / database / desktop app / green screen / other app with Concordion?
+
+Concordion acts as a test runner and integrates with any {% if java %}Java{% elsif csharp %}.NET{% endif %} library to drive other interfaces. {% if java %}Examples include [wslite](https://github.com/jwagenleitner/groovy-wslite), CXF, JAX/RS, JAX/WS for REST and SOAP web services, JDBC for databases, FEST for Swing desktop apps and [FreeHost](http://freehost3270.sourceforge.net/) for green screens.{% endif %}
+
+<a name="ownDogFood"> </a>
+
+### Does Concordion itself have active specifications?
+
+Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).
+
+{% if supports_full_ognl %}
+<a name="complexExpressions"> </a>
+
+### How do I use complex expressions in my Concordion specifications?
+
+In order to [keep your specifications simple]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple) and maintainable, Concordion deliberately restricts the expression format that is allowed when instrumenting specifications. Complexity should be moved into the fixture code, and then [evolved into a DSL]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#evolveDSL), where it is easier to maintain. The idea is to have the fixture do all the work of fetching and munging the data and then return exactly the data that the spec needs, which helps to decouple the spec from the implementation.
+
+However, if you really want to remove this restriction you can apply the annotation @FullOGNL to your fixture class. This would allow you to do things like [pass property values of Java beans into methods](http://stackoverflow.com/questions/23658633/use-result-object-of-first-concordion-call-as-arg-in-secound-concordion-call), or [use constant values in concordion:execute commands](http://stackoverflow.com/questions/19681470/sending-a-constant-parameter-to-concoridion-execute-call). 
+
+{% endif %}
+
 <a name="whoDevelopedIt"> </a>
 
 ### Who developed Concordion{% if csharp %}.NET{% endif %}?
-{% if java %}
 
-Concordion was originally developed by David Peterson. The idea was sparked by conversations with testers and developers, in particular Nat Pryce and Steve Freeman while working at Easynet (BSkyB) in 2006.
+Concordion (for Java) was originally developed by David Peterson. The idea was sparked by conversations with testers and developers, in particular Nat Pryce and Steve Freeman while working at Easynet (BSkyB) in 2006.
 
 In 2013, Nigel Charman took over as project lead, having developed the Concordion extensions mechanism. 
 
 Version 2.0 of Concordion was released in 2016 by a team of contributors.
 
-{% elsif csharp %}
+{% if csharp %}
 
 Concordion.NET was originally ported from the Java version by Jeffrey Cameron.
 
@@ -110,37 +153,9 @@ See README-DEVELOPERS.txt in the concordion repository for the development stand
 
 {% endif %}
 
-<a name="comparisonWithSelenium"> </a>
-
-### How does Concordion differ from Selenium?
-
-[Selenium](http://docs.seleniumhq.org) is a test scripting tool for driving web browsers.
-Concordion is a specification tool and hides scripting activity inside Java fixture code. For tests that exercise the browser, we recommend  [Selenium WebDriver](http://docs.seleniumhq.org/projects/webdriver/) with Concordion.
-
-{% if java %}
-
-The [screenshot extension demo](https://github.com/concordion/concordion-screenshot-extension-demo) project demonstrates Concordion working with Selenium WebDriver.
-
-{% endif %}
-
-{% if supports_full_ognl %}
-<a name="complexExpressions"> </a>
-
-### How do I use complex expressions in my Concordion specifications?
-
-In order to [keep your specifications simple]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple) and maintainable, Concordion deliberately restricts the expression format that is allowed when instrumenting specifications. Complexity should be moved into the fixture code, and then [evolved into a DSL]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#evolveDSL), where it is easier to maintain. The idea is to have the fixture do all the work of fetching and munging the data and then return exactly the data that the spec needs, which helps to decouple the spec from the implementation.
-
-However, if you really want to remove this restriction you can apply the annotation @FullOGNL to your fixture class. This would allow you to do things like [pass property values of Java beans into methods](http://stackoverflow.com/questions/23658633/use-result-object-of-first-concordion-call-as-arg-in-secound-concordion-call), or [use constant values in concordion:execute commands](http://stackoverflow.com/questions/19681470/sending-a-constant-parameter-to-concoridion-execute-call). 
-
-{% endif %}
-
-<a name="ownDogFood"> </a>
-
-### Does Concordion itself have active specifications?
-
-Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).
 
 {% if csharp %}
+<a name="nunitDll"> </a>
 ### Why do I get the error "The target type doesn't contain tests from a known test framework or a 'Main' method"?
 
 Possible causes are:
@@ -149,7 +164,7 @@ Possible causes are:
 * An old version of `Concordion.NUnit.dll` is in the NUnit addins folder. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) the latest version and [install it as a NUnit addin]({{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}).
 * The attribute `[assembly: RequiredAddin("ConcordionNUnitAddin")]` is not in the `AssemblyInfo.cs` file of the project. See [Assembly Info]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#assembly-info) for further information.
 
-
+<a name="noSpecificationExtensions"> </a>
 ### Why do I get the error "no specification extensions defined for: Concordion.NET.Internal.SpecificationConfig"?
 
 The Concordion.NET runner is unable to find a matching specification for the fixture. Possible causes are:
