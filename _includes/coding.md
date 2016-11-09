@@ -45,7 +45,7 @@ It can also drive the interfaces of your deployed application:
 
 ![Fixture calling driver calling deployed application]({{ site.baseurl }}/img/coding-driver-layers.png)
 
-It is good practice to create a separate driver layer for the code that drives your application interface, keeping the runner free of driver logic and the driver layer free of test assertions. Other libraries are required for the driver layer, such as [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for web applications{% if java %}; [wslite](https://github.com/jwagenleitner/groovy-wslite), JAX/WS or JAX/RS for web services; JDBC for databases, etc. Any Java{% elsif csharp %}{% comment %} TODO - add dotnet libraries {% endcomment %} etc. Any .NET {% endif %} library can be used with Concordion, providing a lot of flexibility in how you use it.
+It is good practice to create a separate driver layer for the code that drives your application interface, keeping the runner free of driver logic and the driver layer free of test assertions. Other libraries are required for the driver layer, such as [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for web applications{% if java %}; [wslite](https://github.com/jwagenleitner/groovy-wslite), JAX/WS or JAX/RS for web services; JDBC for databases, etc. Any Java{% elsif csharp %}{% comment %} TODO - add dotnet libraries {% endcomment %} etc. Any .NET {% endif %} library can be used with Concordion, providing a lot of flexibility in how you use it. See the [FAQ]({{site.baseurl}}/questions/{{ page.fixture_language }}/{{ page.spec_type }}#webTesting) for further detail.
 
 ## Project Structure
 
