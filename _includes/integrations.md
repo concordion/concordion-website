@@ -32,7 +32,7 @@ _This page shows the integrations for __{{ fixture_language_desc }}__._  Click t
 
 ## IntelliJ IDEA
 
-The excellent [Concordion support](https://plugins.jetbrains.com/plugin/7978?pr=idea) plugin for IDEA provides support such as autocompletion, 2-way navigation between specifications and fixtures, run test from specification, surround with Concordion command, go to declaration and renaming.
+The excellent [Concordion support](https://plugins.jetbrains.com/plugin/7978?pr=idea) plugin for IDEA provides support such as autocompletion, 2-way navigation between specifications and fixtures, run test from specification, surround with Concordion command, go to declaration and renaming. See the [home page](https://github.com/concordion/idea-concordion-support/blob/master/README.md) for documentation of the features and keyboard shortcuts.
 
 This plugin supports both HTML and Markdown format specifications.
 
