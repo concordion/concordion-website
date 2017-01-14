@@ -206,12 +206,11 @@ You can run Concordion.NET acceptance tests within Visual Studio with [ReSharper
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET
 2. Install ReSharper
-3. Copy `Concordion.NUnit.dll` into the addin directory of your ReSharper installation (`<resharper-installation-path>\Bin\addins\`) 
-    (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
+3. Under Resharper > Options > NUnit, select the options to use NUnit2 and to always copy addins
+4. If you are using the built-in NUnit, under Resharper > Options > NUnit, take note of the NUnit 2.6.4 folder. Create a subfolder called `addins`, and copy Concordion.NUnit.dll to that folder (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project).
     When updating Concordion.NET, make sure you update this DLL.
-    * Using specific NUnit installation: If you aren't using the build-in NUnit, but your specified NUnit installation (ReSharper -&gt; Options ... -&gt; Tools -&gt; Unit Testing -&gt; NUnit), you have to copy Concordion.NUnit.dll into the used NUnit installation (&lt;nunit-installation-path&gt;\bin\addins\).
-    * Make sure you use NUnit version 2.6.4 in any setup.
-4. Run your Concordion.NET acceptance tests with ReSharper
+5. If you aren't using the built-in NUnit, but your specified NUnit installation (ReSharper -&gt; Options ... -&gt; Tools -&gt; Unit Testing -&gt; NUnit), you have to copy Concordion.NUnit.dll into the used NUnit installation (&lt;nunit-installation-path&gt;\bin\addins\). Make sure you are using NUnit version 2.6.4. 
+6. Run your Concordion.NET acceptance tests with ReSharper
     * To run a single test directly from the editor: Click on the ReSharper testing icon next to the line of your fixture class definition and select the Run or Debug option in the context menu.
     * To run multiple tests: Right click on the element containing the tests of interest in the Solution Explorer and select either the Run Unit Tests or Debug Unit Tests option in the context menu.
 
