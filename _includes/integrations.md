@@ -156,6 +156,8 @@ JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extensio
 
 # Test Runners
 
+Concordion.NET provides the Concordion.NUnit addin to run Concordion.NET tests with any NUnit test environment. The Concordion.NUnit add is compatible with NUnit 2.6.4 as well as any NUnit 3.x.
+
 ## NUnit runners integrated in Visual Studio
 
 There are several ways to run Concordion.NET automated tests within Visual Studio (e.g. TestDriven.NET, ReSharper, Test Adapter, etc.).
@@ -176,14 +178,14 @@ When you run Concordion.NET tests with TestDriven.NET in Visual Studio, you shou
 ~~~console
 ------ Test started: Assembly: Kickstart.Spec.dll ------ 
 Processed specifications : C:\concordion-test\Kickstart\Spec\HelloWorld\HelloWorld.html
-1 passed, 0 failed, 0 skipped, took 0,82 seconds (NUnit 2.6.4).
+1 passed, 0 failed, 0 skipped, took 0,82 seconds
 ~~~
 
 ### NUnit Test Adapter
 
 Since version 2012, Visual Studio supports [3rd party test runners](http://blogs.msdn.com/b/visualstudioalm/archive/2012/03/08/what-s-new-in-visual-studio-11-beta-unit-testing.aspx) to execute their tests right inside Visual Studio. This allows the NUnit Test Adapter for Visual Studio to run Concordion.NET tests.
 
-Please note that at the time of writing an [issue of the NUnit Test Adapter](https://github.com/nunit/nunit-vs-adapter/issues/9) prevents the execution of Concordion.NET tests based on the NUnit addin. Until the issue is fixed by the NUnit team, you will need to adapt your fixture to extend `ExecutableSpecification` as follows:
+Please note that at the time of writing an [issue of the NUnit Test Adapter](https://github.com/nunit/nunit3-vs-adapter/issues/222) prevents the execution of Concordion.NET tests based on the NUnit addin. Until the issue is fixed by the NUnit team, you will need to adapt your fixture to extend `ExecutableSpecification` as follows:
 
 ~~~csharp
 using Concordion.Runners.NUnit;
@@ -222,15 +224,17 @@ When running the automated tests with ReSharper you can see the progress and res
 
 ## Standalone NUnit Runners
 
-NUnit provides [different runners](http://nunit.org/index.php?p=runningTests&r=2.6.4), which can be used to run your Concordion.NET tests.
+NUnit provides different runners, which can be used to run your Concordion.NET tests.
 
 ### NUnit GUI runner
 
+The [GUI runner for NUnit 3 is under development](https://github.com/nunit/docs/wiki/Gui-Release-Notes). Until it is finished you can use the [NUnit GUI runner of version 2.6.4](http://www.nunit.org/index.php?p=installation&r=2.6.4).
+
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET.
-2. Download and [install NUnit version 2.6.4](http://www.nunit.org/index.php?p=installation&r=2.6.4).
-3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\bin\addins`).
+2. Download and [install NUnit](http://nunit.org/index.php?p=download).
+3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\addins`).
     (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
-   When updating Concordion.NET, make sure you update this DLL.
+   When updating Concordion.NET, make sure you update this DLL as well.
 4. Load your tests with the NUnit GUI runner.
   Tip: You can open your Visual Studio solutions and/or projects in NUnit, when you activate the [IDE Support Settings - Visual Studio](http://nunit.org/index.php?p=settingsDialog&r=2.6.4).
 5. Select the Concordion.NET test you want to run in the tree view and press the Run button.
@@ -243,14 +247,14 @@ The Concordion output specifications can be found in the temp directory (on Wind
 
 
 ### Console runner
-NUnit provides a [command line client](http://nunit.org/index.php?p=nunit-console&r=2.6.4) for test execution, which can be useful for the automation of test execution and integration into other systems (e.g. build systems). You can run your Concordion.NET tests with the NUnit console runner as follows:
+NUnit provides a [command line client](https://github.com/nunit/docs/wiki/Console-Runner) for test execution, which can be useful for the automation of test execution and integration into other systems (e.g. build systems). You can run your Concordion.NET tests with the NUnit console runner as follows:
 
 1. [Download]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}) Concordion.NET
-2. Download and [install NUnit version 2.6.4](http://www.nunit.org/index.php?p=installation&r=2.6.4)
-3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\bin\addins`).
+2. Download and [install NUnit](http://nunit.org/index.php?p=download)
+3. Copy into the addin directory of your NUnit installation (`<NUnit-installation-path>\nunit-console\addins`).
     (Concordion.NUnit.dll is available in the `tools` folder of Concordion.NET download package, or as a separate download, or from the `lib\Concordion` folder of the tutorial project)
    When updating Concordion.NET, make sure you update this DLL.
-4. In the command line window, [run the nunit-console application](http://nunit.org/index.php?p=nunit-console&r=2.6.4) and pass in the DLL containing your Concordion.NET specifications and tests.
+4. In the command line window, [run the nunit-console application](https://github.com/nunit/docs/wiki/Console-Runner) and pass in the DLL containing your Concordion.NET specifications and tests.
 
 ### Debugging Concordion.NET tests
 
