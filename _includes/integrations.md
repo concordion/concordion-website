@@ -156,7 +156,7 @@ JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extensio
 
 # Test Runners
 
-Concordion.NET provides the Concordion.NUnit addin to run Concordion.NET tests with any NUnit test environment. The Concordion.NUnit add is compatible with NUnit 2.6.4 as well as any NUnit 3.x.
+Concordion.NET provides the Concordion.NUnit addin to run Concordion.NET tests with any NUnit test environment. The Concordion.NUnit addin is compatible with NUnit 2.6.4 as well as any NUnit 3.x.
 
 ## NUnit runners integrated in Visual Studio
 
