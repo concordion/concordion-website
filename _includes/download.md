@@ -62,7 +62,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
         <p><b><a href="https://www.nuget.org/packages/Concordion.NET">https://www.nuget.org/packages/Concordion.NET/</a></b></p>
         <br/>
         <p>The latest Concordion.NUnit.dll must also be downloaded and <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>:</p>
-        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.0/Concordion.NUnit.dll">Concordion.NUnit.dll</a></b></p>
+        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NUnit.dll">Concordion.NUnit.dll</a></b></p>
         </li>
 {% endif %}
         <li class="collection-item avatar" id="download">
@@ -72,7 +72,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
 {% if java %}
         <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.0.3.zip">concordion-2.0.3.zip</a></b></p>
 {% elsif csharp %}
-        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.0/Concordion.NET-1.5.0.zip" id="download-link">Concordion.NET-1.5.0.zip</a></b></p>
+        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NET-1.5.1.zip" id="download-link">Concordion.NET-1.5.1.zip</a></b></p>
         <p>Note: the latest Concordion.NUnit.dll from the tools folder of this package must also be <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>.</p>
 {% endif %}
         </li>
