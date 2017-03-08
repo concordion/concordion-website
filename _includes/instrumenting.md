@@ -17,6 +17,7 @@
 {% assign csharp=false  %}
 {% assign fixture_language_desc = 'Java' %}
 {% assign supports_2_0=true %}
+{% assign supports_2_1=true %}
 {% assign supports_full_ognl=true %}
 {% assign g = "g" %}
 {% assign i = "i" %}
@@ -236,6 +237,8 @@ will create an example named `check-3-items` with the heading `Check 3 items`.
 {% endif %}
 
 Each example is run and reported as a separate test. Any commands that are outside of named examples are executed in a single anonymous "outer" example that is run before the named examples.
+
+Each row of a table can also be [run as an example](#run-each-row-as-an-example).
 
 ### "before" examples
 
@@ -548,10 +551,10 @@ You can instrument this table, in a long-winded way, as follows:
 ~~~markdown
 ### [Examples](- "simple-names")
 
-| Full Name | First Name | Last Name |
-| --------------- | --------------- | --------------- |
-| [John Smith][split] | [John][first] | [Smith][last] |
-| [David Peterson][split] | [David][first] | [Peterson][last] |
+| Full Name               | First Name      | Last Name |
+| ---------------         | --------------- | --------------- |
+| [John Smith][split]     | [John][first]   | [Smith][last] |
+| [David Peterson][split] | [David][first]  | [Peterson][last] |
 
 [split]: - "#result = {{s}}plit(#TEXT)"
 [first]: - "?=#result.firstName"
@@ -594,9 +597,9 @@ For example:
 ### [Examples](- "simple-names")
 
 | [split][][Full Name][full] | [First Name][first] | [Last Name][last] |
-| --------------- | --------------- | --------------- |
-| John Smith | John] | Smith |
-| David Peterson | David | Peterson |
+| ---------------            | ---------------     | ---------------   |
+| John Smith                 | John                | Smith             |
+| David Peterson             | David               | Peterson          |
 
 [split]: - "#result = {{s}}plit(#fullName)"
 [full]: - "#fullName"
@@ -606,6 +609,55 @@ For example:
 {% endif %}
 
 This instrumentation has identical behaviour to the previous example.
+
+{% if supports_2_1 %}
+#### Run each row as an example
+_since: 2.1.0_
+
+To run each row of the table as an example (which will be run and reported as a separate test), add an 'example' command to a column header. The text in that column will be used for the example name.
+
+For example:
+
+{% if html %}
+~~~html
+<table concordion:execute="#result = {{s}}plit(#fullName)">
+    <tr>
+        <th concordion:example="">Full Name</th>
+        <th concordion:set="#fullName">Full Name</th>
+        <th concordion:assert-equals="#result.firstName">First Name</th>
+        <th concordion:assert-equals="#result.lastName">Last Name</th>
+    </tr>
+    <tr>
+        <td>Simple name</td>
+        <td>David Peterson</td>
+        <td>David</td>
+        <td>Peterson</td>
+    </tr>
+    <tr>
+        <td>Double-barrelled name</td>
+        <td>Mike Cannon-Brookes</td>
+        <td>Mike</td>
+        <td>Cannon-Brookes</td>
+    </tr>
+</table>
+~~~
+{% elsif md %}
+~~~markdown
+| [split][][Description](- "c:example") | [Full Name][full]   | [First Name][first] | [Last Name][last] |
+| ---------------                       | -------------       | ---------------     | ---------------   |
+| Simple name                           | David Peterson      | David               | Peterson          |
+| Double-barrelled name                 | Mike Cannon-Brookes | Mike                | Cannon-Brookes    |
+
+[split]: - "#result = {{s}}plit(#fullName)"
+[full]: - "#fullName"
+[first]: - "?=#result.firstName"
+[last]:  - "?=#result.lastName"
+~~~
+{% endif %}
+
+will run as two examples, named "Simple name" and "Double-barrelled name".
+
+{% endif %}
 
 Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html#execute-on-a-table){% endif %}
 
