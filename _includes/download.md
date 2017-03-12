@@ -40,7 +40,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <img src="{{ site.baseurl }}/img/download-gradle.jpg" alt="gradle image" class="circle">
             <span class="download title">Gradle</span>
             <pre>
- testCompile 'org.concordion:concordion:2.0.3'
+ testCompile 'org.concordion:concordion:2.1.0'
             </pre>
         </li>
         <li class="collection-item avatar" id="maven">
@@ -50,7 +50,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
  &lt;dependency&gt;
    &lt;groupId&gt;<b>org.concordion</b>&lt;/groupId&gt;
    &lt;artifactId&gt;<b>concordion</b>&lt;/artifactId&gt;
-   &lt;version&gt;<b>2.0.3</b>&lt;/version&gt;
+   &lt;version&gt;<b>2.1.0</b>&lt;/version&gt;
    &lt;scope&gt;test&lt;/scope&gt;
  &lt;/dependency&gt;
             </pre>
@@ -70,7 +70,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
         <span class="download title">Download</span>
         <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
 {% if java %}
-        <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.0.3.zip">concordion-2.0.3.zip</a></b></p>
+        <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.1.0.zip">concordion-2.1.0.zip</a></b></p>
 {% elsif csharp %}
         <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NET-1.5.1.zip" id="download-link">Concordion.NET-1.5.1.zip</a></b></p>
         <p>Note: the latest Concordion.NUnit.dll from the tools folder of this package must also be <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>.</p>
