@@ -1,6 +1,6 @@
 # Concordion 2.0
 
-Presentation to Wellington Test Automation Meetup - 5 May 2016.
+Presentation to MOH - 28 April 2017.
 
 This presentation was created using [reveal.js](https://github.com/hakimel/reveal.js).
 
