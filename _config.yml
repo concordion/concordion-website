@@ -38,6 +38,15 @@ defaults:
   -
     scope:
       path: ""
+      type: "posts"
+    values:
+      layout: posts
+      comments: true
+      permalink: /:categories/:year/:month/:title
+  -
+    scope:
+      path: ""
+      type: "pages"
     values:
       layout: sidenav
       description: ""

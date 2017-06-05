@@ -1,0 +1,13 @@
+<ul id="slide-out" class="side-nav fixed collapsible collapsible-accordion">
+    <li class="side-nav-logo"><a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/img/concordion-logo-green.png" alt="Concordion Logo"/></a></li>
+
+{% for post in site.posts %}
+    <li class="blog">
+        <a href="{{ post.url }}">{{ post.heading }}
+        <div class="date">{{ post.date | date: "%B %e, %Y" }}</div>
+    </a></li>
+{% endfor %}
+
+
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse left-nav white-text"><i class="mdi-navigation-menu"></i></a>

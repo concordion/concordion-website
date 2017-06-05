@@ -82,6 +82,29 @@ header {
     background-color: {{ site.red }};
 }
 
+.sidenav-header.blog {
+    h1, p {
+        margin-bottom: 0.5rem;
+    }
+    p {
+        margin-bottom: 1.1rem;
+    }
+}
+
+.side-nav .blog {
+
+    a {
+        height: 4.5rem;
+        line-height: 1.3rem;
+        font-weight: 500;
+    }
+
+    .date {
+        font-weight:400;
+        font-style: italic;
+    }
+}
+
 #slide-out > li:last-child {
     margin-bottom: 64px;
 }
@@ -131,6 +154,26 @@ header {
             @include calc(width, '100% - 240px');
             margin: 0px 0px 0px 0px;
         }
+    }
+}
+
+
+#blog-toggle-nav {
+    height: 50px;
+    line-height: 50px;
+    position: static;
+    background-color: {{ site.green }};
+}
+
+@media only screen and (min-width: 993px) {
+
+    .button-collapse.left-nav {
+        display: none;
+    }
+
+    #blog-toggle-nav {
+        position: absolute;
+        background-color: transparent;
     }
 }
 
