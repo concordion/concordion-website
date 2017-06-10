@@ -181,6 +181,22 @@ header {
     text-decoration: underline;
 }
 
+.share-page {
+    text-align: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin: 1.5em 0;
+
+    a {
+        font-weight: 700;
+        margin-left: 10px;
+
+        &:hover {
+            border-bottom: 1px dashed #fff;
+        }
+    }
+}
+
 .content-switches {
 
     margin-right: 40px;

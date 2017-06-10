@@ -5,6 +5,7 @@ url: http://concordion.org
 baseurl: ""
 exclude:  [ Gemfile, Gemfile.lock, vendor, script, .travis.yml ]
 collections:
+twitter_username: concordion
 
 green: '#1baf59'
 green-light: '#63ba86'

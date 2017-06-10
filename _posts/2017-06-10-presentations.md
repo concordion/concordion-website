@@ -1,6 +1,7 @@
 ---
-title: "Concordion | Blog | Presentations"
+title: "Concordion | Presentations"
 heading: "Concordion Presentations"
+description: "Presentations about Concordion that are licensed under Creative Commons for you to adapt and share"
 identifier: "concordion-presentations"
 author: "Nigel Charman"
 homepage: http://tutansblog.blogspot.co.nz/
