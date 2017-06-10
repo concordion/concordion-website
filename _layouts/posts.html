@@ -25,7 +25,11 @@
                         <h1 class="white-text">{{ page.heading}}</h1>
                     </div>
                     <div class="col s6">
-                        <p class="white-text bold">{{ page.author }}</p>
+                        {% if page.homepage %}
+                            <p class="white-text bold"><a class="white-text bold" href="{{ page.homepage }}">{{ page.author }}</a></p>
+                        {% else %}
+                            <p class="white-text bold">{{ page.author }}</p>
+                        {% endif %}
                     </div>
                     <div class="col s3">
                         <p class="white-text right">{{ page.date | date: "%B %e, %Y" }}</p>

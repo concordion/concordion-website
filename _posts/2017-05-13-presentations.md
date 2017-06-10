@@ -3,6 +3,7 @@ title: "Concordion | Blog | Presentations"
 heading: "Concordion Presentations"
 identifier: "concordion-presentations"
 author: "Nigel Charman"
+homepage: http://tutansblog.blogspot.co.nz/
 ---
 
 I've been presenting Concordion at a few meetup groups and brown bag sessions recently. Here are the slide decks. 
