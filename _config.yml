@@ -42,7 +42,7 @@ defaults:
     values:
       layout: posts
       comments: true
-      permalink: /:categories/:year/:month/:title
+      permalink: /blog/:categories/:title
   -
     scope:
       path: ""
