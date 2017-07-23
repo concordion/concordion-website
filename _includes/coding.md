@@ -295,7 +295,7 @@ private ScopedObjectHolder<AtomicInteger> specScopedCounter = new ScopedObjectHo
 
 _Note:_ fields for [extensions](#adding-extensions) that are annotated with `@Extension` default to specification rather than example scope.
 
-See the [ScopedField](http://concordion.github.io/concordion/latest/spec/command/example/ScopedField.html) specification for details.
+See the [ConcordionScoped](http://concordion.github.io/concordion/latest/spec/annotation/ConcordionScoped.html) specification for details.
 
 The [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples) project demonstrates the possible combinations of scope (suite, specification, example) and runner (serial, parallel) using a web test suite where the browser is created per example, per specification or once for the whole suite.
 {% endif %}

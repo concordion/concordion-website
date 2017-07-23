@@ -163,7 +163,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
-                    <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/ext/demo/LogbackLoggingDemo.html">
+                    <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html">
                         <img src="{{ site.baseurl }}/img/extensions-logback.png" alt="Example of logging info"/>
                     </a>
                 </div>
@@ -221,7 +221,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
                 <div class="card-action">
                     <a href="https://github.com/concordion/concordion-timing-extension/blob/master/README.md">README</a>
-                        <a href="https://concordion.github.io/concordion-timing-extension-demo/spec/spec/Timing.html">Demo</a>
+                        <a href="https://concordion.github.io/concordion-timing-extension-demo/spec/spec/Main.html">Demo</a>
                 </div>
             </div>
         </div>

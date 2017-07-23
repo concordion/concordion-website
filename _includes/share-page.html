@@ -4,5 +4,5 @@
     <a href="https://facebook.com/sharer.php?u={{ site.url | uri_escape }}{{ page.url | uri_escape }}" rel="nofollow" target="_blank" title="Share on Facebook"><i class="fa fa-facebook blue-text"></i> Facebook</a>
     <a href="https://plus.google.com/share?url={{ site.url | uri_escape }}{{ page.url | uri_escape }}" rel="nofollow" target="_blank" title="Share on Google+"><i class="fa fa-google blue-text"></i> Google+</a>
     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url | uri_escape }}{{ page.url | uri_escape }}&title={{ page.heading | uri_escape }}&summary={{ page.description }}" rel="nofollow" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin blue-text"></i> LinkedIn</a>
-    <a href="mailto:?&subject={{ page.heading}}&body={{ page.description }}%0A%0A{{ site.url | uri_escape }}{{ page.url | uri_escape }}" rel="nofollow" target="_blank" title="Share via Email"><i class="fa fa-envelope blue-text"></i> Email</a>
+    <a href="mailto:?subject={{ page.heading}}&body={{ page.description }}%0A%0A{{ site.url | uri_escape }}{{ page.url | uri_escape }}" rel="nofollow" target="_blank" title="Share via Email" data-proofer-ignore><i class="fa fa-envelope blue-text"></i> Email</a>
 </div>
