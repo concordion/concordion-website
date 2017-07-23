@@ -53,6 +53,7 @@ git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_lang
 
 {% if csharp %}Under the `Marketing.Mailshot` folder, t{% elsif java %}T{% endif %}his project contains folders for each stage of the tutorial. You can either start from scratch with the `{{i}}nitial` folder of the project, jump some steps to the `{{d}}ocumented` or `{{i}}nstrumented` folders, or go straight to the `{{c}}ompleted` folder to see the final solution.
 
+<a name="discussing"></a>
 ## 1. Discussing
 
 By collaboratively exploring requirements with realistic examples, teams build a shared understanding and detect issues and misunderstandings prior to developing a new feature.
@@ -71,6 +72,7 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 Find out more about [discussing examples]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="documenting"></a>
 ## 2. Documenting
 
 The next step is to create a specification of the new feature. 
@@ -156,6 +158,7 @@ _Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.ba
 
 Find out more about [documenting specifications]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="instrumenting"></a>
 ## 3. Instrumenting
 
 _If starting the tutorial from this stage, start with the `{{d}}ocumented` folder of the tutorial project._
@@ -276,6 +279,7 @@ We also wrap the example in a `<div>` element with the class set to example, so 
 
 Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="coding"></a>
 ## 4. Coding
 
 _If starting the tutorial from this stage, start with the `{{i}}nstrumented` folder of the tutorial project._
