@@ -127,7 +127,6 @@
                 <div class="fragment">
                     <p>Commands are added as HTML attributes</p>
                 </div>
-                <br/>
                 <table class="fragment">
                     <thead>
                         <tr >
@@ -325,10 +324,13 @@ namespace Marketing.Mailshot.Complete
 
             <section>
                 <h2>Quotes</h2>
-                <p>"I found it a little hard to start at first"</p>
-                <p>"everything is really cool, it feels like magic"</p>
-                <p>"it does what it says"</p>
-                <p>"write your specs, write your code, feel free to conitnue by adding more specs and by improving the code"</p>
+                <p><i>"I found it a little hard to start at first"</i></p>
+                <p><i>"everything is really cool, it feels like magic"</i></p>
+                <p><i>"it does what it says"</i></p>
+                <p><i>"write your specs, write your code, feel free to continue by adding more specs and by improving the code"</i></p>
+                <br>
+                <small>https://github.com/concordion/concordion.net/issues/14</small>
+            </section>
         </section>
 
 
@@ -357,7 +359,7 @@ namespace Marketing.Mailshot.Complete
                     <li class="fragment">Improved compatibility with Java implementation</li>
                     <li class="fragment">Same approach as SpecFlow was using</li>
                     <li class="fragment">Improved performance!</li>
-                    <li class="fragment" style="color:red">IKVM no longer supported Feb 2017 :(</li>
+                    <li class="fragment" style="color:red">Feb 2017 - IKVM no longer supported :(</li>
                     <i class="fragment">more on this later..</i>
                 </ul>
             </section>
@@ -406,7 +408,7 @@ namespace Marketing.Mailshot.Complete
 
             <section>
                 <h2>Example specification</h2>
-
+<!--
                 <pre class="markdown"><small><code data-trim>
     # Splitting names
 
@@ -459,7 +461,7 @@ into first name Jane and last name Smith.
 
             <section>
                 <h2>Example instrumentation</h2>
-
+-->
                 <pre class="markdown"><small><code data-trim>
     # Splitting names
 
@@ -488,7 +490,7 @@ and last name [Smith](- "?=#result.lastName").
                 <h2>IntelliJ IDEA Plugin</h2>
                 <img width="60%" src="img/intellij-idea-plugin.png" alt="animated gif showing intellij plugin support"/>
             </section>
-
+<!--
             <section>
                 <h2>IntelliJ IDEA</h2>
 
@@ -550,16 +552,31 @@ and last name [Smith](- "?=#result.lastName").
                     </tbody>
                 </table>
             </section>
+-->
+            <section>
+                <h2>Extensions</h2>
+                <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html"><img src="img/extensions-storyboard.png" width="23%" alt="storyboard image"/></a>
+                <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html"><img src="img/extensions-screenshot.png" width="23%" alt="screenshot image"/></a>
+                <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html"><img src="img/extensions-logging-tooltip.png" width="23%" alt="logging tooltip image"/></a>
+                <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html"><img src="img/extensions-logback.png" width="23%" alt="log viewer image"/></a>
+                <p><a href="https://github.com/concordion/concordion-excel-extension-tutorial">Excel<a/>,
+                      <a href="https://github.com/concordion/concordion-scope-examples">Parallel Runner</a>, <br/>
+                      <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html">Storyboard</a>,
+                      <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html">Screenshot</a>, <br/>
+                      <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html">Logging Tooltip</a>,
+                      <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html">Log Viewer</a><br/>
+                     and more...</p>
+            </section>
         </section>
 
         <section>
-            <h2>Comparison</h2>
+            <h3>Comparison</h3>
             <table>
                 <thead>
                     <tr class="fragment">
                         <th scope="col"></th>
                         <th scope="col">Concordion</th>
-                        <th scope="col">Cucumber / SpecFlow</th>
+                        <th scope="col">SpecFlow</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -570,7 +587,7 @@ and last name [Smith](- "?=#result.lastName").
                     </tr>
                     <tr class="fragment">
                         <th scope="row">Input Format</th>
-                        <td>Markdown, HTML, Excel</td>
+                        <td>HTML, MD, Excel</td>
                         <td>Text</td>
                     </tr>
                     <tr class="fragment">
@@ -579,7 +596,7 @@ and last name [Smith](- "?=#result.lastName").
                         <td>Limited</td>
                     </tr>
                     <tr class="fragment">
-                        <th scope="row">Embed screenshots, logs in output</th>
+                        <th scope="row">Screenshots, logs etc in output</th>
                         <td>Extensible</td>
                         <td>Limited</td>
                     </tr>
@@ -600,8 +617,8 @@ and last name [Smith](- "?=#result.lastName").
                     </tr>
                 </tbody>
             </table>
-            <br/>
             <small class="fragment"><p>* C# only supports HTML input currently. Parallel and Excel only currently available for Java.</p></small>
+            <br/>
         </section>
 <!--
         <section>
@@ -638,35 +655,25 @@ private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder
 -->
 
         <section>
-            <h2>Extensions</h2>
-            <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html"><img src="img/extensions-storyboard.png" width="23%" alt="storyboard image"/></a>
-            <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html"><img src="img/extensions-screenshot.png" width="23%" alt="screenshot image"/></a>
-            <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html"><img src="img/extensions-logging-tooltip.png" width="23%" alt="logging tooltip image"/></a>
-            <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html"><img src="img/extensions-logback.png" width="23%" alt="log viewer image"/></a>
-            <p><a href="https://github.com/concordion/concordion-excel-extension-tutorial">Excel<a/>,
-                  <a href="https://github.com/concordion/concordion-scope-examples">Parallel Runner</a>, <br/>
-                  <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html">Storyboard</a>,
-                  <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html">Screenshot</a>, <br/>
-                  <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html">Logging Tooltip</a>,
-                  <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html">Log Viewer</a><br/>
-                 and more...</p>
+            <h3>The future - Concordion.NET 2.0</h3>
+            <p><i>Reducing the friction of using Concordion.NET</i></p>
+            <ul>
+                <li class="fragment">Update Concordion.NET core to 2.0, including Markdown support</li>
+                <li class="fragment">Based off Native implementation (since OGNL no longer supported)</li>
+                <li class="fragment">Port popular extensions to .NET</li>
+                <li class="fragment">Create Resharper extension (port IDEA plugin?)</li>
+                <li class="fragment">Update website and demo projects</li>
+            </ul>
         </section>
 
         <section>
-            <h2>Concordion.NET 2.0</h2>
-            <h4>Reduce the friction of using Concordion.NET</h4>
-            <p class="fragment">Update Concordion.NET core to 2.0, including Markdown support</p>
-            <p class="fragment">Based off Native implementation (since OGNL no longer supported)</p>
-            <p class="fragment">Port popular extensions to .NET</p>
-            <p class="fragment">Create Resharper extension (port IDEA plugin?)</p>
-            <p class="fragment">Update website and demo projects</p>
-        </section>
-
-        <section>
-            <h2>Concordion.NET 2.0 Team</h2>
-            <p class="fragment">We're looking for volunteers</p>
-            <p class="fragment">Already have a couple on [Github issue 15](https://github.com/concordion/concordion.net/issues/15)</p>
-            <p class="fragment">Discuss with me or on [mailing list](https://groups.google.com/forum/#!forum/concordion-for-net)</p>
+            <h3>Concordion.NET 2.0 Team</h3>
+            <br/>
+            <ul>
+                <li class="fragment">We're looking for volunteers :)</li>
+                <li class="fragment">Already have a couple on <a href="https://github.com/concordion/concordion.net/issues/15">Github issue 15</a></li>
+                <li class="fragment">Discuss with me or on <a href="https://groups.google.com/forum/#!forum/concordion-for-net">mailing list</a></li>
+            </ul>
         </section>
 
         <section data-state="show-github-ribbon">
@@ -684,7 +691,7 @@ private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder
         <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></span>
     </div>
     <div class="ribbon">
-        <a class="github-fork-ribbon right-top" href="https://github.com/concordion/concordion-website/tree/gh-pages/presentations/2017-04-Concordion-2.0" title="Fork me on GitHub">Fork me on GitHub</a>
+        <a class="github-fork-ribbon right-top" href="https://github.com/concordion/concordion-website/tree/gh-pages/presentations/2017-07-Concordion.NET" title="Fork me on GitHub">Fork me on GitHub</a>
     </div>
 </div>
 
