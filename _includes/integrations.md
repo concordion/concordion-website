@@ -152,7 +152,7 @@ NOTE: Jul 2017, removed `sandbox;` from the start of the CSP setting since it wa
 
 The [chiiknrice/concordion-spring-runner](https://github.com/chiknrice/concordion-spring-runner) provides integration between Concordion and Spring Framework.
 
-JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extension-model) to allow combinations of runners to work together. We're aiming to support this in Concordion 2.1.
+JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extension-model) to allow combinations of runners to work together. We're aiming to support this in Concordion 2.x.
 
 {% elsif csharp %}
 
