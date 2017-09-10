@@ -266,7 +266,7 @@ public class MyDataTest {
 }
 ~~~
 
-Further details: [Fail-Fast specification](https://concordion.github.io/concordion/latest/spec/command/execute/FailFast.html) and [Fail-Fast on specific exceptions specification](https://concordion.github.io/concordion/latest/spec/command/execute/FailFastOnSpecificExceptions.html).
+Further details: [Fail-Fast specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/FailFast.html) and [Fail-Fast on specific exceptions specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/FailFastOnSpecificExceptions.html).
 
 If using the run command, adding the `@FailFast` annotation to the corresponding fixture will cause the specification to fail-fast if any of the specifications it runs fail-fast. For this to work, the `@FailFast` annotation is required on the fixture classes for both the calling and called specifications.
 
@@ -410,7 +410,7 @@ See the [ConcordionResources specification](https://concordion.github.io/concord
 
 Concordion deliberately restricts the [expression language]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#expression-language) for instrumenting specifications.
 
-This can be overridden by annotating the fixture with `@FullOGNL` to allow [complex expresssions](https://concordion.github.io/concordion/latest/spec/command/expressions/ComplexExpressions.html).
+This can be overridden by annotating the fixture with `@FullOGNL` to allow [complex expresssions](https://concordion.github.io/concordion/latest/spec/common/command/expressions/ComplexExpressions.html).
 
 {% endif java %}
 
@@ -474,7 +474,7 @@ java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acm
 
 {% endif csharp %}
 
-For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
+For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
 
 ## Creating an extension
 
@@ -482,7 +482,7 @@ The Extensions API allows you to add functionality to Concordion, for example im
 
 {% if java %}
 
-For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/extension/Extension.html) and the [extensions API](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension). Refer also to the source code for the published [extensions](({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}/).
+For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/common/extension/Extension.html) and the [extensions API](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension). Refer also to the source code for the published [extensions](({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}/).
 
 {% elsif csharp %}
 

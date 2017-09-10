@@ -147,7 +147,7 @@ In order for breadcrumbs to be generated, certain conventions must be followed.
 
 ![Example of breadcrumbs]({{ site.baseurl }}/img/documenting-breadcrumbs.png)
 
-Further details: [Breadcrumbs specification](https://concordion.github.io/concordion/latest/spec/results/breadcrumbs/Breadcrumbs.html)
+Further details: [Breadcrumbs specification](https://concordion.github.io/concordion/latest/spec/common/results/breadcrumbs/Breadcrumbs.html)
 
 ## Styling your specifications
 
