@@ -1,13 +1,15 @@
 ---
 title: "Concordion | Runners and Drivers"
-heading: "Concordion Presentations"
+heading: "Runners and Drivers"
 description: "Layering test code with Runners and Drivers"
-identifier: "concordion-presentations"
+identifier: "runners-drivers"
 author: "Nigel Charman"
 homepage: http://tutansblog.blogspot.co.nz/
 ---
 
-![Visual representation of Layering test code with Runners and Drivers](_posts/drivers-runners.png)
+Designing well structured test code can lead to effective reuse of the application drivers across test suites, as well as open up their use for exploratory and maintenance scripting. It avoids lock-in to any specific test runner or driver, opening up the potential for migrating to new test runners or drivers.
+
+![Visual representation of Layering test code with Runners and Drivers]({{ site.baseurl }}/img/drivers-runners.png)
 
 ## Application Drivers
 An Application Driver is responsible for manipulating an application through one of its interfaces (eg. web app, web service, database, desktop application, host, message queue). 
@@ -18,30 +20,31 @@ A basic driver may expose its functionality in terms of actions on the interface
 
 It is often worthwhile to add functionality to group the actions into workflows that represents the business intent, eg. update payee details, make one-off payment.
 
-A common pattern used for Application Drivers is the [Page Object](https://code.google.com/p/selenium/wiki/PageObjects) pattern. This encapsulates the logic for driving a page in one place so that it is simple to change, and provides an easy interface for users.  Example usage might be:
+A common pattern used for Application Drivers is the [Page Object](https://github.com/SeleniumHQ/selenium/wiki/PageObjects) pattern. This encapsulates the logic for driving a page in one place so that it is simple to change, and provides an easy interface for users.  Example usage (using Groovy) might be:
 
 ```groovy
 def loginPage = gotoLoginPage()
-def landingPage = loginPage.loginAs(“user123”, “password”)
+def landingPage = loginPage.loginAs("user123", "password")
 def oneOffPaymentPage = landingPage.selectOneOffPayment()
-oneOffPaymentPage.pay(230.50, “06-9952-5439870-01”)
+oneOffPaymentPage.pay(230.50, "06-9952-5439870-01")
 ```
 
 It is good practice to break the test fixtures into separate Action and Page objects. The Action objects implement user actions, such as "Transfer money between accounts". The Page objects abstract operations on the web page, for instance "Click on Transfer button". The acceptance and automated tests should use the Action objects where possible, but may need to use the Page objects for some operations. The Page objects isolate the tester from changes to the web page (for example if the location or name of the Transfer button are changed). The Action objects isolate the tester from higher level changes, such as "Transfer money" being implemented using a different workflow or metaphor (eg drag and drop).
-Runners
+
+## Runners
 Once you have implemented Application Drivers, they can be reused for a number of use cases, for example:
 
 * running tests,
 * data setup,
 * scripting 
 
-You can use a wide variety of frameworks for running the tests (basic xUnit style, Spec by Example, data-driven, keyword-driven etc). These frameworks run the tests and report test results for the user.
+You can use a wide variety of frameworks for running the tests, including basic xUnit style, Specification by Example (such as Concordion), data-driven, keyword-driven etc.
 
 Data setup could be spreadsheet-driven, and could be one-off (eg. data migration) or part of a regular test setup.
 
 Scripting would use a language such as Groovy, VBScript, Python or Ruby to perform custom actions on the application. When performing exploratory testing, you can speed up repetitive actions (eg. logon and navigation) through scripting.
 
-Advantages of using Runners and Drivers
+## Advantages of using Runners and Drivers
 By separating drivers and runners, you achieve a high degree of reuse. 
 
 It is important to never include test logic in the Application Drivers, otherwise your Driver becomes tied to the particular test runner framework that you are using. Similarly don’t expose driver specifics to the test layer - for example, you should return Strings or domain objects rather than return WebElements. 
