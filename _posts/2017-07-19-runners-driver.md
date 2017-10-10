@@ -9,7 +9,7 @@ homepage: http://tutansblog.blogspot.co.nz/
 
 Designing well structured test code can lead to effective reuse of the application drivers across test suites, as well as open up their use for exploratory and maintenance scripting. It avoids lock-in to any specific test runner or driver, opening up the potential for migrating to new test runners or drivers.
 
-![Visual representation of Layering test code with Runners and Drivers]({{ site.baseurl }}/img/drivers-runners.png)
+![Visual representation of Layering test code with Runners and Drivers](_img/drivers-runners.png)
 
 ## Application Drivers
 An Application Driver is responsible for manipulating an application through one of its interfaces (eg. web app, web service, database, desktop application, host, message queue). 
