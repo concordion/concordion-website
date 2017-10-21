@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta name="description" content="{{ page.description }}" />
+        <script type="text/javascript" charset="utf-8">
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+        {% include imports-header.html %}
+        {% feed_meta %}
+        <!-- LAYOUT SPECIFIC CSS/JS -->
+        <link rel="stylesheet" href="{{site.baseurl}}/css/sidenav.css">
+
+        {% include analytics.html %}
+    </head>
+    <body>
+        <header>
+            {% include cubano-sidebar.html %}
+        </header>
+        <main>
+            <section class="sidenav-header blog">
+                <div class="row">
+
+                    <div class="col s12">
+                        <h1 class="white-text">{{ page.heading}}</h1>
+                    </div>
+                    <div class="col s6">
+                        {% if page.homepage %}
+                            <p class="white-text bold"><a class="white-text bold" href="{{ page.homepage }}">{{ page.author }}</a></p>
+                        {% else %}
+                            <p class="white-text bold">{{ page.author }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col s3">
+                        <p class="white-text right">{{ page.date | date: "%B %e, %Y" }}</p>
+                    </div>
+                </div>
+            </section>
+            <div class="container sidenav-content">
+                <div class="row">
+                    <div class="col s12">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>          
+        </main>
+        <footer class="page-footer">
+            {% include cubano-footer.html %}
+        </footer>
+        {% include imports-endbody.html %}
+    </body>
+</html>
