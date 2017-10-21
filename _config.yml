@@ -60,6 +60,11 @@ defaults:
       layout: 
   -
     scope:
+      path: "cubano"
+    values:
+      layout: cubano
+  -
+    scope:
       path: "coding"
     values:
       heading: "Coding" 
