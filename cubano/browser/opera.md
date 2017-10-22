@@ -1,3 +1,10 @@
+---
+title: "Opera | Cubano"
+description: "Describes the options for configuring the Opera browser with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 ### Opera
 
 Doesn't pick up path by default, use `C:\Program Files\Opera\<version>\opera.exe` 

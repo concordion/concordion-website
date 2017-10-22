@@ -1,3 +1,10 @@
+---
+title: "Chrome | Cubano"
+description: "Describes the options for configuring the Chrome browser with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 ### Chrome
 
 Documentation for the various [ChromeDriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver) options is at [https://sites.google.com/a/chromium.org/chromedriver/capabilities]( - ).

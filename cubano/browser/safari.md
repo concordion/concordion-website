@@ -1,3 +1,10 @@
+---
+title: "Safari | Cubano"
+description: "Describes the options for configuring the Safari browser with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 ### Safari
 
 Unlike the other browsers, Safari 10 and above come with built-in [WebDriver support](https://webkit.org/blog/6900/webdriver-support-in-safari-10/). To use the Safari driver you need to configure Safari to allow automation. As a feature intended for developers, Safari’s WebDriver support is turned off by default. To turn on WebDriver support, do the following:

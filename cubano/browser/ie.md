@@ -1,3 +1,10 @@
+---
+title: "Internet Explorer | Cubano"
+description: "Describes the options for configuring the Internet Explorer browser with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 ### Internet Explorer
 
 Options for the various [InternetExplorerDriver](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver) settings are at TODO ????

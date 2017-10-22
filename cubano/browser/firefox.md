@@ -1,3 +1,10 @@
+---
+title: "Firefox | Cubano"
+description: "Describes the options for configuring the Firefox browser with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 ### FireFox
 
 Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings are at TODO ???? https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences

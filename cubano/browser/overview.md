@@ -1,3 +1,10 @@
+---
+title: "Selenium WebDriver Support | Cubano"
+description: "Describes the options for configuring the Selenium WebDriver browser automation support with Cubano"
+sitemap:
+    priority: 0.6
+---
+
 # Cubano WebDriver Manager
 
 Provides a set of 'managed' browser providers that will automatically download and start the driver required for the browser your test is targeting.

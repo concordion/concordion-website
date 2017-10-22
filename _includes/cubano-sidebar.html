@@ -2,8 +2,7 @@
 	<li class="side-nav-logo"><a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/img/concordion-logo-green.png" alt="Concordion Logo"/></a></li>
 	<li><a href="{{site.baseurl}}/cubano/{{ page.fixture_language }}/{{ page.spec_type }}">Getting Started</a></li>
 	
-	<li id="next-steps">
-        <div class="collapsible-header{% if page.next_steps_expanded %} active{% endif %}">Browser Automation <i class="fa fa-chevron-right"></i></div>
+	<li id="next-steps"><a class="collapsible-header{% if page.next_steps_expanded %} active{% endif %} waves-effect waves-teal">Browser Support <i class="fa fa-chevron-right"></i></a>
         <div class="collapsible-body">
             <ul>
                 <li><a href="{{site.baseurl}}/cubano/browser/overview">Overview</a></li>
@@ -13,7 +12,7 @@
             </ul>
         </div>
     </li>
-	
+    
 	<li><a href="{{site.baseurl}}/cubano/api">API Automation</a></li>
 	<li><a href="{{site.baseurl}}/cubano/database">Database Access</a></li>
 </ul>
