@@ -472,7 +472,7 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
 {: #advanced}
 
 1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several example of behaviour.
-2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Implement the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command)). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the fixture class to make this specification pass.
+2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Implement the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the fixture class to make this specification pass.
 3. We can also build up test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
     {% if html %}
     ~~~html
@@ -500,6 +500,8 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
 
     {% if java %}
     ~~~java
+    package marketing.mailshots;
+
     import org.concordion.integration.junit4.ConcordionRunner;
     import org.junit.runner.RunWith;
 
