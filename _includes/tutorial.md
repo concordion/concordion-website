@@ -463,3 +463,65 @@ The test now passes:
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
 Find out more about [coding fixtures]({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }}).
+
+This is the end of the basic tutorial. Feel free to move straight onto [Next Steps]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}), or follow the advanced tutorial below.
+
+----
+
+## Advanced Tutorial
+{: #advanced}
+
+1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several example of behaviour.
+2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Implement the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command)). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the fixture class to make this specification pass.
+3. We can also build up test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
+    {% if html %}
+    ~~~html
+    <html xmlns:concordion="http://www.concordion.org/2007/concordion">
+        <body>
+            <h1>Mailshots</h1>
+
+            <p>Mailshots are produced on-demand.</p>
+
+            <p>To help personalise the mailshots we <a concordion:run="concordion{% if csharp %}.net{% endif %}" href="SplittingNames.html">split names</a> into constituent parts.</p>
+        </body>
+    </html>
+    ~~~
+    {% else if md %}
+    ~~~markdown
+    # Mailshots
+
+    Mailshots are produced on-demand.
+
+    To help personalise the mailshots we [split names](SplittingNames.md "c:run") into constituent parts.
+    ~~~
+    {% endif %}
+
+      In the `marketing.mailshots` package, create an empty fixture class, called MailshotsFixture.{{ fixture_ext }}:
+
+    {% if java %}
+    ~~~java
+    import org.concordion.integration.junit4.ConcordionRunner;
+    import org.junit.runner.RunWith;
+
+    @RunWith(ConcordionRunner.class)
+    public class MailshotsFixture {
+    }
+    ~~~
+    {% else if csharp %}
+    ~~~csharp
+    using Concordion.NET.Integration;
+
+    namespace Marketing.Mailshot.Comple
+    {
+        [ConcordionTest]
+        public class MailshotsFixture
+        {
+        }
+    }
+    ~~~
+    {% endif %}
+    Running this fixture will cause the `SplittingNamesFixture` to also be executed.
+
+    Using links, we can create a [test suite]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#creating-a-suite), with [breadcrumbs]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#breadcrumbs) making it easier to navigate the results.
+
+You've now seen all of the Concordion commands you're likely to need on a day-to-day basis. Feel free to browse through the rest of this documentation, learn good practices in the [Hints and Tips]({{ site.baseurl }}/technique/{{ page.fixture_language }}/{{ page.spec_type }}) section, try out our [Integrations]({{ site.baseurl }}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}) or [Extensions]({{ site.baseurl }}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}) or browse the [FAQ]({{ site.baseurl }}/questions/{{ page.fixture_language }}/{{ page.spec_type }}).

@@ -512,6 +512,7 @@ How does this work? It works because the execute command is designed to process 
 Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/Execute.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html){% endif %}
 
 ### execute command on a table
+{: #execute-table}
 
 When you want to show several examples of a behaviour, repeating the same sentence structure over and over again probably isn't going to be very nice to read. It would be better to use a table.
 
@@ -607,6 +608,7 @@ For example:
 [last]:  - "?=#result.lastName"
 ~~~
 {% endif %}
+
 
 This instrumentation has identical behaviour to the previous example.
 
