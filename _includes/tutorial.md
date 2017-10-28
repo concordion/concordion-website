@@ -522,7 +522,7 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
     }
     ~~~
     {% endif %}
-    Running this fixture will cause the `SplittingNamesFixture` to also be executed.
+    Running this fixture will run the linked `SplittingNames` fixture.
 
     Using links, we can create a [test suite]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#creating-a-suite), with [breadcrumbs]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#breadcrumbs) making it easier to navigate the results.
 
