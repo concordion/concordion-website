@@ -472,7 +472,7 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
 {: #advanced}
 
 1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several examples of behaviour.
-2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Create a `PartialMatches.{{spec_ext}}` specification and add the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the `PartialMatchesFixture.{{fixture_ext}}` fixture class to make this specification pass:
+2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Create a `PartialMatches.{{spec_ext}}` specification and add the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the `PartialMatchesFixture.{{fixture_ext}}` fixture class to make this specification pass
     {% if java %}
     ~~~java
     @RunWith(ConcordionRunner.class)
@@ -496,9 +496,6 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
     }
     ~~~
     {% else if csharp %}
-    ~~~csharp
-<!-- TODO -->
-    ~~~
     {% endif %}
 3. We can build test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
     {% if html %}
