@@ -471,9 +471,36 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
 ## Advanced Tutorial
 {: #advanced}
 
-1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several example of behaviour.
-2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Implement the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the fixture class to make this specification pass.
-3. We can also build up test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
+1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several examples of behaviour.
+2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Create a `PartialMatches.{{spec_ext}}` specification and add the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the `PartialMatchesFixture.{{fixture_ext}}` fixture class to make this specification pass:
+    {% if java %}
+    ~~~java
+    @RunWith(ConcordionRunner.class)
+    public class PartialMatchesFixture {
+
+        private Set<String> usernamesInSystem = new HashSet<String>();
+
+        public void setUpUser(String username) {
+            usernamesInSystem.add(username);
+        }
+
+        public Iterable<String> getSearchResultsFor(String searchString) {
+            SortedSet<String> matches = new TreeSet<String>();
+            for (String username : usernamesInSystem) {
+                if (username.contains(searchString)) {
+                    matches.add(username);
+                }
+            }
+            return matches;
+        }
+    }
+    ~~~
+    {% else if csharp %}
+    ~~~csharp
+<!-- TODO -->
+    ~~~
+    {% endif %}
+3. We can build test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
     {% if html %}
     ~~~html
     <html xmlns:concordion="http://www.concordion.org/2007/concordion">
