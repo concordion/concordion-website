@@ -5,7 +5,7 @@ sitemap:
     priority: 0.6
 ---
 
-### Safari
+# Safari
 
 Unlike the other browsers, Safari 10 and above come with built-in [WebDriver support](https://webkit.org/blog/6900/webdriver-support-in-safari-10/). To use the Safari driver you need to configure Safari to allow automation. As a feature intended for developers, Safari’s WebDriver support is turned off by default. To turn on WebDriver support, do the following:
 
@@ -17,14 +17,14 @@ Unlike the other browsers, Safari 10 and above come with built-in [WebDriver sup
 
 When using Selenium WebDriver, Safari opens a window that does not get closed when the tests complete.
 
-#### Configuration
+## Configuration
 
 Apart from the standard settings (proxy, size, etc) there appears to be very little that can be configured in Safari as per [Getting Started](https://github.com/SeleniumHQ/selenium/wiki/SafariDriver). 
 
 Safari can have problems with the webdriver.browser.postion setting, so use this with care. 
 
-===== option.useTechnologyPreview
+##### safari.option.useTechnologyPreview
 Defaults to false
 
-===== option.useCleanSession 
+##### safari.option.useCleanSession 
 Defaults to false

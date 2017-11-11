@@ -5,14 +5,17 @@ sitemap:
     priority: 0.6
 ---
 
-### FireFox
+# FireFox
 
-Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings are at TODO ???? https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences
+Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings are at TODO ???? 
+
+https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences
+
 https://github.com/mozilla/geckodriver
 
 Check https://github.com/mozilla/geckodriver/releases to ensure that driver you require is there
 
-#### Firefox Portable
+## Firefox Portable
 
 [Firefox Portable](https://portableapps.com/apps/internet/firefox_portable) can also be used and is a great choice if you need a different version than your installed Firefox version for any reason. 
 
@@ -28,7 +31,7 @@ You'll may also want to configure Firefox Portable to run any time, regardless o
 1. Copy FirefoxPortable.ini from FirefoxPortable\Other\Source to FirefoxPortable\
 1. Edit FirefoxPortable.ini and change AllowMultipleInstances=false to AllowMultipleInstances=true
 
-#### Proxy Configuration
+## Proxy Configuration
 
 Proxy support in geckodriver is only arriving with Firefox 57.  There are however a couple of other ways to configure via the Firefox profile preferences.
 
@@ -59,7 +62,7 @@ network.proxy.autoconfig_url
 network.proxy.no_proxies_on
 
  
-#### Configuration
+## Configuration
 
 ##### firefox.useLegacyDriver
 

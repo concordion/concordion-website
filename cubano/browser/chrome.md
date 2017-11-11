@@ -5,7 +5,7 @@ sitemap:
     priority: 0.6
 ---
 
-### Chrome
+# Chrome
 
 Documentation for the various [ChromeDriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver) options is at [https://sites.google.com/a/chromium.org/chromedriver/capabilities]( - ).
 
@@ -29,6 +29,7 @@ After you copy the files to the new folder then you can use it for your scripts.
 
 Make sure you use driver.quit() at the end of your test so that you don't keep chromedriver.exe open
  
+## Configuration
 
 ##### chrome.argument.&lt;number&gt;
 

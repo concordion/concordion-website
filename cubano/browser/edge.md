@@ -5,6 +5,8 @@ sitemap:
     priority: 0.6
 ---
 
-### Edge
+# Edge
+
+## Configuration
 
 ##### edge.capability.&lt;any.valid.capability&gt;

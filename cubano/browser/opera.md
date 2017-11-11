@@ -5,17 +5,22 @@ sitemap:
     priority: 0.6
 ---
 
-### Opera
+# Opera
 
-Doesn't pick up path by default, use `C:\Program Files\Opera\<version>\opera.exe` 
+There is a known issue with Opera whereby it can't find opera.exe path by default, and the path must be set to `C:\Program Files\Opera\<version>\opera.exe` 
 
-https://github.com/operasoftware/operachromiumdriver/issues/9
-https://github.com/operasoftware/operachromiumdriver/issues/19
+[https://github.com/operasoftware/operachromiumdriver/issues/9]()
+
+[https://github.com/operasoftware/operachromiumdriver/issues/19]()
 
 
-##### opera.capability.&lt;any.valid.capability&gt;
+## Configuration
 
 ##### opera.exe
 
-Specify the location of browser if your firefox installation path is not automatically discoverable, eg:
-* %USERPROFILE%/Documents/Mozilla FireFox Portable/FirefoxPortable.exe
+Specify the location of the browser executable, eg:
+
+    opera.exe = C:\Program Files\Opera\48.0.2685.52\opera.exe
+
+##### opera.capability.&lt;any.valid.capability&gt;
+
