@@ -15,19 +15,22 @@ To fix this, you will need to create a separate profile for automation by copyin
 
 The default chrome profile is in this location:
 
-C:\Users\yourUserName\AppData\Local\Google\Chrome\User Data\
+`C:\Users\yourUserName\AppData\Local\Google\Chrome\User Data\`
 
 Copy all files from User Data folder to a new folder and call it AutomationProfile
 
 After you copy the files to the new folder then you can use it for your scripts.
-        String userProfile= "C:\\Users\\YourUserName\\AppData\\Local\\Google\\Chrome\\AutomationProfile\\";
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("user-data-dir="+userProfile);
-        options.addArguments("--start-maximized");
 
-        driver = new ChromeDriver(options);
+~~~java
+String userProfile= "C:\\Users\\YourUserName\\AppData\\Local\\Google\\Chrome\\AutomationProfile\\";
+ChromeOptions options = new ChromeOptions();
+options.addArguments("user-data-dir="+userProfile);
+options.addArguments("--start-maximized");
 
-Make sure you use driver.quit() at the end of your test so that you don't keep chromedriver.exe open
+driver = new ChromeDriver(options);
+~~~
+
+Make sure you use driver.quit() at the end of your test so that you don't keep chromedriver.exe open.
  
 ## Configuration
 
@@ -35,7 +38,7 @@ Make sure you use driver.quit() at the end of your test so that you don't keep c
 
 "number" is meaningless but must be unique. The value must be a valid chrome argument.
 
-A full list can be found here: https://peter.sh/experiments/chromium-command-line-switches/
+A full list can be found here: [https://peter.sh/experiments/chromium-command-line-switches/](https://peter.sh/experiments/chromium-command-line-switches/)
 
 For example, to prevent the popup "Chrome is being controlled by automated test software" from appearing when running automated tests use this: 
 
@@ -49,13 +52,13 @@ Set desired capabilities.
 
 "number" is meaningless but must be unique. The path must point to a valid file
 
-If the path contains "%PROJECT%" it will be replaced with root folder of project
+If the path contains `%PROJECT%` it will be replaced with root folder of project
 
-##### chrome.option..&lt;any.valid.option&gt;
+##### chrome.option.&lt;any.valid.option&gt;
 
 Some options you may want to consider:
 
-[https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts]( - )
+[https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts](https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts)
 
 	chrome.option.useAutomationExtension = false
 
@@ -63,6 +66,6 @@ Some options you may want to consider:
 
 Some preferences you may want to consider:
 
-[https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts]( - )
+[https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts](https://stackoverflow.com/questions/43797119/failed-to-load-extension-from-popup-box-while-running-selenium-scripts)
 
 	chrome.preference.useAutomationExtension = false

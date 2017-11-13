@@ -14,36 +14,32 @@ HttpEasy provides a fluent style wrapper around HttpURLConnection.  It can:
 * perform REST and SOAP requests
 * handle corporate proxies, including NTLM proxies which is something that I've seen several popular libraries struggle with 
 
-
-HttpEasy has full support for HTTP messages such as GET, POST, HEAD, etc
+HttpEasy has full support for HTTP methods such as GET, POST, HEAD, etc
 and supports the REST and SOAP protocols and parsing JSON and XML responses.
 
-This is been designed with as a fluent REST API similar to RestEasy and
+This is been designed with a fluent REST API similar to RestEasy and
 RestAssurred with the only real difference being that it has great proxy
 support.
 
 There are two starting points for creating a rest request:
 
-* {@code HttpEasy.withDefaults()} - allows you to set some settings that apply to
-all requests such as configuring a proxy</li>
-* {@code HttpEasy.request()} - performs the actual call, these HTTP methods are implemented: GET, HEAD, POST, PUT, DELETE</li>
-
+* `HttpEasy.withDefaults()` - allows you to set some settings that apply to all requests such as configuring a proxy
+* `HttpEasy.request()` - performs the actual call, these HTTP methods are implemented: GET, HEAD, POST, PUT, DELETE
 
 Note: if your url can contain weird characters you will want to encode it,
 something like this: myUrl = URLEncoder.encode(myUrl, "UTF-8");
  
+__Example__
+~~~java
+HttpEasyReader r = HttpEasy.request()
+    .baseURI(someUrl)
+    .path(viewPath + {@literal "?startkey=\"{startkey}\"&endkey=\"{endkey}\"})
+    .urlParameters(startKey[0], endKey[0])
+    .get();
 
-_Example_
-
-	HttpEasyReader r = HttpEasy.request()
-							 .baseURI(someUrl)
-							 .path(viewPath + {@literal "?startkey=\"{startkey}\"&endkey=\"{endkey}\"})
-							 .urlParameters(startKey[0], endKey[0])
-							 .get();
-
-	String id = r.jsonPath("rows[0].doc._id").getAsString();
-	String rev = r.jsonPath("rows[0].doc._rev").getAsString();
-
+String id = r.jsonPath("rows[0].doc._id").getAsString();
+String rev = r.jsonPath("rows[0].doc._rev").getAsString();
+~~~
 
 ## Error Handling
 
@@ -70,19 +66,23 @@ Supports two formats
 
 There is no fine grained control, its more of an all or nothing approach:
 
-	HttpEasy.withDefaults()
-		 .allowAllHosts()
-		 .trustAllCertificates();
+~~~java
+HttpEasy.withDefaults()
+    .allowAllHosts()
+    .trustAllCertificates();
+~~~
 
 ## Proxy
 
 Only basic authentication is supported, although I believe the domain can be added by included "domain/"
 in front of the username (not tested)
 
-	HttpEasy.withDefaults()
-		.proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(user, password))))
-		.proxyAuth(userName, password)
-		.bypassProxyForLocalAddresses(true);
+~~~java
+HttpEasy.withDefaults()
+    .proxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(user, password))))
+    .proxyAuth(userName, password)
+    .bypassProxyForLocalAddresses(true);
+~~~
 
 ## Redirects
 
@@ -90,18 +90,19 @@ in front of the username (not tested)
 Redirects are NOT automatically followed - at least for REST base calls - even though the documentation
 for HttpURLConnection says that it should...
 
-	HttpEasyReader response = HttpEasy.request()
-		.doNotFailOn(Family.REDIRECTION)
-		.path(url)
-		.head();
+~~~java
+HttpEasyReader response = HttpEasy.request()
+    .doNotFailOn(Family.REDIRECTION)
+    .path(url)
+    .head();
 
-	if (response.getResponseCodeFamily() == Family.REDIRECTION) {
-		url = response.getHeaderField("Location");
-		...
-	}
+if (response.getResponseCodeFamily() == Family.REDIRECTION) {
+    url = response.getHeaderField("Location");
+    ...
+}
+~~~
 
 ## Logging
 
-
-Logging of requests and responses can be enabled by {@link #logRequestDetails} or, if using Eclipse, the TCP/IP Monitor utility.
+Logging of requests and responses can be enabled by calling `logRequestDetails()` or, if using Eclipse, the TCP/IP Monitor utility.
 

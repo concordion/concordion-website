@@ -9,11 +9,11 @@ sitemap:
 
 Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings are at TODO ???? 
 
-https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences
+[https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences](https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences)
 
-https://github.com/mozilla/geckodriver
+[https://github.com/mozilla/geckodriver](https://github.com/mozilla/geckodriver)
 
-Check https://github.com/mozilla/geckodriver/releases to ensure that driver you require is there
+Check [https://github.com/mozilla/geckodriver/releases](https://github.com/mozilla/geckodriver/releases) to ensure the driver you require is there.
 
 ## Firefox Portable
 
@@ -39,28 +39,28 @@ Note: If you have `firefox.profile = none` in your configuration file you will n
 
 1. Place `firefox.profile = default` (or a named profile that you have created and configured) in your configuration file, FirefoxBrowserProvider will use that profile and automatically pick up whatever proxy settings you have configured in Firefox.
  
-2. Place some of the following settings in your configuration file.  Note:
-* Set proxy.required = false or else the FirefoxBrowserProvider will also try to configure the proxy settings
-* To use these settings they will need to be prefixed with "firefox.profile." for the FirefoxBrowserProvider to pick them up.  
-* Using firefox.profile.network.proxy.type = 4 should generally be enough
-
-network.proxy.type
-
+2. Place some of the following settings in your configuration file:
+* `network.proxy.type`
+~~~
     0 - Direct connection (or) no proxy.
     1 - Manual proxy configuration
     2 - Proxy auto-configuration (PAC).
     4 - Auto-detect proxy settings.
     5 - Use system proxy settings.
+~~~
+* `network.proxy.http`
+* `network.proxy.http_port`
+* `network.proxy.ftp`
+* `network.proxy.ftp_port`
+* `network.proxy.ssl`
+* `network.proxy.ssl_port`
+* `network.proxy.autoconfig_url`
+* `network.proxy.no_proxies_on`
 
-network.proxy.http
-network.proxy.http_port
-network.proxy.ftp
-network.proxy.ftp_port
-network.proxy.ssl
-network.proxy.ssl_port
-network.proxy.autoconfig_url
-network.proxy.no_proxies_on
-
+    **Note:** 
+    * Set `proxy.required = false` or else the FirefoxBrowserProvider will also try to configure the proxy settings
+    * To use these settings they will need to be prefixed with `firefox.profile.` for the FirefoxBrowserProvider to pick them up.  
+    * Using `firefox.profile.network.proxy.type = 4` should generally be enough
  
 ## Configuration
 
@@ -98,7 +98,7 @@ Values:
 * &lt;custom&gt;: name of any other profile you have configured in firefox - it must exist
 * &lt;path&gt;: directory name of a custom profile: it must exist
 
-WARNING: At present if a profile is created or used when using the gecko / marionette driver then it suffers from a memory leak. See https://github.com/mozilla/geckodriver/issues/983 and https://stackoverflow.com/questions/46503366/firefox-memory-leak-using-selenium-3-and-firefoxprofile 
+**Warning:** At present if a profile is created or used when using the gecko / marionette driver then it suffers from a memory leak. See [geckodriver issue 983](https://github.com/mozilla/geckodriver/issues/983) and [Stack Overflow question](https://stackoverflow.com/questions/46503366/firefox-memory-leak-using-selenium-3-and-firefoxprofile).
 
 
 These are automatically set to prevent firefox automatically upgrading when running tests (assuming profile is not set to none)
@@ -127,4 +127,4 @@ Sets capabilities, for example:
 
 "number" is meaningless but must be unique. The path must point to a valid file
 
-If the path contains "%PROJECT%" it will be replaced with root folder of project
+If the path contains `%PROJECT%` it will be replaced with root folder of project

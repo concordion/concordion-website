@@ -45,7 +45,7 @@ header {
     margin-left: 13px;
 }
 
-.side-nav-logo {
+.side-nav .side-nav-logo {
 
     text-align: center;
 
@@ -61,6 +61,10 @@ header {
 
 .side-nav li.side-nav-logo:hover, .side-nav li.side-nav-logo:active {
     background-color: transparent;
+}
+
+.side-nav a {
+    height: 54px;
 }
 
 .sidenav-header {

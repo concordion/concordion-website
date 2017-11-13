@@ -5,9 +5,8 @@ sitemap:
     priority: 0.6
 ---
 
-
 # Automating Web Applications
-This framework uses Selenium WebDriver and recommends abstracting the specifics of system under test away from the test using PageObjects. 
+This framework uses Selenium WebDriver and recommends abstracting the specifics of the system under test away from the test using PageObjects. 
 
 These patterns are widely written about and there are many resources available on the internet.  For developers and testers new to test automation I highly recommend looking at these two resources from Dave Haeffner:
 
@@ -17,7 +16,7 @@ These patterns are widely written about and there are many resources available o
 While there are other patterns and approaches to test automation, the following patterns are those I've found to be most useful and can be developed with the minimum amount of effort and skill level.
 
 ## Page Object Pattern
-The <a href="http://code.google.com/p/selenium/wiki/PageObjects" target="_blank">Page Object Pattern</a> is a pattern that abstracts a web page's UI into a reusable class. In addition to UI, functionality of the page is also described in this class. This provides a bridge between page and test.
+The <a href="http://code.google.com/p/selenium/wiki/PageObjects" target="_blank">Page Object Pattern</a> is a pattern that abstracts a web page's UI into a reusable class. In addition to UI, the functionality of the page is also described in this class. This provides a bridge between page and test.
 
 The idea is to create a level of abstraction to separate the tests from the system under test, and to provide a simple interface to the elements on the page. Here are the main advantages of Page Object Pattern using:
 
@@ -26,90 +25,94 @@ The idea is to create a level of abstraction to separate the tests from the syst
 * Code reuse
 * Easy creation of new tests
 
-Further Reading: <a href="http://martinfowler.com/bliki/PageObject.html" target="_blank">martinfowler.com/bliki/PageObject.html</a>
+Further Reading: [martinfowler.com/bliki/PageObject.html](http://martinfowler.com/bliki/PageObject.html)
 
 _Example of a login page object:_
 
-```java
-	public class LoginPage extends PageObject<LoginPage>  {
-		// @FindBy not required as unannotated WebElement will default 
-		// to matching the field name against id and name attributes 
-		WebElement username;
-		WebElement password;
-		
-		{@literal @FindBy(id = "log_in")}
-		WebElement loginButton;
-	
-		public BpmLoginPage(TestDriveable test) {
-			super(test);
-		}
-	
-		{@literal @Override}
-		protected ExpectedCondition<?> pageIsLoaded(Object... params) {
-			return ExpectedConditions.visibilityOf(loginButton);
-		}
-	
-		public HomePage loginAs(User user) {
-			if (user != null){
-				this.username.sendKeys(user.getUsername());
-				this.password.sendKeys(user.getPassword());
-			}
-			
-			return navigateUsing(loginButton, HomePage.class);
-		}
-	}
-```
+~~~java
+public class LoginPage extends PageObject<LoginPage>  {
+    // @FindBy not required as unannotated WebElement will default 
+    // to matching the field name against id and name attributes 
+    WebElement username;
+    WebElement password;
+    
+    @FindBy(id = "log_in")
+    WebElement loginButton;
+
+    public BpmLoginPage(TestDriveable test) {
+        super(test);
+    }
+
+    @Override
+    protected ExpectedCondition<?> pageIsLoaded(Object... params) {
+        return ExpectedConditions.visibilityOf(loginButton);
+    }
+
+    public HomePage loginAs(User user) {
+        if (user != null){
+            this.username.sendKeys(user.getUsername());
+            this.password.sendKeys(user.getPassword());
+        }
+
+        return navigateUsing(loginButton, HomePage.class);
+    }
+}
+~~~
 
 ## Page Component Pattern
 With single page applications and more advanced web applications with complex web controls the standard page object pattern can struggle.  As the test suite grows we may need to introduce other techniques to keep it maintainable and this is where the page component pattern fits in.
 
 Page Components are classes that represent sections (header, footer, navigation bar), or complex controls, they are just like page objects... but littler.
 
-We've included the open source project '<a href="https://github.com/yandex-qatools/htmlelements" target="_blank">Yandex HtmlElements</a>' that makes creating and using these components in a page object as simple as using any standard web element.
+We've included the open source project [Yandex Html Elements](https://github.com/yandex-qatools/htmlelements) that makes creating and using these components in a page object as simple as using any standard web element.
 
 _Example of a simple component that would be used in place of the standard WebElement for a Dojo based WebApplication:_ 
 
-	public class DijitWebElement extends HtmlElement {
-		{@literal @FindBy(xpath = ".//input[contains(@class, 'dijitInputInner')]")}
-		WebElement input;
-		
-		{@literal @Override}
-		public String getText() {
-			return input.getAttribute("value");
-		}
-		
-		{@literal @Override}
-		public void sendKeys(CharSequence... charSequences) {
-			input.sendKeys(charSequences);
-		}
-	}
+~~~java
+public class DijitWebElement extends HtmlElement {
+    @FindBy(xpath = ".//input[contains(@class, 'dijitInputInner')]")
+    WebElement input;
+    
+    @Override
+    public String getText() {
+        return input.getAttribute("value");
+    }
+    
+    @Override
+    public void sendKeys(CharSequence... charSequences) {
+        input.sendKeys(charSequences);
+    }
+}
+~~~
 
 ## Page Factory Pattern
-In order to support the PageObject pattern, WebDriver's support library contains a factory class where we use the annotation @FindBy for making the WebElement object to know to which element it belongs to on web page. By using this pattern we need not to write the code for finding each and every Web Element.
+In order to support the PageObject pattern, WebDriver's support library contains a factory class where we use the annotation `@FindBy` for making the WebElement object know which element it belongs to on web page. By using this pattern we need not to write the code for finding each and every Web Element.
 
-This functionality is built into the framework, the only requirement is that you page objects inherit off BasePageObject - although I recommend you have an additional layer called PageObject so you can put any application specific custom functionality in this layer.  
+This functionality is built into the framework, the only requirement is that your page objects inherit from BasePageObject - although I recommend you have an additional layer called PageObject so you can put any application specific custom functionality in this layer.  
 
 ## Fluent Pattern  
 The idea behind a Fluent interface is that one can apply multiple properties to an object by connecting them with dots, without having to re-specify the object each time.
 
-This applies to all reusable objects, not just page objects and probably should be highlighted earlier but for developers and testers new to this approach need to understand the above patterns first.
+This applies to all reusable objects, not just page objects and probably should be highlighted earlier but developers and testers new to this approach need to understand the above patterns first.
 
 _Example of a test calling page objects implementing the fluent pattern:_
 
-	{@literal @Test}
-	public void newLodgementPopulatesSummaryPage() {
-		SummaryPage summaryPage = LoginPage
-			.visit(driver)
-			.fillDefaultUser()
-			.login()
-	
-			.fillNewLodgementFields(data)
-			.clickNextButton()
-	
-			.fillDeclaration(data);
-	
-		assertThat("Summary Page is populated correctly", summaryPage.checkData(data),  is(""));
-	}   
+~~~java
+@Test
+public void newLodgementPopulatesSummaryPage() {
+    SummaryPage summaryPage = LoginPage
+        .visit(driver)
+        .fillDefaultUser()
+        .login()
+
+        .fillNewLodgementFields(data)
+        .clickNextButton()
+
+        .fillDeclaration(data);
+
+    assertThat("Summary Page is populated correctly", summaryPage.checkData(data),  is(""));
+}   
+~~~
 
 ## Beyond The Page Object Pattern
 I haven't used it, but I keep coming across the Screenplay Pattern (formerly known as the <a href="http://www.slideshare.net/RiverGlide/a-journey-beyond-the-page-object-pattern"  target="_blank">Journey Pattern</a>). 
@@ -121,13 +124,11 @@ Further Reading:
 * https://confengine.com/selenium-conf-2016/proposal/2475/the-trouble-with-page-objects-things-you-always-knew-were-wrong-but-couldnt-explain-why
 
 
-
-
 # Cubano WebDriver Manager
 
 Provides a set of 'managed' browser providers that will automatically download and start the driver required for the browser your test is targeting.
 
-The automatic Selenium WebDriver binaries management functionality is provided by the [https://github.com/bonigarcia/webdrivermanager](Bonigarcia WebDriver Manager) GitHub project.
+The automatic Selenium WebDriver binaries management functionality is provided by the [Bonigarcia WebDriver Manager](https://github.com/bonigarcia/webdrivermanager) GitHub project.
 
 
 # Configuration
@@ -141,13 +142,13 @@ Cubano will pick default settings where it can, but if you're behind a proxy the
 
 If proxy settings have been configured for the project, WebDriver Manager will be configured to use the proxy settings.
 
-WebDriver manager supports a number of settings to customise its behaviour. Any settings in the configuration files starting with 'wdm.' will be passed to WebDriver Manager, documentation for these settings can be found at [https://github.com/bonigarcia/webdrivermanager]( - ).
+WebDriver manager supports a number of settings to customise its behaviour. Any settings in the configuration files starting with 'wdm.' will be passed to WebDriver Manager, documentation for these settings can be found at [https://github.com/bonigarcia/webdrivermanager](https://github.com/bonigarcia/webdrivermanager).
 
 Some recommend settings for use in your project, particularly if you're on a corporate network where your user files end up on the network rather than your PC are:
 
     wdm.targetPath=/path/to/keep/WebDriverManager
 
-If you do not wish to have the drivers downloaded and/or updated automatically you will need to set and place the required driver files in 'wdm.targetPath' yourself
+If you do not wish to have the drivers downloaded and/or updated automatically you will need to set and place the required driver files in `wdm.targetPath` yourself
 
     wdm.forceCache=true
 
@@ -208,8 +209,8 @@ If set to true will log all the actions the tests are making to Selenium WebDriv
 
 If you wish to use implicit rather than explicit waits then configure this value
 * Defaults to 0
-* Refer to the documentation on Cubano's BasePageObject for more information on this setting
-TODO Add documentation to BasePageObject on [Yandex HtmlElements](https://github.com/yandex-qatools/htmlelements) 
+* Refer to the documentation on Cubano's BasePageObject for more information on this setting<br/>
+TODO Add documentation to BasePageObject on [Yandex Html Elements](https://github.com/yandex-qatools/htmlelements) 
 * WARNING: Do not mix with Selenium WebDriver's implicit or explicit waits as the timeout behaviour becomes unpredictable.
 
 ##### proxy.required
