@@ -33,7 +33,7 @@ __Example__
 ~~~java
 HttpEasyReader r = HttpEasy.request()
     .baseURI(someUrl)
-    .path(viewPath + {@literal "?startkey=\"{startkey}\"&endkey=\"{endkey}\"})
+    .path(viewPath + "?startkey=\"{startkey}\"&endkey=\"{endkey}\"")
     .urlParameters(startKey[0], endKey[0])
     .get();
 

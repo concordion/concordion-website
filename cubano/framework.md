@@ -5,7 +5,9 @@ sitemap:
     priority: 0.7
 ---
 
-The test automation framework is a Java based tool that provides a framework for writing living documentation that can drive the system under test - whether that system runs in a browser or is a service.
+Cubano is a test automation framework written in Java that provides a structure for developing acceptance and regression tests so your team can hit the ground running and not have to waste time needlessly building and maintaining your own framework.
+
+While Cubano can be used to write standard JUnit and TestNG tests, the real power comes when when you use it's integration with Concordion to create beautiful living documentation that can drive the system under test - whether that system runs in a browser, service or device.
 
 # Core Third Party Components
 
@@ -62,25 +64,6 @@ Often there are repeated actions that the tests perform, such as logging into an
 ## Configuration Settings
 
 The framework includes a [Config](https://github.com/concordion/cubano/blob/master/cubano-config/src/main/java/org/concordion/cubano/config/Config.java) class which scans config.properties for the properties the framework exposes.  For applications specific properties create an AppConfig class that extends off config and expose these via that class.  
-
-The tool allows properties to be overridden in certain cases so will look up a property by prepending the values below in the order specified until a value is found:
-1. &lt;username&gt;
-1. &lt;environment&gt;
-1. 'default' (actually has no prefix)
-
-## General Settings
-
-| Setting                               | Description                                                                        |
-| :------------------------------------ | :--------------------------------------------------------------------------------- |
-| environment                           | Specifies which environment to use get application specific properties for.<br/>NOTE: First looks to see if the system property 'environment' has been set before looking through this configuration file for a value.                                |
-| **WebDriver** ||
-| webdriver.browser                     | browser to test against<br/>local: Firefox, Chrome, IE</br>remote: as above but add browser version, see the BrowserStack class for list of supported browsers/devices |
-| webdriver.defaultTimeout              | default timeout value to use on element look ups  |
-| webdriver.browserSize                 | specify a custom window size for browser, if not specified is maximised |
-| webdriver.&lt;browser&gt;.exe               | location of browser, eg: %USERPROFILE%/Documents/Mozilla Firefox Portable/FirefoxPortable.exe |
-| webdriver.&lt;browser&gt;.activatePlugins	| If value is `true` will add Firebug and FirePath plugins (only supported for Firefox currently)<br/>WARNING: do not activate this by default - it should not be enabled on CI server as it is only for use by the test developers<br/>To update plugins goto below locations and download to libs project folder: <br/> 1. [Firebug](https://addons.mozilla.org/en-US/firefox/addon/firebug) <br/> 2. [FirePath](https://addons.mozilla.org/en-US/firefox/addon/firepath) |
-| webdriver.timeouts.implicitlywait     | If choosing to use implicit waits and not use implicit waits then consider using `@timeout` provided by Yandex HtmlElements.  Setting this value will set a global default wait period on all WebElements.  (defaults to zero) which can be overridden by the `@timeout` annotation.<br/>WARNING: Do not mix with Selenium WebDriver's implicit or explicit waits as the timeout behaviour becomes unpredictable. |
-
 
 ## HttpEasy
 [HttpEasy](https://github.com/concordion/cubano/blob/master/cubano-httpeasy/src/main/java/org/concordion/cubano/driver/http/HttpEasy.java): provides a fluent style wrapper around HttpURLConnection.  It can:
