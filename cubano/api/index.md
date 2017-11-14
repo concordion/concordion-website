@@ -25,4 +25,4 @@ This framework includes [HttpEasy](./httpeasy), a fluent wrapper built around Ht
 
   Apache Camel is developed with [Enterprise Integration Patterns](https://en.wikipedia.org/wiki/Enterprise_application_integration)
     
-  There are some [Eclipse plugins](http://tools.jboss.org/features/apachecamel.html) that offer drag and drop support for building and testing.
+  There are some Eclipse plugins at http://tools.jboss.org/features/apachecamel.html (link currently broken) that offer drag and drop support for building and testing.
