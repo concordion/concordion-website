@@ -24,7 +24,7 @@ This framework uses Concordion to produce living documentation as it gives a lot
 
 There are books written on the subject of what makes a good specification so I'm not going to attempt to cover that here, I will point you to a couple of good resources:
 
-* <a href="https://books.gojko.net/specification-by-example" target="_blank">Specification by Example: How Successful Teams Deliver the Right Software by Gojko Adzic</a> - the bible for Specification by Example
+* <a href="https://gojko.net/books/specification-by-example/" target="_blank">Specification by Example: How Successful Teams Deliver the Right Software by Gojko Adzic</a> - the bible for Specification by Example
 * <a href="http://concordion.org/technique/java/markdown/" target="_blank">Concordion's Hints and Tips</a>
 
 When developing the test suite there are a few goals we want to achieve:
@@ -210,4 +210,4 @@ _DO_ use @timeout field annotation:
 ## Wait for anything else
 _NEVER_ use thread.sleep().  Ever!
 
-Use the frameworks built in [ActionWait](https://github.com/concordion/cubano/blob/master/cubano-core/src/main/java/org/concordion/cubano/driver/action/ActionWait.java_) utility.
+Use the frameworks built in [ActionWait](https://github.com/concordion/cubano/blob/master/cubano-core/src/main/java/org/concordion/cubano/driver/action/ActionWait.java) utility.
