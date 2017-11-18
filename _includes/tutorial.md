@@ -53,6 +53,7 @@ git clone https://github.com/concordion/concordion-tutorial-{{ page.fixture_lang
 
 {% if csharp %}Under the `Marketing.Mailshot` folder, t{% elsif java %}T{% endif %}his project contains folders for each stage of the tutorial. You can either start from scratch with the `{{i}}nitial` folder of the project, jump some steps to the `{{d}}ocumented` or `{{i}}nstrumented` folders, or go straight to the `{{c}}ompleted` folder to see the final solution.
 
+<a name="discussing"></a>
 ## 1. Discussing
 
 By collaboratively exploring requirements with realistic examples, teams build a shared understanding and detect issues and misunderstandings prior to developing a new feature.
@@ -71,6 +72,7 @@ As we progress, we discuss more complex cases. We often find it convenient to us
 
 Find out more about [discussing examples]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="documenting"></a>
 ## 2. Documenting
 
 The next step is to create a specification of the new feature. 
@@ -156,6 +158,7 @@ _Note:_ Since v2.0, Concordion also supports [Markdown specifications]({{site.ba
 
 Find out more about [documenting specifications]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="instrumenting"></a>
 ## 3. Instrumenting
 
 _If starting the tutorial from this stage, start with the `{{d}}ocumented` folder of the tutorial project._
@@ -276,6 +279,7 @@ We also wrap the example in a `<div>` element with the class set to example, so 
 
 Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
+<a name="coding"></a>
 ## 4. Coding
 
 _If starting the tutorial from this stage, start with the `{{i}}nstrumented` folder of the tutorial project._
@@ -459,3 +463,91 @@ The test now passes:
 ![output of successful run]({{ site.baseurl }}/img/tutorial-successful.png)
 
 Find out more about [coding fixtures]({{ site.baseurl }}/coding/{{ page.fixture_language }}/{{ page.spec_type }}).
+
+This is the end of the basic tutorial. Feel free to move straight onto [Next Steps]({{ site.baseurl }}/discussing/{{ page.fixture_language }}/{{ page.spec_type }}), or follow the advanced tutorial below.
+
+----
+
+## Advanced Tutorial
+{: #advanced}
+
+1. Now you understand the basics, alter your specification to [use a table]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#execute-table) to show several examples of behaviour.
+2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Create a `PartialMatches.{{spec_ext}}` specification and add the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the `PartialMatchesFixture.{{fixture_ext}}` fixture class to make this specification pass
+    {% if java %}
+    ~~~java
+    @RunWith(ConcordionRunner.class)
+    public class PartialMatchesFixture {
+
+        private Set<String> usernamesInSystem = new HashSet<String>();
+
+        public void setUpUser(String username) {
+            usernamesInSystem.add(username);
+        }
+
+        public Iterable<String> getSearchResultsFor(String searchString) {
+            SortedSet<String> matches = new TreeSet<String>();
+            for (String username : usernamesInSystem) {
+                if (username.contains(searchString)) {
+                    matches.add(username);
+                }
+            }
+            return matches;
+        }
+    }
+    ~~~
+    {% else if csharp %}
+    {% endif %}
+3. We can build test suites by [running a specification]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#run-command) from another specification. In the `marketing.mailshots` package, create a new specification called `Mailshots.{{ spec_ext}}` with the following contents:
+    {% if html %}
+    ~~~html
+    <html xmlns:concordion="http://www.concordion.org/2007/concordion">
+        <body>
+            <h1>Mailshots</h1>
+
+            <p>Mailshots are produced on-demand.</p>
+
+            <p>To help personalise the mailshots we <a concordion:run="concordion{% if csharp %}.net{% endif %}" href="SplittingNames.html">split names</a> into constituent parts.</p>
+        </body>
+    </html>
+    ~~~
+    {% else if md %}
+    ~~~markdown
+    # Mailshots
+
+    Mailshots are produced on-demand.
+
+    To help personalise the mailshots we [split names](SplittingNames.md "c:run") into constituent parts.
+    ~~~
+    {% endif %}
+
+      In the `marketing.mailshots` package, create an empty fixture class, called MailshotsFixture.{{ fixture_ext }}:
+
+    {% if java %}
+    ~~~java
+    package marketing.mailshots;
+
+    import org.concordion.integration.junit4.ConcordionRunner;
+    import org.junit.runner.RunWith;
+
+    @RunWith(ConcordionRunner.class)
+    public class MailshotsFixture {
+    }
+    ~~~
+    {% else if csharp %}
+    ~~~csharp
+    using Concordion.NET.Integration;
+
+    namespace Marketing.Mailshot.Comple
+    {
+        [ConcordionTest]
+        public class MailshotsFixture
+        {
+        }
+    }
+    ~~~
+    {% endif %}
+    Running this fixture will run the linked `SplittingNames` fixture.
+
+    Using links, we can create a [test suite]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#creating-a-suite), with [breadcrumbs]({{ site.baseurl }}/documenting/{{ page.fixture_language }}/{{ page.spec_type }}/#breadcrumbs) making it easier to navigate the results.
+
+You've now seen all of the Concordion commands you're likely to need on a day-to-day basis. Feel free to browse through the rest of this documentation, learn good practices in the [Hints and Tips]({{ site.baseurl }}/technique/{{ page.fixture_language }}/{{ page.spec_type }}) section, try out our [Integrations]({{ site.baseurl }}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}) or [Extensions]({{ site.baseurl }}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}) or browse the [FAQ]({{ site.baseurl }}/questions/{{ page.fixture_language }}/{{ page.spec_type }}).

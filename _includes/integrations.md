@@ -137,11 +137,13 @@ __Note:__ as of Jenkins 1.641 / 1.625.3, the new [Content Security Policy](https
 While we investigate the issue further, the only workaround is to restore the security vulnerability. To do this, relax the policy to allow `script-src 'unsafe-inline'` and `style-src 'unsafe-inline'` by appending 
 
 ~~~console
--Dhudson.model.DirectoryBrowserSupport.CSP=\" sandbox; default-src 'none'; img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline';\"
+-Dhudson.model.DirectoryBrowserSupport.CSP=\"default-src 'none'; img-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline';\"
 ~~~
 
 to the value of the `JAVA_ARGS` variable in the Jenkins startup script (/etc/default/jenkins on Linux) and restarting Jenkins. Note that we are still investigating this further - see the [discussion](https://groups.google.com/d/msg/concordion/RSp92D2CNuc/nwYW4yqvEQAJ).
-    
+
+NOTE: Jul 2017, removed `sandbox;` from the start of the CSP setting since it was causing issues with displaying screenshots, similar to [Jenkins issue 33653](https://issues.jenkins-ci.org/browse/JENKINS-33653).
+
 ----
 
 # Frameworks
@@ -150,7 +152,7 @@ to the value of the `JAVA_ARGS` variable in the Jenkins startup script (/etc/def
 
 The [chiiknrice/concordion-spring-runner](https://github.com/chiknrice/concordion-spring-runner) provides integration between Concordion and Spring Framework.
 
-JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extension-model) to allow combinations of runners to work together. We're aiming to support this in Concordion 2.1.
+JUnit 5 will have a flexible [extension model](http://junit.org/junit5/#extension-model) to allow combinations of runners to work together. We're aiming to support this in Concordion 2.x.
 
 {% elsif csharp %}
 

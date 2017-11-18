@@ -128,7 +128,7 @@ _Note that the `?=` syntax is short for `c:assert-equals`_
 {% endif %}
 
 
-Further details: [assert-equals command specification](https://concordion.github.io/concordion/latest/spec/command/assertEquals/AssertEquals.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownAssertEqualsCommand.html){% endif %}
+Further details: [assert-equals command specification](https://concordion.github.io/concordion/latest/spec/common/command/assertEquals/AssertEquals.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownAssertEqualsCommand.html){% endif %}
 
 ----
 
@@ -204,7 +204,7 @@ _Note that the `#` syntax is short for `c:set=#`_
 
 {% if supports_2_0 %}
 
-Further details: [set command specification](https://concordion.github.io/concordion/latest/spec/command/set/Set.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownSetCommand.html){% endif %}
+Further details: [set command specification](https://concordion.github.io/concordion/latest/spec/common/command/set/Set.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownSetCommand.html){% endif %}
 
 ----
 
@@ -293,7 +293,7 @@ As an alternative to setting the [implementation status]({{site.baseurl}}/coding
 {% endif %}
 The status can be either `ExpectedToFail` or `Unimplemented`.
 
-Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExampleCommand.html){% endif %}
+Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/common/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExampleCommand.html){% endif %}
 
 {% endif %}
 
@@ -509,9 +509,10 @@ In this case, the input parameter Bob occurs after the output greeting we want t
 
 How does this work? It works because the execute command is designed to process commands on its child elements in a special order. First of all it processes any child set commands then it runs its own command, then any child execute commands and finally any child assert-equals commands.
 
-Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/command/execute/Execute.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html){% endif %}
+Further details: [execute command specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/Execute.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html){% endif %}
 
 ### execute command on a table
+{: #execute-table}
 
 When you want to show several examples of a behaviour, repeating the same sentence structure over and over again probably isn't going to be very nice to read. It would be better to use a table.
 
@@ -608,6 +609,7 @@ For example:
 ~~~
 {% endif %}
 
+
 This instrumentation has identical behaviour to the previous example.
 
 {% if supports_2_1 %}
@@ -659,7 +661,7 @@ will run as two examples, named "Simple name" and "Double-barrelled name".
 
 {% endif %}
 
-Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html#execute-on-a-table){% endif %}
+Further details: [execute command on a table specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/ExecutingTables.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExecuteCommand.html#execute-on-a-table){% endif %}
 
 ### execute command on a list
 
@@ -671,7 +673,7 @@ The `execute` command has special behavior when placed on a list element (`<ol>`
 There is currently no explicit support for this in the Concordion Markdown syntax. Instead the HTML version of this must be used, wrapped in a `<div>` element.
 {% endif %}
 
-Further details: [execute command on a list specification](https://concordion.github.io/concordion/latest/spec/command/execute/ExecutingList.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
+Further details: [execute command on a list specification](https://concordion.github.io/concordion/latest/spec/common/command/execute/ExecutingList.html){% if md %} and [Markdown syntax](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownGrammar.html#execute-on-a-list){% endif %}
 
 ----
 
@@ -766,7 +768,7 @@ The syntax for a verify-rows command is:
 
 where `expression` returns an Iterable object with a predictable iteration order, (e.g. {% if java %}a List, LinkedHashSet or a TreeSet{% elsif csharp %}a collection extending ICollection{% endif %}), and `#loopVar` provides access to the current object during iteration and allows the assert-equals method to check its value.
 
-{% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). {% if supports_2_0 %}As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/command/verifyRows/strategies/Strategies.html) to define how the rows are matched (_since: 2.0.0_).{% endif %}
+{% if supports_2_0 %}By default, the{% else %}The{% endif %} order of the items in the table being verified must match the iteration order of the items returned by the expression. You may need to sort the items to ensure they are in a known and consistent order. In our example, we are using alphabetical order ("george" before "ringo"). {% if supports_2_0 %}As an alternative, you can apply a [match strategy](https://concordion.github.io/concordion/latest/spec/common/command/verifyRows/strategies/Strategies.html) to define how the rows are matched (_since: 2.0.0_).{% endif %}
 
 When run with a fixture that returns an empty collection, we get:
 
@@ -780,7 +782,7 @@ After the feature is implemented, when we run it we get a success:
 
 Note that either `verify-rows` or `verifyRows` can be used for the command name.
 
-Further details: [verify-rows specification](https://concordion.github.io/concordion/latest/spec/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownVerifyRowsCommand.html){% endif %}
+Further details: [verify-rows specification](https://concordion.github.io/concordion/latest/spec/common/command/verifyRows/VerifyRows.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownVerifyRowsCommand.html){% endif %}
 
 ----
 
@@ -811,7 +813,7 @@ The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`.
 To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](http://concordion.org/dotnet/Concordion/Configuration/Runner.html).
 {% endif %}
 
-Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownRunCommand.html){% endif %}
+Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownRunCommand.html){% endif %}
 
 ----
 
@@ -854,7 +856,7 @@ When the completion date is not today, return the actual date from `{{g}}etCompl
 
 ![specification showing the actual date as failure]({{site.baseurl}}/img/instrument-assert-equals-failure.png)
 
-Further details: [assert-true command specification](https://concordion.github.io/concordion/latest/spec/command/assertTrue/AssertTrue.html)
+Further details: [assert-true command specification](https://concordion.github.io/concordion/latest/spec/common/command/assertTrue/AssertTrue.html)
 
 ----
 
@@ -875,7 +877,7 @@ Username:[ ](- "c:echo=#username")
 ~~~
 {% endif %}
 
-Further details: [echo command specification](https://concordion.github.io/concordion/latest/spec/command/echo/Echo.html)
+Further details: [echo command specification](https://concordion.github.io/concordion/latest/spec/common/command/echo/Echo.html)
 
 The echo command allows you to insert the results of evaluating an expression as text. Should you wish to insert HTML into the document, you will need to use the [embed extension](https://github.com/concordion/concordion-embed-extension).
 
@@ -883,7 +885,7 @@ The echo command allows you to insert the results of evaluating an expression as
 
 ## Expression language
 
-In order to keep your specifications [simple and maintainable]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple), Concordion deliberately restricts the [expression language](https://concordion.github.io/concordion/latest/spec/command/expressions/Expressions.html) that is allowed when instrumenting specifications. 
+In order to keep your specifications [simple and maintainable]({{site.baseurl}}/technique/{{ page.fixture_language }}/{{ page.spec_type }}#keepSpecsSimple), Concordion deliberately restricts the [expression language](https://concordion.github.io/concordion/latest/spec/common/command/expressions/Expressions.html) that is allowed when instrumenting specifications. 
 
 {% if supports_full_ognl %}
 This can be [overridden]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#full-ognl) to allow complex expressions.
