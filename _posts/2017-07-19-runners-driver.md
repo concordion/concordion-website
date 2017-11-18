@@ -7,9 +7,9 @@ author: "Nigel Charman"
 homepage: http://tutansblog.blogspot.co.nz/
 ---
 
-Designing well structured test code can lead to effective reuse of the application drivers across test suites, as well as open up their use for exploratory and maintenance scripting. It avoids lock-in to any specific test runner or driver, opening up the potential for migrating to new test runners or drivers.
+This article describes the Runners and Drivers pattern which enables test code to be layered with clean interfaces. This enhances maintainability of the code and leads to effective reuse of the application drivers across test suites. In addition, it opens up the drivers for use in exploratory and maintenance scripting. It also avoids lock-in to any specific test runner or driver, opening up the potential for future migration to new test runners or drivers.
 
-![Visual representation of Layering test code with Runners and Drivers](_img/drivers-runners.png)
+![Visual representation of Layering test code with Runners and Drivers]({{ site.baseurl }}/img/runners-drivers.png)
 
 ## Application Drivers
 An Application Driver is responsible for manipulating an application through one of its interfaces (eg. web app, web service, database, desktop application, host, message queue). 
@@ -38,7 +38,7 @@ Once you have implemented Application Drivers, they can be reused for a number o
 * data setup,
 * scripting 
 
-You can use a wide variety of frameworks for running the tests, including basic xUnit style, Specification by Example (such as Concordion), data-driven, keyword-driven etc.
+You can use a wide variety of frameworks for running the tests, including basic xUnit style, Specification by Example (such as Concordion), data-driven, keyword-driven etc. These frameworks run the tests and report test results for the user.
 
 Data setup could be spreadsheet-driven, and could be one-off (eg. data migration) or part of a regular test setup.
 
@@ -47,6 +47,6 @@ Scripting would use a language such as Groovy, VBScript, Python or Ruby to perfo
 ## Advantages of using Runners and Drivers
 By separating drivers and runners, you achieve a high degree of reuse. 
 
-It is important to never include test logic in the Application Drivers, otherwise your Driver becomes tied to the particular test runner framework that you are using. Similarly don’t expose driver specifics to the test layer - for example, you should return Strings or domain objects rather than return WebElements. 
+It is important to never include test logic in the Application Drivers, otherwise your Driver becomes tied to the particular test runner framework that you are using. Similarly don’t expose driver specifics to the test layer - for example, you should return `Strings` or domain objects rather than return `WebElements`. 
 
 With the right level of abstraction, you minimise the changes required to test code when the application changes - with the goal of only needing one change to test code for each application change. As the organisation grows a library of drivers, you are able to capitalise upon the work of others to quickly create new tests.
