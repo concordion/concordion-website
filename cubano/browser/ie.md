@@ -21,4 +21,4 @@ InternetExplorerDriver properties describe many of the capabilities that can be 
 
 
 ## Troubleshooting
-sendkeys can be very slow (1-2 seconds per character): Mostly likely that is because the IE 32 bit version is being loaded and using 64 bit driver. Use wdm.architecture=32.  ie.capability.requireWindowFocus = true can also fix the problem.
+sendkeys can be very slow (1-2 seconds per character): Mostly likely that is because the IE 32 bit version is being loaded and using 64 bit driver. Use `wdm.architecture=32`. The `ie.capability.requireWindowFocus = true` setting can also fix the problem.
