@@ -13,6 +13,8 @@ It's ideal for software delivery teams who want to collaborate around living doc
 
 Utilising __Specification by Example__ techniques, the framework implements:
 
-* Web browser automation using Selenium WebDriver
-* API (REST / SOAP / HTTP) automation 
-* Database access
+* [Web browser automation](./browser) using Selenium WebDriver
+* [API automation](./api) (REST / SOAP / HTTP) 
+* [Database automation](./database)
+
+Read the [framework guide](./framework).

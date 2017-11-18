@@ -11,12 +11,12 @@ While Cubano can be used to write standard JUnit and TestNG tests, the real powe
 
 # Core Third Party Components
 
-* <a href="http://concordion.org" target="_blank">Concordion</a>: open source tool for automating living documentation (aka Specification by Example, Acceptance Test Driven Development, etc)
+* <a href="http://concordion.org" target="_blank">Concordion</a>: an open source tool for automating living documentation (aka Specification by Example, Acceptance Test Driven Development, etc)
 * <a href="http://www.seleniumhq.org/projects/webdriver" target="_blank">Selenium WebDriver</a>: an API for automating user actions on a browser
-* <a href="https://github.com/yandex-qatools/htmlelements" target="_blank">Yandex HtmlElements</a>: a framework providing easy-to-use way of interaction with web-page elements
+* <a href="https://github.com/yandex-qatools/htmlelements" target="_blank">Yandex Html Elements</a>: a framework providing easy-to-use way of interaction with web-page elements
 * <a href="http://www.slf4j.org/" target="_blank">SLF4J</a> and <a href="http://logback.qos.ch/" target="_blank">Logback</a>: logging framework 
-* <a href="http://junit.org" target="_blank">Junit</a>: a simple framework to write repeatable tests, it is an instance of the xUnit architecture for unit testing frameworks
-* <a href="http://gradle.org" target="_blank">Gradle</a>: build and dependency management tool, this can be replaced with Maven if you're already using Maven and don't want two different build tools 
+* <a href="http://junit.org" target="_blank">JUnit</a>: a simple framework to write repeatable tests, it is an instance of the xUnit architecture for unit testing frameworks
+* <a href="http://gradle.org" target="_blank">Gradle</a>: a build and dependency management tool, this can be replaced with Maven if you're already using Maven and don't want two different build tools 
 
 
 # Writing the Specifications and Tests
