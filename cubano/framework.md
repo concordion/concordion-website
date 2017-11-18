@@ -1,5 +1,5 @@
 ---
-title: "Framework | Concordion"
+title: "Framework | Cubano"
 description: "Cubano is a 'ready-made' test framework that provides everything at your fingertips. It's ideal for software delivery teams who want to collaborate around living documentation."
 sitemap:
     priority: 0.7
@@ -58,15 +58,13 @@ Often there are repeated actions that the tests perform, such as logging into an
 
 
 
-
-
 # Framework
 ## Configuration Settings
 
 The framework includes a [Config](https://github.com/concordion/cubano/blob/master/cubano-config/src/main/java/org/concordion/cubano/config/Config.java) class which scans config.properties for the properties the framework exposes.  For applications specific properties create an AppConfig class that extends off config and expose these via that class.  
 
 ## HttpEasy
-[HttpEasy](https://github.com/concordion/cubano/blob/master/cubano-httpeasy/src/main/java/org/concordion/cubano/driver/http/HttpEasy.java): provides a fluent style wrapper around HttpURLConnection.  It can:
+[HttpEasy](./api/httpeasy): provides a fluent style wrapper around HttpURLConnection.  It can:
 
 * handle most HTTP methods (GET, POST, HEAD, etc)
 * upload and download files
