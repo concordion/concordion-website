@@ -119,8 +119,8 @@ I haven't used it, but I keep coming across the Screenplay Pattern (formerly kno
 
 Further Reading:
 
-* https://ideas.riverglide.com/page-objects-refactored-12ec3541990#.cvqm92cpv
-* https://fasterchaos.svbtle.com/journey-pattern
-* https://confengine.com/selenium-conf-2016/proposal/2475/the-trouble-with-page-objects-things-you-always-knew-were-wrong-but-couldnt-explain-why
+* [SOLID steps to the Screenplay/Journey pattern](https://ideas.riverglide.com/page-objects-refactored-12ec3541990)
+* [The Journey Pattern](https://fasterchaos.svbtle.com/journey-pattern)
+* [The trouble with Page Objects](https://confengine.com/selenium-conf-2016/proposal/2475/the-trouble-with-page-objects-things-you-always-knew-were-wrong-but-couldnt-explain-why)
 
 
