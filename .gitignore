@@ -50,3 +50,5 @@ Gemfile.lock
 Network Trash Folder
 Temporary Items
 .apdisk
+/.gradle/
+/.project
