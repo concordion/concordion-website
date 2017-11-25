@@ -7,7 +7,7 @@ sitemap:
 
 # Automating Services (REST / SOAP / HTTP )
 
-HttpEasy provides a fluent style wrapper around HttpURLConnection.  It can:
+HttpEasy provides a fluent style wrapper around HttpURLConnection. It can:
 
 * handle most HTTP methods (GET, POST, HEAD, etc)
 * upload and download files

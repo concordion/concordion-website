@@ -7,7 +7,7 @@ sitemap:
 
 # Browser Providers
 
-To driver a browser using Seleniunm WebDriver we need several things:
+To drive a browser using Seleniun WebDriver we need several things:
 
 1. A browser
 2. A browser driver
@@ -23,7 +23,7 @@ Browsers running on the local PC.
 
 ## Selenium Grid Providers
 
-Browser(s) running on a remotely.
+Browser(s) running on remotely.
 
 * Home grown (ie something that you or your company are running)
 * Browser Stack
