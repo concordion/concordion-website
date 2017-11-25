@@ -1,5 +1,5 @@
 ---
-title: "Framework | Concordion"
+title: "Framework | Cubano"
 description: "Cubano is a 'ready-made' test framework that provides everything at your fingertips. It's ideal for software delivery teams who want to collaborate around living documentation."
 sitemap:
     priority: 0.7
@@ -58,15 +58,13 @@ Often there are repeated actions that the tests perform, such as logging into an
 
 
 
-
-
 # Framework
 ## Configuration Settings
 
 The framework includes a [Config](https://github.com/concordion/cubano/blob/master/cubano-config/src/main/java/org/concordion/cubano/config/Config.java) class which scans config.properties for the properties the framework exposes.  For applications specific properties create an AppConfig class that extends off config and expose these via that class.  
 
 ## HttpEasy
-[HttpEasy](https://github.com/concordion/cubano/blob/master/cubano-httpeasy/src/main/java/org/concordion/cubano/driver/http/HttpEasy.java): provides a fluent style wrapper around HttpURLConnection.  It can:
+[HttpEasy](./api/httpeasy): provides a fluent style wrapper around HttpURLConnection.  It can:
 
 * handle most HTTP methods (GET, POST, HEAD, etc)
 * upload and download files
@@ -77,7 +75,7 @@ The framework includes a [Config](https://github.com/concordion/cubano/blob/mast
 [ActionWait](https://github.com/concordion/cubano/blob/master/cubano-core/src/main/java/org/concordion/cubano/driver/action/ActionWait.java): Similar to Selenium's [FluentWait](https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/FluentWait.html) implementation but designed for long running tasks such as querying a database until some data appears and unlike FluentWait it handles exceptions other than RuntimeExceptions.
 
 ## ActionTimer
-[ActionTimer](https://github.com/concordion/cubano/blob/master/cubano-core/src/main/java/org/concordion/cubano/driver/action/ActionTimer.java): a simple utility for logging duration of a task
+[ActionTimer](https://github.com/concordion/cubano/blob/master/cubano-core/src/main/java/org/concordion/cubano/driver/action/ActionTimer.java): a simple utility for logging duration of a task.
 
 ## Exception Handling
 As a general rule of thumb - don't!
@@ -118,8 +116,8 @@ This serves several purposes:
 
 If you use the navigateUsing() method in your page objects when an element is about to be clicked that performs a page navigation then screenshots will be added to the storyboard automatically, eg `navigateUsing(loginButton)`. This has the added advantage that way if any actions have been performed on the screen (eg data entered) then those details are available in the screenshots. 
 
-## HtmlElement
-The framework includes [Yandex Html Elements](https://github.com/yandex-qatools/htmlelements) as means of providing easy-to-use way of breaking complex web pages into page components that also works seamlessly with the page factory.
+## Html Elements
+The framework includes [Yandex Html Elements](https://github.com/yandex-qatools/htmlelements) as means of providing an easy-to-use way of breaking complex web pages into page components that also works seamlessly with the page factory.
 
 We also provide a couple of interfaces that your component can implement that allow it to work with the framework more easily:
 
@@ -133,7 +131,7 @@ These are general recommendations rather than hard and fast rules.
 Treat test code as a first class citizen - it needs the same level of code quality as your application code otherwise tests will become unmaintainable.
 
 ## Configuration
-Tests must be environment independent in that they must be able run in any environment (with the possible exception of production) by only changing the URL the tests are running against. Plan for this by:
+Tests must be environment independent in that they must be able to run in any environment (with the possible exception of production) by only changing the URL the tests are running against. Plan for this by:
 * have a configuration file for environment settings
 * having tests validate required data exists and set it up if its missing
 * DO NOT have tests use manually setup data - it won't exist in the next environment
@@ -145,7 +143,7 @@ Eventually the test suite is going to take too long to run, and tests will need 
 If something fails, it's usually a good idea to [fail fast](http://concordion.org/coding/java/markdown/#fail-fast) and exit the specific test immediately rather than allow the test to muddle along.
 
 ## Test Inheritance
-Tests inheriting from or calling other test should be kept to a minimum, in my experience this leads to hard to understand tests and a fragile test suite that is not easily modified.
+Tests inheriting from or calling other test should be kept to a minimum, in my experience this leads to hard to understand tests and a fragile test suite that is not easily modified. Only use inheritance if an "is a" relationship exists between the child and the parent class. Favour delegation over inheritance. 
 
 ## Asserts
 Asserts belong in the specification and not the tests.
