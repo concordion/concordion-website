@@ -89,8 +89,6 @@ and appending the `Completed` folder that the specification is in:
 
 ![Folder structure showing specification in the Completed folder]({{ site.baseurl }}/img/coding-dotnet-folder-structure.png)
 
-The name of the fixture class and the specification share the same base name. The fixture has an optional suffix of "Fixture" or "Test" - for example, the fixture for the "SplittingNames.{{ spec_ext }}" specification could be named "SplittingNames.{{ fixture_ext }}", "SplittingNamesFixture.{{ fixture_ext }}" or "SplittingNamesTest.{{ fixture_ext }}".
-
 As an alternative, you can [configure](#configuration-options) the BaseInputDirectory to specify the location of your specification documents.
 
 ### Including the Specification in the DLL
@@ -105,7 +103,7 @@ Finally, if you haven't already added the current version of `Concordion.NUnit.d
 {% endif %}
 
 ## Fixture classes
-Concordion fixtures use the {{ test_library }} library, with a {% if java %}specialised ConcordionRunner{% elsif csharp %}Concordion addin. Fixtures must declare a class-level `ConcordionTest` attribute from the `Concordion.NET.Integration` namespace{% endif %}:
+Concordion fixtures use the {{ test_library }} library, with a {% if java %}specialised ConcordionRunner. Fixtures must be annotated with the `@RunWith(ConcordionRunner.class)` annotation{% elsif csharp %}Concordion addin. Fixtures must declare a class-level `ConcordionTest` attribute from the `Concordion.NET.Integration` namespace{% endif %}:
 
 {% if java %}
 ~~~java
@@ -130,7 +128,7 @@ namespace Marketing.Mailshot.Initial
 ~~~
 {% endif %}
 
-A fixture class is required for each specification.
+A fixture class is required for each specification. The name of the fixture class and the specification share the same base name. The fixture has an optional suffix of "Fixture" or "Test" - for example, the fixture for the "SplittingNames.{{ spec_ext }}" specification could be named "SplittingNames.{{ fixture_ext }}", "SplittingNamesFixture.{{ fixture_ext }}" or "SplittingNamesTest.{{ fixture_ext }}".
 
 Unlike {{ test_library }}, we don't {% if java %}annotate methods with `@Test`{% elsif csharp %}add a `[Test]` attribute to methods{% endif %}. Instead, the tests are determined from the specification. {% if supports_2_0 %}Each example in the specification that uses the [example command]({{site.baseurl}}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#example-command) is created as a separate JUnit test, and an additional `[outer]` test is added for any commands that exist outside of examples. If the example command is not used, the{% else %}The{% endif supports_2_0 %} specification is run as a single {{ test_library }} test.
 

@@ -274,7 +274,7 @@ We also wrap the example in a `<div>` element with the class set to example, so 
 {% endif supports_2_0 %}
 
 
-Find out more about [instrumenting fixtures]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
+Find out more about [instrumenting specifications]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}).
 
 ## 4. Coding
 
