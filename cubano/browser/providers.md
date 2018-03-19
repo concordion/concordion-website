@@ -119,10 +119,16 @@ If you wish to use implicit rather than explicit waits then configure this value
 TODO Add documentation to BasePageObject on [Yandex Html Elements](https://github.com/yandex-qatools/htmlelements) 
 * WARNING: Do not mix with Selenium WebDriver's implicit or explicit waits as the timeout behaviour becomes unpredictable.
 
+##### webdriver.browser.restartAfterXTests
+Number of tests to run before restarting browser.  Firefox 48+ with gecko driver is prone to memory leaks and restarting the browser will clear the consumed memory.
+
+* Defaults to 0 - Only close browser once all tests are completed
+
 ##### proxy.required
 
 If true then the proxy will be set on the requested browser
 * Defaults to false, valid options are true or false
 
 See cubano-config for more proxy settings.
+
 
