@@ -124,6 +124,10 @@ Number of tests to run before restarting browser.  Firefox 48+ with gecko driver
 
 * Defaults to 0 - Only close browser once all tests are completed
 
+##### webdriver.browserdriver.cleanup
+If set to true will run taskkill on windows, or pkill on linux based systems to terminate any running Selenium browser drivers. Note, this will not close any browsers, just the drivers. 
+* Defaults to false, allowed values are true or false
+
 ##### proxy.required
 
 If true then the proxy will be set on the requested browser
