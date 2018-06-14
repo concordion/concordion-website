@@ -7,7 +7,7 @@ sitemap:
 
 # FireFox
 
-Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings are at TODO ???? 
+Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings. 
 
 [https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences](https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences)
 
@@ -19,16 +19,23 @@ Check [https://github.com/mozilla/geckodriver/releases](https://github.com/mozil
 
 [Firefox Portable](https://portableapps.com/apps/internet/firefox_portable) can also be used and is a great choice if you need a different version than your installed Firefox version for any reason. 
 
-As with Firefox, any versions prior to 48 will need the legacy flag set to true, see configuration section below for more details. Note: FirefoxPortable 47 has a bug an will not work with Selenium WebDriver. FirefoxPortable 47.0.1 works fine.
+As with Firefox, any versions prior to 48 will need the legacy flag (firefox.useLegacyDriver), set to true, see configuration section below for more details. Note: FirefoxPortable 47 has a bug and will not work with Selenium WebDriver. FirefoxPortable 47.0.1 works fine.
   
-You will need to specify the location of the executable using the firefox.exe configuration property:
+You will need to specify the location of the executable using the firefox.exe configuration property. See configuration section below.  And in some corporate environments you may have to rename the executable to get around polices that block FirefoxPortable.exe (e.g. renaming to FF.exe works fine).
 
-* In some corporate environments you may have to rename the executable to get around polices that block FirefoxPortable.exe.
-* From version 48 onwards (ie when using the marionette/gecko driver) make sure you are pointing to "\path\to\FirefoxPortable\App\Firefox64\firefox.exe" and not just "\path\to\FirefoxPortable\FirefoxPortable.exe"
+### For Firefox versions < 48
+* Make sure `firefox.exe` is pointing to `\path\to\FirefoxPortable\FF.exe`  (assuming renamed to FF.exe)
 
-You'll may also want to configure Firefox Portable to run any time, regardless of how many other instances of Firefox or FirefoxPortable that are running:
-  
-1. Copy FirefoxPortable.ini from FirefoxPortable\Other\Source to FirefoxPortable\
+To configure Firefox Portable to run any time, regardless of how many other instances of Firefox or FirefoxPortable that are running:
+1. Copy FirefoxPortable.ini from `FirefoxPortable\Other\Source` to `FirefoxPortable\`
+1. Edit FirefoxPortable.ini and change AllowMultipleInstances=false to AllowMultipleInstances=true
+
+### For Firefox versions => 48
+* Make sure `firefox.exe` is pointing to `\path\to\FirefoxPortable\App\Firefox64\FF.exe` (assuming renamed to FF.exe)
+* From version 48 onwards we are using the marionette/gecko driver
+
+To configure Firefox Portable to run any time, regardless of how many other instances of Firefox or FirefoxPortable that are running:
+1. Copy FirefoxPortable.ini from `FirefoxPortable\Other\Source` to `\path\to\FirefoxPortable\App\Firefox64\`
 1. Edit FirefoxPortable.ini and change AllowMultipleInstances=false to AllowMultipleInstances=true
 
 ## Proxy Configuration

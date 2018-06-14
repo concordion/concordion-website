@@ -5,5 +5,4 @@ sitemap:
     priority: 0.7
 ---
 
-Add something here...
-Point to example project
+Take a look at the [Cubano Demo project](https://github.com/concordion/cubano-demo) and then pull down the [Cubano Template project](https://github.com/concordion/cubano-template) to get started.
