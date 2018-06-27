@@ -357,10 +357,10 @@ Concordion.NET is configured using a configuration file with the same name as th
 
 The following features can be configured:
 
-- the [base input directory](http://concordion.org/dotnet/Concordion/Configuration/BaseInputDirectory.html) to read specifications from,
-- the [base output directory](http://concordion.org/dotnet/Concordion/Configuration/BaseOutputDirectory.html) to write output specifications to,
-- the [specification suffix](http://concordion.org/dotnet/Concordion/Configuration/SpecificationSuffix.html) to use for input specifications, and
-- additional [runners](http://concordion.org/dotnet/Concordion/Configuration/Runner.html) that can be used with the run command.
+- the [base input directory](https://concordion.org/dotnet/Concordion/Configuration/BaseInputDirectory.html) to read specifications from,
+- the [base output directory](https://concordion.org/dotnet/Concordion/Configuration/BaseOutputDirectory.html) to write output specifications to,
+- the [specification suffix](https://concordion.org/dotnet/Concordion/Configuration/SpecificationSuffix.html) to use for input specifications, and
+- additional [runners](https://concordion.org/dotnet/Concordion/Configuration/Runner.html) that can be used with the run command.
 
 {% endif csharp %}
 
@@ -472,7 +472,7 @@ java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acm
 
 {% endif csharp %}
 
-For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/extension/ExtensionConfiguration.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
+For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/extension/ExtensionConfiguration.html{% elsif csharp %}https://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
 
 ## Creating an extension
 
@@ -484,7 +484,7 @@ For full details, see the [extension specifications](https://concordion.github.i
 
 {% elsif csharp %}
 
-A dedicated section of the executable specifications describe the [extensions API](http://concordion.org/dotnet/Concordion/Extension/Extension.html) of Concordion.NET. The [fixture classes](https://github.com/concordion/concordion.net/tree/master/Concordion.Spec/Concordion/Extension) demonstrate how to use the extensions API.
+A dedicated section of the executable specifications describe the [extensions API](https://concordion.org/dotnet/Concordion/Extension/Extension.html) of Concordion.NET. The [fixture classes](https://github.com/concordion/concordion.net/tree/master/Concordion.Spec/Concordion/Extension) demonstrate how to use the extensions API.
 
 See also the [extensions]({{site.baseurl}}/extensions/java/{{ page.spec_type }}) of the Java version of Concordion for examples what can be achieved with the help of the extensions API.
 

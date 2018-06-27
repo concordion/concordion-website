@@ -5,7 +5,7 @@
 # concordion-website
 Concordion Website v2.0.0
 
-Published to http://concordion.org.
+Published to https://concordion.org.
 
 The source for the old website is at https://github.com/concordion/concordion-website-1.0.
 
