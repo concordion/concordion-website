@@ -60,7 +60,7 @@ Concordion acts as a test runner and integrates with any {% if java %}Java{% els
 
 ### Does Concordion itself have active specifications?
 
-Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).
+Yes, see the [Concordion{% if csharp %}.NET{% endif %} specifications]({% if java %}http://concordion.github.io/concordion/latest/spec/Concordion.html{% elsif csharp %}https://concordion.org/dotnet/Concordion/Concordion.html{% endif %}).
 
 {% if supports_full_ognl %}
 <a name="complexExpressions"> </a>

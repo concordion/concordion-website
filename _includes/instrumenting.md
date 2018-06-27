@@ -812,10 +812,10 @@ The `runner-name` should normally be `concordion{% if csharp %}.net{% endif %}`.
 {% endif %}
 
 {% if csharp %}
-To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](http://concordion.org/dotnet/Concordion/Configuration/Runner.html).
+To use a non-Concordion runner, you must [configure]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}#configuration-options) a [Runner](https://concordion.org/dotnet/Concordion/Configuration/Runner.html).
 {% endif %}
 
-Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/command/run/Run.html{% elsif csharp %}http://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownRunCommand.html){% endif %}
+Further details: [run command specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/command/run/Run.html{% elsif csharp %}https://concordion.org/dotnet/Concordion/Command/Run/Run.html{% endif %}){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownRunCommand.html){% endif %}
 
 ----
 

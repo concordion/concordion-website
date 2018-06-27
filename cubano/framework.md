@@ -11,7 +11,7 @@ While Cubano can be used to write standard JUnit and TestNG tests, the real powe
 
 # Core Third Party Components
 
-* <a href="http://concordion.org" target="_blank">Concordion</a>: an open source tool for automating living documentation (aka Specification by Example, Acceptance Test Driven Development, etc)
+* <a href="https://concordion.org" target="_blank">Concordion</a>: an open source tool for automating living documentation (aka Specification by Example, Acceptance Test Driven Development, etc)
 * <a href="http://www.seleniumhq.org/projects/webdriver" target="_blank">Selenium WebDriver</a>: an API for automating user actions on a browser
 * <a href="https://github.com/yandex-qatools/htmlelements" target="_blank">Yandex Html Elements</a>: a framework providing easy-to-use way of interaction with web-page elements
 * <a href="http://www.slf4j.org/" target="_blank">SLF4J</a> and <a href="http://logback.qos.ch/" target="_blank">Logback</a>: logging framework 
@@ -25,7 +25,7 @@ This framework uses Concordion to produce living documentation as it gives a lot
 There are books written on the subject of what makes a good specification so I'm not going to attempt to cover that here, I will point you to a couple of good resources:
 
 * <a href="https://gojko.net/books/specification-by-example/" target="_blank">Specification by Example: How Successful Teams Deliver the Right Software by Gojko Adzic</a> - the bible for Specification by Example
-* <a href="http://concordion.org/technique/java/markdown/" target="_blank">Concordion's Hints and Tips</a>
+* <a href="https://concordion.org/technique/java/markdown/" target="_blank">Concordion's Hints and Tips</a>
 
 When developing the test suite there are a few goals we want to achieve:
 
@@ -35,7 +35,7 @@ When developing the test suite there are a few goals we want to achieve:
 To meet these goals there are a few patterns that we will need to use, these have been documented below.  The patterns all follow a theme, and that theme is _abstraction_.
 
 ## Specification
-Concordion supports writing a specification in both <a href="http://concordion.org/instrumenting/java/html/" target="_blank">HTML</a> and <a href="http://concordion.org/instrumenting/java/markdown/" target="_blank">Markdown</a>.  I recommend markdown as it is much quicker to write than html and non developers generally will pick it up quicker.
+Concordion supports writing a specification in both <a href="https://concordion.org/instrumenting/java/html/" target="_blank">HTML</a> and <a href="https://concordion.org/instrumenting/java/markdown/" target="_blank">Markdown</a>.  I recommend markdown as it is much quicker to write than html and non developers generally will pick it up quicker.
 
 Avoid writing tests that read like scripts and don't get too involved in the implementation details of the system under test.  These lead to specifications that require changing as the system under test is changed.  
 
@@ -140,7 +140,7 @@ Tests must be environment independent in that they must be able to run in any en
 Eventually the test suite is going to take too long to run, and tests will need to run in parallel.  I suggest we should start out doing this straight away so any issues are caught early - it can take a very long time to refactor existing tests if you do this down the track.  This will require Selenium Grid.
 
 ## Fail Fast
-If something fails, it's usually a good idea to [fail fast](http://concordion.org/coding/java/markdown/#fail-fast) and exit the specific test immediately rather than allow the test to muddle along.
+If something fails, it's usually a good idea to [fail fast](https://concordion.org/coding/java/markdown/#fail-fast) and exit the specific test immediately rather than allow the test to muddle along.
 
 ## Test Inheritance
 Tests inheriting from or calling other test should be kept to a minimum, in my experience this leads to hard to understand tests and a fragile test suite that is not easily modified. Only use inheritance if an "is a" relationship exists between the child and the parent class. Favour delegation over inheritance. 
