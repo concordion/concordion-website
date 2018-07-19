@@ -124,6 +124,17 @@ Note that the Surefire plugin, by default, only includes test classes with filen
 
 There is also a [maven-concordion-reporting-plugin](https://github.com/bassman5/maven-concordion-reporting-plugin) which allows you to incorporate Concordion reports into a Maven site report in the project reports section.
 
+## Command Line
+
+Should you wish to run your tests from the command line, you will need to:
+
+1. Download and unzip the [full distribution]({{site.baseurl}}/download/{{ page.fixture_language }}/{{ page.spec_type }}/#download).
+2. From the unzipped folder, copy the `lib` folder to be located alongside your source code, and copy `concordion-<x.y.z>.jar` files to this `lib` folder (where `<x.y.z>` is the version number of Concordion).
+3. Compile your Java source code (adding the `lib` folder to your classpath)
+4. Run Concordion as a `JUnit` test, for example:
+
+    `java -cp lib/*:bin org.junit.runner.JUnitCore path/to/my/fixture.class`
+
 ----
 
 # Build servers
