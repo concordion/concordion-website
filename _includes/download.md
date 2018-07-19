@@ -42,6 +42,8 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <pre>
  testCompile 'org.concordion:concordion:2.2.0'
             </pre>
+            <br/>
+            <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#gradle">how to run from Gradle</a>.</p>
         </li>
         <li class="collection-item avatar" id="maven">
             <img src="{{ site.baseurl }}/img/download-maven.png" alt="maven image" class="circle">
@@ -54,29 +56,30 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
    &lt;scope&gt;test&lt;/scope&gt;
  &lt;/dependency&gt;
             </pre>
+            <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#maven">how to run from Maven</a>.</p>
         </li>
 {% elsif csharp %}
         <li class="collection-item avatar" id="nuget">
             <img src="{{ site.baseurl }}/img/download-nuget.png" alt="nuget image" class="circle">
             <span class="download title">NuGet</span>
-        <p><b><a href="https://www.nuget.org/packages/Concordion.NET">https://www.nuget.org/packages/Concordion.NET/</a></b></p>
-        <br/>
-        <p>The latest Concordion.NUnit.dll must also be downloaded and <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>:</p>
-        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NUnit.dll">Concordion.NUnit.dll</a></b></p>
+            <p><b><a href="https://www.nuget.org/packages/Concordion.NET">https://www.nuget.org/packages/Concordion.NET/</a></b></p>
+            <br/>
+            <p>The latest Concordion.NUnit.dll must also be downloaded and <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>:</p>
+            <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NUnit.dll">Concordion.NUnit.dll</a></b></p>
         </li>
 {% endif %}
         <li class="collection-item avatar" id="download">
-        <i class="material-icons circle green">file_download</i>
-        <span class="download title">Download</span>
-        <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
-{% if java %}
-        <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.2.0.zip">concordion-2.2.0.zip</a></b></p>
-        <br/>
-        <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#command-line">how to run from the command line</a>.</p>
-{% elsif csharp %}
-        <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NET-1.5.1.zip" id="download-link">Concordion.NET-1.5.1.zip</a></b></p>
-        <p>Note: the latest Concordion.NUnit.dll from the tools folder of this package must also be <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>.</p>
-{% endif %}
+            <i class="material-icons circle green">file_download</i>
+            <span class="download title">Download</span>
+            <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
+    {% if java %}
+            <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.2.0.zip">concordion-2.2.0.zip</a></b></p>
+            <br/>
+            <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#command-line">how to run from the command line</a>.</p>
+    {% elsif csharp %}
+            <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NET-1.5.1.zip" id="download-link">Concordion.NET-1.5.1.zip</a></b></p>
+            <p>Note: the latest Concordion.NUnit.dll from the tools folder of this package must also be <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>.</p>
+    {% endif %}
         </li>
     </ul>
 </div>
