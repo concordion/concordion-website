@@ -71,6 +71,8 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
         <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
 {% if java %}
         <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-2.2.0.zip">concordion-2.2.0.zip</a></b></p>
+        <br/>
+        <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#command-line">how to run from the command line</a>.</p>
 {% elsif csharp %}
         <p><b><a href="https://github.com/concordion/concordion.net/releases/download/v1.5.1/Concordion.NET-1.5.1.zip" id="download-link">Concordion.NET-1.5.1.zip</a></b></p>
         <p>Note: the latest Concordion.NUnit.dll from the tools folder of this package must also be <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}">copied to your NUnit addin folder</a>.</p>
