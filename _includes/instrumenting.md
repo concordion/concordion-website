@@ -291,7 +291,7 @@ As an alternative to setting the [implementation status]({{site.baseurl}}/coding
 ## [Example 3](- "example3 c:status=ExpectedToFail")
 ~~~
 {% endif %}
-The status can be either `ExpectedToFail` or `Unimplemented`.
+The status can be `ExpectedToFail`, `Ignored` or `Unimplemented`.
 
 Further details: [example command specification](https://concordion.github.io/concordion/latest/spec/common/command/example/Example.html){% if md %} and [Markdown grammar](https://concordion.github.io/concordion/latest/spec/specificationType/markdown/MarkdownExampleCommand.html){% endif %}
 
