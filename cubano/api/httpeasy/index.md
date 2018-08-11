@@ -30,9 +30,10 @@ Note: if your url can contain weird characters you will want to encode it,
 something like this: myUrl = URLEncoder.encode(myUrl, "UTF-8");
  
 __Example__
+
 ~~~java
 HttpEasyReader r = HttpEasy.request()
-    .baseURI(someUrl)
+    .baseUrl(someUrl)
     .path(viewPath + "?startkey=\"{startkey}\"&endkey=\"{endkey}\"")
     .urlParameters(startKey[0], endKey[0])
     .get();
@@ -67,9 +68,11 @@ Supports two formats
 There is no fine grained control, its more of an all or nothing approach:
 
 ~~~java
-HttpEasy.withDefaults()
-    .allowAllHosts()
-    .trustAllCertificates();
+// Global
+HttpEasy.withDefaults().trustAllEndPoints(true);
+
+//Per Request
+HttpEasy.request().trustAllEndPoints(true)...;
 ~~~
 
 ## Proxy
@@ -84,6 +87,11 @@ HttpEasy.withDefaults()
     .bypassProxyForLocalAddresses(true);
 ~~~
 
+For automatic proxy detection you can use the following, however this will not automatically supply a username and password if the proxy requires authentication for the request being made.  
+
+~~~java
+HttpEasy.withDefaults().proxyConfiguration(ProxyConfiguration.AUTOMATIC);
+~~~
 ## Redirects
 
 
