@@ -359,6 +359,8 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
 </div>
 </section>
 
+See also the [Cubano]({{site.baseurl}}/cubano) framework which integrates Concordion with a number of Concordion extensions, WebDriver and other open-source projects to provide a ready-made framework for web and API testing.
+
 Note: Additional contributions are welcome. Please get in touch on the [concordion-dev](http://groups.google.com/forum/#!forum/concordion-dev) list.
 
 {% endif %}
