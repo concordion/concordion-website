@@ -37,9 +37,9 @@ Concordion integrates well with [Selenium WebDriver](http://www.seleniumhq.org/p
 
 You can choose to create a new browser per example, per specification or just once for the whole test run.
 
-A good place to get started is the [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples/blob/master/README.md) project. This provides sample code for each permutation of browser scope, and parallel or serial testing. It runs tests against the Google home page and generates specifications that show a screenshot on failure (see the Arithmetic specification).
+To see the range of options available for browser management, download the [concordion-scope-examples](https://github.com/concordion/concordion-scope-examples/blob/master/README.md) project. This provides sample code for each permutation of browser scope, and parallel or serial testing. It runs tests against the Google home page and generates specifications that show a screenshot on failure (see the Arithmetic specification). You might also want to add other [extensions]({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}), such as Storyboard, Logback or others.
 
-You might also want to add other [extensions]({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}), such as Storyboard, Logback or others.
+The [Cubano]({{site.baseurl}}/cubano) framework integrates Concordion with a number of Concordion extensions, Selenium WebDriver and other open-source projects to provide a ready-made framework for web and API testing that creates beautiful living documentation.
 
 {% endif %}
 
