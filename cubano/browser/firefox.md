@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# FireFox
-
 Options for the various [FirefoxDriver](https://github.com/SeleniumHQ/selenium/wiki/FirefoxDriver) settings. 
 
 [https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences](https://stackoverflow.com/questions/42529853/list-of-firefox-and-chrome-arguments-preferences)

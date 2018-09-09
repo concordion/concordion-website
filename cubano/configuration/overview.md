@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Configuration
-
 Cubano has a built in configuration management for proving settings to your tests and Cubano components such as the WebDriver Management and API requests.
 
 The configuration utility can read from two files which must be located in the root folder of your project.  These files are:

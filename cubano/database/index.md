@@ -5,8 +5,7 @@ sitemap:
     priority: 0.6
 ---
 
-# Automating Database Requests
-There are a range of options:
+There are a range of options for automating database requests:
 
 **Low Level:**
 * JDBC: will meet your needs but needs some work to get going

@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Chrome
-
 Documentation for the various [ChromeDriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver) options is at <https://sites.google.com/a/chromium.org/chromedriver/capabilities>.
 
 One thing to watch out for with Chrome is that the tests will not be able to run if Chrome is already open. This issue happens because chromedriver will not be able to launch with the same profile if there is another open instance using the same profile. For example, if chrome.exe is already open with the default profile, chromedriver.exe will not be able to launch the default profile because chrome.exe is already open and using the same profile.

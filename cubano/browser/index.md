@@ -5,7 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Automating Web Applications
 This framework uses Selenium WebDriver and recommends abstracting the specifics of the system under test away from the test using PageObjects. 
 
 These patterns are widely written about and there are many resources available on the internet.  For developers and testers new to test automation I highly recommend looking at these two resources from Dave Haeffner:

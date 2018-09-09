@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Edge
-
 See http://aka.ms/webdriver
 
 

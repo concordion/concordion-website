@@ -5,9 +5,7 @@ sitemap:
     priority: 0.7
 ---
 
-# API Test Automation (REST / SOAP / HTTP)
-
-This framework includes [HttpEasy](./httpeasy), a fluent wrapper built around HttpUrlConnection.  The primary driver for this library was to create something that would work through corporate proxies - especially NTLM proxies, which is something that many libraries struggle with. 
+This framework includes [HttpEasy](./httpeasy), a fluent wrapper for REST / SOAP / HTTP, built around HttpUrlConnection.  The primary driver for this library was to create something that would work through corporate proxies - especially NTLM proxies, which is something that many libraries struggle with. 
 
 ## Alternatives:
 
