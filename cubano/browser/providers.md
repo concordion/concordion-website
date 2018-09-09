@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Browser Providers
-
 To drive a browser using Seleniun WebDriver we need several things:
 
 1. A browser

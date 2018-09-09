@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Internet Explorer
-
 Options for the various [InternetExplorerDriver](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver) settings.
 
 There is some configuration that must be done to Internet Explorer before it can be used by Selenium WebDriver, these steps are described [here](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver#required-configuration).

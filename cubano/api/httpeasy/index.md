@@ -5,8 +5,6 @@ sitemap:
     priority: 0.7
 ---
 
-# Automating Services (REST / SOAP / HTTP )
-
 HttpEasy provides a fluent style wrapper around HttpURLConnection. It can:
 
 * handle most HTTP methods (GET, POST, HEAD, etc)

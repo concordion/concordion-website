@@ -5,8 +5,6 @@ sitemap:
     priority: 0.6
 ---
 
-# Opera
-
 There is a known issue with Opera whereby it can't find opera.exe path by default, and the path must be set to `C:\Program Files\Opera\<version>\opera.exe` 
 
 [https://github.com/operasoftware/operachromiumdriver/issues/9]()
