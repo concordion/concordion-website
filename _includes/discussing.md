@@ -46,7 +46,7 @@ By discussing examples, we often find gaps in acceptance criteria, or even missi
 
 Switching back and forth between the acceptance criteria and examples helps us discover gaps and gain a deeper understanding of the requirements.
 
-Further details: [Acceptance Criteria: Seeing the wood and some trees](http://assurity.co.nz/community/big-thoughts/acceptance-criteria-part-1-seeing-the-wood-and-some-trees/).
+Further details: [Acceptance Criteria: Seeing the wood and some trees](https://assurity.nz/insights/acceptance-criteria-part-1-seeing-the-wood-and-some-trees/).
 
 ## Structure / Anatomy of an Example
 
@@ -58,7 +58,7 @@ For each example, you should consider the _context_, _action_ and _outcome_:
 
 During discussion we normally write these examples on a whiteboard or index cards. Rather than using lengthy sentences, we often find it convenient to use a shorthand form. 
 
-Tables and visualisations such as [timelines](http://katrinatester.blogspot.co.nz/2014/11/visual-test-ideas.html) or [venn diagrams](http://assurity.co.nz/community/big-thoughts/visual-specification-by-example/) can quickly and concisely describe examples.
+Tables and visualisations such as [timelines](http://katrinatester.blogspot.co.nz/2014/11/visual-test-ideas.html) or [venn diagrams](https://assurity.nz/archives/visual-specification-by-example/) can quickly and concisely describe examples.
 
 ## Exploring examples
 
