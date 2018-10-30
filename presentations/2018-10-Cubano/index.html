@@ -1,0 +1,590 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Cubano</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/league.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <link rel="stylesheet" href="css/concordion.css">
+  <link rel="stylesheet" href="css/gh-fork-ribbon.min.css" />
+<!--[if lt IE 9]>
+  <link rel="stylesheet" href="css/gh-fork-ribbon.ie.min.css" />
+<![endif]-->
+  <style>
+      .github-fork-ribbon {
+        position: absolute !important;
+        font: initial !important;
+      }
+    </style>
+
+  <!-- Printing and PDF exports -->
+  <script>
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+  <div class="reveal">
+     <div class="slides">
+        <section>
+            <h1>Cubano</h1>
+        </section>
+
+        <section>
+            <br/>
+            <h2>What is Cubano?</h2>
+            <br/>
+            <ol>
+                <li class="fragment">An espresso shot sweetened with Demerara Sugar</li>
+                <li class="fragment">A variation of a ham and cheese sandwich on Cuban bread</li>
+                <li class="fragment">A test automation framework open-sourced by MSD</li>
+                <li class="fragment">All of the above</li>
+            </ol>
+        </section>
+        
+        <section>
+            <p>Cubano is a test automation framework</p>
+            <p class="fragment">for software delivery teams</p>
+            <p class="fragment">who want to collaborate around living documentation</p> 
+        </section>
+
+        <section>
+            <p>The living documentation includes storyboards showing how each story is implemented</p> 
+            <p class="fragment">and logging information to show detailed system level information</p> 
+        </section>
+    
+<!--
+        <section>
+            <br/>
+            <h1><img id="logo-green" class="plain" src="img/concordion-logo-web-green.png" alt="Concordion Logo in Green"/></h1>
+            <br/>
+            <p>
+                <medium>Presented by <a href="http://twitter.com/nigel_charman">@nigel_charman</a></medium><br><small>Project Lead <a href="http://twitter.com/concordion">@concordion</a></small>
+            </p>
+        </section>
+        
+        <section>
+            <h2>Using this slide deck</h2>
+            <p>Press the space bar to navigate sequentially, or the left/right/up/down buttons to jump to specific sections.</p>
+        </section>
+
+        <section>
+            <h4>Cubano is built on Concordion<br/><span class="fragment">a test runner for executable specifications</span><span class="fragment"><br/>that creates beautiful living documentation</span></h4>
+        </section>
+
+        <section>
+            <a href="http://opensource.org/"><img id="osi" class="plain" src="img/osi_standard_logo-white.png" alt="Open Source Logo" width="100px"/></a><br/>
+            <img id="osi" class="plain" src="img/license-Apache%202.0-blue.svg" alt="Apache 2.0 License"/><br/>
+            <img id="osi" class="plain" src="img/contrib1.png" alt="Contributors" width="30%/">
+            <img id="osi" class="plain" src="img/contrib2.png" alt="Contributors" width="30%/">
+            <img id="osi" class="plain" src="img/contrib3.png" alt="Contributors" width="30%/">
+        </section>
+
+        <section>
+            <h3>Downloads</h3> 
+            <img src="img/downloads.png" alt="screenshot showing increase in download count">   
+        </section>
+-->
+
+        <section>
+            <p>Cubano packages Concordion, numerous Concordion extensions, WebDriver, WebDriver Manager</p>
+            <p class="fragment">and adds configuration, proxy support, resource management, HttpEasy, element highlighting etc</p>
+        </section>
+
+        <section>
+            <h2>How it works</h2>
+            <img src="img/how-it-works-markdown.png" alt="how it works image"/>
+        </section>
+
+        <section>
+            <section>
+                <h1>Specification</h1>
+                <img width="50%" src="img/how-it-works-markdown-1.png" alt="how it works image"/>
+            </section>
+
+            <section>
+                <h2>Specifications</h2>
+                <p>describe in plain language the business requirements and show examples of desired behaviour</p>
+            </section>
+<!--
+            <section>
+                <h2>Collaborative specification</h2>
+                <img id="bdd" class="plain" alt="BDD collaboration" src="img/bdd.jpg"/><br/><br/>
+                <small>Image courtesy http://agilecoach.typepad.com/agile-coaching/2012/03/bdd-in-a-nutshell.html</small>
+            </section>
+-->
+            <section>
+                <h2>Specifications</h2>
+                <p>Are written in Markdown, HTML or Excel</p>
+                <small>(by anyone on the team, typically by a BA or tester)</small>
+            </section>
+<!--
+            <section>
+                <h2>Markdown</h2>
+                <p>Markdown is a simple, natural format for creating rich text:</p>
+                <pre><code>
+                    ## This is a H2
+
+                    This is a paragraph
+
+                    * This is a
+                    * bullet point list
+
+                    This is an [example](example.html "Title") link
+
+                    | Table | Heading |
+                    | ----- | ------- |
+                    | Table | Row 1   |
+                    | Table | Row 2   |
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Markdown Editors</h2>
+                <p>Markdown can be created/edited with all sorts of tools:</p>
+                <ul>
+                    <li class="fragment">Github, Bitbucket, etc</li>
+                    <li class="fragment">Mindmapping tools - eg. MindMup</li>
+                    <li class="fragment">IDEs - eg. Eclipse, IDEA</li>
+                    <li class="fragment">Editors - eg. Notepad++, Sublime</li>
+                </ul>
+            </section>
+-->
+            <section>
+                <h2>Example specification</h2>
+
+                <pre class="markdown"><code data-trim>
+    # Splitting names
+
+To help personalise our mailshots we want to have the first name and 
+last name of the customer. Unfortunately the customer data that we are 
+supplied only contains full names.
+
+The system therefore attempts to break a supplied full name into its 
+constituents by splitting around whitespace.
+
+### Basic Example
+
+The full name Jane Smith is broken
+into first name Jane and last name Smith.
+                </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h1>Instrumentation</h1>
+                <img width="50%" src="img/how-it-works-markdown-2.png" alt="how it works image"/>
+            </section>
+
+            <section>
+                <h2>Instrumentation</h2>
+                <p>In order to make the specification executable, it must be instrumented with commands.</p>
+                <div class="fragment">
+                    <p>Commands are added as Markdown links</p>
+                    <small>(typically by a tester or developer)</small>
+                </div>
+                <br/>
+                <table class="fragment">
+                    <thead>
+                        <tr >
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><medium>Set</medium></th>
+                            <td><code>[Jane Smith](- '#name')</code></td>
+                        </tr>
+                        <tr class="fragment">
+                            <th scope="row"><medium>Execute</medium></th>
+                            <td><code>[broken](- '#result = split(#name)')</code></td>
+                        </tr>
+                        <tr class="fragment">
+                            <th scope="row"><medium>Assert Equals</medium></th>
+                            <td><code>[Jane](- '?=#result.firstName')</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Example instrumentation</h2>
+
+                <pre class="markdown"><code data-trim>
+    # Splitting names
+
+To help personalise our mailshots we want to have the first name and 
+last name of the customer. Unfortunately the customer data that we are 
+supplied only contains full names.
+
+The system therefore attempts to break a supplied full name into its 
+constituents by splitting around whitespace.
+
+### Basic Example
+
+The full name [Jane Smith](- "#name") 
+is [broken](- "#result = split(#name)") 
+into first name [Jane](- "?=#result.firstName") 
+and last name [Smith](- "?=#result.lastName").
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>when previewed...</h3>
+                <small><img src="img/tutorial-instrumented-preview.png" alt="preview showing concordion commands when you hover over markdown links"></small>
+            </section>   
+
+            <section>
+                <h2>IntelliJ IDEA Plugin</h2>
+                <img width="60%" src="img/intellij-idea-plugin.png" alt="animated gif showing intellij plugin support"/>
+            </section>
+
+<!--            
+            <section>
+                <h2>IntelliJ IDEA</h2>
+
+                <p><a href="https://plugins.jetbrains.com/plugin/7978?pr=idea">Concordion Support</a> plugin</p>
+
+               <table>
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Surround with Concordion command</th>
+                            <td>Alt - Enter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Create method from usage</th>
+                            <td>Alt - Enter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Auto complete method and variable names</th>
+                            <td>Ctrl - space</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Go to declaration</th>
+                            <td>Ctrl - left-click</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Navigate spec &lt;-&gt; fixture</th>
+                            <td>Ctrl - Shift - s</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Run tests (from spec or fixture)</th>
+                            <td>Ctrl - Shift - F10</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br/>
+                <h4>HTML only</h4>
+               <table>
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Find usages</th>
+                            <td>Ctrl - F7</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Rename</th>
+                            <td>Shift - F6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>      
+-->                  
+        </section>
+
+        <section>
+            <section>
+                <h1>Fixture</h1>
+                <img width="50%" src="img/how-it-works-markdown-3.png" alt="how it works image"/>
+            </section>
+
+            <section>
+                <h2>Fixture</h2>
+                <p>Runs as a JUnit test <!--(or NUnit for .NET)--></p>
+                <small>(typically written by a tester or developer)</small>
+            </section>
+
+            <section>
+                <h2>Fixture</h2>
+                <pre class="java"><code data-trim>
+import org.concordion.integration.junit4.ConcordionRunner;
+import org.junit.runner.RunWith;
+
+@RunWith(ConcordionRunner.class)
+public class SplittingNamesFixture {
+
+    public Person split(String fullName) {
+        return Person.newPerson(fullName);
+    }
+}
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>Output</h2>
+                <img id="docs" class="plain" alt="Example output" src="img/output.png"/>
+            </section>
+        </section>
+
+<!--        
+        <section>
+            <section>
+                <h2>System under Test</h2>
+                <img width="50%" src="img/how-it-works-markdown-4.png" alt="how it works image"/>
+            </section>
+
+            <section>
+                <h2>System under Test</h2>
+                <p>Executes Java code directly,</p>
+                <p>or other interfaces via "driver" classes</p>
+            </section>
+
+            <section>
+                <h3>What are we testing?</h3>
+                <img id="business" class="plain" src="img/business-pyramid.png" alt="Contributors" width="47%"/>
+                <img id="tech" class="plain" src="img/automatedtestingpyramid.png" alt="Contributors" width="47%"/><br/>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intention&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Implementation</span>
+            </section>
+        </section>
+    -->
+        <section>
+            <section>
+                <h1>Other commands</h1>
+            </section>
+
+            <section>
+                <h3>Run another spec</h3>
+                <br/>
+                <pre><code>
+    [Shipping](shipping.html "c:run")
+                </code></pre>
+                <div class="fragment">
+                  <p>or</p>
+                  <pre><code>
+    [Shipping](shipping.md "c:run")
+                  </code></pre>
+                  <br/>
+                  <p>You can run HTML specs from Markdown and vice versa</p>
+                </div>
+            </section>
+            
+            <section>
+                    <h3>Execute on a table</h3>
+                    <br/>
+        <pre><code>
+    | [split][][Full Name][full] | [First][first] | [Last][last]  |
+    | -------------------------- | -------------- | ------------  |
+    | John Smith                 | John           | Smith         |
+    | Maria de los Santos        | Maria          | de los Santos |
+
+    [split]: - "#result = split(#fullName)"
+    [full]:  - "#fullName"
+    [first]: - "?=#result.firstName"
+    [last]:  - "?=#result.lastName"
+        </code></pre>
+            </section>
+
+            <section>
+                    <h3>Verify Rows</h3>
+                    <br/>
+        <pre><code>
+    |[_check GST_][][Sub Total][]|[GST][]|
+    | -------------------------- | ----: |
+    |                         100|     15|
+    |                         500|     75|
+    |                          20|      2|
+
+    [_check GST_]: - "c:verifyRows=#detail:getInvoiceDetails()"
+    [Sub Total]:   - "?=#detail.subTotal"
+    [GST]:         - "?=#detail.gst"
+        </code></pre>
+            </section>
+
+
+    <!--        <section>
+                <h2>Markdown commands</h2>
+                <p>Can also use reference style links</p>
+    <pre><code>            
+    [value][id]
+        
+    [id]: - "command"
+    </code></pre>
+
+    <p>or</p>
+
+    <pre><code>            
+    [value][]
+        
+    [value]: - "command"
+    </code></pre>
+            </section>
+    -->
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+            <a href="https://concordion.github.io/cubano-demo/example/Example.html">cubano-demo output</a>
+        </section>
+
+<!--
+        <section>
+            <h2>Comparison</h2>
+            <br/>
+            <table>
+                <thead>
+                    <tr class="fragment">
+                        <th scope="col"></th>
+                        <th scope="col">Concordion</th>
+                        <th scope="col">Cucumber</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="fragment">
+                        <th scope="row">Grammar</th>
+                        <td>Plain English</td>
+                        <td>Gherkinglish</td>
+                    </tr>
+                    <tr class="fragment">
+                        <th scope="row">Input Format</th>
+                        <td>Markdown, HTML, Excel</td>
+                        <td>Text</td>
+                    </tr>
+                    <tr class="fragment">
+                        <th scope="row">Publishes doc with tests</th>
+                        <td>Completely flexible</td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr class="fragment">
+                        <th scope="row">Embed screenshots, logs in output</th>
+                        <td>Extensible</td>
+                        <td>Limited</td>
+                    </tr>
+                    <tr class="fragment">
+                        <th scope="row">Instrumentation</th>
+                        <td>In specification</td>
+                        <td>Regexp in code</td>
+                    </tr>
+                    <tr class="fragment">
+                        <th scope="row">Languages</th>
+                        <td>Java, Groovy, C# *</td>
+                        <td>13+ languages</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <small class="fragment"><p>* C# only supports HTML input currently</p></small>
+        </section>
+-->
+
+<!--
+        <section>
+            <h2>What's new in 2.0?</h2>
+        </section>
+-->
+
+<!--
+        <section>
+            <h2>Scoped Fields</h2>
+            <p>Fields are now reset for each example (similar to JUnit).</p>
+            <div class="fragment">
+                <p>If you want to keep field for whole specification:</p>
+
+                <pre><code>
+@ConcordionScoped(Scope.SPECIFICATION)
+private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder&lt;Browser&gt;() {
+    public Browser create() {
+        Browser browser = new Browser();
+        extension.setScreenshotTaker(new SeleniumScreenshotTaker(browser));
+        return browser;
+    }
+
+    protected void destroy(Browser browser) {
+        browser.close();
+    };
+};
+                </code></pre>
+            </div>
+            <p class="fragment">
+                See <a href="https://github.com/concordion/concordion-scope-examples">concordion-scope-examples</a> project for examples.
+            </p>
+        </section>
+-->
+<!--
+        <section>
+            <h2>Extensions</h2>
+            <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html"><img src="img/extensions-storyboard.png" width="23%" alt="storyboard image"/></a>
+            <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html"><img src="img/extensions-screenshot.png" width="23%" alt="screenshot image"/></a>
+            <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html"><img src="img/extensions-logging-tooltip.png" width="23%" alt="logging tooltip image"/></a>
+            <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html"><img src="img/extensions-logback.png" width="23%" alt="log viewer image"/></a>
+            <p><a href="https://github.com/concordion/concordion-excel-extension-tutorial">Excel<a/>, 
+                  <a href="https://github.com/concordion/concordion-scope-examples">Parallel Runner</a>, <br/>
+                  <a href="https://concordion.github.io/concordion-storyboard-extension-demo/spec/demo/StoryboardDemo.html">Storyboard</a>, 
+                  <a href="https://concordion.github.io/concordion-screenshot-extension-demo/spec/demo/ScreenshotDemo.html">Screenshot</a>, <br/>
+                  <a href="https://concordion.github.io/concordion-logging-tooltip-extension-demo/spec/org/concordion/ext/demo/selenium/LoggingTooltipDemo.html">Logging Tooltip</a>, 
+                  <a href="https://concordion.github.io/concordion-logback-extension-demo/spec/org/concordion/demo/LogbackLoggingDemo.html">Log Viewer</a><br/>
+                 and more...</p>
+        </section>
+-->
+        <section data-state="show-github-ribbon">
+            <h2>Learn more</h2>
+            <br/>
+            <p><a href="https://concordion.org/cubano">https://concordion.org/cubano</a></p>
+            <p><a href="http://github.com/concordion/cubano">http://github.com/concordion/cubano</a></p>
+            <p><a href="http://github.com/concordion/cubano-demo">http://github.com/concordion/cubano-demo</a></p>
+            <br/>
+        </section>
+    </div>
+    <div class='footer'>
+        <span><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>  This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></span>
+    </div>    
+<!--    
+    <div class="ribbon">
+        <a class="github-fork-ribbon right-top" href="https://github.com/concordion/concordion-website/tree/gh-pages/presentations/2017-04-Concordion-2.0" title="Fork me on GitHub">Fork me on GitHub</a>    
+    </div>
+-->
+</div>        
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+               { src: 'plugin/markdown/marked.js' },
+               { src: 'plugin/markdown/markdown.js' },
+               { src: 'plugin/notes/notes.js', async: true },
+               { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+               ]
+           });
+          </script>
+      </body>
+      </html>
