@@ -480,7 +480,7 @@ The Extensions API allows you to add functionality to Concordion, for example im
 
 {% if java %}
 
-For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/common/extension/Extension.html) and the [extensions API](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension). Refer also to the source code for the published [extensions](({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}/).
+For full details, see the [extension specifications](https://concordion.github.io/concordion/latest/spec/common/extension/Extension.html) and the [extensions API](https://github.com/concordion/concordion/tree/master/src/main/java/org/concordion/api/extension). Refer also to the source code for the published [extensions]({{site.baseurl}}/extensions/{{ page.fixture_language }}/{{ page.spec_type }}/).
 
 {% elsif csharp %}
 
