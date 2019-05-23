@@ -474,6 +474,18 @@ java -Dconcordion.extensions="org.concordion.ext.LoggingTooltipExtension,com.acm
 
 For further details see the [extension configuration specification]({% if java %}https://concordion.github.io/concordion/latest/spec/common/extension/ExtensionConfiguration.html{% elsif csharp %}https://concordion.org/dotnet/Concordion/Extension/Configuration/ExtensionConfiguration.html{% endif %}).
 
+{% if java %}
+
+## System Properties
+
+### Concordion output location
+
+The Concordion output location can be set using the system property `concordion.output.dir`. If not set, Concordion defaults to the value of the [java.io.tmpdir](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-) system property.
+
+See [Gradle]({{site.baseurl}}/integrations/{{page.fixture_language }}/{{ page.spec_type }}/#gradle) or [Maven]({{site.baseurl}}/integrations/{{page.fixture_language }}/{{ page.spec_type }}/#maven) for examples of how to apply this using your build tool.
+
+{% endif java %}
+
 ## Creating an extension
 
 The Extensions API allows you to add functionality to Concordion, for example implementing new commands, listening to events, or modifying the Concordion output.   
