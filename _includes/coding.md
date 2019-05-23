@@ -480,16 +480,9 @@ For further details see the [extension configuration specification]({% if java %
 
 ### Concordion output location
 
-The Concordion output location can be set using the system
-property `concordion.output.dir`. If not
-set, Concordion defaults to the value of the [java.io.tmpdir](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-)
-system property.
+The Concordion output location can be set using the system property `concordion.output.dir`. If not set, Concordion defaults to the value of the [java.io.tmpdir](https://docs.oracle.com/javase/8/docs/api/java/io/File.html#createTempFile-java.lang.String-java.lang.String-java.io.File-) system property.
 
-See [Gradle]({{site.baseurl}}/integrations/{{
-page.fixture_language }}/{{ page.spec_type }}/#gradle) or
-[Maven]({{site.baseurl}}/integrations/{{
-page.fixture_language }}/{{ page.spec_type }}/#maven) for examples
-of how to apply this using your build tool.
+See [Gradle]({{site.baseurl}}/integrations/{{page.fixture_language }}/{{ page.spec_type }}/#gradle) or [Maven]({{site.baseurl}}/integrations/{{page.fixture_language }}/{{ page.spec_type }}/#maven) for examples of how to apply this using your build tool.
 
 {% endif java %}
 
