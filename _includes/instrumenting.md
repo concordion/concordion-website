@@ -258,6 +258,12 @@ Example goes here
 ~~~
 {% endif %}
 
+A `before` example is intended to be used for functionality required by each example __where adding it to the specification improves the communication aspect for the reader__.
+
+Where the functionality is not needed to clarify the specification, use the [`BeforeExample`]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#before-and-after-hooks) hook. This pushes the functionality down into the fixture, making the specification clearer and providing flexibility in implementation.
+
+Any per-example teardown must be specified using the [`AfterExample`]({{site.baseurl}}/coding/{{ page.fixture_language }}/{{ page.spec_type }}/#before-and-after-hooks) hook. There is no `after` example available in the specification since tearing down context doesn’t add much to the communication aspect of specifications.
+
 {% if md %}
 ### Closing an example
 The example block continues until it is closed either implicitly or explicitly.
