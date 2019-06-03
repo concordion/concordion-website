@@ -314,6 +314,28 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                 </div>
             </div>
         </div>
+        
+        <!-- STAUS INFO -->
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1 white-text">
+                <div class="card-image">
+                    <a href="https://github.com/concordion/concordion-status-info-extension-demo/blob/master/src/test/resources/org/concordion/ext/specification/WithStatusInfoExtension.md">                    
+                        <img src="{{ site.baseurl }}/img/extensions_status_info.png" alt="Example of the status info being displayed on an example"/>
+                    </a>
+                </div>               
+                <div class="card-content">
+                    <span class="card-title right">
+                        <a class="github-button" href="https://github.com/concordion/concordion-status-info-extension" data-count-href="/concordion/concordion-status-info-extension/stargazers" data-count-api="/repos/concordion/concordion-status-info-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-status-info-extension on GitHub">Star</a>
+                    </span>
+                    <span class="card-title"Status Info</span>
+                    <p>Adds custom info to an example with a status</p>
+                </div>
+                <div class="card-action">
+                    <a href="https://github.com/concordion/concordion-status-info-extension/blob/master/README.md">README</a>
+                    <a href="https://github.com/concordion//concordion-status-info-extension-demo">Demo</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
