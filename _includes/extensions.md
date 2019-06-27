@@ -315,7 +315,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
             </div>
         </div>
         
-        <!-- STAUS INFO -->
+        <!-- STATUS INFO -->
         <div class="col s12 m6">
             <div class="card blue-grey darken-1 white-text">
                 <div class="card-image">
@@ -327,7 +327,7 @@ For inspiration, have a look at the [Java-based extensions]({{ site.baseurl }}/{
                     <span class="card-title right">
                         <a class="github-button" href="https://github.com/concordion/concordion-status-info-extension" data-count-href="/concordion/concordion-status-info-extension/stargazers" data-count-api="/repos/concordion/concordion-status-info-extension#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star concordion/concordion-status-info-extension on GitHub">Star</a>
                     </span>
-                    <span class="card-title"Status Info</span>
+                    <span class="card-title">Status Info</span>
                     <p>Adds custom info to an example with a status</p>
                 </div>
                 <div class="card-action">
