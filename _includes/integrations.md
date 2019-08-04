@@ -42,7 +42,7 @@ For Markdown format specifications, a Markdown plugin is also required. The offi
 
 ## Eclipse
 
-The [concordion-eclipse](https://code.google.com/archive/p/concordion-eclipse/) plugin provides content assist and validation for Concordion specifications, integrated into Eclipse's HTML and Web Page (Source) editors.
+The [concordion-eclipse](https://github.com/sunix/org.concordion.ide.eclipse) plugin provides content assist and validation for Concordion specifications, integrated into Eclipse's HTML and Web Page (Source) editors.
 
 This plugin currently supports HTML format specifications (not Markdown). It has not been updated with the Concordion 2.0 commands yet, so will show these as errors, but still works well.
 
