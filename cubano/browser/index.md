@@ -15,7 +15,7 @@ These patterns are widely written about and there are many resources available o
 While there are other patterns and approaches to test automation, the following patterns are those I've found to be most useful and can be developed with the minimum amount of effort and skill level.
 
 ## Page Object Pattern
-The <a href="https://seleniumhq.github.io/docs/guidelines.html#page_object_models" target="_blank">Page Object Pattern</a> is a pattern that abstracts a web page's UI into a reusable class. In addition to UI, the functionality of the page is also described in this class. This provides a bridge between page and test.
+The <a href="https://www.selenium.dev/documentation/en/guidelines_and_recommendations/page_object_models/" target="_blank">Page Object Pattern</a> is a pattern that abstracts a web page's UI into a reusable class. In addition to UI, the functionality of the page is also described in this class. This provides a bridge between page and test.
 
 The idea is to create a level of abstraction to separate the tests from the system under test, and to provide a simple interface to the elements on the page. Here are the main advantages of Page Object Pattern using:
 
