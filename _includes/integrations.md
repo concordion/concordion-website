@@ -196,7 +196,7 @@ Processed specifications : C:\concordion-test\Kickstart\Spec\HelloWorld\HelloWor
 
 ### NUnit Test Adapter
 
-Since version 2012, Visual Studio supports [3rd party test runners](http://blogs.msdn.com/b/visualstudioalm/archive/2012/03/08/what-s-new-in-visual-studio-11-beta-unit-testing.aspx) to execute their tests right inside Visual Studio. This allows the NUnit Test Adapter for Visual Studio to run Concordion.NET tests.
+Since version 2012, Visual Studio supports [3rd party test runners](https://docs.microsoft.com/en-us/visualstudio/test/install-third-party-unit-test-frameworks?view=vs-2019) to execute their tests right inside Visual Studio. This allows the NUnit Test Adapter for Visual Studio to run Concordion.NET tests.
 
 Please note that at the time of writing an [issue of the NUnit Test Adapter](https://github.com/nunit/nunit3-vs-adapter/issues/222) prevents the execution of Concordion.NET tests based on the NUnit addin. Until the issue is fixed by the NUnit team, you will need to adapt your fixture to extend `ExecutableSpecification` as follows:
 
