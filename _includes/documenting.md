@@ -215,7 +215,7 @@ Markdown extensions allow you to change and/or extend the behaviour of the Markd
 Concordion provides two ways to configure Markdown extensions:
 
 * From Concordion 2.0.0, you can use a fixed set of [MarkdownExtensions](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html). These are configured using the [ConcordionOptions](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation.
-* From Concordion 3.0.0, you can use a wider range of extensions and configuration options provided by the Flexmark parser. See [FlexmarkOptions](https://concordion.github.io/concordion/latest/spec/annotation/FlexmarkOptions.html).
+* From Concordion 3.0.0, you can use a wider range of extensions and configuration options provided by the Flexmark parser. Each [Flexmark extension](https://github.com/vsch/flexmark-java/wiki/Extensions#user-content-available-extensions) is packaged as its own artifact and will need to be added to your project. To add the Flexmark extension to your Concordion fixture, see [FlexmarkOptions](https://concordion.github.io/concordion/latest/spec/annotation/FlexmarkOptions.html).
 
 ### Markdown editors
 
