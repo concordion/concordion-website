@@ -45,12 +45,14 @@ It can also drive the interfaces of your deployed application:
 
 ![Fixture calling driver calling deployed application]({{ site.baseurl }}/img/coding-driver-layers.png)
 
-It is good practice to create a separate driver layer for the code that drives your application interface, keeping the runner free of driver logic and the driver layer free of test assertions. Other libraries are required for the driver layer, such as [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for web applications{% if java %}; [wslite](https://github.com/jwagenleitner/groovy-wslite), JAX/WS or JAX/RS for web services; JDBC for databases, etc. Any Java{% elsif csharp %}{% comment %} TODO - add dotnet libraries {% endcomment %} etc. Any .NET {% endif %} library can be used with Concordion, providing a lot of flexibility in how you use it. See the [FAQ]({{site.baseurl}}/questions/{{ page.fixture_language }}/{{ page.spec_type }}#webTesting) for further detail.
+It is good practice to create a separate driver layer for the code that drives your application interface, keeping the fixture free of driver logic and the driver layer free of test assertions. Other libraries are required for the driver layer, such as [Selenium WebDriver](http://www.seleniumhq.org/projects/webdriver/) for web applications{% if java %}; [wslite](https://github.com/jwagenleitner/groovy-wslite), JAX/WS or JAX/RS for web services; JDBC for databases, etc. Any Java{% elsif csharp %}{% comment %} TODO - add dotnet libraries {% endcomment %} etc. Any .NET {% endif %} library can be used with Concordion, providing a lot of flexibility in how you use it. See the [FAQ]({{site.baseurl}}/questions/{{ page.fixture_language }}/{{ page.spec_type }}#webTesting) for further detail.
 
 ## Project Structure
 
 ### Dependencies
-{% if csharp %}
+{% if java %}
+Concordion 3.0.0 requires Java 8 or later and JUnit 4. Earlier versions require Java 6 or later and also support JUnit 3. 
+{% elsif csharp %}
 Version 3.5 or higher of the .NET framework must be used as target framework in the project that contains your Concordion.NET fixture classes.
 {% endif csharp %}
 
