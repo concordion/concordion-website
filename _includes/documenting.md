@@ -212,9 +212,10 @@ For syntax that is not covered by Markdown, you can use __inline HTML__. The HTM
 
 Markdown extensions allow you to change and/or extend the behaviour of the Markdown parser, for example to change the behaviour of new lines, or to support definition lists.
 
-See the [MarkdownExtensions javadoc](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html) for a definition of the available extensions.
+Concordion provides two ways to configure Markdown extensions:
 
-_Note that the Concordion fixture will need to be [configured](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) to enable the markdown extensions._
+* From Concordion 2.0.0, you can use a fixed set of [MarkdownExtensions](https://concordion.github.io/concordion/latest/javadoc/org/concordion/api/option/MarkdownExtensions.html). These are configured using the [ConcordionOptions](https://concordion.github.io/concordion/latest/spec/annotation/ConcordionOptions.html) annotation.
+* From Concordion 3.0.0, you can use a wider range of extensions and configuration options provided by the Flexmark parser. Each [Flexmark extension](https://github.com/vsch/flexmark-java/wiki/Extensions#user-content-available-extensions) is packaged as its own artifact and will need to be added to your project. To add the Flexmark extension to your Concordion fixture, see [FlexmarkOptions](https://concordion.github.io/concordion/latest/spec/annotation/FlexmarkOptions.html).
 
 ### Markdown editors
 
