@@ -189,7 +189,7 @@ If the id / class name that you are selecting on is not unique then put the mini
 Examples of CSS selectors can be found here: 
 
 * [W3 Schools CSS Selectors](http://www.w3schools.com/cssref/css_selectors.asp )
-* [Guru99 XPath Contains, Sibling and Ancestor functions](http://www.guru99.com/using-contains-sbiling-ancestor-to-find-element-in-selenium.html)
+* [Guru99 XPath Contains, Sibling and Ancestor functions](https://www.guru99.com/using-contains-sbiling-ancestor-to-find-element-in-selenium.html)
 
 It's worth considering wrapping the complex web controls or section of pages that are repeated across other pages as page components. 
 
