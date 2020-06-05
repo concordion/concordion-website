@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e # halt script on error
 
+sudo update-ca-certificates
 bundle exec jekyll build
 # linkedin.com and jekyllrb.com are blocked from travisci
 # temporarily ignore dotnet files
-bundle exec htmlproofer ./_site --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
+bundle exec htmlproofer ./_site --typhoeus-config '{ "ssl_verifypeer": false }' --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html

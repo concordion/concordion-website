@@ -85,6 +85,6 @@ Common approaches to specifying collaboratively include:
 
 * [Specification workshops](https://gojko.net/2008/11/12/specification-workshops-an-agile-way-to-get-better-requirements/) - when starting out, having the whole team attend specification workshops acts as a useful introduction to the approach. Over time, some teams decide to continue with a whole-team approach, while others reduce the number of people in each session.
 
-* [3 Amigos](http://www.velocitypartners.net/blog/2014/02/11/the-3-amigos-in-agile-teams/) - suggests a minimum of 3 functional roles; developer(s), tester(s) and business analyst or product owner.
+* [3 Amigos](https://www.batimes.com/robert-galen/3-amigos-in-agile-teams.html) - suggests a minimum of 3 functional roles; developer(s), tester(s) and business analyst or product owner.
 
 * [Example mapping](https://cucumber.io/blog/2015/12/08/example-mapping-introduction) - uses index cards as a means to engage all team members collaboratively and visually map the story, acceptance criteria or rules, and examples.
