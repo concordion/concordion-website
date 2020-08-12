@@ -68,7 +68,8 @@
             <medium>
             <ul>
                 <li>It doesn't restrict you to using the Gherkin dialect</li>
-                <li>Concordion is designed for creating specificaitons which are consumable by other people</li>
+                <li>Concordion is designed for creating specifications which are consumable by other people</li>
+                <li>It creates rich, dynamic and interactive docs.</li>
             </ul>
             </medium>
         </section>
@@ -103,6 +104,15 @@
             </ol>
         </section>
 
+        <section>
+            <h3>Benefits</h3>
+            <ul>
+                <li class="fragment">Shared understanding of requirements <i>BEFORE</i> building</li>
+                <li class="fragment">A shared terminology and language <i>BEFORE</i> misundertandings</li>
+                <li class="fragment">You have confidence in your product <i>BEFORE</i> exploratory</li>
+                <li class="fragment">Accurate and continuous knowledge-sharing through LIVING docs.</li>
+            </ul>
+        </section>
         <section>
             <a href="http://opensource.org/"><img id="osi" class="plain" src="img/osi_standard_logo-white.png" alt="Open Source Logo" width="100px"/></a><br/>
             <img id="osi" class="plain" src="img/license-Apache%202.0-blue.svg" alt="Apache 2.0 License"/><br/>
@@ -171,12 +181,6 @@
             <h3>Acceptance Testing Sits on a Scale</h3>
             <img src="img/oc-raf-full-testing-pyramid.png" alt="OC Testing Pyramid by Raf" width="70%"/>
         </section>
-        <section>
-            <h3>Keeping Your Documentation Current</h3>
-            <medium class="fragment">Concordion specifications live with your code.<br/></medium> 
-            <medium class="fragment">Concordion specifications evolve with your code.<br/></medium> 
-        </section>
-
         <section>
             <h2>How it works</h2>
             <img src="img/how-it-works-markdown.png" alt="how it works image"/>
@@ -321,107 +325,8 @@ and last name [Smith](- "?=#result.lastName").
         </section>
 
         <section>
-            <h2>Scoped Fields</h2>
-            <p>Fields are now reset for each example (similar to JUnit).</p>
-            <div class="fragment">
-                <p>If you want to keep field for whole specification:</p>
-
-                <pre><code>
-@ConcordionScoped(Scope.SPECIFICATION)
-private ScopedObjectHolder&lt;Browser&gt; browserHolder = new ScopedObjectHolder&lt;Browser&gt;() {
-    public Browser create() {
-        Browser browser = new Browser();
-        extension.setScreenshotTaker(new SeleniumScreenshotTaker(browser));
-        return browser;
-    }
-
-    protected void destroy(Browser browser) {
-        browser.close();
-    };
-};
-                </code></pre>
-            </div>
-            <p class="fragment">
-                See <a href="https://github.com/concordion/concordion-scope-examples">concordion-scope-examples</a> project for examples.
-            </p>
-        </section>
-
-        <section>
-            <h2>Markdown Editors</h2>
-            <p>Markdown can be created/edited with all sorts of tools:</p>
-            <ul>
-                <li class="fragment">Github, Bitbucket, etc</li>
-                <li class="fragment">Mindmapping tools - eg. MindMup</li>
-                <li class="fragment">IDEs - eg. Eclipse, IDEA</li>
-                <li class="fragment">Editors - eg. Notepad++, Sublime</li>
-            </ul>
-        </section>
-
-        <section>
             <h2>Updated IntelliJ IDEA Plugin</h2>
             <img width="60%" src="img/intellij-idea-plugin.png" alt="animated gif showing intellij plugin support"/>
-        </section>
-
-        <section>
-            <h2>IntelliJ IDEA</h2>
-
-            <p><a href="https://plugins.jetbrains.com/plugin/7978?pr=idea">Concordion Support</a> plugin</p>
-
-           <table>
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Surround with Concordion command</th>
-                        <td>Alt - Enter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Create method from usage</th>
-                        <td>Alt - Enter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Auto complete method and variable names</th>
-                        <td>Ctrl - space</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Go to declaration</th>
-                        <td>Ctrl - left-click</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Navigate spec &lt;-&gt; fixture</th>
-                        <td>Ctrl - Shift - s</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Run tests (from spec or fixture)</th>
-                        <td>Ctrl - Shift - F10</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <br/>
-            <h4>HTML only</h4>
-           <table>
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Find usages</th>
-                        <td>Ctrl - F7</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Rename</th>
-                        <td>Shift - F6</td>
-                    </tr>
-                </tbody>
-            </table>
         </section>
 
         <section>
