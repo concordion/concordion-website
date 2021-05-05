@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-  testCompile "org.concordion:concordion:x.y.z"
+  testImplementation "org.concordion:concordion:x.y.z"
 }
 
 test {
@@ -73,6 +73,9 @@ test {
 ~~~
 
 where _x.y.z_ is replaced by the Concordion version, for example 2.0.0.
+
+_Note:_ Prior to Gradle 3.4, use `testCompile` rather than `testImplementation`.
+
 
 If you have created a suite of specifications using the run command, you may want to run only your main fixture class by adding this line inside the `test` block:
 
