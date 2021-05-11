@@ -13,11 +13,14 @@ jobs:
   htmlproofer:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - uses: fabacab/jekyll-builder-for-github-pages-action@v1
+      - name: Build
+        uses: jerryjvl/jekyll-build-action@v1
 
-      - uses: chabad360/htmlproofer@master
+      - name: HTML Proofer
+        uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
           arguments: '--url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html'
