@@ -23,4 +23,4 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
-          arguments: '--url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html'
+          arguments: '--url-swap ^/concordion-website-2.0:' --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
