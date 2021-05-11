@@ -5,4 +5,4 @@ sudo update-ca-certificates
 bundle exec jekyll build
 # linkedin.com and jekyllrb.com are blocked from travisci
 # temporarily ignore dotnet files
-bundle exec htmlproofer ./_site --typhoeus-config '{ "ssl_verifypeer": false }' --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
+bundle exec htmlproofer ./_site --typhoeus-config '{ "ssl_verifypeer": false }' --url-swap ^/concordion-website-2.0: --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/,/\.\*allaboutcookies\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
