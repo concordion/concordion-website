@@ -9,9 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
+
   htmlproofer:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
+      - uses: fabacab/jekyll-builder-for-github-pages-action@v1
+
       - uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
