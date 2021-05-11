@@ -13,14 +13,12 @@ jobs:
   htmlproofer:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Build
-        uses: jerryjvl/jekyll-build-action@v1
-
-      - name: HTML Proofer
-        uses: chabad360/htmlproofer@master
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          directory: "./_site"
-          arguments: '--url-swap ^/concordion-website-2.0:' --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
+          ruby-version: 2.4.1
+      - run: bundle install
+      - run: bundle exec jekyll build
+      # linkedin.com and jekyllrb.com are blocked from travisci
+      # temporarily ignore dotnet files
+      - run: bundle exec htmlproofer ./_site --url-swap '^/concordion-website-2.0:' --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/,/\.\*allaboutcookies\.org\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
