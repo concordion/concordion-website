@@ -73,7 +73,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <span class="download title">Download</span>
             <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
     {% if java %}
-            <p><b><a href="http://dl.bintray.com/concordion/downloads/concordion-3.0.1.zip">concordion-3.0.1.zip</a></b></p>
+            <p><b><a href="https://github.com/concordion/concordion/releases/download/3.0.1/concordion-3.0.1.zip">concordion-3.0.1.zip</a></b></p>
             <br/>
             <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#command-line">how to run from the command line</a>.</p>
     {% elsif csharp %}
