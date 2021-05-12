@@ -8,8 +8,11 @@ on:
 
   workflow_dispatch:
 
-jobs:
+  schedule:
+    # 13:22 UTC each day
+    - cron:  '22 13 * * *'
 
+jobs:
   htmlproofer:
     runs-on: ubuntu-latest
     steps:
