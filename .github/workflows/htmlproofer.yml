@@ -25,4 +25,4 @@ jobs:
       # linkedin.com and jekyllrb.com and others are blocked from travisci
       # temporarily ignore dotnet files
       # ignore status code 429 (Too Many Requests)
-      - run: bundle exec htmlproofer ./_site --url-swap '^/concordion-website-2.0:' --http-status-ignore 429 --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/,/\.\*allaboutcookies\.org\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
+      - run: bundle exec htmlproofer ./_site --url-swap '^/concordion-website-2.0:' --http-status-ignore 429 --url-ignore \#,\#\!,/\.\*linkedin\.com\.\*/,/\.\*twitter\.com\.\*/,/\.\*jekyllrb\.com\.\*/,/\.\*allaboutcookies\.org\.\*/,/\.\*concordion\.disqus\.com\/count\.js\.\*/ --file-ignore /\.\/_site\/dotnet\/\.\*/ --assume-extension .html
