@@ -40,7 +40,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <img src="{{ site.baseurl }}/img/download-gradle.jpg" alt="gradle image" class="circle">
             <span class="download title">Gradle</span>
             <pre>
- testCompile 'org.concordion:concordion:3.0.1'
+ testCompile 'org.concordion:concordion:3.1.1'
             </pre>
             <br/>
             <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#gradle">how to run from Gradle</a>.</p>
@@ -52,7 +52,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
  &lt;dependency&gt;
    &lt;groupId&gt;<b>org.concordion</b>&lt;/groupId&gt;
    &lt;artifactId&gt;<b>concordion</b>&lt;/artifactId&gt;
-   &lt;version&gt;<b>3.0.1</b>&lt;/version&gt;
+   &lt;version&gt;<b>3.1.1</b>&lt;/version&gt;
    &lt;scope&gt;test&lt;/scope&gt;
  &lt;/dependency&gt;
             </pre>
@@ -73,7 +73,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <span class="download title">Download</span>
             <p>Full distribution including {% if java %}source code{% elsif csharp %}documentation{% endif %} and all dependencies:</p>
     {% if java %}
-            <p><b><a href="https://github.com/concordion/concordion/releases/download/3.0.1/concordion-3.0.1.zip">concordion-3.0.1.zip</a></b></p>
+            <p><b><a href="https://github.com/concordion/concordion/releases/download/3.1.1/concordion-3.1.1.zip">concordion-3.1.1.zip</a></b></p>
             <br/>
             <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#command-line">how to run from the command line</a>.</p>
     {% elsif csharp %}
