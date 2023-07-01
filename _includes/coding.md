@@ -105,9 +105,21 @@ Finally, if you haven't already added the current version of `Concordion.NUnit.d
 {% endif %}
 
 ## Fixture classes
-Concordion fixtures use the {{ test_library }} library, with a {% if java %}specialised ConcordionRunner. Fixtures must be annotated with the `@RunWith(ConcordionRunner.class)` annotation{% elsif csharp %}Concordion addin. Fixtures must declare a class-level `ConcordionTest` attribute from the `Concordion.NET.Integration` namespace{% endif %}:
+Concordion fixtures use the {{ test_library }} library, with a {% if java %}specialised ConcordionRunner. 
+Fixtures must be annotated with the `@ConcordionFixture` annotation (or `@RunWith(ConcordionRunner.class)`  for JUnit 4 or JUnit Vintage.{% elsif csharp %}Concordion addin. Fixtures must declare a class-level `ConcordionTest` attribute from the `Concordion.NET.Integration` namespace{% endif %}:
 
 {% if java %}
+**JUnit Jupiter**
+
+~~~java
+import org.concordion.api.ConcordionFixture;
+
+@ConcordionFixture
+public class SplittingNamesFixture {
+}
+~~~
+
+**JUnit 4 or JUnit Vintage**
 ~~~java
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
@@ -188,10 +200,9 @@ The [MultiValueResult](https://github.com/concordion/concordion/blob/master/src/
 package example;
 
 import org.concordion.api.MultiValueResult;
-import org.concordion.integration.junit4.ConcordionRunner;
-import org.junit.runner.RunWith;
+import org.concordion.api.ConcordionFixture;
 
-@RunWith(ConcordionRunner.class)
+@ConcordionFixture
 public class SplittingNamesFixture {
 
     public MultiValueResult split(String fullName) {
@@ -220,11 +231,10 @@ For example:
 
 ~~~java
 import org.concordion.api.ExpectedToFail;
-import org.concordion.integration.junit4.ConcordionRunner;
-import org.junit.runner.RunWith;
+import org.concordion.api.ConcordionFixture;
 
+@ConcordionFixture
 @ExpectedToFail
-@RunWith(ConcordionRunner.class)
 public class GreetingTest {
 
    public String greetingFor(String firstName) {
@@ -254,9 +264,9 @@ The `@FailFast` annotation has an optional `onExceptionType` parameter that allo
 
 ~~~java
 import org.concordion.api.FailFast;
-import org.concordion.integration.junit4.ConcordionRunner;
-import org.junit.runner.RunWith;
+import org.concordion.api.ConcordionFixture;
 
+@ConcordionFixture
 @FailFast(onExceptionType={DatabaseUnavailableException.class, IOException.class})
 public class MyDataTest {
 
@@ -385,10 +395,9 @@ As an example, executing the following fixture:
 package resources.test;
 
 import org.concordion.api.ConcordionResources;
-import org.concordion.integration.junit4.ConcordionRunner;
-import org.junit.runner.RunWith;
+import org.concordion.api.ConcordionFixture;
 
-@RunWith(ConcordionRunner.class)
+@ConcordionFixture
 @ConcordionResources( value = { "resources.*", "/resource?.c??" } )
 public class ConcordionResourcesDemoTest {
 }
@@ -424,7 +433,7 @@ For example:
 
 {% if java %}
 ~~~java
-@RunWith(ConcordionRunner.class)
+@ConcordionFixture
 @Extensions({LoggingTooltipExtension.class, TimestampFormatterExtension.class})
 public class MyTest {
 ...

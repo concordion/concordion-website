@@ -289,6 +289,19 @@ Finally we create some code, called a _fixture_, that links the instrumented spe
 In the {% if java %}`src/test/java/marketing/mailshots` folder of the {% endif %}tutorial project, the file `SplittingNamesFixture.{{ fixture_ext }}` already contains the following:
 
 {% if java %}
+**JUnit Jupiter**
+~~~java
+package marketing.mailshots;
+
+import org.concordion.api.ConcordionFixture;
+
+@ConcordionFixture
+public class SplittingNamesFixture {
+
+}
+~~~
+
+**JUnit Vintage**
 ~~~java
 package marketing.mailshots;
 
@@ -357,6 +370,27 @@ Opening this URL in a browser, the output should look something like this:
 The test of the example is failing since we haven't implemented the `{{ method_name }}()` method. We'll flesh out our fixture code:
 
 {% if java %}
+**JUnit Jupiter**
+~~~java
+package marketing.mailshots;
+
+import org.concordion.api.ConcordionFixture;
+
+@ConcordionFixture
+public class SplittingNamesFixture {
+
+    public Result {{ method_name }}(String fullName) {
+        return new Result();
+    }
+
+    class Result {
+        public String firstName = "TODO";
+        public String lastName = "TODO";
+    }
+}
+~~~
+
+**JUnit Vintage**
 ~~~java
 package marketing.mailshots;
 
@@ -405,6 +439,31 @@ Run it now and you get:
 Let's implement the function. Obviously the implementation should be in the real system not in the test case, but just for fun...
 
 {% if java %}
+**JUnit Jupiter**
+~~~java
+package marketing.mailshots;
+
+import org.concordion.api.ConcordionFixture;
+
+@ConcordionFixture
+public class SplittingNamesFixture {
+
+    public Result split(String fullName) {
+        Result result = new Result();
+        String[] words = fullName.split(" ");
+        result.firstName = words[0];
+        result.lastName = words[1];
+        return result;
+    }
+
+    class Result {
+        public String firstName;
+        public String lastName;
+    }
+}
+~~~
+
+**JUnit Vintage**
 ~~~java
 package marketing.mailshots;
    
@@ -475,7 +534,7 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
 2. To check a single example that returns a collection of results, you'll need to use the `verify-rows` command. Create a `PartialMatches.{{spec_ext}}` specification and add the example [verify-rows command]({{ site.baseurl }}/instrumenting/{{ page.fixture_language }}/{{ page.spec_type }}/#verify-rows-command). Implement a `getSearchResultsFor({% if java %}S{% else if csharp %}s{% endif %}tring searchString)` method in the `PartialMatchesFixture.{{fixture_ext}}` fixture class to make this specification pass
     {% if java %}
     ~~~java
-    @RunWith(ConcordionRunner.class)
+    @ConcordionFixture
     public class PartialMatchesFixture {
 
         private Set<String> usernamesInSystem = new HashSet<String>();
@@ -526,10 +585,9 @@ This is the end of the basic tutorial. Feel free to move straight onto [Next Ste
     ~~~java
     package marketing.mailshots;
 
-    import org.concordion.integration.junit4.ConcordionRunner;
-    import org.junit.runner.RunWith;
+    import org.concordion.api.ConcordionFixture;
 
-    @RunWith(ConcordionRunner.class)
+    @ConcordionFixture
     public class MailshotsFixture {
     }
     ~~~
