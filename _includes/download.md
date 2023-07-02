@@ -42,7 +42,9 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
             <pre>
  testImplementation 'org.concordion:concordion:4.0.0'
             </pre>
+testRuntimeOnly('org.junit.vintage:junit-vintage-engine')
             <br/>
+            <p>If using the `concordion:run` command with a JUnit 4 fixture, you'll also need to add a `junit-vintage-engine` dependency.</p>
             <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#gradle">how to run from Gradle</a>.</p>
         </li>
         <li class="collection-item avatar" id="maven">
@@ -56,6 +58,7 @@ _This page shows the downloads for __{{ fixture_language_desc }}__._  Click the 
    &lt;scope&gt;test&lt;/scope&gt;
  &lt;/dependency&gt;
             </pre>
+            <p>If using the `concordion:run` command with a JUnit 4 fixture, you'll also need to add a `junit-vintage-engine` dependency.</p>
             <p>See instructions for <a href="{{site.baseurl}}/integrations/{{ page.fixture_language }}/{{ page.spec_type }}/#maven">how to run from Maven</a>.</p>
         </li>
 {% elsif csharp %}

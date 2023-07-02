@@ -63,6 +63,7 @@ repositories {
 
 dependencies {
   testImplementation "org.concordion:concordion:x.y.z"
+  testRuntimeOnly('org.junit.vintage:junit-vintage-engine')  // <-- Only needed if using concordion:run with a JUnit 4 fixture
 }
 
 test {
@@ -123,6 +124,17 @@ Note that the Surefire plugin, by default, only includes test classes with filen
   <includes>
     <include>**/MainFixture.java</include>
   </includes>
+~~~
+
+If using the `concordion:run` command with a JUnit 4 fixture, you will also need to add:
+
+~~~xml
+    <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
 ~~~
 
 There is also a [maven-concordion-reporting-plugin](https://github.com/bassman5/maven-concordion-reporting-plugin) which allows you to incorporate Concordion reports into a Maven site report in the project reports section.
